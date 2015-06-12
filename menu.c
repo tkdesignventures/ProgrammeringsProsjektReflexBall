@@ -1,3 +1,9 @@
+#include <eZ8.h>
+#include <sio.h>
+#include "ansi.h"
+#include "menu.h"
+
+
 
 char selectedOption = 0;
 
