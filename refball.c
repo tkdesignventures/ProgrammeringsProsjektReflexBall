@@ -18,7 +18,7 @@ void moveBall(){
 
 void moveStriker(unsigned char direction){
 	
-	if((striker->x - STRIKER_WIDTH >= L_EDGE_COORD) && (striker->x+STRIKER_WIDTH <= R_EDGE_COORD)){
+	if(gameActive && (striker->x - STRIKER_WIDTH >= L_EDGE_COORD) && (striker->x+STRIKER_WIDTH <= R_EDGE_COORD)){
 			if(direction)
 				striker->x +=1;
 			else
@@ -41,3 +41,13 @@ void updateGame()
 	}
 }
 
+void setBall(long x, long y, long xd, long yd){
+	ball->x = x;
+	ball->y = y;
+	ball->xdir = xd;
+	ball->ydir = yd;
+}
+
+void checkBall(){
+
+}
