@@ -1,4 +1,4 @@
-#include <eZ8.h>             // special encore constants, macros and flash routines
+﻿#include <eZ8.h>             // special encore constants, macros and flash routines
 #include <sio.h>
 #include "refball.h"
 #include "timer.h"
@@ -30,6 +30,7 @@ void moveStriker(unsigned char direction){
 			else
 				striker.x -= 1;
 	}
+}
 
 char isAlive(){
 	return lives >=0;
