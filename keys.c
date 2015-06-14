@@ -18,15 +18,11 @@ char readKey(){
 	return b;
 	}
 char getKey(){
-char key;
-key=readKey();
-setDelay(5);
-while(getDelay();>0){
-}
-if(key==readKey()){
-	return key;
-}
-else {
-return 0;
-}
+	char key;
+	key=readKey();
+	setDelay(5);
+	while(getDelay()>0){
+	}
+	return key &=readKey();
+
 }
