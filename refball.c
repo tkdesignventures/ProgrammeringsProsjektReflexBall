@@ -24,11 +24,11 @@ void moveBall(){
 void moveStriker(unsigned char direction){
 
 	if(gameActive && (striker.x - STRIKER_WIDTH >= L_EDGE_COORD) && (striker.x+STRIKER_WIDTH <= R_EDGE_COORD)){
+		moveDrawStriker(striker.x,direction);
 			if(direction)
-				striker.x += STRIKER_SPEED;
+				striker.x += 1;
 			else
-				striker.x -= STRIKER_SPEED;
-		}
+				striker.x -= 1;
 	}
 
 char isAlive(){
@@ -39,9 +39,6 @@ void updateGame() {
 	if(gameActive && getCentis()- GAMESPEED > gameTime )
 	{
 		gameTime = getCentis();
-		drawStriker(striker.xlast,7); // Deletes the last striker
-		drawStriker(striker.x,0); // Draws a new striker
-		striker.xlast = striker.x;
 		moveBall();
 		checkBall();
 
@@ -75,11 +72,11 @@ char x,y;
 
 void checkBoxes(){
 	int j;
-	int x = toTerminalCoords(ball.x); // husk at snakke koordinater
-	int y = toTerminalCoords(ball.y);
+	int xt = toTerminalCoords(ball.x); // husk at snakke koordinater
+	int yy = toTerminalCoords(ball.y);
 	size = sizeof(box)/sizeof(box[0]);
 	for(j=0; j < size; j++){
-		if((box[i].x == x || box[i].x +1 == x || box[i].x + 2 == x) && box[i].y == y) // Boksene har en bredde på 3, vi tester alle koordinater
+		if((box[i].x == xt || box[i].x +1 == xt || box[i].x + 2 == xt) && box[i].y == yt) // Boksene har en bredde på 3, vi tester alle koordinater
 			{
 				if(!(--box[i].durability)){
 					boxesleft--;
@@ -96,7 +93,7 @@ void initGame(unsigned char l, unsigned char diff, unsigned char lev){
 	lives = l;
 	level = lev;
 	striker.x = STRIKER_START;
-	striker.xlast = x;
+	striker.xlast = striker.x;
 	setBallOverStriker();
 	createBoxes();
 	drawBackground;
@@ -108,4 +105,9 @@ void initGame(unsigned char l, unsigned char diff, unsigned char lev){
 void pause(){
 gameActive = !gameActive; //Pause or unpause the game
 }
-toTerminalCoords(long input)
+unsigned char toTerminalCoords(long input){
+	unsigned char out;
+	out = input >> FIX14_SHIFT
+	out += (input >> (FIX14_SHIFT-1)) & 0x1; // Finde lige ud af afrunding
+	return out;
+}

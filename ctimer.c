@@ -1,11 +1,11 @@
-long time;
-unsigned int delay;
-
+#include <ez8.h>
+#include "ctimer.h"
+unsigned long time, delay;
 void resetTimer(){
 time = 0;
 }
-
-timer0int(){
+#pragma interrupt
+void timer0int(){
 time++;
 delay--;
 }
@@ -14,13 +14,13 @@ int getDelay(){
 return delay;
 }
 
-void setDelay(int input){
+void setDelay(unsigned long input){
 delay = input;
 }
 
 
 void setTimer(){
-	char preScale = 0x07<<3;	
+	char preScale = 0x07<<3;
 	DI();
 	T0CTL = 0x01 | preScale;
 	T0H = 0x00;
