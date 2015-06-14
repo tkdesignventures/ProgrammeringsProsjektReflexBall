@@ -2,8 +2,8 @@
 #define _CTIMER_H
 
 void resetTimer();
-timer0int();
+void timer0int();
 int getDelay();
-void setDelay(unsigned char input);
+void setDelay(int input);
 void setTimer();
 #endif

@@ -1,8 +1,10 @@
 #include <ez8.h>
 #include "ctimer.h"
-unsigned long time, delay;
+unsigned long time;
+int delay;
 void resetTimer(){
 time = 0;
+delay = 0;
 }
 #pragma interrupt
 void timer0int(){
@@ -14,7 +16,7 @@ int getDelay(){
 return delay;
 }
 
-void setDelay(unsigned long input){
+void setDelay(int input){
 delay = input;
 }
 

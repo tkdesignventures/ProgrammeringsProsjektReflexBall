@@ -73,16 +73,15 @@ char x,y;
 void checkBoxes(){
 	int j;
 	int xt = toTerminalCoords(ball.x); // husk at snakke koordinater
-	int yy = toTerminalCoords(ball.y);
+	int yt = toTerminalCoords(ball.y);
 	size = sizeof(box)/sizeof(box[0]);
 	for(j=0; j < size; j++){
-		if((box[i].x == xt || box[i].x +1 == xt || box[i].x + 2 == xt) && box[i].y == yt) // Boksene har en bredde på 3, vi tester alle koordinater
+		if((box[i].durability > 0) && (box[i].x == xt || box[i].x +1 == xt || box[i].x + 2 == xt) && box[i].y == yt)  // Boksene har en bredde på 3, vi tester alle koordinater
 			{
-				if(!(--box[i].durability)){
+				if(!(--box[i].durability))
 					boxesleft--;
-
+					drawBox(box[i].x,box[i].y,7);
 				}
-
 
 			}
 	}
@@ -108,6 +107,6 @@ gameActive = !gameActive; //Pause or unpause the game
 unsigned char toTerminalCoords(long input){
 	unsigned char out;
 	out = input >> FIX14_SHIFT
-	out += (input >> (FIX14_SHIFT-1)) & 0x1; // Finde lige ud af afrunding
+	out += (input >> (FIX14_SHIFT-1)) & 0x1; // Find lige ud af afrunding
 	return out;
 }
