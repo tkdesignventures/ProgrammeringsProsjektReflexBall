@@ -54,8 +54,8 @@ void checkBall(){
 char x,y;
 	if(gameActive)
 	{
-		x = toTermCords(ball.x);
-		y = toTermCords(ball.y);
+		x = toTerminalCoords(ball.x);
+		y = toTerminalCoords(ball.y);
 		if(y == OUT_OF_BOUNDS){
 		lives--;
 		setBall();
@@ -77,9 +77,9 @@ void checkBoxes(){
 	int j;
 	int x = toTerminalCoords(ball.x); // husk at snakke koordinater
 	int y = toTerminalCoords(ball.y);
-	size = 5;
+	size = sizeof(box)/sizeof(box[0]);
 	for(j=0; j < size; j++){
-		if((box[i].x == x || box[i].x+1 == x || box[i] .x+2 == x) && box[i].y == y) // Boksene har en bredde på 3, vi tester alle koordinater
+		if((box[i].x == x || box[i].x +1 == x || box[i].x + 2 == x) && box[i].y == y) // Boksene har en bredde på 3, vi tester alle koordinater
 			{
 				if(!(--box[i].durability)){
 					boxesleft--;
@@ -95,8 +95,8 @@ void initGame(unsigned char l, unsigned char diff, unsigned char lev){
 	gameActive = 0;
 	lives = l;
 	level = lev;
-	striker . x = STRIKER_START;
-	striker . xlast = x;
+	striker.x = STRIKER_START;
+	striker.xlast = x;
 	setBallOverStriker();
 	createBoxes();
 	drawBackground;
@@ -108,3 +108,4 @@ void initGame(unsigned char l, unsigned char diff, unsigned char lev){
 void pause(){
 gameActive = !gameActive; //Pause or unpause the game
 }
+toTerminalCoords(long input)
