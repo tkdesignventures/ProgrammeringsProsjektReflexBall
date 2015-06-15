@@ -10,7 +10,7 @@ void drawBox(unsigned char x, unsigned char y,unsigned char color){
 	//draws last line
 	gotoxy(x,y+1);
 	printf("%c%c%c%c",192,196,196,217);
-	fgcolor(0);		
+	fgcolor(0);
 }
 void drawBall(unsigned char x, unsigned char y, unsigned char color){
 	fgcolor(color);
@@ -32,7 +32,7 @@ void moveDrawStriker(unsigned char x, unsigned char y, unsigned char direction){
 		printf("%c",220);
 	}
 }
-void drawStriker(unsigned char x, unsigned char y unsigned char color){
+void drawStriker(unsigned char x, unsigned char y, unsigned char color){
 	unsigned char i;
 	fgcolor(color);
 	gotoxy(x-2,y);
@@ -54,13 +54,13 @@ void drawBounds(int x1,int y1, int x2, int y2){
 	h4=192;
 	gotoxy(x1,y1);
 	printf("%c",h1);
-	
+
 	for(i=1;i<=width-2;i++){
 		printf("%c",hs);
 	}
 
 	printf("%c",h2);
-	
+
 	for(i=1;i<=height-2;i++){
 		gotoxy(x1,y1+i);
 		printf("%c",vs);

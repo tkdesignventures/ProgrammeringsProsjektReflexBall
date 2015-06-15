@@ -4,7 +4,6 @@
 #define L_EDGE_COORD 2;
 #define R_EDGE_COORD 100;
 #define STRIKER_WIDTH 2;
-#define STRIKER_SPEED 1;
 #define OUT_OF_BOUNDS 100;
 #define GAMESPEED 5; // Frequency/10
 #define OVER_STRIKER 2;
@@ -12,15 +11,15 @@
 #define STRIKER_START = 40;
 struct Box {
 unsigned char x,y,durability,powertime;
-}
+};
 struct Ball {
 long x,y;
 unsigned char power;
 long xdir, ydir;
-}
+};
 struct Striker {
 unsigned char x;
-}
+};
 
 
 void moveBall(struct Ball * ball);
