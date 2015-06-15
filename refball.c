@@ -36,7 +36,7 @@ char isAlive(){
 }
 
 void updateGame() {
-	if(getCentis()- GAMESPEED > gameTime )
+	if(getCentis()- GAMESPEED >= refreshTime )
 	{
 		refreshTime = getCentis();
 		if(gameActive){
@@ -94,7 +94,9 @@ void checkBoxes(){
 }
 
 void initGame(unsigned char l, unsigned char diff, unsigned char lev){
-	gameActive = 0;
+	//Initialiserer nogle variable
+	refreshTime=0;
+	gameActive = 1;
 	waitStart = 1;
 	boxesLeft = 0;
 	lives = l;
