@@ -5,41 +5,40 @@
 
 
 void drawBox(unsigned char x, unsigned char y,unsigned char color){
-fgcolor(color);
-drawBounds(x,y,x+3,y+1);
-//draws last line
+	fgcolor(color);
+	drawBounds(x,y,x+3,y+1);
+	//draws last line
 	gotoxy(x,y+1);
 	printf("%c%c%c%c",192,196,196,217);
-fgcolor(0);		
+	fgcolor(0);		
 }
 void drawBall(unsigned char x, unsigned char y, unsigned char color){
-fgcolor(color);
-gotoxy(x,y);
-printf("%c",127);
-fgcolor(0);
+	fgcolor(color);
+	gotoxy(x,y);
+	printf("%c",127);
+	fgcolor(0);
 }
 void moveDrawStriker(unsigned char x,unsigned char direction){
-fgcolor(0);
-if(direction==0){
-gotoxy(x-2,50);
-printf(" ");
-gotoxy(x+3,50);
-printf("%c",220);
-}
-else{
-gotoxy(x+3,50);
-printf(" ");
-gotoxy(x-2,50);
-printf("%c",220);
-}
+	fgcolor(0);
+	if(direction==0){
+		gotoxy(x-2,50);
+		printf(" ");
+		gotoxy(x+3,50);
+		printf("%c",220);
+	}else{
+		gotoxy(x+3,50);
+		printf(" ");
+		gotoxy(x-2,50);
+		printf("%c",220);
+	}
 }
 void drawStriker(unsigned char x,unsigned char color){
-unsigned char i;
-fgcolor(color);
-gotoxy(x-2,50);
-for(i=0;i<5;i++)
-	printf("%c",220);
-fgcolor(0);
+	unsigned char i;
+	fgcolor(color);
+	gotoxy(x-2,50);
+	for(i=0;i<5;i++)
+		printf("%c",220);
+	fgcolor(0);
 }
 void drawBounds(int x1,int y1, int x2, int y2){
 	int i,j;
@@ -56,11 +55,12 @@ void drawBounds(int x1,int y1, int x2, int y2){
 	gotoxy(x1,y1);
 	printf("%c",h1);
 	
-	for(i=1;i<=width-2;i++)
+	for(i=1;i<=width-2;i++){
 		printf("%c",hs);
-
+	}
 
 	printf("%c",h2);
+	
 	for(i=1;i<=height-2;i++){
 		gotoxy(x1,y1+i);
 		printf("%c",vs);
