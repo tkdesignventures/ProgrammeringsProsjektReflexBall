@@ -1,0 +1,40 @@
+#define FIX14_SHIFT 14
+#define FIX14_MULT(a, b) ( (a) * (b) >> FIX14_SHIFT)
+#define FIX14_div(a,b)   ( ((a) << FIX14_SHIFT / (b) ))
+
+void striker hit(){
+long length;
+ball.y*=(-1);
+
+if(ball.x==striker.x-1){
+	if(ball.xdir>0){
+	ball.xdir = FIX14_div(ball.xdir,(1.5<<14));
+	} else{
+	ball.xdir = FIX14_MULT(ball.xdir, (1.5<<14));
+	
+} }
+else if(ball.x==striker.x+1){
+	if(ball.xdir>0){
+		ball.xdir = FIX14_MULT(ball.xdir, (1.5<<14));
+	} else{
+		ball.xdir = FIX14_div(ball.xdir,(1.5<<14));
+} 
+}
+else if(ball.x==striker.x-2){
+	if(ball.xdir>0){
+	ball.xdir = FIX14_div(ball.xdir,(3<<14));
+	} else{
+	ball.xdir = FIX14_MULT(ball.xdir, (3<<14));
+} }
+else if(ball.x==striker.x+2){
+	if(ball.xdir>0){
+		ball.xdir = FIX14_MULT(ball.xdir, (3<<14));
+	} 
+	else {
+		ball.xdir = FIX14_div(ball.xdir,(3<<14));
+}
+}	
+length=ball.xdir+ball.ydir;
+ball.xdir= FIX14_div(ball.xdir,lenght);
+ball.ydir= FIX14_div(ball.ydir,lenght);
+}
