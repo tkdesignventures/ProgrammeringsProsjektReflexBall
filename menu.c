@@ -20,6 +20,7 @@ void printLogo(){
 
 	printf("||******************************************||\n");
 
+	printf("Group 3, s144012, s144045, s144021, June 2015   ");
 	//printf("Ver. 0.2.0.3 Beta\n                             ");
 	
 }	
@@ -37,14 +38,31 @@ void initiateMenu(){
 	printf("  3. Show help\n");
 
 	//Prints the menu-select marker
-	moveMarker(0);
+	moveMarker(1);
 
 }
 
+void moveMarker (short selectedOption){
+	int i;
+	fgcolor(1);
+	bgcolor(7);
+	//Clears the first column
+	for(i = 0;i < 3; i++){
+		gotoxy(1,LINE_NUMBER + i);
+		printf(" ");
+	}
+	gotoxy(1, LINE_NUMBER + selectedOption - 1);
+	printf("*");
+	
+}
+
+
+/*
 //Moves the menu-select
 void moveMarker(char up){
 	int i;
-	
+	fgcolor(1);
+	bgcolor(7);
 	//Clears the first column
 	gotoxy(1,LINE_NUMBER + selectedOption - 1);
 	printf(" ");
@@ -68,8 +86,12 @@ void moveMarker(char up){
 char getChoice(){
 	return selectedOption;
 }
+*/
+
 
 void printDifficulty(short diff){
+	fgcolor(1);
+	bgcolor(7);
 	
 	gotoxy(25,LINE_NUMBER + 1);
 	
