@@ -95,6 +95,7 @@ void checkBoxes(){
 
 void initGame(unsigned char l, unsigned char diff, unsigned char lev){
 	//Initialiserer nogle variable
+	gameTime = 0;
 	refreshTime=0;
 	gameActive = 1;
 	waitStart = 1;

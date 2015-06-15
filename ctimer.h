@@ -6,4 +6,5 @@ void timer0int();
 int getDelay();
 void setDelay(int input);
 void setTimer();
+unsigned long getCentis();
 #endif
