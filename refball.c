@@ -10,10 +10,10 @@ struct Ball ball ;
 struct Striker striker;
 unsigned char gameActive;
 unsigned char lives;
-unsigned char level;
 unsigned long gameTime;
 unsigned char boxesLeft;
 unsigned char waitStart; // Waits for user input to start the game. The ball is placed over the striker when it's true
+unsigned long refreshTime;
 
 void moveBall(){
 	ball.x += ball.xdir;
@@ -36,19 +36,23 @@ char isAlive(){
 }
 
 void updateGame() {
-	if(gameActive && getCentis()- GAMESPEED > gameTime )
+	if(getCentis()- GAMESPEED > gameTime )
 	{
-		gameTime = getCentis();
-		if(!waitStart){
-			drawBall(toTerminalCoords(ball.x),toTerminalCoords(ball.y),7);
-			moveBall();
-			drawBall(toTerminalCoords(ball.x),toTerminalCoords(ball.y),0);
-			checkBall();
-			}
-			else
-			setBallOverStriker();
-		}
-
+		refreshTime = getCentis();
+		if(gameActive){
+			gameTime += GAMESPEED;
+				if(!waitStart){
+						drawBall(toTerminalCoords(ball.x),toTerminalCoords(ball.y),7);
+						moveBall();
+						drawBall(toTerminalCoords(ball.x),toTerminalCoords(ball.y),0);
+						checkBall();
+						}
+				else {
+						drawBall(toTerminalCoords(ball.x),toTerminalCoords(ball.y),7);
+						setBallOverStriker();
+						drawBall(toTerminalCoords(ball.x),toTerminalCoords(ball.y),0);
+						}
+				}
 }
 
 
@@ -94,10 +98,9 @@ void initGame(unsigned char l, unsigned char diff, unsigned char lev){
 	waitStart = 1;
 	boxesLeft = 0;
 	lives = l;
-	level = lev;
 	striker.x = STRIKER_START;
 	setBallOverStriker();
-	createBoxes();
+	createBoxes(lev);
 	//drawBackground;
 	drawBounds(L_EDGE_COORD,TOP_EDGE_COORD, R_EDGE_COORD, TOP_EDGE_COORD)
 	drawBall(toTerminalCoords(ball.x),toTerminalCoords(ball.y),0);
@@ -117,7 +120,7 @@ unsigned char toTerminalCoords(long input){
 void setBallOverStriker(){
 	waitStart = 1;
 	ball.x = striker.x;
-	ball.y = OVER_STRIKER;
+	ball.y = OVER_STRIKER+STRIKER_Y;
 	ball.ydir = 1 << FIX14_SHIFT;
 	ball.xdir = 0;
 }
@@ -126,13 +129,13 @@ void startBall(){
 	waitStart = 0;
 }
 
-void createBoxes(){
+void createBoxes(char level){
 	unsigned char j,i;
 	unsigned char k = 0;
 	switch(level){
-		case(level == 1){
+		case 1 :
 			for(j=0;j<2;j++){
-				for(int i = L_EDGE_COORD + 3; i < ((R_EDGE_COORD-3)-(L_EDGE_COORD+3)); i=i+3){
+				for(int i = L_EDGE_COORD + 3; i < ((R_EDGE_COORD-3)-(L_EDGE_COORD+3)); i+=3){
 						box[boxesLeft].x = i;
 						box[boxesLeft].y =TOP_EDGE_COORD+2+j;
 						box[boxesLeft].durability = 1;
@@ -140,12 +143,17 @@ void createBoxes(){
 						boxesLeft++;
 				}
 			}
+			break;
 		}
 
 
 		}
-		case(level == 2){}
+		case 2 :
+		//Code
+		break;
 
-		case(level == 3){}
+		case 3 :
+		//Code
+		break;
 	}
 }
