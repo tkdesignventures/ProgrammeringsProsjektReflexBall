@@ -1,29 +1,38 @@
+#include <eZ8.h>             // special encore constants, macros and flash routines
+#include "refball.h"
+#include "graphics.h"
+#include "ctimer.h"
+#include "keys.h"
+
 void main(){
-struct Box box[];
-struct Ball ball ;
-struct Striker striker;
-unsigned char gameActive;
-unsigned char lives;
-unsigned long gameTime;
-unsigned char boxesLeft;
-unsigned char waitStart; // Waits for user input to start the game. The ball is placed over the striker when it's true
-unsigned long refreshTime;
+		struct Box box[];
+		struct Ball ball ;
+		struct Striker striker;
+		unsigned char gameActive;
+		unsigned char lives;
+		unsigned long gameTime;
+		unsigned char boxesLeft;
+		unsigned char waitStart;
+		unsigned long refreshTime;
+
+		waitStart = 0;
+		gameTime = 0;
+		refreshTime=0;
+		gameActive = 1;
+		lives = 3;
+		boxesLeft = initGame();
+		setTimer();
+
+		for(;;)
+		{
+			if(getCentis()- GAMESPEED >= refreshTime){
+				updateGame();
+			}
+
+		}
+
 }
-void initGame(unsigned char l, unsigned char diff, unsigned char lev){
-	//Initialiserer nogle variable
-	gameTime = 0;
-	refreshTime=0;
-	gameActive = 1;
-	boxesLeft = 0;
-	lives = l;
-	striker.x = STRIKER_START;
-	setBallOverStriker();
-	createBoxes(lev);
-	//drawBackground;
-	drawBounds(L_EDGE_COORD,TOP_EDGE_COORD, R_EDGE_COORD, TOP_EDGE_COORD)
-	drawBall(toTerminalCoords(ball.x),toTerminalCoords(ball.y),0);
-	drawStriker(striker.x,0);
-  }
+
 
 	long updateGame() {
 		if(getCentis()- GAMESPEED >= refreshTime )
