@@ -17,6 +17,7 @@ void main(){
 		unsigned char level;
 		unsigned char key;
 
+		level = 1;
 		waitStart = 1;
 		gameTime = 0;
 		refreshTime=0;
@@ -50,7 +51,7 @@ void main(){
 									}
 							else {
 									drawBall(toTerminalCoords(ball.x),toTerminalCoords(ball.y),7);
-									setBallOverStriker();
+									setBallOverStriker(&ball,&striker);
 									drawBall(toTerminalCoords(ball.x),toTerminalCoords(ball.y),0);
 									}
 
