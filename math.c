@@ -1,5 +1,6 @@
 #include "lut.h"
 #include "math.h"
+#include "arcsin"
 #include <eZ8.h>             // special encore constants, macros and flash routines
 #include <sio.h>
 long sin(int x){
@@ -8,6 +9,9 @@ long sin(int x){
 
 long cos(int x){
 return sin(x+128);
+}
+long angle(int y){
+	return ARCSIN[y];
 }
 void printFix(long i){
 	if ((i & 0x80000000) !=0) {
@@ -30,9 +34,8 @@ void rotate(struct TVector *v , int ang){
 	int sinA = sin(ang);
 	int cosA = cos(ang);
 	long tempX = v->x;
-	
+
 
 	v->x = FIX14_MULT(tempX,cosA) - FIX14_MULT(v->y,sinA);
 	v->y = FIX14_MULT(tempX,sinA) + FIX14_MULT(v->y,cosA);
 }
-
