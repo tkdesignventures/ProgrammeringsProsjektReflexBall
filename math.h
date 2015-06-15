@@ -11,6 +11,7 @@ struct TVector {
 
 long sin(int x);
 long cos(int x);
+long ARCSIN(int x);
 void rotate(struct TVector *v , int ang);
 void initVector(struct TVector *v, long x, long y);
 long expand(long i);

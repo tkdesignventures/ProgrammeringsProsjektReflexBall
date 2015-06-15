@@ -1,6 +1,5 @@
 #include "lut.h"
 #include "math.h"
-#include "arcsin"
 #include <eZ8.h>             // special encore constants, macros and flash routines
 #include <sio.h>
 long sin(int x){
@@ -27,8 +26,8 @@ long expand(long i){
 
 //vanlig kommatal ind
 void initVector(struct TVector *v, long x, long y){
-v->x = x << FIX14_SHIFT;
-v->y = y << FIX14_SHIFT;
+v->x = x;// << FIX14_SHIFT;
+v->y = y; //<< FIX14_SHIFT;
 }
 void rotate(struct TVector *v , int ang){
 	int sinA = sin(ang);

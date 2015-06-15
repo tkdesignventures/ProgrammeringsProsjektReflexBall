@@ -1,40 +1,46 @@
 #define FIX14_SHIFT 14
 #define FIX14_MULT(a, b) ( (a) * (b) >> FIX14_SHIFT)
 #define FIX14_div(a,b)   ( ((a) << FIX14_SHIFT / (b) ))
+#include "math.h"
 
-void striker hit(){
-long length;
-ball.y*=(-1);
+void strikerhit(Ball *ball, Striker *striker){
+struct TVector vektor;
+long angle;
+ball->ydir*=(-1);
+initVector(&vektor,ball->xdir,ball->ydir);
+angle =angle((ball->ydir & 0x00007FC0)>>6); //aner ikke om det er korrekt.
 
-if(ball.x==striker.x-1){
-	if(ball.xdir>0){
-	ball.xdir = FIX14_div(ball.xdir,(1.5<<14));
+if(ball->x==striker->x-1){
+	if(ball->xdir>0){
+	rotate(vektor,-angle/1.5);
+
 	} else{
-	ball.xdir = FIX14_MULT(ball.xdir, (1.5<<14));
-	
+	rotate(vektor,1.5*angle);
+
 } }
 else if(ball.x==striker.x+1){
 	if(ball.xdir>0){
-		ball.xdir = FIX14_MULT(ball.xdir, (1.5<<14));
-	} else{
-		ball.xdir = FIX14_div(ball.xdir,(1.5<<14));
-} 
+		rotate(vektor,-1.5*angle);
+	}
+	else{
+			rotate(vektor,angle/1.5);
+}
 }
 else if(ball.x==striker.x-2){
 	if(ball.xdir>0){
-	ball.xdir = FIX14_div(ball.xdir,(3<<14));
+		rotate(vektor,-angle/3);
 	} else{
-	ball.xdir = FIX14_MULT(ball.xdir, (3<<14));
+	rotate(vektor,3*angle);
 } }
 else if(ball.x==striker.x+2){
 	if(ball.xdir>0){
-		ball.xdir = FIX14_MULT(ball.xdir, (3<<14));
-	} 
+		rotate(vektor,3*angle);
+	}
 	else {
-		ball.xdir = FIX14_div(ball.xdir,(3<<14));
+		rotate(vektor,angle/3);
 }
-}	
-length=FIX14_MULT(ball.xdir,ball.xdir)+FIX14_MULT(ball.ydir,ball.ydir);
-ball.xdir= FIX14_div(ball.xdir,lenght);
-ball.ydir= FIX14_div(ball.ydir,lenght);
+}
+
+ball.xdir= vektor->x;
+ball.ydir= vektor->y;
 }
