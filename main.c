@@ -5,9 +5,8 @@
 #include "keys.h"
 #include <sio.h>
 void main(){
-		struct Box * box;
-		struct Ball ball ;
-		struct Striker striker;
+		Ball ball ;
+		Striker striker;
 		unsigned char gameActive;
 		unsigned char lives;
 		unsigned long gameTime;
@@ -16,14 +15,17 @@ void main(){
 		unsigned long refreshTime;
 		unsigned char level;
 		unsigned char key;
+		Box * box = newBoxStack();
 		init_uart(_UART0,_DEFFREQ,_DEFBAUD);
+
+
 		level = 1;
 		waitStart = 1;
 		gameTime = 0;
 		refreshTime=0;
 		gameActive = 1;
 		lives = 3;
-		boxes = initGame(&ball,&striker,&box,level);
+		initGame(&ball,&striker,&box);
 		setTimer();
 
 		for(;;)

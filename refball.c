@@ -2,12 +2,29 @@
 #include "refball.h"
 #include "graphics.h"
 
-void moveBall(struct Ball * ball){
+Box * newBoxStack(void) {
+    Box * stackContents;
+    stackContents = malloc(sizeof(Box));
+    stackContents->size = 0;
+    stackContents->capacity = 1;
+    stackContents->x= malloc(sizeof(char));
+    stackContents->y = malloc(sizeof(char));
+    stackContents->durability = malloc(sizeof(char));
+    stackContents->powertime = malloc(sizeof(char));
+    return stackContents;
+}
+
+void newBoxStackElement(Box * box){ // Creates a new spot in box array. Prints error if NULL. Only adds 10 a time to avoid using time
+
+
+      }
+
+void moveBall( Ball * ball){
 	ball->x += ball->xdir;
 	ball->y += ball->ydir;
 }
 
-void moveStriker(struct Striker * striker,unsigned char direction){
+void moveStriker( Striker * striker,unsigned char direction){
 
 	if((striker->x - STRIKER_WIDTH >= L_EDGE_COORD) && (striker->+STRIKER_WIDTH <= R_EDGE_COORD)){
 		moveDrawStriker(striker->x,STRIKER_Y,direction);
@@ -18,7 +35,7 @@ void moveStriker(struct Striker * striker,unsigned char direction){
 }
 
 
-unsigned char checkBall(struct Ball * ball, struct Striker * striker,  struct Box * box, int size){
+unsigned char checkBall( Ball * ball,  Striker * striker,   Box * box){
     char x,y;
 		x = toTerminalCoords(ball->x);
 		y = toTerminalCoords(ball->y);
@@ -32,15 +49,15 @@ unsigned char checkBall(struct Ball * ball, struct Striker * striker,  struct Bo
     else if((x <= striker->x + STRIKER_WIDTH) && ( x => striker->x - STRIKER_WIDTH))
     ball-> ydir = -(ball->ydir);
 		else
-			checkBoxes(ball, box, size);
+			checkBoxes(ball, box);
       return 1;
 }
 
-void checkBoxes(struct Ball * ball, struct Box * box, int size){
+void checkBoxes( Ball * ball,  Box * box){
 	int j;
 	int xt = toTerminalCoords(ball->x); // husk at snakke koordinater
 	int yt = toTerminalCoords(ball->y);
-	for(j=0; j < size; j++){
+	for(j=0; j < size.capacity; j++){
 		if((box->durability > 0) && (box-> x == xt || box->x +1 == xt || box->x + 2 == xt) && box->y == yt)  // Boksene har en bredde på 3, vi tester alle koordinater
 			{
 				if(!(--box->durability))
@@ -52,7 +69,7 @@ void checkBoxes(struct Ball * ball, struct Box * box, int size){
 	}
 }
 
-unsigned char initGame(struct Ball * ball, struct Striker * striker,  struct Box * box, unsigned char level){
+unsigned char initGame( Ball * ball,  Striker * striker,   Box * box, unsigned char level){
 
   drawBounds(L_EDGE_COORD,TOP_EDGE_COORD, R_EDGE_COORD, TOP_EDGE_COORD);
   striker->x = STRIKER_START;
@@ -70,40 +87,37 @@ unsigned char toTerminalCoords(long input){
 	return out;
 }
 
-void setBallOverStriker(struct Ball * ball, struct Striker * striker){
-	ball->x = striker->x;
-	ball->y = OVER_STRIKER+STRIKER_Y;
+void setBallOverStriker( Ball * ball,  Striker * striker){
+	ball->x = striker->x << FIX14_SHIFT;
+	ball->y = OVER_STRIKER+STRIKER_Y << FIX14_SHIFT;
 	ball->ydir = 0.7071067810 << FIX14_SHIFT;
 	ball->xdir = 0.7071067810 << FIX14_SHIFT;
 }
 
 
-unsigned char createBoxes(struct Box * box,char level){ //Creates and draws boxes
+unsigned char createBoxes( Box * box,char level){ //Creates and draws boxes
 	unsigned char j,i;
-	unsigned char k = 0;
-  unsigned char boxes = 0;
-	switch(level){
-		case 1 :
-			for(j=0;j<2;j++){
-				for(int i = L_EDGE_COORD + 3; i < ((R_EDGE_COORD-3); i+=3){
-						box->x = i;
-						box->y =TOP_EDGE_COORD+2+j;
-						box->durability = 1;
-            box->powertime=0;
-						drawBox(i,j,0);
-						box++;
-            boxes++;
-				}
-			}
-			break;
-		}
 
-		case 2 :
-		//Code
-		break;
+			     for(j=0;j<2;j++){
+				         for(int i = L_EDGE_COORD + 3; i < ((R_EDGE_COORD-3); i+=3){
+                      if (box->capacity == box->size) {
+                                  box->x = realloc(box->x,(box->capacity+10) *sizeof(char));
+                                  box->y = realloc(box->y,(box->capacity+10) *sizeof(char));
+                                  box->powertime = realloc(box->powertime,(box->capacity+10) *sizeof(char));
+                                  box->durability = realloc(box->durability,(box->capacity+10) *sizeof(char));
+                                  box->capacity+=10;
 
-		case 3 :
-		//Code
-		break;
-  return boxes;
-}
+                                  }
+                                  box->x[size] = i;
+                      						box->y[size] = TOP_EDGE_COORD+2+j;
+                      						box->durability[size] = 1;
+                                  box->powertime[size]=0;
+                      						drawBox(box->x[size],box->y[size],0);
+                        box->size++;
+
+
+
+
+                      }
+          }
+  }

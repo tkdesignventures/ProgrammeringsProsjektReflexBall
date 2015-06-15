@@ -9,26 +9,27 @@
 #define OVER_STRIKER 2;
 #define STRIKER_Y = 50;
 #define STRIKER_START = 40;
-struct Box {
-unsigned char x,y,durability,powertime;
-};
-struct Ball {
+typedef struct {
+unsigned char * x,y,durability,powertime;
+unsigned char capacity,size;
+} Box;
+typedef struct{
 long x,y;
 unsigned char power;
 long xdir, ydir;
-};
-struct Striker {
+} Ball;
+typedef struct {
 unsigned char x;
-};
+} Striker ;
 
-
-void moveBall(struct Ball * ball);
-void moveStriker(struct Striker * striker,unsigned char direction);
-unsigned char checkBall(struct Ball * ball, struct Striker * striker,  struct Box * box, int size);
-void checkBoxes(struct Ball * ball, struct Box * box, int size);
-unsigned char initGame(struct Ball * ball, struct Striker * striker,  struct Box * box, unsigned char level);
+Box * newBoxStack(void);
+void moveBall( Ball * ball);
+void moveStriker( Striker * striker,unsigned char direction);
+unsigned char checkBall( Ball * ball,  Striker * striker,   Box * box);
+void checkBoxes( Ball * ball,  Box * box;
+unsigned char initGame( Ball * ball,  Striker * striker,   Box * box, unsigned char level);
 unsigned char toTerminalCoords(long input);
-void setBallOverStriker(struct Ball * ball, struct Striker * striker);
-unsigned char createBoxes(struct Box * box,char level);
+void setBallOverStriker( Ball * ball,  Striker * striker);
+void char createBoxes( Box * box,char level);
 
 #endif
