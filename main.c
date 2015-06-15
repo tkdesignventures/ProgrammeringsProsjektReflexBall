@@ -3,9 +3,9 @@
 #include "graphics.h"
 #include "ctimer.h"
 #include "keys.h"
-
+#include <sio.h>
 void main(){
-		struct Box box[];
+		struct Box * box;
 		struct Ball ball ;
 		struct Striker striker;
 		unsigned char gameActive;
@@ -16,7 +16,7 @@ void main(){
 		unsigned long refreshTime;
 		unsigned char level;
 		unsigned char key;
-
+		init_uart(_UART0,_DEFFREQ,_DEFBAUD);
 		level = 1;
 		waitStart = 1;
 		gameTime = 0;
