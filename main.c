@@ -25,7 +25,7 @@ void main(){
 		refreshTime=0;
 		gameActive = 1;
 		lives = 3;
-		initGame(&ball,&striker,&box);
+		initGame(&ball,&striker,box,0);
 		setTimer();
 
 		for(;;)

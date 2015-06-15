@@ -95,7 +95,7 @@ void setBallOverStriker( Ball * ball,  Striker * striker){
 }
 
 
-unsigned char createBoxes( Box * box,char level){ //Creates and draws boxes
+void createBoxes( Box * box,char level){ //Creates and draws boxes
 	unsigned char j,i;
 
 			     for(j=0;j<2;j++){

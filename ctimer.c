@@ -13,7 +13,7 @@ timeWait--;
 }
 
 int getDelay(){
-return timeWait
+return timeWait;
 }
 
 void setDelay(int input){
@@ -35,4 +35,8 @@ void setTimer(){
 	T0CTL |= 0x80;
 
 	EI();
+}
+
+unsigned long getCentis(){
+	return time;
 }

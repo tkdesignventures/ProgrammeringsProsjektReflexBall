@@ -26,10 +26,10 @@ Box * newBoxStack(void);
 void moveBall( Ball * ball);
 void moveStriker( Striker * striker,unsigned char direction);
 unsigned char checkBall( Ball * ball,  Striker * striker,   Box * box);
-void checkBoxes( Ball * ball,  Box * box;
-unsigned char initGame( Ball * ball,  Striker * striker,   Box * box, unsigned char level);
+void checkBoxes( Ball * ball,  Box * box);
+void initGame( Ball * ball,  Striker * striker,   Box * box, unsigned char level);
 unsigned char toTerminalCoords(long input);
 void setBallOverStriker( Ball * ball,  Striker * striker);
-void char createBoxes( Box * box,char level);
+void createBoxes( Box * box,char level);
 
 #endif
