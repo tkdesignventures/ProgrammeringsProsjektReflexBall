@@ -7,6 +7,7 @@
 #define STRIKER_SPEED 1;
 #define OUT_OF_BOUNDS 100 << 14;
 #define GAMESPEED 5; // Frequency/10
+#define OVER_STRIKER 2;
 struct Box {
 unsigned char x,y,durability,powertime;
 }
@@ -17,7 +18,6 @@ long xdir, ydir;
 }
 struct Striker {
 unsigned char x;
-unsigned char lastx;
 }
 
 

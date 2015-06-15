@@ -17,7 +17,7 @@ void initiateMenu(){
 
 	//Prints the menu-select marker
 	moveMarker(0);
-	
+
 }
 
 //Moves the menu-select
@@ -25,7 +25,7 @@ void moveMarker(char up){
 	int i;
 	//Clears the first column
 	gotoxy(1,3 + selectedOption - 1);
-	
+
 	if(up){
 		selectedOption --;
 		if(selectedOption == 0){
@@ -37,14 +37,12 @@ void moveMarker(char up){
 			selectedOption = 1;
 		}
 	}
-	
+
 	goto(1, 3 + selectedOption - 1);
 	printf("*");
-	
+
 }
 
 char getChoice(){
 	return selectedOption;
 }
-
-
