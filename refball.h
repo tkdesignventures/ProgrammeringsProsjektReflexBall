@@ -16,7 +16,7 @@
   } Ball;
 
   void moveBall(Ball * ball);
-  void moveStriker(char * x,direction);
+  void moveStriker(char * x, char direction);
   void checkBall(Ball * ball, unsigned char x);
   long toTerminalCoordinates(long x);
 

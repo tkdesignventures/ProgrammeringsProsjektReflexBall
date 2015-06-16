@@ -32,10 +32,10 @@ void moveDrawStriker(unsigned char x, unsigned char direction){
 		printf("%c",220);
 	}
 }
-void drawStriker(unsigned char x, unsigned char y, unsigned char color){
+void drawStriker(unsigned char x, u unsigned char color){
 	unsigned char i;
 	fgcolor(color);
-	gotoxy(x-2,y);
+	gotoxy(x-2,STRIKER_Y);
 	for(i=0;i<5;i++)
 		printf("%c",220);
 	fgcolor(0);

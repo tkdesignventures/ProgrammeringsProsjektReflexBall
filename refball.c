@@ -3,6 +3,7 @@
 #include "refball.h"
 #include "math.h"
 #include "graphics.h"
+#include "ansi.h"
 
 void moveBall(Ball * ball){
   ball->x += ball->xdir;
@@ -21,8 +22,8 @@ void checkBall(Ball * ball, unsigned char x){
     unsigned char xt = toTerminalCoordinates(ball->x);
     unsigned char yt = toTerminalCoordinates(ball->y);
     unsigned char xtd = toTerminalCoordinates(ball->xdir);
-    usigned char ytd = toTerminalCoordinates(ball->ydir);
-    if(yt+ytd >= STRIKER_Y && xt+xtd >= x-2 && xt+xtd =< x+2){
+    unsigned char ytd = toTerminalCoordinates(ball->ydir);
+    if(()(yt+ytd) >= STRIKER_Y) && ()(xt+xtd) >= x-2) && xt+xtd <= x+2){
       ball->ydir *=-1;
       }
     else if(xt + xtd >= R_EDGE_COORD || xt+xtd <= L_EDGE_COORD){

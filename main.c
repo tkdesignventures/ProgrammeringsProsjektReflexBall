@@ -10,6 +10,7 @@
       long uselessdelay;
   		Ball ball;
   	  char strikerx;
+      char key;
   		init_uart(_UART0,_DEFFREQ,_DEFBAUD);
   		clrscr();
       setTimer();
@@ -34,8 +35,10 @@
                 moveDrawStriker(strikerx,0);
               }
               if(uselessdelay >10000){
+      drawBall(toTerminalCoordinates(ball.x),toTerminalCoordinates(ball.y),0);
       moveBall(&ball);
       checkBall(&ball,strikerx);
+      drawBall(toTerminalCoordinates(ball.x),toTerminalCoordinates(ball.y),7); 
       uselessdelay = 0;
       }
       uselessdelay++;
