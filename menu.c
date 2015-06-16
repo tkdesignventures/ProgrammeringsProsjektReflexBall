@@ -5,7 +5,7 @@
 
 
 
-char selectedOption = 0;
+//char selectedOption = 0;
 
 void printLogo(){
 	
@@ -35,7 +35,7 @@ void initiateMenu(){
 
 	printf("  1. Start game.\n");
 	printf("  2. Change difficulty:\n");
-	printf("  3. Show help\n");
+	printf("  3. Show instructions.\n");
 
 	//Prints the menu-select marker
 	moveMarker(1);
@@ -55,6 +55,22 @@ void moveMarker (short selectedOption){
 	printf("*");
 	
 }
+
+void printDifficulty(short diff){
+	fgcolor(1);
+	bgcolor(7);
+	
+	gotoxy(25,LINE_NUMBER + 1);
+	
+	if(diff == 1){
+		printf(" [Easy]   ");
+	}else if(diff == 2){
+		printf(" [Medium] ");
+	}else if(diff == 3){
+		printf(" [Hard]   ");
+	}else{
+		printf(" [Error]  ");
+	}
 
 
 /*
@@ -89,21 +105,7 @@ char getChoice(){
 */
 
 
-void printDifficulty(short diff){
-	fgcolor(1);
-	bgcolor(7);
 	
-	gotoxy(25,LINE_NUMBER + 1);
-	
-	if(diff == 1){
-		printf(" [Easy]   ");
-	}else if(diff == 2){
-		printf(" [Medium] ");
-	}else if(diff == 3){
-		printf(" [Hard]   ");
-	}else{
-		printf(" [Error]  ");
-	}	
 }		
 	
 	

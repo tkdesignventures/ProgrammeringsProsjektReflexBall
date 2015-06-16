@@ -4,7 +4,7 @@
 
 void printLogo();
 void initiateMenu();
-void moveMarker(char up);
+void moveMarker(char selectedOption);
 char getChoice();
 void printDifficulty();
 
