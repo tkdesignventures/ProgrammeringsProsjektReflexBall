@@ -2,7 +2,7 @@
 #include <sio.h>             // special encore serial i/o routines
 #include "ansi.h"
 #include "graphics.h"
-
+#include "refball.h"
 
 void drawBox(unsigned char x, unsigned char y,unsigned char color){
 	fgcolor(color);
@@ -18,17 +18,17 @@ void drawBall(unsigned char x, unsigned char y, unsigned char color){
 	printf("%c",127);
 	fgcolor(0);
 }
-void moveDrawStriker(unsigned char x, unsigned char y, unsigned char direction){
+void moveDrawStriker(unsigned char x, unsigned char direction){
 	fgcolor(0);
-	if(direction==0){
-		gotoxy(x-2,y);
+	if(direction==1){
+		gotoxy(x-2,STRIKER_Y);
 		printf(" ");
-		gotoxy(x+3,y	);
+		gotoxy(x+3,STRIKER_Y);
 		printf("%c",220);
 	}else{
-		gotoxy(x+3,y);
+		gotoxy(x+3,STRIKER_Y);
 		printf(" ");
-		gotoxy(x-2,y);
+		gotoxy(x-2,STRIKER_Y);
 		printf("%c",220);
 	}
 }
