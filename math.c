@@ -25,16 +25,14 @@ long expand(long i){
 }
 
 //vanlig kommatal ind
-void initVector(struct TVector *v, long x, long y){
-v->x = x;// << FIX14_SHIFT;
-v->y = y; //<< FIX14_SHIFT;
+void initVector(TVector *v, long x, long y){
+v->x = x << FIX14_SHIFT;
+v->y = y <<FIX14_SHIFT;
 }
-void rotate(struct TVector *v , int ang){
+void rotate(TVector *v , int ang){
 	int sinA = sin(ang);
 	int cosA = cos(ang);
 	long tempX = v->x;
-
-
 	v->x = FIX14_MULT(tempX,cosA) - FIX14_MULT(v->y,sinA);
 	v->y = FIX14_MULT(tempX,sinA) + FIX14_MULT(v->y,cosA);
 }

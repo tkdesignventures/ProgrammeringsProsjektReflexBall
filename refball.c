@@ -1,9 +1,9 @@
-#include <eZ8.h>             // special encore constants, macros and flash routines
+#include <eZ8.h>             
 #include <sio.h>
 #include <stdlib.h>
 #include "refball.h"
 #include "graphics.h"
-
+#include "math.h"
 Box * newBoxStack(void) {
     Box * stackContents;
     stackContents = malloc(sizeof(Box));
@@ -22,8 +22,8 @@ void newBoxStackElement(Box * box){ // Creates a new spot in box array. Prints e
       }
 
 void moveBall( Ball * ball){
-	ball->x += ball->xdir;
-	ball->y += ball->ydir;
+	ball->x += ball->dir->x;
+	ball->y += ball->dir->y;
 }
 
 void moveStriker( Striker * striker,unsigned char direction){
@@ -43,12 +43,12 @@ unsigned char checkBall( Ball * ball,  Striker * striker,   Box * box){
 		y = toTerminalCoords(ball->y);
 		if(y >= OUT_OF_BOUNDS)
       	     return 0;
-		else if(x => L_EDGE_COORD || x =< R_EDGE_COORD)
+		else if(x >= L_EDGE_COORD || x <= R_EDGE_COORD)
 			ball->xdir = -(ball->xdir);
 
 		else if(y <= TOP_EDGE_COORD)
 			ball->ydir = -(ball->ydir);
-    else if((x <= striker->x + STRIKER_WIDTH) && ( x => striker->x - STRIKER_WIDTH))
+    else if((x <= striker->x + STRIKER_WIDTH) && ( x >= striker->x - STRIKER_WIDTH))
     ball-> ydir = -(ball->ydir);
 		else
 			checkBoxes(ball, box);
@@ -59,27 +59,24 @@ void checkBoxes( Ball * ball,  Box * box){
 	int j;
 	int xt = toTerminalCoords(ball->x); // husk at snakke koordinater
 	int yt = toTerminalCoords(ball->y);
-	for(j=0; j < size.capacity; j++){
-		if((box->durability > 0) && (box-> x == xt || box->x +1 == xt || box->x + 2 == xt) && box->y == yt)  // Boksene har en bredde på 3, vi tester alle koordinater
+	for(j=0; j < box->capacity; j++){
+		if((box->durability[j] > 0) && (box->x[j] == xt || box->x[j] +1 == xt || box->x[j] + 2 == xt) && box->y[j] == yt)  // Boksene har en bredde på 3, vi tester alle koordinater
 			{
-				if(!(--box->durability))
-					drawBox(box->x,box->y,7);
+				if(!(--box->durability[j]))
+					drawBox(box->x[j],box->y[j],7);
 				}
 
 			}
-			box++;
 	}
-}
 
 unsigned char initGame( Ball * ball,  Striker * striker,   Box * box, unsigned char level){
 
-  drawBounds(L_EDGE_COORD,TOP_EDGE_COORD, R_EDGE_COORD, TOP_EDGE_COORD);
+  drawBounds(L_EDGE_COORD,TOP_EDGE_COORD, R_EDGE_COORD, OUT_OF_BOUNDS;
   striker->x = STRIKER_START;
-  striker->y = STRIKER_Y;
   drawStriker(striker->x,STRIKER_Y,0);
-  setBallOverStriker(ball,striker);
+  setBallOverStriker(ball,striker->x);
 	drawBall(toTerminalCoords(ball->x),toTerminalCoords(ball->y),0);
-  return 	createBoxes(box, lev);
+  createBoxes(box, level);
 }
 
 unsigned char toTerminalCoords(long input){
@@ -89,11 +86,11 @@ unsigned char toTerminalCoords(long input){
 	return out;
 }
 
-void setBallOverStriker( Ball * ball,  Striker * striker){
-	ball->x = striker->x << FIX14_SHIFT;
-	ball->y = OVER_STRIKER+STRIKER_Y << FIX14_SHIFT;
-	ball->ydir = 0.7071067810 << FIX14_SHIFT;
-	ball->xdir = 0.7071067810 << FIX14_SHIFT;
+void setBallOverStriker( Ball * ball,  unsigned char st){
+	ball->x = (st << FIX14_SHIFT);
+	ball->y = (STRIKER_Y-OVER_STRIKER) << FIX14_SHIFT;
+  initVector(ball->dir, 0.7071,0.7071);
+
 }
 
 
@@ -101,7 +98,7 @@ void createBoxes( Box * box,char level){ //Creates and draws boxes
 	unsigned char j,i;
 
 			     for(j=0;j<2;j++){
-				         for(int i = L_EDGE_COORD + 3; i < ((R_EDGE_COORD-3); i+=3){
+				         for(i = L_EDGE_COORD + 3; i < (R_EDGE_COORD-3); i+=3){
                       if (box->capacity == box->size) {
                                   box->x = realloc(box->x,(box->capacity+10) *sizeof(char));
                                   box->y = realloc(box->y,(box->capacity+10) *sizeof(char));
@@ -110,11 +107,11 @@ void createBoxes( Box * box,char level){ //Creates and draws boxes
                                   box->capacity+=10;
 
                                   }
-                                  box->x[size] = i;
-                      						box->y[size] = TOP_EDGE_COORD+2+j;
-                      						box->durability[size] = 1;
-                                  box->powertime[size]=0;
-                      						drawBox(box->x[size],box->y[size],0);
+                                  box->x[box->size] = i;
+                      						box->y[box->size] = TOP_EDGE_COORD+2+j;
+                      						box->durability[box->size] = 1;
+                                  box->powertime[box->size]=0;
+                      						drawBox(box->x[box->size],box->y[box->size],0);
                         box->size++;
 
 

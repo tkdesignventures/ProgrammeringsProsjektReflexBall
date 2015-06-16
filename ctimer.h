@@ -1,5 +1,5 @@
 #ifndef _CTIMER_H_
-#define _CTIMER_H
+#define _CTIMER_H_
 
 void resetTimer();
 void timer0int();

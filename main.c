@@ -17,7 +17,7 @@ void main(){
 		unsigned char key;
 		Box * box = newBoxStack();
 		init_uart(_UART0,_DEFFREQ,_DEFBAUD);
-
+		clrscr();
 
 		level = 1;
 		waitStart = 1;
@@ -31,14 +31,14 @@ void main(){
 		for(;;)
 		{
 			key = getKey();
-			if(key == 1)
-			waitStart = 1;
-			else if(key == 2)
-				moveStriker(&striker, 1);
-			else if(key == 4)
-				moveStriker(&striker,0);
+				if(key == 1)
+					waitStart = 1;
+				else if(key == 2)
+					moveStriker(&striker, 1);
+				else if(key == 4)
+					moveStriker(&striker,0);
 
-			if(getCentis()- GAMESPEED >= refreshTime){
+				if(getCentis()- GAMESPEED >= refreshTime){
 					refreshTime = getCentis();
 					if(gameActive){
 							gameTime += GAMESPEED;
@@ -46,7 +46,7 @@ void main(){
 									drawBall(toTerminalCoords(ball.x),toTerminalCoords(ball.y),7);
 									moveBall(&ball);
 									drawBall(toTerminalCoords(ball.x),toTerminalCoords(ball.y),0);
-									if(!checkBall(&ball, &striker, &box,boxes){
+									if(!checkBall(&ball, &striker, box){
 										lives --;
 										waitStart = 0;
 									}

@@ -6,10 +6,10 @@
 
 void drawBox(unsigned char x, unsigned char y,unsigned char color){
 	fgcolor(color);
-	drawBounds(x,y,x+3,y+1);
+	drawBounds(x,y,x+2,y+1);
 	//draws last line
 	gotoxy(x,y+1);
-	printf("%c%c%c%c",192,196,196,217);
+	printf("%c%c%c",192,196,217);
 	fgcolor(0);
 }
 void drawBall(unsigned char x, unsigned char y, unsigned char color){
