@@ -28,7 +28,7 @@ void moveBall(Ball * ball){
 
 void moveStriker( Striker * striker,unsigned char direction){
 
-	if((striker->x - STRIKER_WIDTH >= L_EDGE_COORD) && (striker->+STRIKER_WIDTH <= R_EDGE_COORD)){
+	if((striker->x - STRIKER_WIDTH >= L_EDGE_COORD) && (striker->+STRIKER_WIDTH <= R_EDGE_COORD-2)){
 		moveDrawStriker(striker->x,STRIKER_Y,direction);
 			if(direction)
 				striker->x += 1;
@@ -45,12 +45,12 @@ unsigned char checkBall( Ball * ball,  Striker * striker,   Box * box){
 		if(y >= OUT_OF_BOUNDS)
       	     return 0;
 		else if(x >= L_EDGE_COORD || x <= R_EDGE_COORD)
-			ball->dir.x *= -1;
+			ball->xdir *= -1;
 
 		else if(y <= TOP_EDGE_COORD)
-			ball->dir.y *=-1;
+			ball->ydir *=-1;
     else if((x <= striker->x + STRIKER_WIDTH) && ( x >= striker->x - STRIKER_WIDTH))
-    ball->dir.y *=-1;
+    ball->ydir*=-1;
 		else
 			checkBoxes(ball, box);
       return 1;
@@ -89,9 +89,9 @@ unsigned char toTerminalCoords(long input){
 
 void setBallOverStriker( Ball * ball,  unsigned char st){
 	ball->x = (st << FIX14_SHIFT);
-	ball->y = (STRIKER_Y-OVER_STRIKER) << FIX14_SHIFT;
-  ball-xdelta
-
+	ball->y = ((STRIKER_Y-OVER_STRIKER) << FIX14_SHIFT);
+  ball->xdir = (double)((0.707) << FIX14_SHIFT);
+  ball->ydir = (double)((0.707) << FIX14_SHIFT);
 }
 
 
