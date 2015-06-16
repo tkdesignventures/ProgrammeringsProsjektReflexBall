@@ -70,7 +70,7 @@ void checkBoxes( Ball * ball,  Box * box){
 			}
 	}
 
-unsigned char initGame( Ball * ball,  Striker * striker,   Box * box, unsigned char level){
+void initGame( Ball * ball,  Striker * striker,   Box * box, unsigned char level){
 
   drawBounds(L_EDGE_COORD,TOP_EDGE_COORD, R_EDGE_COORD, OUT_OF_BOUNDS);
   striker->x = STRIKER_START;
