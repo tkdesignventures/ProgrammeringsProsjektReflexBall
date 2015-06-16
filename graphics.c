@@ -21,9 +21,9 @@ void drawBall(unsigned char x, unsigned char y, unsigned char color){
 void moveDrawStriker(unsigned char x, unsigned char direction){
 	fgcolor(0);
 	if(direction==1){
-		gotoxy(x-2,STRIKER_Y);
+		gotoxy(x-3,STRIKER_Y);
 		printf(" ");
-		gotoxy(x+3,STRIKER_Y);
+		gotoxy(x+2,STRIKER_Y);
 		printf("%c",220);
 	}else{
 		gotoxy(x+3,STRIKER_Y);

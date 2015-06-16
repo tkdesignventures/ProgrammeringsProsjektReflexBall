@@ -1,6 +1,6 @@
 #include <eZ8.h>
 #include <sio.h>
-#include "refball_h"
+#include "refball.h"
 #include "math.h"
 #include "graphics.h"
 
@@ -9,7 +9,7 @@ void moveBall(Ball * ball){
   ball->y += ball->ydir;
 }
 
-void moveStriker(char * x,direction){
+void moveStriker(char * x,char direction){
     if(direction && ((*x + STRIKER_WIDTH+1) <R_EDGE_COORD))
         * x += 1;
 
