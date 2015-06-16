@@ -7,18 +7,17 @@
 #define OUT_OF_BOUNDS 100
 #define GAMESPEED 5
 #define OVER_STRIKER 2
-#define STRIKER_Y = 50
-#define STRIKER_START = 40
+#define STRIKER_Y  50
+#define STRIKER_START  40
 #define TOP_EDGE_COORD 2
 typedef struct {
 unsigned char * x,* y, * durability, * powertime;
 unsigned char capacity,size;
 } Box;
-typedef struct{
-long x,y;
-unsigned char power;
-Tvector dir;
-} Ball;
+  typedef struct{
+  long x,y, xdir, ydir;
+  unsigned char power;
+  } Ball;
 typedef struct {
 unsigned char x;
 } Striker ;

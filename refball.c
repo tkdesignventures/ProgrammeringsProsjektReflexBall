@@ -1,4 +1,4 @@
-#include <eZ8.h>             
+#include <eZ8.h>
 #include <sio.h>
 #include <stdlib.h>
 #include "refball.h"
@@ -21,9 +21,9 @@ void newBoxStackElement(Box * box){ // Creates a new spot in box array. Prints e
 
       }
 
-void moveBall( Ball * ball){
-	ball->x += ball->dir->x;
-	ball->y += ball->dir->y;
+void moveBall(Ball * ball){
+	ball->x += ball->xdir;
+	ball->y += ball->ydir
 }
 
 void moveStriker( Striker * striker,unsigned char direction){
@@ -34,6 +34,7 @@ void moveStriker( Striker * striker,unsigned char direction){
 				striker->x += 1;
 			else
 				striker->x -= 1;
+      }
 }
 
 
@@ -44,12 +45,12 @@ unsigned char checkBall( Ball * ball,  Striker * striker,   Box * box){
 		if(y >= OUT_OF_BOUNDS)
       	     return 0;
 		else if(x >= L_EDGE_COORD || x <= R_EDGE_COORD)
-			ball->xdir = -(ball->xdir);
+			ball->dir.x *= -1;
 
 		else if(y <= TOP_EDGE_COORD)
-			ball->ydir = -(ball->ydir);
+			ball->dir.y *=-1;
     else if((x <= striker->x + STRIKER_WIDTH) && ( x >= striker->x - STRIKER_WIDTH))
-    ball-> ydir = -(ball->ydir);
+    ball->dir.y *=-1;
 		else
 			checkBoxes(ball, box);
       return 1;
@@ -71,7 +72,7 @@ void checkBoxes( Ball * ball,  Box * box){
 
 unsigned char initGame( Ball * ball,  Striker * striker,   Box * box, unsigned char level){
 
-  drawBounds(L_EDGE_COORD,TOP_EDGE_COORD, R_EDGE_COORD, OUT_OF_BOUNDS;
+  drawBounds(L_EDGE_COORD,TOP_EDGE_COORD, R_EDGE_COORD, OUT_OF_BOUNDS);
   striker->x = STRIKER_START;
   drawStriker(striker->x,STRIKER_Y,0);
   setBallOverStriker(ball,striker->x);
@@ -89,7 +90,7 @@ unsigned char toTerminalCoords(long input){
 void setBallOverStriker( Ball * ball,  unsigned char st){
 	ball->x = (st << FIX14_SHIFT);
 	ball->y = (STRIKER_Y-OVER_STRIKER) << FIX14_SHIFT;
-  initVector(ball->dir, 0.7071,0.7071);
+  ball-xdelta
 
 }
 

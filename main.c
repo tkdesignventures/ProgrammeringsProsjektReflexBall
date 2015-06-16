@@ -4,6 +4,7 @@
 #include "ctimer.h"
 #include "keys.h"
 #include <sio.h>
+#include "ansi.h"
 void main(){
 		Ball ball ;
 		Striker striker;
@@ -46,7 +47,7 @@ void main(){
 									drawBall(toTerminalCoords(ball.x),toTerminalCoords(ball.y),7);
 									moveBall(&ball);
 									drawBall(toTerminalCoords(ball.x),toTerminalCoords(ball.y),0);
-									if(!checkBall(&ball, &striker, box){
+									if(!checkBall(&ball, &striker, box)){
 										lives --;
 										waitStart = 0;
 									}
