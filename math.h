@@ -10,7 +10,7 @@
 
 long sin(int x);
 long cos(int x);
-int angle(int x);
+int arcsin(int x);
 void rotate(Ball * ball, int ang);
 void initVector(TVector *v, long x, long y);
 long expand(long i);
