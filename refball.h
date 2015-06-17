@@ -19,5 +19,5 @@
   void moveStriker(char * x, char direction);
   void checkBall(Ball * ball, unsigned char x);
   long toTerminalCoordinates(long x);
-  void setBallOverStriker( Ball * ball,  unsigned char st);
+  void setBallOverStriker( Ball * ball,  int st);
 #endif

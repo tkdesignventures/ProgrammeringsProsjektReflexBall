@@ -93,9 +93,10 @@ long toTerminalCoordinates(long x){
 
 }
 
-void setBallOverStriker( Ball * ball,  unsigned char st){
+void setBallOverStriker( Ball * ball, int st){
 	ball->x = (st << FIX14_SHIFT);
 	ball->y = ((STRIKER_Y-OVER_STRIKER) << FIX14_SHIFT);
+	
   ball->xdir = 0 << FIX14_SHIFT;
   ball->ydir = 1 << FIX14_SHIFT;
 }
