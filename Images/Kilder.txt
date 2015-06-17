@@ -1,0 +1,3 @@
+Kilder:
+Bresenham-algoritme:
+http://tech-algorithm.com/articles/drawing-line-using-bresenham-algorithm/

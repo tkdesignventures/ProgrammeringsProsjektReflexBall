@@ -10,38 +10,47 @@
       long uselessdelay;
   		Ball ball;
   	  char strikerx;
-      char key;
+	  char key;
+	  unsigned long refreshTime;
   		init_uart(_UART0,_DEFFREQ,_DEFBAUD);
   		clrscr();
-      setTimer();
       //Initialize
       strikerx = 30;
-      uselessdelay = 0;
+      refreshTime = 100;
       ball.x = (30 << FIX14_SHIFT);
       ball.y = (12 << FIX14_SHIFT);
-      ball.xdir = (0.7 << FIX14_SHIFT);
-      ball.ydir = (0.7 << FIX14_SHIFT);
-      drawBounds(L_EDGE_COORD,TOP_EDGE_COORD,R_EDGE_COORD,OUT_OF_BOUNDS+5);
+	  
+      ball.xdir = (11 << (FIX14_SHIFT - 4));
+      ball.ydir = (-11 << FIX14_SHIFT - 4);
+      drawBounds(L_EDGE_COORD,TOP_EDGE_COORD,R_EDGE_COORD,OUT_OF_BOUNDS);
+	  drawBall(toTerminalCoordinates(ball.x),toTerminalCoordinates(ball.y),0);
+
+    	gotoxy(10,10);
+		printf("LOOSE");
+		setTimer();
         for(;;){
           key = getKey();
-    				if(key == 1){}
+    				if(key == 1){
+					gotoxy(10,10);
+					printf("hey!");
+					}
 
     				else if(key == 2){
       					moveStriker(&strikerx, 1);
-                moveDrawStriker(strikerx,1);
-                }
-    				else if(key == 4){
-      					moveStriker(&strikerx,0);
-                moveDrawStriker(strikerx,0);
-              }
-              if(uselessdelay >10000){
-      drawBall(toTerminalCoordinates(ball.x),toTerminalCoordinates(ball.y),0);
-      moveBall(&ball);
-      checkBall(&ball,strikerx);
-      drawBall(toTerminalCoordinates(ball.x),toTerminalCoordinates(ball.y),7); 
-      uselessdelay = 0;
-      }
-      uselessdelay++;
+	                	moveDrawStriker(strikerx,1);
+	                }else if(key == 4){
+	      					moveStriker(&strikerx,0);
+	                		moveDrawStriker(strikerx,0);
+	                 }
+            	if(getCentis()- GAMESPEED > refreshTime){
+					refreshTime = getCentis();
+			  	  	drawBall(toTerminalCoordinates(ball.x),toTerminalCoordinates(ball.y),7);
+				  	moveBall(&ball);
+				  	drawBall(toTerminalCoordinates(ball.x),toTerminalCoordinates(ball.y),0);
+			      	checkBall(&ball,strikerx);
+			      	
+    		  }
+      		
 
     }
 
