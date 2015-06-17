@@ -24,4 +24,6 @@
   void checkBall(Ball * ball, unsigned char x);
   long toTerminalCoordinates(long x);
 
+  void initLine(Ball * ball, Bresenham * b);
+  void computeNextPixel(Ball * ball, Bresemham * b);
 #endif
