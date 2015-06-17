@@ -5,7 +5,7 @@
 #define FIX14_div(a,b)   ( ((a) << FIX14_SHIFT / (b) ))
 
 typedef struct {
-	long x,y;
+	unsigned char x,y;
 } TVector ;
 
 long sin(int x);
@@ -15,5 +15,6 @@ void rotate(Ball * ball, int ang);
 void initVector(TVector *v, long x, long y);
 long expand(long i);
 void printFix(long i);
+int abs(int a);
 
 #endif

@@ -21,7 +21,7 @@
 
   void moveBall(Ball * ball);
   void moveStriker(char * x, char direction);
-  void checkBall(Ball * ball, unsigned char x);
+  void checkBall(Ball * ball, unsigned char x,Bresenham * b);
   long toTerminalCoordinates(long x);
 
   void initLine(Ball * ball, Bresenham * b);
