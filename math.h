@@ -15,6 +15,6 @@ void rotate(Ball * ball, int ang);
 void initVector(TVector *v, long x, long y);
 long expand(long i);
 void printFix(long i);
-int abs(int a);
+long abs(long a);
 
 #endif

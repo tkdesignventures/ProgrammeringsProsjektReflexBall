@@ -35,10 +35,15 @@
 
 
         for(;;){
-          key = getKey();
+          gotoxy(20,20);
+          printf("%d:%d",ball.xdir,ball.ydir);
+
+          			key = getKey();
     				if(key == 1){
 					gotoxy(10,10);
-					printf("hey!");
+					printf("Rotate");
+          rotate(&ball, 20);
+          initLine(&ball,&b);
 					}
 
     				else if(key == 2){

@@ -12,7 +12,16 @@ return sin(x+128);
 }
 
 int arcsin(int y){
-	return (128 - ARCSIN[y]);
+	while(y >= 512){
+		y -= 512;
+	}
+	while(y < 0){
+		y += 512;
+	}
+
+
+
+	return (ARCSIN[y]);
 }
 
 
@@ -32,8 +41,8 @@ void rotate(Ball * ball , int ang){
 	long sinA = sin(ang);
 	long cosA = cos(ang);
 	long tempX = ball->xdir;
-	ball->xdir = FIX14_MULT(tempX,cosA) - FIX14_MULT(ball->ydir,sinA);
-	ball->ydir = FIX14_MULT(tempX,sinA) + FIX14_MULT(ball->ydir,cosA);
+	ball->xdir = (FIX14_MULT(tempX,cosA) - FIX14_MULT(ball->ydir,sinA));
+	ball->ydir = (FIX14_MULT(tempX,sinA) + FIX14_MULT(ball->ydir,cosA));
 }
 long abs(long a){
 	if (a < 0)
