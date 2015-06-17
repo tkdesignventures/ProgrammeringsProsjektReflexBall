@@ -11,9 +11,13 @@
 #define STRIKER_START  40
 #define TOP_EDGE_COORD 2
   typedef struct{
-  long x,y, xdir, ydir;
+  unsigned char x,y;
+  long xold,yold, xdir, ydir;
   unsigned char power;
   } Ball;
+  typedef struct{
+   char numerator, shortest, longest,dx1,dx2,dy1,dy2;
+  } Bresenham;
 
   void moveBall(Ball * ball);
   void moveStriker(char * x, char direction);
