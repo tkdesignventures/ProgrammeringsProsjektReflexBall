@@ -36,7 +36,7 @@ void checkBall(Ball * ball, unsigned char x){
         right = 0;
       }
       gotoxy(80,30);
-      printf("right: _%d_, xdir: _%d_",right,ball->xdir);
+      printf("right: _%d_",right);
       yd = abs(ball->ydir);
       yd = yd >> 5;
       angleIn = arcsin(yd);
@@ -47,7 +47,8 @@ void checkBall(Ball * ball, unsigned char x){
       }else{
         rotate(ball, (angleIn+128));
       }
-
+	
+		gotoxy(50,20);
       //Left part of striker
       if(nextPosX >= x - STRIKER_WIDTH && nextPosX < x){
         if(right){
@@ -55,17 +56,22 @@ void checkBall(Ball * ball, unsigned char x){
         }else{
           rotate(ball,- (int)(3*angleIn2));
         }
+		printf("_Left_");
       //Middle part of striker
       }else if (nextPosX == x){
         ball->ydir *= -1;
+		printf("_Middle_");
       //Right part of striker
       }else{
         if(right){
-          rotate(ball,- (int)(3*angleIn2));
+          rotate(ball,(int)(3*angleIn2));
         }else{
-          rotate(ball,(angleIn2/3));
+          rotate(ball,-(int)(angleIn2/3));
         }
+		printf("_Right_");
       }
+
+      
     }
     else if(nextPosX >= R_EDGE_COORD || nextPosX <= L_EDGE_COORD){
       ball->xdir *= -1;
@@ -86,6 +92,7 @@ long toTerminalCoordinates(long x){
 	return output;
 
 }
+
 void setBallOverStriker( Ball * ball,  unsigned char st){
 	ball->x = (st << FIX14_SHIFT);
 	ball->y = ((STRIKER_Y-OVER_STRIKER) << FIX14_SHIFT);
