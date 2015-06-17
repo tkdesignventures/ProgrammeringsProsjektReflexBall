@@ -10,8 +10,9 @@ long sin(int x){
 long cos(int x){
 return sin(x+128);
 }
-long angle(int y){
-	return ARCSIN[y];
+int arcsin(int y){	//input skal være mellem 1-512.
+	//finder vinklen mellem 0-128 udfra y. returnerer den vinkel som skal bruges til at kalde sin.
+	return (128-ARCSIN[y]); //Så det er den korrekte vinkel.
 }
 void printFix(long i){
 	if ((i & 0x80000000) !=0) {
