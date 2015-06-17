@@ -43,7 +43,7 @@ void checkBall(Ball * ball, unsigned char x,Bresenham * b){
 
 }
 long toTerminalCoordinates(long x){
-  unsigned char output = x >> FIX14_SHIFT;
+  	long output = x >> FIX14_SHIFT;
 	output += (x >> (FIX14_SHIFT-1)) & 0x1; // Round correctly
 	return output;
 
@@ -51,14 +51,18 @@ long toTerminalCoordinates(long x){
 
 void initLine(Ball * ball, Bresenham * b){
   int w,h;
-  long x2 = toTerminalCoordinates((ball->xdir << 7));
-  long y2 = toTerminalCoordinates((ball->ydir<<7));
+  long x2 = ball->x + (toTerminalCoordinates(ball->xdir)*100);
+  long y2 = (ball->y +  (toTerminalCoordinates(ball->ydir)*100));
+
+  gotoxy(30,30);
+  printf("%d:%d",x2,y2);
+
   b->dx1 = 0;
   b->dy1 = 0;
   b->dx2 = 0;
   b->dy2 = 0;
   w = x2-ball->x;
-  h = x2-ball->y;
+  h = y2-ball->y;
     if(w<0)
       b->dx1 = -1;
     else if(w>0)
@@ -84,7 +88,7 @@ void initLine(Ball * ball, Bresenham * b){
         }
     b->numerator = b->longest >> 1;
 }
-
+ 
 void computeNextPixel(Ball * ball, Bresenham * b){
     b->numerator += b->shortest;
     if(!( b->numerator < b->longest)){
