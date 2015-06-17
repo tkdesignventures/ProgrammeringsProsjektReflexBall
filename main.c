@@ -7,12 +7,9 @@
 #include "ansi.h"
 #include "math.h"
   void main(){
-      long uselessdelay;
   	  Ball ball;
-      Bresenham b;
   	  char strikerx;
 	    char key;
-      TVector vector;
 	    unsigned long refreshTime;
   		init_uart(_UART0,_DEFFREQ,_DEFBAUD);
   		clrscr();
@@ -25,9 +22,8 @@
       ball.xdir = (-11 << (FIX14_SHIFT - 4));
       ball.ydir = (-11 << (FIX14_SHIFT - 4));
 
-      initLine(&ball,&b);
       drawBounds(L_EDGE_COORD,TOP_EDGE_COORD,R_EDGE_COORD,OUT_OF_BOUNDS);
-	    drawBall(ball.x,ball.y,0);
+	    drawBall(toTerminalCoordinates(ball.x),toTerminalCoordinates(ball.y),0);
 
 
 		    setTimer();
@@ -43,7 +39,6 @@
 					gotoxy(10,10);
 					printf("Rotate");
           rotate(&ball, 20);
-          initLine(&ball,&b);
 					}
 
     				else if(key == 2){
@@ -55,13 +50,11 @@
 	                 }
             	if(getCentis()- GAMESPEED > refreshTime){
 
-					refreshTime = getCentis();
-					drawBall(ball.x,ball.y,7);
-				  	 computeNextPixel(&ball,&b,&vector);
-            		ball.x = vector.x;
-           			 ball.y = vector.y;
-				  	drawBall(ball.x,ball.y,0);
-			      	checkBall(&ball,strikerx,&b,&vector);
+					      refreshTime = getCentis();
+					      drawBall(toTerminalCoordinates(ball.x),toTerminalCoordinates(ball.y),7);
+				        moveBall(ball);
+				  	    drawBall(toTerminalCoordinates(ball.x),toTerminalCoordinates(ball.y),0);
+			      	  checkBall(&ball,strikerx);
 
 
     		  }

@@ -11,22 +11,13 @@
 #define STRIKER_START  20
 #define TOP_EDGE_COORD 2
   typedef struct{
-  int x,y;
-  long xold,yold, xdir, ydir;
+  long x,y,xdir, ydir;
   unsigned char power;
   } Ball;
-  typedef struct{
-   int numerator, shortest, longest,dx1,dx2,dy1,dy2;
-  } Bresenham;
-  typedef struct {
-  	unsigned char x,y;
-  } TVector ;
 
   void moveBall(Ball * ball);
   void moveStriker(char * x, char direction);
-  void checkBall(Ball * ball, unsigned char x,Bresenham * b, TVector * nextPos);
+  void checkBall(Ball * ball, unsigned char x);
   long toTerminalCoordinates(long x);
 
-  void initLine(Ball * ball, Bresenham * b);
-  void computeNextPixel(Ball * ball, Bresenham * b, TVector * vector);
 #endif
