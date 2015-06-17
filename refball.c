@@ -18,24 +18,26 @@ void moveStriker(char * x,char direction){
         * x -= 1;
 }
 
-void checkBall(Ball * ball, unsigned char x,Bresenham * b){
-    unsigned char xt = ball->x;
+void checkBall(Ball * ball, unsigned char x,Bresenham * b, TVector * nextPos){
+
+	 computeNextPixel(ball,b,nextPos);
+   /* unsigned char xt = ball->x;
     unsigned char yt = ball->y;
     unsigned char xtd = toTerminalCoordinates(ball->xdir);
-    unsigned char ytd = toTerminalCoordinates(ball->ydir);
-    if(((yt+ytd) >= STRIKER_Y) && ((xt+xtd) >= x-2) && xt+xtd <= x+2){
+    unsigned char ytd = toTerminalCoordinates(ball->ydir);*/
+    if((nextPos->y == STRIKER_Y) && (nextPos->x >= (x-2)) && nextPos->x <= (x+2)){
       ball->ydir *=-1;
       initLine(ball,b);
       }
-    else if(xt + xtd >= R_EDGE_COORD || xt+xtd <= L_EDGE_COORD){
+    else if(nextPos->x >= R_EDGE_COORD || nextPos->x <= L_EDGE_COORD){
       ball->xdir *= -1;
       initLine(ball,b);
     }
-    else if(yt+ytd <= TOP_EDGE_COORD){
+    else if(nextPos->y <= TOP_EDGE_COORD){
       ball->ydir *= -1;
       initLine(ball,b);
       }
-    else if(yt >= OUT_OF_BOUNDS){
+    else if(nextPos->y >= OUT_OF_BOUNDS){
       gotoxy(20,20);
     printf("You dead motherfucker!");
     }
@@ -88,16 +90,17 @@ void initLine(Ball * ball, Bresenham * b){
         }
     b->numerator = b->longest >> 1;
 }
- 
-void computeNextPixel(Ball * ball, Bresenham * b){
+
+void computeNextPixel(Ball * ball, Bresenham * b, TVector * vector){
+
     b->numerator += b->shortest;
     if(!( b->numerator < b->longest)){
       b->numerator -= b->longest;
-      ball->x += b->dx1;
-      ball->y += b->dy1;
+      vector->x = ball->x + b->dx1;
+      vector->y = ball->y + b->dy1;
     }
     else{
-      ball->x += b->dx2;
-      ball->y += b->dy2;
+      vector->x = ball->x + b->dx2;
+      vector->y = ball->y + b->dy2;
     }
 }

@@ -11,30 +11,29 @@
   	  Ball ball;
       Bresenham b;
   	  char strikerx;
-	  char key;
-	  unsigned long refreshTime;
+	    char key;
+      TVector vector;
+	    unsigned long refreshTime;
   		init_uart(_UART0,_DEFFREQ,_DEFBAUD);
   		clrscr();
       //Initialize
       strikerx = 30;
       refreshTime = 100;
       ball.x = 30;
-      ball.y = 12; 
+      ball.y = 12;
 
-      ball.xdir = (11 << (FIX14_SHIFT - 4));
+      ball.xdir = (-11 << (FIX14_SHIFT - 4));
       ball.ydir = (-11 << (FIX14_SHIFT - 4));
-	  gotoxy(40,40);
-	  printf("%d:%d",ball.xdir,ball.ydir);
+
       initLine(&ball,&b);
       drawBounds(L_EDGE_COORD,TOP_EDGE_COORD,R_EDGE_COORD,OUT_OF_BOUNDS);
 	    drawBall(ball.x,ball.y,0);
 
-    	gotoxy(10,10);
-		printf("LOOSE");
-		setTimer();
+
+		    setTimer();
 
 
-			  	  	
+
         for(;;){
           key = getKey();
     				if(key == 1){
@@ -50,14 +49,16 @@
 	                		moveDrawStriker(strikerx,0);
 	                 }
             	if(getCentis()- GAMESPEED > refreshTime){
-				
+
 					refreshTime = getCentis();
 					drawBall(ball.x,ball.y,7);
-				  	computeNextPixel(&ball,&b);
+				  	 computeNextPixel(&ball,&b,&vector);
+            		ball.x = vector.x;
+           			 ball.y = vector.y;
 				  	drawBall(ball.x,ball.y,0);
-			      	checkBall(&ball,strikerx,&b);
+			      	checkBall(&ball,strikerx,&b,&vector);
 
-				
+
     		  }
 
 
