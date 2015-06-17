@@ -10,10 +10,12 @@ long sin(int x){
 long cos(int x){
 return sin(x+128);
 }
-int arcsin(int y){	//input skal være mellem 1-512.
-	//finder vinklen mellem 0-128 udfra y. returnerer den vinkel som skal bruges til at kalde sin.
-	return (128-ARCSIN[y]); //Så det er den korrekte vinkel.
+
+int arcsin(int y){
+	return (128 - ARCSIN[y]);
 }
+
+
 void printFix(long i){
 	if ((i & 0x80000000) !=0) {
 		printf("-");
@@ -26,19 +28,14 @@ long expand(long i){
 	return i<<2;
 }
 
-//vanlig kommatal ind
-void initVector(TVector *v, long x, long y){
-v->x = x << FIX14_SHIFT;
-v->y = y <<FIX14_SHIFT;
-}
 void rotate(Ball * ball , int ang){
-	int sinA = sin(ang);
-	int cosA = cos(ang);
+	long sinA = sin(ang);
+	long cosA = cos(ang);
 	long tempX = ball->xdir;
 	ball->xdir = FIX14_MULT(tempX,cosA) - FIX14_MULT(ball->ydir,sinA);
 	ball->ydir = FIX14_MULT(tempX,sinA) + FIX14_MULT(ball->ydir,cosA);
 }
-int abs(int a){
+long abs(long a){
 	if (a < 0)
 	return -a;
 	else
