@@ -66,8 +66,6 @@ void checkBall(Ball * ball, unsigned char x){
           rotate(ball,(angleIn2/3));
         }
       }
-
-      initLine(ball,b);
     }
     else if(nextPosX >= R_EDGE_COORD || nextPosX <= L_EDGE_COORD){
       ball->xdir *= -1;
@@ -87,4 +85,10 @@ long toTerminalCoordinates(long x){
 	output += (x >> (FIX14_SHIFT-1)) & 0x1; // Round correctly
 	return output;
 
+}
+void setBallOverStriker( Ball * ball,  unsigned char st){
+	ball->x = (st << FIX14_SHIFT);
+	ball->y = ((STRIKER_Y-OVER_STRIKER) << FIX14_SHIFT);
+  ball->xdir = 0 << FIX14_SHIFT;
+  ball->ydir = 1 << FIX14_SHIFT;
 }

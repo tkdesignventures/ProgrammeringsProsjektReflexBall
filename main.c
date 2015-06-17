@@ -16,8 +16,8 @@
       //Initialize
       strikerx = 30;
       refreshTime = 100;
-      ball.x = 30;
-      ball.y = 12;
+      ball.x = 30 << FIX14_SHIFT;
+      ball.y = 12 << FIX14_SHIFT;
 
       ball.xdir = (-11 << (FIX14_SHIFT - 4));
       ball.ydir = (-11 << (FIX14_SHIFT - 4));
@@ -52,7 +52,7 @@
 
 					      refreshTime = getCentis();
 					      drawBall(toTerminalCoordinates(ball.x),toTerminalCoordinates(ball.y),7);
-				        moveBall(ball);
+				        moveBall(&ball);
 				  	    drawBall(toTerminalCoordinates(ball.x),toTerminalCoordinates(ball.y),0);
 			      	  checkBall(&ball,strikerx);
 
