@@ -25,5 +25,5 @@
   long toTerminalCoordinates(long x);
 
   void initLine(Ball * ball, Bresenham * b);
-  void computeNextPixel(Ball * ball, Bresemham * b);
+  void computeNextPixel(Ball * ball, Bresenham * b);
 #endif

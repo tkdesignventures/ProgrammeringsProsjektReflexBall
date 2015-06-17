@@ -23,7 +23,7 @@ void checkBall(Ball * ball, unsigned char x,Bresenham * b){
     unsigned char yt = ball->y;
     unsigned char xtd = toTerminalCoordinates(ball->xdir);
     unsigned char ytd = toTerminalCoordinates(ball->ydir);
-    if(()(yt+ytd) >= STRIKER_Y) && ()(xt+xtd) >= x-2) && xt+xtd <= x+2){
+    if(((yt+ytd) >= STRIKER_Y) && ((xt+xtd) >= x-2) && xt+xtd <= x+2){
       ball->ydir *=-1;
       initLine(ball,b);
       }
@@ -73,22 +73,22 @@ void initLine(Ball * ball, Bresenham * b){
       b->dx2=1;
     b->longest = abs(w);
     b->shortest = abs(h);
-      if(!(longest>shortest)){
-        longest = abs(h);
-        shortest = abs(w);
+      if(!(b->longest > b->shortest)){
+        b->longest = abs(h);
+        b->shortest = abs(w);
         b->dx2=0;
         if(h<0)
             b->dy2 = -1;
         else if(h>0)
             b->dy2=1;
         }
-    b->numerator = longest >> 1;
+    b->numerator = b->longest >> 1;
 }
 
-void computeNextPixel(Ball * ball, Bresemham * b){
-    b->numerator += shortest;
+void computeNextPixel(Ball * ball, Bresenham * b){
+    b->numerator += b->shortest;
     if(!( b->numerator < b->longest)){
-      b->numerator -= longest;
+      b->numerator -= b->longest;
       ball->x += b->dx1;
       ball->y += b->dy1;
     }

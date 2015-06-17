@@ -8,7 +8,7 @@
 #include "math.h"
   void main(){
       long uselessdelay;
-  		Ball ball;
+  	  Ball ball;
       Bresenham b;
   	  char strikerx;
 	  char key;
