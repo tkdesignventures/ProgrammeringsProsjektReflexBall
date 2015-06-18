@@ -14,6 +14,7 @@
 #define EDGE 180
 #define TOP_EDGE 196
 #define STRIKER 220
+#define BOXSIZE 6
   typedef struct{
   long x,y,xdir, ydir;
   unsigned char power, outOfBounds;

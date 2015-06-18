@@ -116,7 +116,7 @@ void createBoxes( Box * box,char level){ //Creates and draws boxes
 	unsigned char j,i;
 
 			     for(j=0;j<2;j++){
-				         for(i = L_EDGE_COORD + 3; i < (R_EDGE_COORD-3); i+=3){
+				         for(i = L_EDGE_COORD + 5; i < (R_EDGE_COORD-5); i+=BOXSIZE){
                         if (box->capacity == box->size) {
                                     box->x = realloc(box->x,(box->capacity+10) *sizeof(char));
                                     box->y = realloc(box->y,(box->capacity+10) *sizeof(char));
