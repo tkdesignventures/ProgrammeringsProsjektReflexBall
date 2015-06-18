@@ -68,8 +68,7 @@ void checkBall(Ball * ball, int x){
       ball->ydir *= -1;
       }
     else if(nextPosY >= OUT_OF_BOUNDS){
-      gotoxy(20,20);
-    printf("Out of bounds");
+		ball->outOfBounds = 1;
     }
 
 
