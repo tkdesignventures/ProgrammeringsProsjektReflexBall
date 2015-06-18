@@ -12,6 +12,10 @@ void drawBox(unsigned char x, unsigned char y,unsigned char color){
 	printf("%c%c%c",192,196,217);
 	fgcolor(0);
 }
+void fixBall(unsigned char x, unsigned char y,char tegn){
+	gotoxy(x,y);
+	prinft("%c",tegn);
+}
 void drawBall(unsigned char x, unsigned char y, unsigned char color){
 	fgcolor(color);
 	gotoxy(x,y);
@@ -85,7 +89,7 @@ void drawLogo(){
 
 	printf("Group 3, s144012, s144045, s144021, June 2015   ");
 	//printf("Ver. 0.2.0.3 Beta\n                             ");
-	
+
 }
 
 void drawGameOver(){
@@ -141,9 +145,9 @@ void drawGameOver(){
 void printDifficulty(short diff){
 	fgcolor(1);
 	bgcolor(7);
-	
+
 	gotoxy(25,LINE_NUMBER + 1);
-	
+
 	if(diff == 1){
 		printf(" [Easy]   ");
 	}else if(diff == 2){
@@ -154,4 +158,3 @@ void printDifficulty(short diff){
 		printf(" [Error]  ");
 	}
 }
-
