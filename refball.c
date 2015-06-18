@@ -26,6 +26,9 @@ unsigned char checkBall(Ball * ball, int x){
   long yd;
   char right;
   char nextPosX, nextPosY;
+  unsigned char j;
+  unsigned char xt = toTerminalCoords(ball->x);
+  unsigned char yt = toTerminalCoords(ball->y);
   nextPosX = toTerminalCoordinates(ball->x + ball->xdir);
   nextPosY = toTerminalCoordinates(ball->y + ball->ydir);
     if((nextPosY == STRIKER_Y) && (nextPosX >= (x - STRIKER_WIDTH)) && nextPosX <= (x + STRIKER_WIDTH)){
@@ -71,13 +74,37 @@ unsigned char checkBall(Ball * ball, int x){
     else if(nextPosY >= OUT_OF_BOUNDS){
 		ball->outOfBounds = 1;
     }
-    if ((toTerminalCoordinates(ball->x) == L_EDGE_COORD) || (toTerminalCoordinates(ball->x) == R_EDGE_COORD)){
+
+    else{
+
+        for(j=0; j < box->capacity; j++){
+
+          if((box->durability[j] > 0) && (nextPosX >= box->x[j] && nextPosX < box->x[j]+BOXSIZE) && (box->y[j] == nextPosY || box->y[j] == yt+1)  // Boksene har en bredde på 3, vi tester alle koordinater
+              {
+
+                if(xt >= box->x[j] && xt < box->x[j]+BOXSIZE)
+                ball->ydir *= -1;
+
+                else if(yt == box->y[j] || yt == box->y[j]+1)
+                ball->xdir *= -1;
+
+                else{
+                  ball->xdir *= -1;
+                  ball->ydir *= -1;
+                }
+            if(!(--box->durability[j]))
+            drawBox(box->x[j],box->y[j],7);
+            }
+        }
+
+      }
+    if ((xt == L_EDGE_COORD) || xt == R_EDGE_COORD)){
       return EDGE;
     }
-    else if(toTerminalCoordinates(ball->y) == TOP_EDGE_COORD){
+    else if(yt == TOP_EDGE_COORD){
       return TOP_EDGE;
     }
-    else if(toTerminalCoordinates(ball->x) == x && toTerminalCoordinates(ball-> y) ==STRIKER_Y){
+    else if(xt == x && yt ==STRIKER_Y){
       return STRIKER;
     }
     else
