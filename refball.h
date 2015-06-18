@@ -12,7 +12,7 @@
 #define TOP_EDGE_COORD 2
   typedef struct{
   long x,y,xdir, ydir;
-  unsigned char power, outOfLives;
+  unsigned char power, outOfBounds;
   } Ball;
 
   void moveBall(Ball * ball);
