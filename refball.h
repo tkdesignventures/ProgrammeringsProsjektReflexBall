@@ -29,4 +29,8 @@
   unsigned char checkBall(Ball * ball, int x);
   long toTerminalCoordinates(long x);
   void setBallOverStriker( Ball * ball,  long st);
+
+  Box * newBoxStack(void):
+  void createBoxes( Box * box,char level);
+  void checkBoxes( Ball * ball,  Box * box);
 #endif
