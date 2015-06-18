@@ -26,7 +26,7 @@
 
   void moveBall(Ball * ball);
   void moveStriker(long * x, char direction);
-  unsigned char checkBall(Ball * ball, int x);
+  unsigned char checkBall(Ball * ball,Box * box, int x);
   long toTerminalCoordinates(long x);
   void setBallOverStriker( Ball * ball,  long st);
 

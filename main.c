@@ -32,7 +32,7 @@
 	  setBallOverStriker(&ball, strikerx);
 
       	drawBounds(L_EDGE_COORD,TOP_EDGE_COORD,R_EDGE_COORD,OUT_OF_BOUNDS);
-		createBoxes(box,0);
+	//	createBoxes(box,0);
 	    drawBall(toTerminalCoordinates(ball.x),toTerminalCoordinates(ball.y),0);
 	
 		drawStriker(strikerx,0);
@@ -62,7 +62,7 @@
 
 						if(!waitStart){
 							refreshTime = getCentis();
-              				fixBall(toTerminalCoordinates(ball.x),toTerminalCoordinates(ball.y),	checkBall(&ball,strikerx));
+              				fixBall(toTerminalCoordinates(ball.x),toTerminalCoordinates(ball.y),	checkBall(&ball,box,strikerx));
               				if(ball.outOfBounds){
 								ball.outOfBounds = 0;
 								lives--;
