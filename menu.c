@@ -2,34 +2,19 @@
 #include <sio.h>
 #include "ansi.h"
 #include "menu.h"
+#include "graphics.h"
 
 
 
 //char selectedOption = 0;
 
-void printLogo(){
 	
-	printf("||******************************************||\n");
-
-	printf(" _____       __ _             ____        _ _ \n");
-	printf("|  __ \     / _| |           |  _ \      | | |\n");
-	printf("| |__) |___| |_| | _____  __ | |_) | __ _| | |\n");
-	printf("|  _  // _ \  _| |/ _ \ \/ / |  _ < / _` | | |\n");
-	printf("| | \ \  __/ | | |  __/>  <  | |_) | (_| | | |\n");
-	printf("|_|  \_\___|_| |_|\___/_/\_\ |____/ \__,_|_|_|\n");
-
-	printf("||******************************************||\n");
-
-	printf("Group 3, s144012, s144045, s144021, June 2015   ");
-	//printf("Ver. 0.2.0.3 Beta\n                             ");
-	
-}	
 
 void initiateMenu(){
 	clrscr();
 	fgcolor(6);
 	bgcolor(7);
-	printLogo();
+	drawLogo();
 	gotoxy(1,11);
 	printf("Welcome to ReflexBall\nMove up / down in the menu with the left / middle button.\nSelect with right button.\n\n");
 
@@ -56,21 +41,6 @@ void moveMarker (short selectedOption){
 	
 }
 
-void printDifficulty(short diff){
-	fgcolor(1);
-	bgcolor(7);
-	
-	gotoxy(25,LINE_NUMBER + 1);
-	
-	if(diff == 1){
-		printf(" [Easy]   ");
-	}else if(diff == 2){
-		printf(" [Medium] ");
-	}else if(diff == 3){
-		printf(" [Hard]   ");
-	}else{
-		printf(" [Error]  ");
-	}
 
 
 /*
@@ -105,8 +75,7 @@ char getChoice(){
 */
 
 
-	
-}		
+		
 	
 	
 	

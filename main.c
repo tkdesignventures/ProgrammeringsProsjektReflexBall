@@ -33,17 +33,19 @@
 	  
       	drawBounds(L_EDGE_COORD,TOP_EDGE_COORD,R_EDGE_COORD,OUT_OF_BOUNDS);
 	    drawBall(toTerminalCoordinates(ball.x),toTerminalCoordinates(ball.y),0);
+		drawBall(10,10,3);
 		drawStriker(strikerx,0);
 		setTimer();
-
+		
+		gotoxy(80,15);
+		printf("Lives: %d    ", lives);
 
 
         while(lives >= 0){
 			     	key = getKey();
 
     				if(key == 1){
-					gotoxy(7,10);
-					printf("Left button");
+					
 					waitStart = 0;
 					}
 
@@ -81,12 +83,10 @@
 
 
 				  }
-			}//for	
+			}//while
 	
+			drawGameOver();
 
 }
 
-//Spoersmaal til i morgen:
-//0. Hvorfor kan bolden køre gjennem strikeren
-//1. Hvorfor flytter ikke bolden sig - se nr 2.
-//2. Hvorfor fungerer ikke setBallOverStriker() - vi proever at shifte en char! HAHA
+
