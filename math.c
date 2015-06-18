@@ -50,9 +50,11 @@ void rotate(Ball * ball , int ang){
 	ball->xdir = (FIX14_MULT(tempX,cosA) - FIX14_MULT(ball->ydir,sinA));
 	ball->ydir = (FIX14_MULT(tempX,sinA) + FIX14_MULT(ball->ydir,cosA));
 }
+/*
 long abs(long a){
 	if (a < 0)
 	return -a;
 	else
 	return a;
 }
+*/

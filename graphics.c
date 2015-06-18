@@ -14,7 +14,7 @@ void drawBox(unsigned char x, unsigned char y,unsigned char color){
 }
 void fixBall(unsigned char x, unsigned char y,char tegn){
 	gotoxy(x,y);
-	prinft("%c",tegn);
+	printf("%c",tegn);
 }
 void drawBall(unsigned char x, unsigned char y, unsigned char color){
 	fgcolor(color);
@@ -93,6 +93,8 @@ void drawLogo(){
 }
 
 void drawGameOver(){
+	gotoxy(10,4);
+	printf("                                                                                 \n");
 	gotoxy(10,5);
 	printf(" .----------------.  .----------------.  .----------------.  .----------------.  \n");
 	gotoxy(10,6);
@@ -116,7 +118,7 @@ void drawGameOver(){
 	gotoxy(10,15);
 	printf(" '----------------'  '----------------'  '----------------'  '----------------'   \n");
 	gotoxy(10,16);
-	printf("\n");
+	printf("                                                                                  \n");
 	gotoxy(10,17);
 	printf(" .----------------.  .----------------.  .----------------.  .----------------.  \n");
 	gotoxy(10,18);
@@ -139,6 +141,7 @@ void drawGameOver(){
 	printf("| '--------------' || '--------------' || '--------------' || '--------------' |\n");
 	gotoxy(10,27);
 	printf(" '----------------'  '----------------'  '----------------'  '----------------' \n");
+	printf("                                                                                 \n");
 	printf("\n");
 }
 

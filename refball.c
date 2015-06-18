@@ -1,5 +1,6 @@
 #include <eZ8.h>
 #include <sio.h>
+#include <stdlib.h>
 #include "refball.h"
 #include "math.h"
 #include "graphics.h"
@@ -70,7 +71,7 @@ unsigned char checkBall(Ball * ball, int x){
     else if(nextPosY >= OUT_OF_BOUNDS){
 		ball->outOfBounds = 1;
     }
-    if (toTerminalCoordinates(ball->x) == L_EDGE_COORD || toTerminalCoordinates(ball->x) R_EDGE_COORD){
+    if ((toTerminalCoordinates(ball->x) == L_EDGE_COORD) || (toTerminalCoordinates(ball->x) == R_EDGE_COORD)){
       return EDGE;
     }
     else if(ball->y == TOP_EDGE_COORD){

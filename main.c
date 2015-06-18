@@ -83,7 +83,7 @@
 
 
 				  }
-<<<<<<< HEAD
+
 			}//while
 
 			drawGameOver();
@@ -91,14 +91,14 @@
 }
 
 
-=======
-			}//for
+
+		
 
 
-}
+
 
 //Spoersmaal til i morgen:
 //0. Hvorfor kan bolden k�re gjennem strikeren
 //1. Hvorfor flytter ikke bolden sig - se nr 2.
 //2. Hvorfor fungerer ikke setBallOverStriker() - vi proever at shifte en char! HAHA
->>>>>>> parent of 96f3e79... Revert "gitty"
+

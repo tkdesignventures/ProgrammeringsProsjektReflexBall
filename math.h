@@ -14,6 +14,6 @@ int arcsin(int x);
 void rotate(Ball * ball, int ang);
 long expand(long i);
 void printFix(long i);
-long abs(long a);
+//long abs(long a);
 
 #endif

@@ -12,7 +12,7 @@
 #define TOP_EDGE_COORD 2
 #define BLANK 0
 #define EDGE 180
-#define TOP 196
+#define TOP_EDGE 196
 #define STRIKER 220
   typedef struct{
   long x,y,xdir, ydir;
@@ -24,8 +24,8 @@
   } Box;
 
   void moveBall(Ball * ball);
-  unsigned char moveStriker(long * x, char direction);
-  void checkBall(Ball * ball, int x);
+  void moveStriker(long * x, char direction);
+  unsigned char checkBall(Ball * ball, int x);
   long toTerminalCoordinates(long x);
   void setBallOverStriker( Ball * ball,  long st);
 #endif
