@@ -74,10 +74,10 @@ unsigned char checkBall(Ball * ball, int x){
     if ((toTerminalCoordinates(ball->x) == L_EDGE_COORD) || (toTerminalCoordinates(ball->x) == R_EDGE_COORD)){
       return EDGE;
     }
-    else if(ball->y == TOP_EDGE_COORD){
+    else if(toTerminalCoordinates(ball->y) == TOP_EDGE_COORD){
       return TOP_EDGE;
     }
-    else if(ball->x == x && ball-> y ==STRIKER_Y){
+    else if(toTerminalCoordinates(ball->x) == x && toTerminalCoordinates(ball-> y) ==STRIKER_Y){
       return STRIKER;
     }
     else

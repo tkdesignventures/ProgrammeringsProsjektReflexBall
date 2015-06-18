@@ -10,7 +10,7 @@
 #define STRIKER_Y  60
 #define STRIKER_START  20
 #define TOP_EDGE_COORD 2
-#define BLANK 0
+#define BLANK 32
 #define EDGE 180
 #define TOP_EDGE 196
 #define STRIKER 220

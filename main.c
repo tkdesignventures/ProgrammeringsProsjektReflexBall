@@ -36,9 +36,8 @@
 		drawStriker(strikerx,0);
 		setTimer();
 
-		gotoxy(80,15);
-		printf("Lives: %d    ", lives);
-
+		gotoxy(R_EDGE_COORD + 5,15);
+		printf("Extra lives left: %d    ", lives);
 
         while(lives >= 0){
 			     	key = getKey();
@@ -66,8 +65,8 @@
 								ball.outOfBounds = 0;
 								lives--;
 								waitStart = 1;
-								gotoxy(80,15);
-								printf("Lives: %d    ", lives);
+								gotoxy(R_EDGE_COORD + 5,15);
+								printf("Extra lives left: %d    ", lives);
 							}
 							moveBall(&ball);
 							drawBall(toTerminalCoordinates(ball.x),toTerminalCoordinates(ball.y),0);
