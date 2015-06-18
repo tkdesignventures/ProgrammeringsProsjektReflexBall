@@ -1,0 +1,45 @@
+Gammel angle bounce
+	  /*
+      yd = abs(ball->ydir);
+      yd = yd >> 5;
+      angleIn = arcsin((int)yd);
+      angleIn2 = 128 - angleIn;
+
+      if(right){
+        rotate(ball, (256+128-angleIn));
+      }else{
+        rotate(ball, (angleIn+128));
+      }
+	
+		gotoxy(80,18);
+      //Left part of striker
+      if(nextPosX >= x - STRIKER_WIDTH && nextPosX < x){
+        if(right){
+          rotate(ball,(angleIn2/3));
+        }else{
+          rotate(ball,- (int)(3*angleIn2));
+        }
+
+		yd = abs(ball->ydir);
+      	yd = yd >> 5;
+		printf("standard angle: %d ", arcsin((int)yd));
+
+		printf("_Left_");
+      //Middle part of striker
+      }else if (nextPosX == x){
+        ball->ydir *= -1;
+		printf("_Middle_");
+      //Right part of striker
+      }else{
+        if(right){
+          rotate(ball,(int)(3*angleIn2));
+        }else{
+          rotate(ball,-(int)(angleIn2/3));
+        }
+		printf("_Right_");
+      }
+		yd = abs(ball->ydir);
+      	yd = yd >> 5;
+
+	  printf("    angle out: %d ", arcsin((int)yd));
+	  */

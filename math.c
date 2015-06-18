@@ -3,15 +3,19 @@
 #include <eZ8.h>             // special encore constants, macros and flash routines
 #include <sio.h>
 #include "refball.h"
+
 long sin(int x){
 	return SIN[0x01FF & x];
 }
 
 long cos(int x){
-return sin(x+128);
+	return sin(x+128);
 }
 
 int arcsin(int y){
+char sign = 1;
+
+/*
 	while(y >= 512){
 		y -= 512;
 	}
@@ -19,9 +23,11 @@ int arcsin(int y){
 		y += 512;
 	}
 
-
-
-	return (ARCSIN[y]);
+*/
+if(y < 0){
+	sign = -1;
+}
+	return (sign * ARCSIN[0x01FF & y]);
 }
 
 

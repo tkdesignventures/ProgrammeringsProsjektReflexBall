@@ -10,7 +10,7 @@ void moveBall(Ball * ball){
   ball->y += ball->ydir;
 }
 
-void moveStriker(char * x,char direction){
+void moveStriker(long * x,char direction){
     if(direction && ((*x + STRIKER_WIDTH+1) <R_EDGE_COORD))
         * x += 1;
 
@@ -18,60 +18,48 @@ void moveStriker(char * x,char direction){
         * x -= 1;
 }
 
-void checkBall(Ball * ball, unsigned char x){
+void checkBall(Ball * ball, int x){
   int angleIn;
   int angleIn2;
   int angleOut;
-  int yd;
+  long yd;
   char right;
   char nextPosX, nextPosY;
   nextPosX = toTerminalCoordinates(ball->x + ball->xdir);
   nextPosY = toTerminalCoordinates(ball->y + ball->ydir);
     if((nextPosY == STRIKER_Y) && (nextPosX >= (x - STRIKER_WIDTH)) && nextPosX <= (x + STRIKER_WIDTH)){
-
+	
 
       if(ball->xdir > 0){
         right = 1;
       }else{
         right = 0;
       }
-      gotoxy(80,30);
-      printf("right: _%d_",right);
-      yd = abs(ball->ydir);
-      yd = yd >> 5;
-      angleIn = arcsin(yd);
-      angleIn2 = 128 - angleIn;
+     
+		
+	  	ball->ydir *= -1;
 
-      if(right){
-        rotate(ball, (256+128-angleIn));
-      }else{
-        rotate(ball, (angleIn+128));
-      }
-	
-		gotoxy(50,20);
-      //Left part of striker
-      if(nextPosX >= x - STRIKER_WIDTH && nextPosX < x){
-        if(right){
-          rotate(ball,(angleIn2/3));
-        }else{
-          rotate(ball,- (int)(3*angleIn2));
-        }
-		printf("_Left_");
-      //Middle part of striker
-      }else if (nextPosX == x){
-        ball->ydir *= -1;
-		printf("_Middle_");
-      //Right part of striker
-      }else{
-        if(right){
-          rotate(ball,(int)(3*angleIn2));
-        }else{
-          rotate(ball,-(int)(angleIn2/3));
-        }
-		printf("_Right_");
-      }
+	  	//Left part of striker
+		if(nextPosX >= x - STRIKER_WIDTH && nextPosX < x){
+        	if(right){
+				rotate(ball, -(int)43);
+			}else{
+				rotate(ball, (int)43);
+			}	
 
-      
+      	//Middle part of striker
+      	}else if (nextPosX == x){
+        
+      	//Right part of striker
+      	}else{
+       		if(right){
+				rotate(ball, (int)43);
+			}else{
+				rotate(ball, -(int)43);
+			}
+		}
+
+
     }
     else if(nextPosX >= R_EDGE_COORD || nextPosX <= L_EDGE_COORD){
       ball->xdir *= -1;
@@ -93,10 +81,12 @@ long toTerminalCoordinates(long x){
 
 }
 
-void setBallOverStriker( Ball * ball, int st){
+void setBallOverStriker( Ball * ball, long st){
 	ball->x = (st << FIX14_SHIFT);
 	ball->y = ((STRIKER_Y-OVER_STRIKER) << FIX14_SHIFT);
 	
-  ball->xdir = 0 << FIX14_SHIFT;
-  ball->ydir = 1 << FIX14_SHIFT;
+  ball->xdir = (-11 << (FIX14_SHIFT - 4));
+  ball->ydir = (-11 << (FIX14_SHIFT - 4));
+
+
 }

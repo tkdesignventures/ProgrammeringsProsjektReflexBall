@@ -8,45 +8,39 @@
 #include "math.h"
   void main(){
   	  Ball ball;
-  	  char strikerx;
+  	  long strikerx;
 	    char key;
 		char waitStart;
 	    unsigned long refreshTime;
   		init_uart(_UART0,_DEFFREQ,_DEFBAUD);
   		clrscr();
+
       //Initialize
       strikerx = 30;
       refreshTime = 100;
-      ball.x = 30 << FIX14_SHIFT;
-      ball.y = 12 << FIX14_SHIFT;
+      ball.x = 5 << FIX14_SHIFT;
+      ball.y = 5 << FIX14_SHIFT;
 	  waitStart = 1;
-
+/*
+	  //X- and Y-component are set to .707
       ball.xdir = (-11 << (FIX14_SHIFT - 4));
       ball.ydir = (-11 << (FIX14_SHIFT - 4));
-
-	  //setBallOverStriker(&ball, strikerx);
-	  gotoxy(15,15);
+*/
+	  setBallOverStriker(&ball, strikerx);
 	  
-	  
-	  
-      drawBounds(L_EDGE_COORD,TOP_EDGE_COORD,R_EDGE_COORD,OUT_OF_BOUNDS);
+      	drawBounds(L_EDGE_COORD,TOP_EDGE_COORD,R_EDGE_COORD,OUT_OF_BOUNDS);
 	    drawBall(toTerminalCoordinates(ball.x),toTerminalCoordinates(ball.y),0);
 		drawStriker(strikerx,0);
-
-
-		    setTimer();
+		setTimer();
 
 
 
         for(;;){
-          gotoxy(20,20);
-         
+			     	key = getKey();
 
-          			key = getKey();
     				if(key == 1){
-					gotoxy(10,10);
-					printf("Rotate");
-					rotate(&ball, 20);
+					gotoxy(7,10);
+					printf("Left button");
 					waitStart = 0;
 					}
 
@@ -58,29 +52,33 @@
 	                		moveDrawStriker(strikerx,0);
 	                 }
 				
-				if(!waitStart){
-				
-					if(getCentis()- GAMESPEED > refreshTime){
+			
+					if((getCentis()- GAMESPEED) > refreshTime){
 
-							  refreshTime = getCentis();
-							  drawBall(toTerminalCoordinates(ball.x),toTerminalCoordinates(ball.y),7);
+						if(!waitStart){
+							refreshTime = getCentis();
+							drawBall(toTerminalCoordinates(ball.x),toTerminalCoordinates(ball.y),7);
 							moveBall(&ball);
 							drawBall(toTerminalCoordinates(ball.x),toTerminalCoordinates(ball.y),0);
-						  checkBall(&ball,strikerx);
+							checkBall(&ball,strikerx);
+							gotoxy(10,10);
+							
+
+						}else{
+						drawBall(toTerminalCoordinates(ball.x),toTerminalCoordinates(ball.y),7);
+ 					    setBallOverStriker(&ball, strikerx);
+						drawBall(toTerminalCoordinates(ball.x),toTerminalCoordinates(ball.y),0);
+						}
 
 
 				  }
-				}else{
-					ball.x = strikerx;
-					ball.y = STRIKER_Y + OVER_STRIKER;
-				}
-    }
+			}//for	
 	
 
 }
 
-//Spørsmål til i morgen:
-//0. Hvorfor kan bolden køre gjennem strikeren
-//1. Hvorfor flytter ikke bolden sig
-//2. Hvorfor fungerer ikke setBallOverStriker()
+//Spoersmaal til i morgen:
+//0. Hvorfor kan bolden k�re gjennem strikeren
+//1. Hvorfor flytter ikke bolden sig - se nr 2.
+//2. Hvorfor fungerer ikke setBallOverStriker() - vi proever at shifte en char! HAHA
 
