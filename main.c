@@ -7,19 +7,22 @@
 #include "ansi.h"
 #include "math.h"
   void main(){
-  	  Ball ball;
-  	  long strikerx;
-	    char key;
+  	  	Ball ball;
+  	  	long strikerx;
+	  	char key;
+		char lives;
 		char waitStart;
 	    unsigned long refreshTime;
   		init_uart(_UART0,_DEFFREQ,_DEFBAUD);
   		clrscr();
 
       //Initialize
+	  lives = 2;
       strikerx = 30;
       refreshTime = 100;
       ball.x = 5 << FIX14_SHIFT;
       ball.y = 5 << FIX14_SHIFT;
+	  ball.outOfBounds = 0;
 	  waitStart = 1;
 /*
 	  //X- and Y-component are set to .707
@@ -35,7 +38,7 @@
 
 
 
-        for(;;){
+        while(lives >= 0){
 			     	key = getKey();
 
     				if(key == 1){
@@ -61,7 +64,13 @@
 							moveBall(&ball);
 							drawBall(toTerminalCoordinates(ball.x),toTerminalCoordinates(ball.y),0);
 							checkBall(&ball,strikerx);
-							gotoxy(10,10);
+							if(ball.outOfBounds){
+								ball.outOfBounds = 0;
+								lives--;
+								waitStart = 1;
+								gotoxy(80,15);
+								printf("Lives: %d    ", lives);
+							}
 							
 
 						}else{
@@ -81,4 +90,3 @@
 //0. Hvorfor kan bolden køre gjennem strikeren
 //1. Hvorfor flytter ikke bolden sig - se nr 2.
 //2. Hvorfor fungerer ikke setBallOverStriker() - vi proever at shifte en char! HAHA
-
