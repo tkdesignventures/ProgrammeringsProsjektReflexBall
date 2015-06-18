@@ -10,10 +10,11 @@ void drawBox(unsigned char x, unsigned char y,unsigned char color){
 	drawBounds(x,y,x+(BOXSIZE-1),y+1);
 	//draws last line
 	gotoxy(x,y+1);
-	printf("%c",192)
-	for(j=0; j < (BOXSIZE-2); j++)
-	printf("%c"),196);
-	printf("%c"),217);
+	printf("%c",192);
+	for(j=0; j < (BOXSIZE-2); j++){
+	printf("%c",196);
+	}
+	printf("%c",217);
 	fgcolor(0);
 }
 void fixBall(unsigned char x, unsigned char y,char tegn){
