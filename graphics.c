@@ -12,10 +12,14 @@ void drawBox(unsigned char x, unsigned char y,unsigned char color){
 	printf("%c%c%c",192,196,217);
 	fgcolor(0);
 }
+void fixBall(unsigned char x, unsigned char y,char tegn){
+	gotoxy(x,y);
+	prinft("%c",tegn);
+}
 void drawBall(unsigned char x, unsigned char y, unsigned char color){
 	fgcolor(color);
 	gotoxy(x,y);
-	printf("%c",127);
+	printf("%c", 111);
 	fgcolor(0);
 }
 void moveDrawStriker(unsigned char x, unsigned char direction){
@@ -32,7 +36,7 @@ void moveDrawStriker(unsigned char x, unsigned char direction){
 		printf("%c",220);
 	}
 }
-void drawStriker(unsigned char x, u unsigned char color){
+void drawStriker(unsigned char x, unsigned char color){
 	unsigned char i;
 	fgcolor(color);
 	gotoxy(x-2,STRIKER_Y);
@@ -68,4 +72,89 @@ void drawBounds(int x1,int y1, int x2, int y2){
 		printf("%c",vs);
 	}
 
+}
+
+void drawLogo(){
+	gotoxy(2,2);
+	printf("||******************************************||\n");
+
+	printf(" _____       __ _             ____        _ _ \n");
+	printf("|  __ \     / _| |           |  _ \      | | |\n");
+	printf("| |__) |___| |_| | _____  __ | |_) | __ _| | |\n");
+	printf("|  _  // _ \  _| |/ _ \ \/ / |  _ < / _` | | |\n");
+	printf("| | \ \  __/ | | |  __/>  <  | |_) | (_| | | |\n");
+	printf("|_|  \_\___|_| |_|\___/_/\_\ |____/ \__,_|_|_|\n");
+
+	printf("||******************************************||\n");
+
+	printf("Group 3, s144012, s144045, s144021, June 2015   ");
+	//printf("Ver. 0.2.0.3 Beta\n                             ");
+
+}
+
+void drawGameOver(){
+	gotoxy(10,5);
+	printf(" .----------------.  .----------------.  .----------------.  .----------------.  \n");
+	gotoxy(10,6);
+	printf("| .--------------. || .--------------. || .--------------. || .--------------. |\n");
+	gotoxy(10,7);
+	printf("| |    ______    | || |      __      | || | ____    ____ | || |  _________   | | \n");
+	gotoxy(10,8);
+	printf("| |  .' ___  |   | || |     /  \     | || ||_   \  /   _|| || | |_   ___  |  | | \n");
+	gotoxy(10,9);
+	printf("| | / .'   \_|   | || |    / /\ \    | || |  |   \/   |  | || |   | |_  \_|  | | \n");
+	gotoxy(10,10);
+	printf("| | | |    ____  | || |   / ____ \   | || |  | |\  /| |  | || |   |  _|  _   | | \n");
+	gotoxy(10,11);
+	printf("| | \ `.___]  _| | || | _/ /    \ \_ | || | _| |_\/_| |_ | || |  _| |___/ |  | |  \n");
+	gotoxy(10,12);
+	printf("| |  `._____.'   | || ||____|  |____|| || ||_____||_____|| || | |_________|  | |\n");
+	gotoxy(10,13);
+	printf("| |              | || |              | || |              | || |              | | \n");
+	gotoxy(10,14);
+	printf("| '--------------' || '--------------' || '--------------' || '--------------' |  \n");
+	gotoxy(10,15);
+	printf(" '----------------'  '----------------'  '----------------'  '----------------'   \n");
+	gotoxy(10,16);
+	printf("\n");
+	gotoxy(10,17);
+	printf(" .----------------.  .----------------.  .----------------.  .----------------.  \n");
+	gotoxy(10,18);
+	printf("| .--------------. || .--------------. || .--------------. || .--------------. |\n");
+	gotoxy(10,19);
+	printf("| |     ____     | || | ____   ____  | || |  _________   | || |  _______     | |\n");
+	gotoxy(10,20);
+	printf("| |   .'    `.   | || ||_  _| |_  _| | || | |_   ___  |  | || | |_   __ \    | |\n");
+	gotoxy(10,21);
+	printf("| |  /  .--.  \  | || |  \ \   / /   | || |   | |_  \_|  | || |   | |__) |   | |\n");
+	gotoxy(10,22);
+	printf("| |  | |    | |  | || |   \ \ / /    | || |   |  _|  _   | || |   |  __ /    | |\n");
+	gotoxy(10,23);
+	printf("| |  \  `--'  /  | || |    \ ' /     | || |  _| |___/ |  | || |  _| |  \ \_  | |\n");
+	gotoxy(10,24);
+	printf("| |   `.____.'   | || |     \_/      | || | |_________|  | || | |____| |___| | | \n");
+	gotoxy(10,25);
+	printf("| |              | || |              | || |              | || |              | | \n");
+	gotoxy(10,26);
+	printf("| '--------------' || '--------------' || '--------------' || '--------------' |\n");
+	gotoxy(10,27);
+	printf(" '----------------'  '----------------'  '----------------'  '----------------' \n");
+	printf("\n");
+}
+
+void printDifficulty(short diff){
+	fgcolor(1);
+	bgcolor(7);
+
+	gotoxy(25,LINE_NUMBER + 1);
+
+	if(diff == 1){
+		printf(" [Easy]   ");
+	}else if(diff == 2){
+		printf(" [Medium] ");
+	}else if(diff == 3){
+		printf(" [Hard]   ");
+	}else{
+		printf(" [Error]  ");
+	}
 }

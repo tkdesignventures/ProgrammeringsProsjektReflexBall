@@ -2,7 +2,7 @@
 #define _REFBALL_H_
 #define STRIKER_SPEED 2
 #define L_EDGE_COORD 2
-#define R_EDGE_COORD 160
+#define R_EDGE_COORD 120
 #define STRIKER_WIDTH 4
 #define OUT_OF_BOUNDS 65
 #define GAMESPEED 1
