@@ -8,6 +8,7 @@
 #include "math.h"
   void main(){
   	  	Ball ball;
+		Box * box = newBoxStack();
   	  	long strikerx;
 	  	  char key;
 		    char lives;
@@ -31,8 +32,9 @@
 	  setBallOverStriker(&ball, strikerx);
 
       	drawBounds(L_EDGE_COORD,TOP_EDGE_COORD,R_EDGE_COORD,OUT_OF_BOUNDS);
+		createBoxes(box,0);
 	    drawBall(toTerminalCoordinates(ball.x),toTerminalCoordinates(ball.y),0);
-		drawBall(10,10,3);
+	
 		drawStriker(strikerx,0);
 		setTimer();
 
@@ -60,8 +62,8 @@
 
 						if(!waitStart){
 							refreshTime = getCentis();
-              fixBall(toTerminalCoordinates(ball.x),toTerminalCoordinates(ball.y),	checkBall(&ball,strikerx));
-              if(ball.outOfBounds){
+              				fixBall(toTerminalCoordinates(ball.x),toTerminalCoordinates(ball.y),	checkBall(&ball,strikerx));
+              				if(ball.outOfBounds){
 								ball.outOfBounds = 0;
 								lives--;
 								waitStart = 1;
