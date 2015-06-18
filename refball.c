@@ -18,7 +18,7 @@ void moveStriker(long * x,char direction){
         * x -= 1;
 }
 
-void checkBall(Ball * ball, int x){
+unsigned char checkBall(Ball * ball, int x){
   int angleIn;
   int angleIn2;
   int angleOut;
@@ -28,15 +28,15 @@ void checkBall(Ball * ball, int x){
   nextPosX = toTerminalCoordinates(ball->x + ball->xdir);
   nextPosY = toTerminalCoordinates(ball->y + ball->ydir);
     if((nextPosY == STRIKER_Y) && (nextPosX >= (x - STRIKER_WIDTH)) && nextPosX <= (x + STRIKER_WIDTH)){
-	
+
 
       if(ball->xdir > 0){
         right = 1;
       }else{
         right = 0;
       }
-     
-		
+
+
 	  	ball->ydir *= -1;
 
 	  	//Left part of striker
@@ -45,11 +45,11 @@ void checkBall(Ball * ball, int x){
 				rotate(ball, -(int)43);
 			}else{
 				rotate(ball, (int)43);
-			}	
+			}
 
       	//Middle part of striker
       	}else if (nextPosX == x){
-        
+
       	//Right part of striker
       	}else{
        		if(right){
@@ -70,7 +70,17 @@ void checkBall(Ball * ball, int x){
     else if(nextPosY >= OUT_OF_BOUNDS){
 		ball->outOfBounds = 1;
     }
-
+    if (toTerminalCoordinates(ball->x) == L_EDGE_COORD || toTerminalCoordinates(ball->x) R_EDGE_COORD){
+      return EDGE;
+    }
+    else if(ball->y == TOP_EDGE_COORD){
+      return TOP_EDGE;
+    }
+    else if(ball->x == x && ball-> y ==STRIKER_Y){
+      return STRIKER;
+    }
+    else
+      return BLANK;
 
 }
 long toTerminalCoordinates(long x){
@@ -83,9 +93,41 @@ long toTerminalCoordinates(long x){
 void setBallOverStriker( Ball * ball, long st){
 	ball->x = (st << FIX14_SHIFT);
 	ball->y = ((STRIKER_Y-OVER_STRIKER) << FIX14_SHIFT);
-	
+
   ball->xdir = (-11 << (FIX14_SHIFT - 4));
   ball->ydir = (-11 << (FIX14_SHIFT - 4));
 
 
 }
+Box * newBoxStack(void) {
+    Box * stackContents;
+    stackContents = malloc(sizeof(Box));
+    stackContents-> size = 0;
+    stackContents-> capacity = 1;
+    stackContents->x= malloc(sizeof(char));
+    stackContents->y = malloc(sizeof(char));
+    stackContents->durability = malloc(sizeof(char));
+    return stackContents;
+}
+
+void createBoxes( Box * box,char level){ //Creates and draws boxes
+	unsigned char j,i;
+
+			     for(j=0;j<2;j++){
+				         for(i = L_EDGE_COORD + 3; i < (R_EDGE_COORD-3); i+=3){
+                        if (box->capacity == box->size) {
+                                    box->x = realloc(box->x,(box->capacity+10) *sizeof(char));
+                                    box->y = realloc(box->y,(box->capacity+10) *sizeof(char));
+                                    box->durability = realloc(box->durability,(box->capacity+10) *sizeof(char));
+                                    box->capacity+=10;
+
+                                    }
+                        box->x[box->size] = i;
+                      	box->y[box->size] = TOP_EDGE_COORD+4+j*2;
+                      	box->durability[box->size] = 1;
+                      	drawBox(box->x[box->size],box->y[box->size],0);
+                        box->size++;
+
+                      }
+          }
+  }

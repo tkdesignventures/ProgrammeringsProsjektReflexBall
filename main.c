@@ -9,13 +9,12 @@
   void main(){
   	  	Ball ball;
   	  	long strikerx;
-	  	char key;
-		char lives;
-		char waitStart;
-	    unsigned long refreshTime;
-  		init_uart(_UART0,_DEFFREQ,_DEFBAUD);
-  		clrscr();
-
+	  	  char key;
+		    char lives;
+		    char waitStart;
+  	    unsigned long refreshTime;
+    		init_uart(_UART0,_DEFFREQ,_DEFBAUD);
+    		clrscr();
       //Initialize
 	  lives = 2;
       strikerx = 30;
@@ -30,7 +29,7 @@
       ball.ydir = (-11 << (FIX14_SHIFT - 4));
 */
 	  setBallOverStriker(&ball, strikerx);
-	  
+
       	drawBounds(L_EDGE_COORD,TOP_EDGE_COORD,R_EDGE_COORD,OUT_OF_BOUNDS);
 	    drawBall(toTerminalCoordinates(ball.x),toTerminalCoordinates(ball.y),0);
 		drawStriker(strikerx,0);
@@ -54,24 +53,25 @@
 	      					moveStriker(&strikerx,0);
 	                		moveDrawStriker(strikerx,0);
 	                 }
-				
-			
+
+
 					if((getCentis()- GAMESPEED) > refreshTime){
 
 						if(!waitStart){
 							refreshTime = getCentis();
-							drawBall(toTerminalCoordinates(ball.x),toTerminalCoordinates(ball.y),7);
-							moveBall(&ball);
-							drawBall(toTerminalCoordinates(ball.x),toTerminalCoordinates(ball.y),0);
-							checkBall(&ball,strikerx);
-							if(ball.outOfBounds){
+              fixBall(toTerminalCoordinates(ball.x),toTerminalCoordinates(ball.y),	checkBall(&ball,strikerx));
+              if(ball.outOfBounds){
 								ball.outOfBounds = 0;
 								lives--;
 								waitStart = 1;
 								gotoxy(80,15);
 								printf("Lives: %d    ", lives);
 							}
-							
+							moveBall(&ball);
+							drawBall(toTerminalCoordinates(ball.x),toTerminalCoordinates(ball.y),0);
+
+
+
 
 						}else{
 						drawBall(toTerminalCoordinates(ball.x),toTerminalCoordinates(ball.y),7);
@@ -81,12 +81,12 @@
 
 
 				  }
-			}//for	
-	
+			}//for
+
 
 }
 
 //Spoersmaal til i morgen:
-//0. Hvorfor kan bolden køre gjennem strikeren
+//0. Hvorfor kan bolden kï¿½re gjennem strikeren
 //1. Hvorfor flytter ikke bolden sig - se nr 2.
 //2. Hvorfor fungerer ikke setBallOverStriker() - vi proever at shifte en char! HAHA
