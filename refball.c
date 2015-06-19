@@ -25,7 +25,7 @@ unsigned char checkBall(Ball * ball,Box * box,  int x){
   int angleOut;
   long yd;
   char right;
-  char nextPosX, nextPosY;
+  unsigned char nextPosX, nextPosY, boxX,boxY;
   unsigned char j;
   unsigned char xt = toTerminalCoordinates(ball->x);
   unsigned char yt = toTerminalCoordinates(ball->y);
@@ -76,24 +76,40 @@ unsigned char checkBall(Ball * ball,Box * box,  int x){
     }
 
     else{
-
-        for(j=0; j < box->capacity; j++){
-
-          if((box->durability[j] > 0) && (nextPosX >= box->x[j] && nextPosX < box->x[j]+BOXSIZE) && (box->y[j] == nextPosY || box->y[j] == yt+1))  // Boksene har en bredde på 3, vi tester alle koordinater
+		//Test for box hit
+        for(j=0; j < box->size; j++){
+		boxX = box->x[j];
+		boxY = box->y[j];
+          if((box->durability[j] > 0) && (nextPosX >= boxX && nextPosX < (boxX+BOXSIZE)) && (boxY == nextPosY || boxY == (nextPosY + 1)))  // Boksene har en bredde på 3, vi tester alle koordinater
               {
+			  	
+				
+				
 
-                if((xt >= box->x[j]) && (xt < box->x[j]+BOXSIZE))
+			  	
+				gotoxy(115,1 + j);
+				printf("index: %d", j);
+
+				gotoxy(130,10);
+
+                if((xt >= boxX) && (xt < boxX+BOXSIZE)){
                 ball->ydir *= -1;
+				printf("top / bottom  ");
 
-                else if(yt == box->y[j] || yt == box->y[j]+1)
+                }else if(yt == boxY || yt == boxY+1){
                 ball->xdir *= -1;
+				printf("side          ");
 
-                else{
+                }else{
                   ball->xdir *= -1;
                   ball->ydir *= -1;
+				  printf("skr�       ");
                 }
-            if(!(--box->durability[j]))
-            drawBox(box->x[j],box->y[j],7);
+				box->durability[j]--;
+				if(box->durability[j]== 0){
+				drawBox(boxX,boxY,7);
+				
+			}
             }
         }
 
@@ -128,7 +144,7 @@ void setBallOverStriker( Ball * ball, long st){
 
 }
 
-Box * newBoxStack(void) {
+Box * newBoxStack() {
     Box * stackContents;
     stackContents = malloc(sizeof(Box));
     stackContents-> size = 0;
@@ -156,7 +172,7 @@ void createBoxes( Box * box,char level){ //Creates and draws boxes
                       	box->durability[box->size] = 1;
                       	drawBox(box->x[box->size],box->y[box->size],0);
                         box->size++;
-
                       }
           }
+
   }
