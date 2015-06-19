@@ -5,7 +5,7 @@
 #define R_EDGE_COORD 120
 #define STRIKER_WIDTH 4
 #define OUT_OF_BOUNDS 65
-#define GAMESPEED 1
+#define GAMESPEED 5
 #define OVER_STRIKER 20
 #define STRIKER_Y  60
 #define STRIKER_START  20
@@ -15,12 +15,14 @@
 #define TOP_EDGE 196
 #define STRIKER 220
 #define BOXSIZE 6
+#define MAX_BOXES 50
   typedef struct{
   long x,y,xdir, ydir;
   unsigned char power, outOfBounds;
   } Ball;
   typedef struct{
-    unsigned char *x, *y, * durability;
+    unsigned char *x, *y;
+	unsigned char * durability;
     unsigned char size, capacity;
   } Box;
 

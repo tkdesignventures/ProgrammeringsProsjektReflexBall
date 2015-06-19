@@ -128,14 +128,13 @@ void setBallOverStriker( Ball * ball, long st){
 
 }
 
-Box * newBoxStack(void) {
+Box * newBoxStack() {
     Box * stackContents;
     stackContents = malloc(sizeof(Box));
     stackContents-> size = 0;
-    stackContents-> capacity = 1;
-    stackContents->x= malloc(sizeof(char));
-    stackContents->y = malloc(sizeof(char));
-    stackContents->durability = malloc(sizeof(char));
+    stackContents->x= malloc(sizeof(char)*MAX_BOXES);
+    stackContents->y = malloc(sizeof(char)*MAX_BOXES);
+    stackContents->durability = malloc(sizeof(char)*MAX_BOXES);
     return stackContents;
 }
 
@@ -143,21 +142,10 @@ void createBoxes( Box * box,char level){ //Creates and draws boxes
 	unsigned char j,i;
   unsigned char * xtemp, * ytemp, * dtemp;
 
+
 			     for(j=0;j<2;j++){
 				         for(i = L_EDGE_COORD + 5; i < (R_EDGE_COORD-5); i+=BOXSIZE){
-                        if (box->capacity == box->size) {
-                                    xtemp = realloc(box->x,(box->capacity+10) *sizeof(char));
-                                    ytemp = realloc(box->y,(box->capacity+10) *sizeof(char));
-                                    dtemp->durability = realloc(box->durability,(box->capacity+10) *sizeof(char));
-                                    box->capacity+=10;
-                                    if(xtemp == NULL || ytemp == NULL || dtemp = NULL){
-                                      gotoxy(30,30);
-                                      printf("ERROR!");
-                                    }
-                                    box-> x = xtemp;
-                                    box->y = ytemp;
-                                    box-> durability = dtemp;
-                                    }
+					
                         box->x[box->size] = i;
                       	box->y[box->size] = TOP_EDGE_COORD+4+j*2;
                       	box->durability[box->size] = 1;
