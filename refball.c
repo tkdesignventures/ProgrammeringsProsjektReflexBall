@@ -79,7 +79,7 @@ unsigned char checkBall(Ball * ball,Box * box,  int x){
 
         for(j=0; j < box->capacity; j++){
 
-          if((box->durability[j] > 0) && (nextPosX >= box->x[j] && nextPosX < box->x[j]+BOXSIZE) && (box->y[j] == nextPosY || box->y[j] == yt+1))  // Boksene har en bredde på 3, vi tester alle koordinater
+          if((box->durability[j] > 0) && (nextPosX >= box->x[j] && nextPosX < box->x[j]+BOXSIZE) && (box->y[j] == nextPosY || box->y[j] == nextPosY+1))  // Boksene har en bredde på 3, vi tester alle koordinater
               {
 
                 if((xt >= box->x[j]) && (xt < box->x[j]+BOXSIZE))
@@ -141,15 +141,23 @@ Box * newBoxStack(void) {
 
 void createBoxes( Box * box,char level){ //Creates and draws boxes
 	unsigned char j,i;
+  char * xtemp, * ytemp, * dtemp;
 
 			     for(j=0;j<2;j++){
 				         for(i = L_EDGE_COORD + 5; i < (R_EDGE_COORD-5); i+=BOXSIZE){
                         if (box->capacity == box->size) {
-                                    box->x = realloc(box->x,(box->capacity+10) *sizeof(char));
-                                    box->y = realloc(box->y,(box->capacity+10) *sizeof(char));
-                                    box->durability = realloc(box->durability,(box->capacity+10) *sizeof(char));
+                                    xtemp = realloc(box->x,(box->capacity+10) *sizeof(char));
+                                    ytemp= realloc(box->y,(box->capacity+10) *sizeof(char));
+                                    dtemp->durability = realloc(box->durability,(box->capacity+10) *sizeof(char));
                                     box->capacity+=10;
+                                    if(xtemp == NULL || ytemp == NULL || dtemp == NULL ){
+                                      gotoxy(30,30);
+                                      printf("ERROR!!\n");
 
+                                    }
+                                    box->x = xtemp;
+                                    box->y = ytemp;
+                                    box->durability = dtemp;
                                     }
                         box->x[box->size] = i;
                       	box->y[box->size] = TOP_EDGE_COORD+4+j*2;
