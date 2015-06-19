@@ -20,7 +20,7 @@ char readKey(){
 char getKey(){
 	char key;
 	key=readKey();
-	setDelay(5);
+	setDelay(10);
 	while(getDelay()>0){
 	}
 	return key &=readKey();

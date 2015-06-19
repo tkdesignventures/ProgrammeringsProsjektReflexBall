@@ -147,9 +147,11 @@ void drawGameOver(){
 	printf("| '--------------' || '--------------' || '--------------' || '--------------' |\n");
 	gotoxy(10,27);
 	printf(" '----------------'  '----------------'  '----------------'  '----------------' \n");
+	
+	
+	
 	//Makes the Game Over text stay on the screen for a little while
-
-	for(i = 0; i < 2; i++){
+	for(i = 0; i < 3; i++){
 		gotoxy(10,28);
 		printf("                                                                                                  \n");
 		printf("                                                                                                  \n");

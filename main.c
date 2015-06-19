@@ -6,32 +6,93 @@
 #include <sio.h>
 #include "ansi.h"
 #include "math.h"
-  void main(){
+#include "menu.h"
+
+void Game(char difficulty);
+
+void main(){
+	int selectedOption;
+	char key;
+	short difficulty;
+	
+	difficulty = 1;
+	selectedOption = 1;
+	
+	init_uart(_UART0,_DEFFREQ,_DEFBAUD);
+	initiateMenu();
+	
+	for(;;){
+		key = readKey();
+		
+		
+		//Navigates the menu
+		while(key != KEY_RIGHT){
+			//Move up
+			if(key == KEY_MIDDLE){
+				selectedOption++;
+			//Move down
+			}else if(key == KEY_LEFT){
+				selectedOption--;
+			}
+			if(selectedOption >= 4){
+				selectedOption = 1;
+			}else if(selectedOption <= 0){
+				selectedOption = 3;
+			}
+			moveMarker(selectedOption);
+			key = readKey();
+		}
+		
+		if(selectedOption == 1){
+			Game(difficulty);
+			drawGameOver();
+			initiateMenu();
+		}else if(selectedOption == 2){
+			difficulty ++;
+			if(difficulty >= 4){
+				difficulty = 1;
+			}
+			printDifficulty(difficulty);
+		}
+		else if(selectedOption == 3){
+			printHelp();
+		}
+		
+	
+	}
+	
+
+	
+	
+}	void Game(char difficulty){
+		
 		int i;
 
   	  	Ball ball;
 		Box * box = newBoxStack();
   	  	long strikerx;
-	  	  char key;
-		    char lives;
-		    char waitStart;
+	  	char key;
+		char lives;
+		char waitStart;
   	    unsigned long refreshTime;
-    		init_uart(_UART0,_DEFFREQ,_DEFBAUD);
-    		clrscr();
-      //Initialize
-	  lives = 20;
-      strikerx = 30;
-      refreshTime = 100;
-      ball.x = 5 << FIX14_SHIFT;
-      ball.y = 5 << FIX14_SHIFT;
-	  ball.outOfBounds = 0;
-	  waitStart = 1;
-/*
-	  //X- and Y-component are set to .707
-      ball.xdir = (-11 << (FIX14_SHIFT - 4));
-      ball.ydir = (-11 << (FIX14_SHIFT - 4));
-*/
-	  setBallOverStriker(&ball, strikerx);
+    	
+    	clrscr();
+
+		  //Initialize
+		  lives = 3;
+		  strikerx = 30;
+		  refreshTime = 100;
+		  ball.x = 5 << FIX14_SHIFT;
+		  ball.y = 5 << FIX14_SHIFT;
+		  ball.outOfBounds = 0;
+		  ball.power = 1;
+		  waitStart = 1;
+	/*
+		  //X- and Y-component are set to .707
+		  ball.xdir = (-11 << (FIX14_SHIFT - 4));
+		  ball.ydir = (-11 << (FIX14_SHIFT - 4));
+	*/
+		  setBallOverStriker(&ball, strikerx);
 
       	drawBounds(L_EDGE_COORD,TOP_EDGE_COORD,R_EDGE_COORD,OUT_OF_BOUNDS,0);
 
@@ -101,22 +162,6 @@
 				  }
 
 			}//while
-			
-			//Free  memory?
-			
-			drawGameOver();
-
-}
-
-
-
 		
-
-
-
-
-//Spoersmaal til i morgen:
-//0. Hvorfor kan bolden k�re gjennem strikeren
-//1. Hvorfor flytter ikke bolden sig - se nr 2.
-//2. Hvorfor fungerer ikke setBallOverStriker() - vi proever at shifte en char! HAHA
-
+	
+	}
