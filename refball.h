@@ -5,7 +5,7 @@
 #define R_EDGE_COORD 120
 #define STRIKER_WIDTH 4
 #define OUT_OF_BOUNDS 65
-#define GAMESPEED 5
+#define GAMESPEED 1
 #define OVER_STRIKER 20
 #define STRIKER_Y  60
 #define STRIKER_START  20

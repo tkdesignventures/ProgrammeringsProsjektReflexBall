@@ -25,7 +25,7 @@ unsigned char checkBall(Ball * ball,Box * box,  int x){
   int angleOut;
   long yd;
   char right;
-  char nextPosX, nextPosY, boxX,boxY;
+  char nextPosX, nextPosY;
   unsigned char j;
   unsigned char xt = toTerminalCoordinates(ball->x);
   unsigned char yt = toTerminalCoordinates(ball->y);
@@ -76,27 +76,24 @@ unsigned char checkBall(Ball * ball,Box * box,  int x){
     }
 
     else{
-		//Test for box hit
-        for(j=0; j < box->size; j++){
-		boxX = box->x[j];
-		boxY = box->y[j];
-          if((box->durability[j] > 0) && (nextPosX >= boxX && nextPosX < (boxX+BOXSIZE)) && (boxY == nextPosY || boxY == (nextPosY + 1)))  // Boksene har en bredde på 3, vi tester alle koordinater
+
+        for(j=0; j < box->capacity; j++){
+
+          if((box->durability[j] > 0) && (nextPosX >= box->x[j] && nextPosX < box->x[j]+BOXSIZE) && (box->y[j] == nextPosY || box->y[j] == yt+1))  // Boksene har en bredde på 3, vi tester alle koordinater
               {
-			  	gotoxy(nextPosX,nextPosY);
-				printf(" <- X");
-                if((xt >= box->x[j]) && (xt < boxX+BOXSIZE))
+
+                if((xt >= box->x[j]) && (xt < box->x[j]+BOXSIZE))
                 ball->ydir *= -1;
 
-                else if(yt == boxY || yt == boxY+1)
+                else if(yt == box->y[j] || yt == box->y[j]+1)
                 ball->xdir *= -1;
 
                 else{
                   ball->xdir *= -1;
                   ball->ydir *= -1;
                 }
-            if(!(--(box->durability[j])))
-				drawBox(boxX,boxY,7);
-				//printf("_DB_");
+            if(!(--box->durability[j]))
+            drawBox(box->x[j],box->y[j],7);
             }
         }
 
@@ -162,6 +159,4 @@ void createBoxes( Box * box,char level){ //Creates and draws boxes
 
                       }
           }
-  		gotoxy(i,TOP_EDGE_COORD+4+j*2);
-		printf("X, Capasity: %d. Size: %d. Last coord: (%d:%d).",box->capacity, box->size,i,TOP_EDGE_COORD+4+j*2);
   }
