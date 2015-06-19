@@ -145,17 +145,35 @@ void createBoxes( Box * box,char level){ //Creates and draws boxes
 	unsigned char j,i;
   unsigned char * xtemp, * ytemp, * dtemp;
 
+				if(level == 1){
+				     for(j=0;j<1;j++){
+					         for(i = L_EDGE_COORD + 5; i < (R_EDGE_COORD-5); i+=BOXSIZE){
+						
+	                        box->x[box->size] = i;
+	                      	box->y[box->size] = TOP_EDGE_COORD+4+j*2;
+	                      	box->durability[box->size] = 1;
+	                      	box->size++;
+							
+	                      }
+	         		 }
+				 }else if(level == 2){
+				     for(j=0;j<2;j++){
+					         for(i = L_EDGE_COORD + 5; i < (R_EDGE_COORD-5); i+=BOXSIZE){
+						
+	                        	box->x[box->size] = i;
+	                      		box->y[box->size] = TOP_EDGE_COORD+4+j*2;
+	                      		box->durability[box->size] = j+1;
+	                      		box->size++;
+	
+	                      }
+	         		 }
 
-			     for(j=0;j<2;j++){
-				         for(i = L_EDGE_COORD + 5; i < (R_EDGE_COORD-5); i+=BOXSIZE){
-					
-                        box->x[box->size] = i;
-                      	box->y[box->size] = TOP_EDGE_COORD+4+j*2;
-                      	box->durability[box->size] = 1;
-                      	drawBox(box->x[box->size],box->y[box->size],0);
-                        box->size++;
+				}
 
-                      }
-         		 }
-				 box->boxesLeft = box->size;
+
+				 
+				box->boxesLeft = box->size;
+				
+
+
   }

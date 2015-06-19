@@ -34,14 +34,16 @@
 	  setBallOverStriker(&ball, strikerx);
 
       	drawBounds(L_EDGE_COORD,TOP_EDGE_COORD,R_EDGE_COORD,OUT_OF_BOUNDS,0);
-		createBoxes(box,0);
-	    drawBall(toTerminalCoordinates(ball.x),toTerminalCoordinates(ball.y),0);
-		
-		gotoxy(2,30);
-		for(i = 0; i < 36; i++){
-			printf("%d, ", toTerminalCoordinates(box->x[i]));
+
+		createBoxes(box,1);
+		for(i = 0; i < box->size; i++){
+			drawBox(box->x[i],box->y[i],box->durability[i]);   
 		}
 
+
+	    drawBall(toTerminalCoordinates(ball.x),toTerminalCoordinates(ball.y),0);
+		
+	
 
 		drawStriker(strikerx,0);
 		setTimer();
@@ -72,7 +74,7 @@
 
 						if(!waitStart){
 							refreshTime = getCentis();
-              				drawChar(toTerminalCoordinates(ball.x),toTerminalCoordinates(ball.y),	checkBall(&ball,box,strikerx));
+              				drawChar(toTerminalCoordinates(ball.x),toTerminalCoordinates(ball.y), checkBall(&ball,box,strikerx));
 							gotoxy(R_EDGE_COORD + 5,16);
 							printf("Boxes left: %d    ", box->boxesLeft);
 
