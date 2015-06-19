@@ -98,6 +98,8 @@ void drawLogo(){
 }
 
 void drawGameOver(){
+	int i;
+	
 	gotoxy(10,5);
 	printf(" .----------------.  .----------------.  .----------------.  .----------------.  \n");
 	gotoxy(10,6);
@@ -121,7 +123,7 @@ void drawGameOver(){
 	gotoxy(10,15);
 	printf(" '----------------'  '----------------'  '----------------'  '----------------'   \n");
 	gotoxy(10,16);
-	printf("\n");
+	printf("                                                                                  \n");
 	gotoxy(10,17);
 	printf(" .----------------.  .----------------.  .----------------.  .----------------.  \n");
 	gotoxy(10,18);
@@ -144,6 +146,34 @@ void drawGameOver(){
 	printf("| '--------------' || '--------------' || '--------------' || '--------------' |\n");
 	gotoxy(10,27);
 	printf(" '----------------'  '----------------'  '----------------'  '----------------' \n");
+	//Makes the Game Over text stay on the screen for a little while
+	
+	for(i = 0; i < 2; i++){
+		gotoxy(10,28);
+		printf("                                                                                                  \n");
+		printf("                                                                                                  \n");
+		printf("                                                                                                  \n");
+		printf("                                                                                                  \n");
+		printf("                                                                                                  \n");
+		printf("                                                                                                  \n");
+		printf("                                                                                                  \n");
+		printf("                                                                                                  \n");
+		printf("                                                                                                  \n");
+		printf("                                                                                                  \n");
+		printf("                                                                                                  \n");
+		printf("                                                                                                  \n");
+		printf("                                                                                                  \n");
+		printf("                                                                                                  \n");
+		printf("                                                                                                  \n");
+		printf("                                                                                                  \n");
+		printf("                                                                                                  \n");
+		printf("                                                                                                  \n");
+		printf("                                                                                                  \n");
+		printf("                                                                                                  \n");
+		
+	}//for
+
+
 	printf("\n");
 }
 
@@ -163,3 +193,15 @@ void printDifficulty(short diff){
 		printf(" [Error]  ");
 	}
 }
+
+void printHelp(){
+	gotoxy(5,35);
+	printf("Instructions\n");
+	printf("Use the left and middle button on the board to control the striker.\n");
+	printf("Hit the right button to start or to reset the ball.");
+	printf("Your mission is to stay alive and eliminate all the boxes.\n");
+	printf("If you loose the ball you will loose a life.\n");
+	printf("Watch out for power-ups!\n");
+
+}
+
