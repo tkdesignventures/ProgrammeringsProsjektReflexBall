@@ -16,10 +16,14 @@
 #define STRIKER 220
 #define BOXSIZE 6
 #define MAX_BOXES 50
+#define KEY_LEFT 4
+#define KEY_MIDDLE 2
+#define KEY_RIGHT 1
   typedef struct{
   long x,y,xdir, ydir;
   unsigned char power, outOfBounds;
   } Ball;
+
   typedef struct{
     unsigned char *x, *y;
 	unsigned char * durability;

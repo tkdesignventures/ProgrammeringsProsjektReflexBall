@@ -11,4 +11,5 @@ void moveDrawStriker(unsigned char x, unsigned char direction);
 void drawLogo();
 void drawGameOver();
 void printDifficulty(short diff);
+void printHelp();
 #endif

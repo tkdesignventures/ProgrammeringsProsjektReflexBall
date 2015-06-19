@@ -81,17 +81,19 @@ unsigned char checkBall(Ball * ball,Box * box,  int x){
 
           if((box->durability[j] > 0) && (nextPosX >= box->x[j] && nextPosX < box->x[j]+BOXSIZE) && (box->y[j] == nextPosY || box->y[j] == yt+1))  // Boksene har en bredde på 3, vi tester alle koordinater
               {
-
-                if((xt >= box->x[j]) && (xt < box->x[j]+BOXSIZE))
-                ball->ydir *= -1;
-
-                else if(yt == box->y[j] || yt == box->y[j]+1)
-                ball->xdir *= -1;
-
-                else{
-                  ball->xdir *= -1;
-                  ball->ydir *= -1;
-                }
+				
+			    if(ball->power == 0){
+	                if((xt >= box->x[j]) && (xt < box->x[j]+BOXSIZE))
+	                ball->ydir *= -1;
+	
+	                else if(yt == box->y[j] || yt == box->y[j]+1)
+	                ball->xdir *= -1;
+	
+	                else{
+	                  ball->xdir *= -1;
+	                  ball->ydir *= -1;
+	                }
+				}
 	            if(!(--box->durability[j])){
 					box->boxesLeft--;
 
