@@ -100,7 +100,8 @@ void drawLogo(){
 
 void drawGameOver(){
 	int i;
-
+	clrscr();
+	
 	gotoxy(10,5);
 	printf(" .----------------.  .----------------.  .----------------.  .----------------.  \n");
 	gotoxy(10,6);
@@ -150,34 +151,36 @@ void drawGameOver(){
 	
 	
 	
-	//Makes the Game Over text stay on the screen for a little while
-	for(i = 0; i < 3; i++){
-		gotoxy(10,28);
-		printf("                                                                                                  \n");
-		printf("                                                                                                  \n");
-		printf("                                                                                                  \n");
-		printf("                                                                                                  \n");
-		printf("                                                                                                  \n");
-		printf("                                                                                                  \n");
-		printf("                                                                                                  \n");
-		printf("                                                                                                  \n");
-		printf("                                                                                                  \n");
-		printf("                                                                                                  \n");
-		printf("                                                                                                  \n");
-		printf("                                                                                                  \n");
-		printf("                                                                                                  \n");
-		printf("                                                                                                  \n");
-		printf("                                                                                                  \n");
-		printf("                                                                                                  \n");
-		printf("                                                                                                  \n");
-		printf("                                                                                                  \n");
-		printf("                                                                                                  \n");
-		printf("                                                                                                  \n");
-
-	}//for
+	printDelay( 10, 40);
 
 
 	printf("\n");
+}
+
+void drawVictory(){
+	int i;
+	
+	clrscr();
+	
+	printf("Victory!!!");
+	
+	printDelay(10,40);
+	
+	
+}
+
+void printDelay(char x, char y){
+		//Makes the Game Over text stay on the screen for a little while
+		
+	char i, j;
+	for(i = 0; i < 3; i++){
+		gotoxy(x,y);
+		for(j = 0; j < 20; j++){
+			printf("                                                                                                  \n");
+		}
+
+	}//for
+
 }
 
 void printDifficulty(short diff){

@@ -8,15 +8,16 @@
 #include "math.h"
 #include "menu.h"
 
-void Game(char difficulty);
+int Game(int difficulty);
 
 void main(){
 	int selectedOption;
 	char key;
-	short difficulty;
+	int difficulty,victory;
 	
 	difficulty = 1;
 	selectedOption = 1;
+	victory = 0;
 	
 	init_uart(_UART0,_DEFFREQ,_DEFBAUD);
 	initiateMenu();
@@ -44,8 +45,13 @@ void main(){
 		}
 		
 		if(selectedOption == 1){
-			Game(difficulty);
-			drawGameOver();
+			victory = Game(difficulty);
+			if(victory){
+				drawVictory();
+			}else{
+				drawGameOver();
+			}
+			
 			initiateMenu();
 		}else if(selectedOption == 2){
 			difficulty ++;
@@ -64,7 +70,10 @@ void main(){
 
 	
 	
-}	void Game(char difficulty){
+}	
+
+
+int Game(int difficulty){
 		
 		int i;
 
@@ -79,7 +88,7 @@ void main(){
     	clrscr();
 
 		  //Initialize
-		  lives = 3;
+		  lives = 10;
 		  strikerx = 30;
 		  refreshTime = 100;
 		  ball.x = 5 << FIX14_SHIFT;
@@ -110,11 +119,11 @@ void main(){
 		setTimer();
 
 		gotoxy(R_EDGE_COORD + 5,15);
-		printf("Extra lives left: %d    ", lives);
+		printf("Extra lives left: %d    ", (lives + 1));
 		gotoxy(R_EDGE_COORD + 5,16);
 		printf("Boxes left: %d    ", box->boxesLeft);
 
-        while(lives >= 0 && box->boxesLeft > 0){
+        while(lives > 0 && box->boxesLeft > 0){
 			     	key = getKey();
 
     				if(key == 1){
@@ -161,7 +170,7 @@ void main(){
 
 				  }
 
-			}//while
-		
+		}//while
 	
-	}
+	return lives;
+}

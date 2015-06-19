@@ -10,6 +10,8 @@ void drawBounds(int x1,int y1, int x2, int y2,unsigned char color);
 void moveDrawStriker(unsigned char x, unsigned char direction);
 void drawLogo();
 void drawGameOver();
+void drawVictory();
+void printDelay();
 void printDifficulty(short diff);
 void printHelp();
 #endif

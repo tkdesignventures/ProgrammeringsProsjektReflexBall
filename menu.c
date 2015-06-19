@@ -27,7 +27,7 @@ void initiateMenu(){
 
 }
 
-void moveMarker (short selectedOption){
+void moveMarker (int selectedOption){
 	int i;
 	fgcolor(1);
 	bgcolor(7);
