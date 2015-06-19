@@ -7,8 +7,9 @@
 void drawBox(unsigned char x, unsigned char y,unsigned char color){
 	char j;
 	fgcolor(color);
-	drawBounds(x,y,x+(BOXSIZE-1),y+1);
+	drawBounds(x,y,x+(BOXSIZE-1),y+1,color);
 	//draws last line
+	fgcolor(color);
 	gotoxy(x,y+1);
 	printf("%c",192);
 	for(j=0; j < (BOXSIZE-2); j++){
@@ -17,7 +18,7 @@ void drawBox(unsigned char x, unsigned char y,unsigned char color){
 	printf("%c",217);
 	fgcolor(0);
 }
-void fixBall(unsigned char x, unsigned char y,char tegn){
+void drawChar(unsigned char x, unsigned char y,char tegn){
 	gotoxy(x,y);
 	printf("%c",tegn);
 }
@@ -49,12 +50,12 @@ void drawStriker(unsigned char x, unsigned char color){
 		printf("%c",220);
 	fgcolor(0);
 }
-void drawBounds(int x1,int y1, int x2, int y2){
+void drawBounds(int x1,int y1, int x2, int y2, unsigned char color){
 	int i,j;
 	char hs,vs,h1,h2,h3,h4;
 	int height = y2 - y1+1;
 	int width = x2 - x1+1;
-	fgcolor(0);
+	fgcolor(color);
 	hs=196;
 	vs=179;
 	h1=218;
@@ -76,7 +77,7 @@ void drawBounds(int x1,int y1, int x2, int y2){
 		gotoxy(x2,y1+i);
 		printf("%c",vs);
 	}
-
+fgcolor(0);
 }
 
 void drawLogo(){
@@ -99,7 +100,7 @@ void drawLogo(){
 
 void drawGameOver(){
 	int i;
-	
+
 	gotoxy(10,5);
 	printf(" .----------------.  .----------------.  .----------------.  .----------------.  \n");
 	gotoxy(10,6);
@@ -147,7 +148,7 @@ void drawGameOver(){
 	gotoxy(10,27);
 	printf(" '----------------'  '----------------'  '----------------'  '----------------' \n");
 	//Makes the Game Over text stay on the screen for a little while
-	
+
 	for(i = 0; i < 2; i++){
 		gotoxy(10,28);
 		printf("                                                                                                  \n");
@@ -170,7 +171,7 @@ void drawGameOver(){
 		printf("                                                                                                  \n");
 		printf("                                                                                                  \n");
 		printf("                                                                                                  \n");
-		
+
 	}//for
 
 
@@ -204,4 +205,3 @@ void printHelp(){
 	printf("Watch out for power-ups!\n");
 
 }
-

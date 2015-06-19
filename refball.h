@@ -23,7 +23,7 @@
   typedef struct{
     unsigned char *x, *y;
 	unsigned char * durability;
-    unsigned char size, capacity;
+    unsigned char size,boxesLeft;
   } Box;
 
   void moveBall(Ball * ball);

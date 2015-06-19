@@ -77,7 +77,7 @@ unsigned char checkBall(Ball * ball,Box * box,  int x){
 
     else{
 
-        for(j=0; j < box->capacity; j++){
+        for(j=0; j < box->size; j++){
 
           if((box->durability[j] > 0) && (nextPosX >= box->x[j] && nextPosX < box->x[j]+BOXSIZE) && (box->y[j] == nextPosY || box->y[j] == yt+1))  // Boksene har en bredde på 3, vi tester alle koordinater
               {
@@ -92,8 +92,11 @@ unsigned char checkBall(Ball * ball,Box * box,  int x){
                   ball->xdir *= -1;
                   ball->ydir *= -1;
                 }
-            if(!(--box->durability[j]))
-            drawBox(box->x[j],box->y[j],7);
+	            if(!(--box->durability[j])){
+					box->boxesLeft--;
+
+            	drawBox(box->x[j],box->y[j],7);
+				}
             }
         }
 
@@ -153,5 +156,6 @@ void createBoxes( Box * box,char level){ //Creates and draws boxes
                         box->size++;
 
                       }
-          }
+         		 }
+				 box->boxesLeft = box->size;
   }

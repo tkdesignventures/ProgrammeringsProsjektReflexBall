@@ -7,6 +7,8 @@
 #include "ansi.h"
 #include "math.h"
   void main(){
+		int i;
+
   	  	Ball ball;
 		Box * box = newBoxStack();
   	  	long strikerx;
@@ -17,7 +19,7 @@
     		init_uart(_UART0,_DEFFREQ,_DEFBAUD);
     		clrscr();
       //Initialize
-	  lives = 2;
+	  lives = 20;
       strikerx = 30;
       refreshTime = 100;
       ball.x = 5 << FIX14_SHIFT;
@@ -31,17 +33,25 @@
 */
 	  setBallOverStriker(&ball, strikerx);
 
-      	drawBounds(L_EDGE_COORD,TOP_EDGE_COORD,R_EDGE_COORD,OUT_OF_BOUNDS);
-	//	createBoxes(box,0);
+      	drawBounds(L_EDGE_COORD,TOP_EDGE_COORD,R_EDGE_COORD,OUT_OF_BOUNDS,0);
+		createBoxes(box,0);
 	    drawBall(toTerminalCoordinates(ball.x),toTerminalCoordinates(ball.y),0);
-	
+		
+		gotoxy(2,30);
+		for(i = 0; i < 36; i++){
+			printf("%d, ", toTerminalCoordinates(box->x[i]));
+		}
+
+
 		drawStriker(strikerx,0);
 		setTimer();
 
 		gotoxy(R_EDGE_COORD + 5,15);
 		printf("Extra lives left: %d    ", lives);
+		gotoxy(R_EDGE_COORD + 5,16);
+		printf("Boxes left: %d    ", box->boxesLeft);
 
-        while(lives >= 0){
+        while(lives >= 0 && box->boxesLeft > 0){
 			     	key = getKey();
 
     				if(key == 1){
@@ -62,7 +72,10 @@
 
 						if(!waitStart){
 							refreshTime = getCentis();
-              				fixBall(toTerminalCoordinates(ball.x),toTerminalCoordinates(ball.y),	checkBall(&ball,box,strikerx));
+              				drawChar(toTerminalCoordinates(ball.x),toTerminalCoordinates(ball.y),	checkBall(&ball,box,strikerx));
+							gotoxy(R_EDGE_COORD + 5,16);
+							printf("Boxes left: %d    ", box->boxesLeft);
+
               				if(ball.outOfBounds){
 								ball.outOfBounds = 0;
 								lives--;
@@ -86,7 +99,9 @@
 				  }
 
 			}//while
-
+			
+			//Free  memory?
+			
 			drawGameOver();
 
 }
