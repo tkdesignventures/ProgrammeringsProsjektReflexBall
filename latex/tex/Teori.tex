@@ -1,0 +1,45 @@
+\section{Teori}
+
+Vi vil i dette afsnit gennemgå den basale teori bag binære tal og slutteligt indføre læseren i de forskellige formater, deriblandt fixed-point format, og hvorfor det er interessant at bruge denne repræsentation  i vores projekt.
+\subsection{Binære tal}
+Et binært tal er et tal der kan udtrykkes i det binære talsystem/base-2, hvor grundtallet er 2. Da det er meget let at implementere i digital logik, er det et system der bruges internt i computere verden over. \\ 
+Et binært tal består af bits, som svarer til et ciffer. Et bit kan have en af to tilstande: logisk højt eller logisk lavt. Dette medfører da hvis vi har \textit{n} bits har vi $2^n$ forskellige tilstande. Disse forskellige tilstande kan fortolkes på forskellige måder, og vi vil i de næste afsnit gennemgå nogle af de forskellige representationer.
+\subsection{Unsigned repræsentation}
+I det binære talsystem er grundtallet vanligvis 2(det kunne potentielt også være -2). Det betyder således at i en n-bit streng, vil  bittet yderst til højre være vægtet med  $2^0$, det næste med $2^1$ op til $2^n$ gående mod venstre. Tallet 5(base-10) kan da skrives som i ligning \ref{unsigned}
+
+
+\begin{equation}\label{unsigned}
+5_{10} = 101_{2} = 1 \cdot 2^2+0 \cdot 2^1+1 \cdot 2^0
+\end{equation}
+
+
+Med de indførte definitioner har vi kun mulighed for at repræsentere positive heltal. Vi ønsker også at kunne skrive kommatal og negative tal.
+
+\subsection{Fixed point kommatal}
+Kommatal kan indføres på en simpel måde, ved blot at vægte i omvendt retning når man går mod højre, således at bittet til højre for kommaet har vægtningen $2^{-1}$, bittet 2 til højre for kommat vægtningen $2^{-2}$ osv. Hvis man har en n-bit streng med b tal til højre for kommaet, har man da muligheden for at skrive tal mellem 0 og $\frac{2^n-1}{2^b}$ \cite[s.~4]{Yates}
+
+Tallet 13.625 kan f.eks skrives som
+
+\begin{equation}
+13.625_{10} = 1101.101_2 = 1 \cdot 2^3+1 \cdot 2^2+1 \cdot 2^0+1 \cdot 2^{-1}+1 \cdot 2^{-3}
+\end{equation}
+
+\subsection{Repræsentation af negative tal}
+Hvis vi ønsker at repræsentere negative tal, gøres det oftest på 3 forskellige måder: 
+Signed magnitude, 1's kompliment eller 2's kompliment. Vi vil her gennemgå signed magnitude og 2's komplement.
+\subsubsection{Signed magnitude}
+En af måderne at repræsentere fortegnet på bit-strengen, er ved at lade det mest signifikante bit(MSB: længst til venstre) bestemme fortegnet, hvor 0 indikerer et positivt tal og 1 indikerer et negativt tal.  F.eks. kan tallet -37 i signed magnitude repræsentation skrives således:
+\begin{equation}
+-37_{10} = 1100101_2 
+\end{equation}
+Signed magnitude repræsentation, har dog den ulempe, at man spilder et bit, f.eks. hvis man har en 4-bit streng gælder der at 1000 =  0000, så istedet for at have $2^4$ tilstande har man blot $2^4-1$. 
+\subsubsection{2's komplement}
+En anden måde at repræsentere negative tal, kan gøres vha. 2's komplement. 2's komplement findes ved at invertere et unsigned tal og derefter lægge 1 til. 2's komplement har to fordele: Der er kun et 0, og subtraktion kan gøres på samme måde som addition, så hvis vi ønsker at subtrahere 3 fra 5, skal vi blot finde 2's kompliment af 3 og lægge det til 5, som i \ref{2skomp}
+\begin{equation}
+\label{2skomp}
+ 5-3 = 5+(-3)
+\end{equation}
+Disse fordele gør 2's komplement et af de mest udbredte metoder til at repræsentere negative tal i digitale systemer.
+
+\subsection{Fixed point vs floating}
+SHIT HERE

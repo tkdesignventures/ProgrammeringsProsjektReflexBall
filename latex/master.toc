@@ -1,0 +1,16 @@
+\select@language {english}
+\contentsline {section}{\numberline {1}Introduktion}{3}
+\contentsline {section}{\numberline {2}Teori}{3}
+\contentsline {subsection}{\numberline {2.1}Bin\IeC {\ae }re tal}{3}
+\contentsline {subsection}{\numberline {2.2}Unsigned repr\IeC {\ae }sentation}{3}
+\contentsline {subsection}{\numberline {2.3}Fixed point kommatal}{4}
+\contentsline {subsection}{\numberline {2.4}Repr\IeC {\ae }sentation af negative tal}{4}
+\contentsline {subsubsection}{\numberline {2.4.1}Signed magnitude}{4}
+\contentsline {subsubsection}{\numberline {2.4.2}2's komplement}{4}
+\contentsline {subsection}{\numberline {2.5}Fixed point vs floating}{5}
+\contentsline {section}{\numberline {3}Design af Reflexball}{5}
+\contentsline {subsection}{\numberline {3.1}Tekniske m\IeC {\r a}l}{5}
+\contentsline {subsection}{\numberline {3.2}Krav til spillet}{5}
+\contentsline {subsubsection}{\numberline {3.2.1}Krav til strikeren}{5}
+\contentsline {subsubsection}{\numberline {3.2.2}Krav til spillet}{6}
+\contentsline {subsection}{\numberline {3.3}U}{6}

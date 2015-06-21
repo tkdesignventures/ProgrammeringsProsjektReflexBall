@@ -1,19 +1,32 @@
-\subsection{Design af Reflexball}
-I designet af Reflexball blev der givet forskellige krav til udførelsen af spillet.
+\section{Design af Reflexball}
+I udarbejdelsen af dette program havde vi nogle forskellige tekniske krav og mål, som vi ønskede at designe programmet efter.
+\subsection{Tekniske mål}
+Vi lavede en liste af krav til programmets design som vi i så høj grad som muligt ønskede at overholde. 
+\begin{enumerate}
+\item Vi ønsker en veldefineret struktur. Vi vil derfor undgå globale variable i så høj grad som muligt, derfor skal vi lave funktioner som tager pegere til strukturer eller variable som inputs, frem for at tilgå globale variable. Få undtagelser findes dog til dette, f.eks. i bibloteket der tilgår timeren.
+\item Vi ville udvikle nogle biblioteker  der var uafhængige af hinanden, således at vores grafik i mindst mulig grad kommunikerede med vores bibliotek indeholdende spillets back-end(Refball.c). Denne kommunikation skulle såfremt foregå igennem main-metoden, således man let kan få et overblik ved at se på main-metoden.
+	
+\end{enumerate}
 
+
+\subsection{Krav til spillet}
 \subsubsection{Krav til strikeren}
 Der blev stillet nogle krav til strikeren:
 \begin{enumerate}
-\item Strikeren skal maskimalt fylde 10$%$ af skærmen på x-aksen. 
+\item Strikeren skal maskimalt fylde 10\% af skærmen på x-aksen. 
 \item  Strikeren skal være delt ind i 5 forskellige områder. Disse 5 områder skal reflektere bolden på forskellig vis afhængig af indgangsvinklen og hvilken del af strikeren den rammer. 
 \item Brugeren skal kunne styre strikeren, vha. knapperne på boardet.
 \end{enumerate}
 
-Desuden blev der stillet krav til spillets features, vi valgte at implementere det således:
+\subsubsection{Krav til spillet}
 \begin{enumerate}
-\item Spillet er et arkanoid spil, bestående af 3 levels. Banerne skal være i stigende sværhedsgrad.
+\item Spillet er et arkanoid spil, bestående af 3 levels. Banerne skal være i stigende sværhedsgrad. Dette gøres ved at boksene gøres stærkere, således de skal rammes flere gange for at ødelægges, og også tilføje flere kasser.
 \item Spilleren har 3 liv til at starte med, og får et liv for hver bane han vinder.
 \item Hvis spilleren ikke har flere liv tilbage, afsluttes spillet og der vises game over på skærmen. Brugeren har mulighed for at gå tilbage til menuen og starte forfra igen.
 \item Når banen begynder, eller hvis spilleren mister et liv, placeres bolden over strikeren, og spilleren kan frit bevæge strikeren, hvor bolden følger efter. Hvis spilleren trykker på den givne knap, affyres bolden i en opadgående lodret linje. 
+\item Spillerens liv og tiden skal skrives på LED-skærmen når spillet er igang
+\item Når spilleren får en power-up, vinder en bane, vinder spillet eller dør skal der rulles en tekst over LED-skærmene. Alt afhænigt af situationen, skal livene og tiden igen vises på skærmen efter teksten er rullet over.
+\item Spilleren skal have mulighed for at få en power-up, således spilleren ødelægger kasserne uafhængigt af deres styrke, og ikke ændrer retning efterfølgende. Denne power-up skal kun være aktiv i et vist antal sekunder, og forsvinder hvis bolden ryger ud af banen.
 \end{enumerate}
 
+\subsection{U}
