@@ -1,5 +1,10 @@
 \section{Dokumentation}
 Vi har udviklet alle biblioteker i fællesskab, og det giver ikke mening at tilskrive nogle personer en særlig del af koden, da meget lidt kode er skrevet af udelukkende en person. 
+
+\subsection{Application layer}
+I dette lag har vi vores reflexball modul, vores menu modul og main-modulet.
+
+
 \subsection{Application Interface lag}
 \subsubsection{graphics.h}
 Det indeholder grafiske elementer til brug i terminalen. Vi har valgt at bruge nogle definerede konstanter fra spillet(STRIKER\_Y, BOX\_SIZE, osv.) Dette har vi gjort for at undgå at sende for mange variable, når disse blot alligevel er konstante hele spillet. Med meget få ændringer i funktionerne, kunne man dog ændre dette. Det kan derfor diskuteres om funktionen strengt taget liger i API-laget. Måske den kan siges at ligge i grænsefeltet.
@@ -49,3 +54,4 @@ Denne funktion sætter timeWait til værdien givet i argumentet. Meningen er at 
 Denne funktion returnerer variablen timeWait.
 \paragraph{unsigned long getCentis()}
 Denne funktion returnerer variablen time, altså tiden siden den sidste er blevet resettet, såfremt timeren er aktiveret. Værdien er i ms.
+
