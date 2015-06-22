@@ -6,6 +6,10 @@
 
 void drawBox(unsigned char x, unsigned char y,unsigned char color){
 	char j;
+	
+	//Avoids the color yellow
+	if(color == 3) color = 13;
+	
 	fgcolor(color);
 	drawBounds(x,y,x+(BOXSIZE-1),y+1,color);
 	//draws last line
@@ -285,6 +289,6 @@ void printHelp(){
 	gotoxy(LEFT_BORDER,39);
 	printf("If you loose the ball you will loose a life.\n");
 	gotoxy(LEFT_BORDER,40);
-	printf("Watch out for power-ups!\n");
+	printf("When you earn enough Joules, you can activate High Power! (left and middle button)\n");
 
 }

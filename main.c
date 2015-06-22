@@ -105,18 +105,7 @@ int Game(int difficulty){
 		  ball.y = 5 << FIX14_SHIFT;
 		  ball.outOfBounds = 0;
 		  
-		  
-	
-		  
-
-      	drawBounds(L_EDGE_COORD,TOP_EDGE_COORD,R_EDGE_COORD,OUT_OF_BOUNDS,0);
-
-		
-
-
-	    
-		
-	
+		  drawBounds(L_EDGE_COORD,TOP_EDGE_COORD,R_EDGE_COORD,OUT_OF_BOUNDS,0);
 
 		drawStriker(strikerx,0);
 		//setTimer();
@@ -128,6 +117,7 @@ int Game(int difficulty){
 			lives = NUMBER_OF_BALLS;
 			waitStart = 1;
 			ball.power = 0;
+			ball.powerActivated = 0;
 			
 			drawChar(toTerminalCoordinates(ball.x),toTerminalCoordinates(ball.y), checkBall(&ball,box,strikerx));
 			setBallOverStriker(&ball, strikerx);
@@ -137,6 +127,7 @@ int Game(int difficulty){
 			for(i = 0; i < box->size; i++){
 				drawBox(box->x[i],box->y[i],box->durability[i]);   
 			}
+			
 			gotoxy(R_EDGE_COORD + 5,15);
 			printf("Balls left: %d    ", (lives + 1));
 			gotoxy(R_EDGE_COORD + 5,16);
@@ -158,6 +149,8 @@ int Game(int difficulty){
 						}else if(key == 4){
 								moveStriker(&strikerx,0);
 								moveDrawStriker(strikerx,0);
+						 }else if(key == 6){
+								ball.powerActivated = 1;
 						 }
 
 
@@ -166,9 +159,13 @@ int Game(int difficulty){
 							if(!waitStart){
 								refreshTime = getCentis();
 								drawChar(toTerminalCoordinates(ball.x),toTerminalCoordinates(ball.y), checkBall(&ball,box,strikerx));
+								
 								gotoxy(R_EDGE_COORD + 5,16);
 								printf("Boxes left: %d    ", box->boxesLeft);
-
+								
+								gotoxy(R_EDGE_COORD + 5, 17);
+								printf("Power: %d     ", ball.power);
+								
 								if(ball.outOfBounds){
 									ball.outOfBounds = 0;
 									lives--;
@@ -187,8 +184,18 @@ int Game(int difficulty){
 							setBallOverStriker(&ball, strikerx);
 							drawBall(toTerminalCoordinates(ball.x),toTerminalCoordinates(ball.y),0);
 							}
-
-
+							if(ball.powerActivated){
+								ball.power--;
+								if(ball.power <= 0){
+									ball.power = 0;
+									ball.powerActivated = 0;
+								}
+								gotoxy(R_EDGE_COORD + 5, 17);
+								printf("Power: %d    ", ball.power);
+							}
+							
+							
+							
 						}
 
 			}//while

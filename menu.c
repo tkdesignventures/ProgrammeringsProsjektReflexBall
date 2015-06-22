@@ -12,20 +12,22 @@
 
 void initiateMenu(){
 	clrscr();
-	fgcolor(6);
+	fgcolor(0);
 	bgcolor(7);
 	drawLogo();
+	gotoxy(LEFT_BORDER,24);
+	printf("Welcome to ReflexBall");
 	gotoxy(LEFT_BORDER,25);
-	printf("Welcome to ReflexBall\nMove up / down in the menu with the left / middle button.");
-	gotoxy(LEFT_BORDER,26);
-	printf("Select with right button.");
+	printf("Move up / down in the menu with the left / middle button.");
 	gotoxy(LEFT_BORDER,27);
-	printf("  1. Start game.\n");
+	printf("Select with right button.");
 	gotoxy(LEFT_BORDER,28);
-	printf("  2. Change difficulty:\n");
+	printf("  1. Start game.\n");
 	gotoxy(LEFT_BORDER,29);
-	printf("  3. Show instructions.\n");
+	printf("  2. Change difficulty:\n");
 	gotoxy(LEFT_BORDER,30);
+	printf("  3. Show instructions.\n");
+	gotoxy(LEFT_BORDER,31);
 
 	//Prints the menu-select marker
 	moveMarker(1);

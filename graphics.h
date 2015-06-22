@@ -1,7 +1,8 @@
 #ifndef _GRAPHICS_H_
 #define _GRAPHICS_H_
-#define LINE_NUMBER 15
 #define LEFT_BORDER 10
+#define LINE_NUMBER 28
+
 
 void drawBox(unsigned char x, unsigned char y,unsigned char color);
 void drawBall(unsigned char x, unsigned char y, unsigned char color);

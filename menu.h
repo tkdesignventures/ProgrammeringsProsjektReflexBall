@@ -1,6 +1,5 @@
 #ifndef _MENU_H_
 #define _MENU_H_
-#define LINE_NUMBER 15
 
 
 void initiateMenu();

@@ -19,12 +19,13 @@
 #define KEY_LEFT 4
 #define KEY_MIDDLE 2
 #define KEY_RIGHT 1
-#define MAX_LEVEL 1
+#define MAX_LEVEL 5
 #define NUMBER_OF_BALLS 10
 
   typedef struct{
   long x,y,xdir, ydir;
-  unsigned char power, outOfBounds;
+  unsigned char outOfBounds, powerActivated;
+  int power;
   } Ball;
 
   typedef struct{
