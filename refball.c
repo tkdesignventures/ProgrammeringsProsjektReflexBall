@@ -7,8 +7,8 @@
 #include "ansi.h"
 
 void moveBall(Ball * ball){
-  ball->x += 2*(ball->xdir);
-  ball->y += 2*(ball->ydir);
+  ball->x += (ball->xdir);
+  ball->y += (ball->ydir);
 }
 
 void moveStriker(long * x,char direction){
@@ -82,7 +82,7 @@ unsigned char checkBall(Ball * ball,Box * box,  int x){
           if((box->durability[j] > 0) && (nextPosX >= box->x[j] && nextPosX < box->x[j]+BOXSIZE) && (box->y[j] == nextPosY || box->y[j] == yt+1))  // Boksene har en bredde på 3, vi tester alle koordinater
               {
 				
-			    if(ball->power == 0 && !(ball->powerActivated)){
+			    if(!(ball->powerActivated)){
 	                if((xt >= box->x[j]) && (xt < box->x[j]+BOXSIZE))
 	                ball->ydir *= -1;
 	
@@ -94,10 +94,14 @@ unsigned char checkBall(Ball * ball,Box * box,  int x){
 	                  ball->ydir *= -1;
 	                }
 				}
-	            if(!(--box->durability[j])){
+				
+				//Kills the box instantly when high power
+				if(ball->powerActivated && ball->power){
 					box->boxesLeft--;
-					ball->power += 5;
-
+					drawBox(box->x[j],box->y[j],7);
+				}else if(!(--box->durability[j])){
+					box->boxesLeft--;
+					ball->power += 250;
 					drawBox(box->x[j],box->y[j],7);
 				}
             }
@@ -127,10 +131,14 @@ long toTerminalCoordinates(long x){
 void setBallOverStriker( Ball * ball, long st){
 	ball->x = (st << FIX14_SHIFT);
 	ball->y = ((STRIKER_Y-OVER_STRIKER) << FIX14_SHIFT);
-
-  ball->xdir = (-11 << (FIX14_SHIFT - 4));
+	
+	ball->xdir = 0;
+	ball->ydir = (-1) << FIX14_SHIFT;
+	//rotate(ball, -(int) 40);
+/*
+  ball->xdir = (11 << (FIX14_SHIFT - 4));
   ball->ydir = (-11 << (FIX14_SHIFT - 4));
-
+*/
 
 }
 
@@ -172,6 +180,17 @@ void createBoxes( Box * box,char level){ //Creates and draws boxes
 	         		 }
 
 				}else if(level == 3){
+					/*for(i = 0; i < 16; i++){
+						box->x[box->size] = 20 + 4*i;
+						if(i < 8) box->y[box->size] = 5 + i;
+						else box->y[box->size] = 19 - (i-8);
+						
+						box->durability[box->size] = 3;
+						box->size++;
+					}
+					
+					*/
+					
 				     for(j=0;j<3;j++){
 					         for(i = L_EDGE_COORD + 5; i < L_EDGE_COORD+6;i+=BOXSIZE){//(R_EDGE_COORD-5); i+=BOXSIZE){
 						
@@ -182,6 +201,7 @@ void createBoxes( Box * box,char level){ //Creates and draws boxes
 	
 	                      }
 	         		 }
+					 
 
 				}else if(level == 4){
 				     for(j=0;j<4;j++){
