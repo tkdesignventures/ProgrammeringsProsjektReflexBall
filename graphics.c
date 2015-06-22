@@ -289,7 +289,7 @@ void printHelp(){
 	gotoxy(LEFT_BORDER,39);
 	printf("If you loose the ball you will loose a life.\n");
 	gotoxy(LEFT_BORDER,40);
-	printf("When you earn enough energy (500 J), you can activate High Power! (left and middle button)\n");
+	printf("When you earn enough power time (min. 500), you can activate High Power! (left and middle button)\n");
 	gotoxy(LEFT_BORDER,41);
 	
 }

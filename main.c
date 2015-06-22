@@ -22,10 +22,10 @@ void main(){
 	init_uart(_UART0,_DEFFREQ,_DEFBAUD);
 	setTimer();
 	initiateMenu();
+	printDifficulty(difficulty);
 	
 	for(;;){
 		key = getKey();
-		
 		
 		//Navigates the menu
 		while(key != KEY_RIGHT){
@@ -77,8 +77,6 @@ void main(){
 		}
 	}
 	
-
-	
 	
 }	
 
@@ -90,9 +88,9 @@ int Game(int difficulty){
   	  	Ball ball;
 		Box * box = newBoxStack();
   	  	long strikerx;
-		char key, lives, level;
+		char key, lives, level, pause;
 		char waitStart;
-  	    unsigned long refreshTime, gameDelay;
+  	    unsigned long refreshTime;
     	
 		
     	clrscr();
@@ -106,7 +104,8 @@ int Game(int difficulty){
 		  ball.y = 5 << FIX14_SHIFT;
 		  ball.outOfBounds = 0;
 		  ball.power = 0;
-		  gameDelay = GAMESPEED >> 2;
+		  pause = 0;
+		 
 		  
 		  drawBounds(L_EDGE_COORD,TOP_EDGE_COORD,R_EDGE_COORD,OUT_OF_BOUNDS,0);
 
@@ -129,85 +128,74 @@ int Game(int difficulty){
 			for(i = 0; i < box->size; i++){
 				drawBox(box->x[i],box->y[i],box->durability[i]);   
 			}
-			
+			gotoxy(R_EDGE_COORD + 5, 14);
+			printf("-Level %d-     ", level);
 			gotoxy(R_EDGE_COORD + 5,15);
 			printf("Balls left: %d    ", (lives + 1));
-			gotoxy(R_EDGE_COORD + 5,16);
-			printf("Boxes left: %d    ", box->boxesLeft);
-			gotoxy(R_EDGE_COORD + 5, 17);
-			printf("Power: %dJ     ", ball.power);
+			
 			
 			
 			while(lives > 0 && box->boxesLeft > 0){
+				
 						key = getKey();
 
 						if(key == 1){
-
-						waitStart = 0;
+							if(!waitStart && !pause){
+								pause = 1;
+							}else if(pause){
+								pause = 0;
+							}
+							waitStart = 0;
 						}
+						
+						if(!pause){
+						
+							if(key == 2){
+								moveStriker(&strikerx, 1);
+								moveDrawStriker(strikerx,1);
+							}else if(key == 4){
+									moveStriker(&strikerx,0);
+									moveDrawStriker(strikerx,0);
+							 }else if(key == 6){
+									if(ball.power >= 500){
+										ball.powerActivated = 1;
+									}
+							 }
 
-						else if(key == 2){
-							moveStriker(&strikerx, 1);
-							moveDrawStriker(strikerx,1);
-						}else if(key == 4){
-								moveStriker(&strikerx,0);
-								moveDrawStriker(strikerx,0);
-						 }else if(key == 6){
-								if(ball.power >= 500){
-									ball.powerActivated = 1;
+
+							if(getCentis() - 50 > refreshTime){
+
+								if(!waitStart){
+									refreshTime = getCentis();
+									drawChar(toTerminalCoordinates(ball.x),toTerminalCoordinates(ball.y), checkBall(&ball,box,strikerx));
 									
-								}
-						 }
+									if(ball.outOfBounds){
+										ball.outOfBounds = 0;
+										lives--;
+										waitStart = 1;
+										ball.power = 0;
+										gotoxy(R_EDGE_COORD + 5,15);
+										printf("Balls left: %d    ", lives);
+										
+									}
+									moveBall(&ball);
+									drawBall(toTerminalCoordinates(ball.x),toTerminalCoordinates(ball.y),0);
 
-
-						if((getCentis()) > refreshTime){
-
-							if(!waitStart){
-								refreshTime = getCentis();
-								drawChar(toTerminalCoordinates(ball.x),toTerminalCoordinates(ball.y), checkBall(&ball,box,strikerx));
-								
-								gotoxy(R_EDGE_COORD + 5,16);
-								printf("Boxes left: %d    ", box->boxesLeft);
-								
-								gotoxy(R_EDGE_COORD + 5, 17);
-								printf("Power: %dJ     ", ball.power);
-								
-								if(ball.outOfBounds){
-									ball.outOfBounds = 0;
-									lives--;
-									waitStart = 1;
-									ball.power = 0;
-									gotoxy(R_EDGE_COORD + 5,15);
-									printf("Balls left: %d    ", lives);
-									
-									gotoxy(R_EDGE_COORD + 5, 17);
-									printf("Power: %d    ", ball.power);
-								}
-								moveBall(&ball);
+								}else{
+								drawBall(toTerminalCoordinates(ball.x),toTerminalCoordinates(ball.y),7);
+								setBallOverStriker(&ball, strikerx);
 								drawBall(toTerminalCoordinates(ball.x),toTerminalCoordinates(ball.y),0);
-
-
-
-
-							}else{
-							drawBall(toTerminalCoordinates(ball.x),toTerminalCoordinates(ball.y),7);
-							setBallOverStriker(&ball, strikerx);
-							drawBall(toTerminalCoordinates(ball.x),toTerminalCoordinates(ball.y),0);
-							}
-							if(ball.powerActivated){
-								ball.power--;
-								if(ball.power <= 0){
-									ball.power = 0;
-									ball.powerActivated = 0;
 								}
-								gotoxy(R_EDGE_COORD + 5, 17);
-								printf("Power: %d J    ", ball.power);
+								if(ball.powerActivated){
+									ball.power--;
+									if(ball.power <= 0){
+										ball.power = 0;
+										ball.powerActivated = 0;
+									}
+								}
+								
 							}
-							
-							
-							
-						}
-
+						}//!pause
 			}//while
 			level ++;
 		}//while - level
