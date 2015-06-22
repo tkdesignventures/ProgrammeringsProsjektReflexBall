@@ -8,7 +8,14 @@
 \usepackage{siunitx}
 \usepackage{pdfpages}
 \usepackage{listings}
+\usepackage{titlesec}
 
+\setcounter{secnumdepth}{4}
+
+\titleformat{\paragraph}
+{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
+\titlespacing*{\paragraph}
+{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
 
 \begin{document}
 \input{tex/titel.tex}
@@ -16,7 +23,7 @@
 \input{tex/Teori.tex}
 %\newpage
 \input{tex/Design.tex}
-%\input{tex/Implementation.tex}
+\input{tex/Dokumentation.tex}
 %\input{tex/Testing.tex}
 %\input{tex/Discussion.tex}
 %\input{tex/Conclusion.tex}

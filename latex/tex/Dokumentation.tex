@@ -1,0 +1,37 @@
+\section{Dokumentation}
+Vi har udviklet alle biblioteker i fællesskab, og det giver ikke mening at tilskrive nogle personer en særlig del af koden, da meget lidt kode er skrevet af udelukkende en person. 
+\subsection{Application Interface lag}
+\subsubsection{graphics.h}
+Det indeholder grafiske elementer til brug i terminalen. Vi har valgt at bruge nogle definerede konstanter fra spillet(STRIKER\_Y, BOX\_SIZE, osv.) Dette har vi gjort for at undgå at sende for mange variable, når disse blot alligevel er konstante hele spillet. Med meget få ændringer i funktionerne, kunne man dog ændre dette. Det kan derfor diskuteres om funktionen strengt taget liger i API-laget. Måske den kan siges at ligge i grænsefeltet.
+\paragraph{
+void drawBox(unsigned char x, unsigned char y,unsigned char color)}
+Denne funktion tegner en boks med bredden BOX\_SIZE og højden 2. Koordinaterne til det øverste venstre hjørne gives som argumenter, sammen med kassens farve, hvor farveskemaet i fgcolor bruges.
+
+\paragraph{void drawChar(unsigned char x, unsigned char y,char tegn)}
+Denne funktion tager et koordinatsæt og et tegn som argumenter. Tegnet bliver skrevet på det givne koordinatsæt.
+
+\paragraph{void moveDrawStriker(unsigned char x, unsigned char direction)}
+heeej
+
+\paragraph{void drawBounds(int x1,int y1, int x2, int y2,unsigned char color)}
+Denne funktion tegner banens kanter. Den tager 2 koordinatsæt som input, x1 og y1 svarende til det øverste venstre hjørne og  x2 og y2 svarende til det nederste højre hjørne. Variablen color bruges til at bestemme farven på kanterne. 
+
+\paragraph{void drawLogo()}
+Denne funktion tegner spillets logo. Den bruger konstanten LEFT\_BORDER til at bestemme på hvilket x-koordinat den skal stå. 
+
+\subsection{Hardware Abstraction lag}
+\subsubsection{keys.h}
+Dette modul får inputs fra knapperne 
+\paragraph{void iniKeys()}
+Denne funktion initialiserer den korrekte data-direction på de pins der er forbundne til knapperne, således værdierne kan læses, uden at vi forsøger at skrive outputs samtidigt.
+
+\paragraph{char readKey()}
+Denne funktion læser fra knapperne, og returnerer en bit streng, hvor de tre knapper er på hver deres plads i strengen, hvis pladsen tilhørende knappen er 1, betyder det at knappen bliver trykket. Denne funktion kan godt detektere hvis brugeren trykker flere knapper ind samtidigt. Pladserne er konfigureret således:
+\begin{enumerate}
+\item Knappen til højre er på LSB(least signiifcant bit)
+\item Den midterste knap er på 2 bit fra højre
+\item Knappen til venstre er på 3 bit.
+\end{enumerate}
+
+\paragraph{char getKey}
+Denne funktion bruges hvis man ønsker debouncing. Denne læser vha. readKey() og checker derefter om værdien er det samme efter 10 ms og returner dette.
