@@ -10,17 +10,21 @@ void timer1int(){
 */
 
 void LEDInit();
+void setLedMode(char modeIn);
+
 
 void LEDColumn(char value);
+void LEDUpdate();
+void LEDSetString(char string1[]);
 
 //Trenger kun at kaldes inden LEDUpdatePrint.
-void LEDSetString(char string[]);
+void LEDLoadBuffer();
 
 //Printer 4 bogstaver på skærmen.
 void LedUpdatePrint();
 
 void LEDUpdateContinuous();
-
+void LEDUpdateOnceAndPrint();
 
 void LEDUpdateOnce();
 

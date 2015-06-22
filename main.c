@@ -61,9 +61,13 @@ void main(){
 		if(selectedOption == 1){
 			victory = Game(difficulty);
 			if(victory){
+				LEDSetString("Victory    ");
+				setLedMode(2);
 				drawVictory();
 			}else{
 				drawGameOver();
+				LEDSetString("Game over. Try again.    ");
+				setLedMode(2);
 			}
 			
 			initiateMenu();

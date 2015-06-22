@@ -5,9 +5,6 @@
 #include "graphics.h"
 
 
-
-//char selectedOption = 0;
-
 	
 
 void initiateMenu(){
@@ -82,39 +79,5 @@ void printHelp(){
 	
 }
 
-/*
-//Moves the menu-select
-void moveMarker(char up){
-	int i;
-	fgcolor(1);
-	bgcolor(7);
-	//Clears the first column
-	gotoxy(1,LINE_NUMBER + selectedOption - 1);
-	printf(" ");
-	if(up){
-		selectedOption --;
-		if(selectedOption == 0){
-			selectedOption = 3;
-		}
-	}else{
-		selectedOption ++;
-		if(selectedOption == 4){
-			selectedOption = 1;
-		}
-	}
-	//Prints marker
-	gotoxy(1, LINE_NUMBER + selectedOption - 1);
-	printf("*");
-
-}
-
-char getChoice(){
-	return selectedOption;
-}
-*/
-
-
-		
-	
 	
 	
