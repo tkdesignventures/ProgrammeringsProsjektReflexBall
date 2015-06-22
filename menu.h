@@ -5,5 +5,6 @@
 void initiateMenu();
 void moveMarker(int selectedOption);
 char getChoice();
-
+void printDifficulty(short diff);
+void printHelp();
 #endif

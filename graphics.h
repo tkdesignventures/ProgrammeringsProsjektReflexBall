@@ -13,7 +13,6 @@ void moveDrawStriker(unsigned char x, unsigned char direction);
 void drawLogo();
 void drawGameOver();
 void drawVictory();
-void printDelay(char y, char delay);
-void printDifficulty(short diff);
-void printHelp();
+void scrollText(char y, char delay);
+
 #endif
