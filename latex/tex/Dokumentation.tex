@@ -3,11 +3,42 @@ Vi har udviklet alle biblioteker i fællesskab, og det giver ikke mening at tils
 
 \subsection{Application layer}
 I dette lag har vi vores reflexball modul, vores menu modul og main-modulet.
+\subsubsection{reflexball.h}
+Reflexball er et modul der indeholder grundlæggende regler om spillet, deriblandt kollision, hvordan bolden skal bevæge sig og hvorledes strikeren skal opføre sig. Desuden indeholder den strukturerne Ball og og Box
+\paragraph{Strukturen Ball}
+Ball er en stuktur som har variablene opgivet i \ref{Ballkrav}.
 
+\paragraph{Strukturen Box}
+Box er en struktur der indeholder samtlige bokse i spillet. Den indeholder 3 pointere til char-arrays: et koordinatsæt og et tilhørende array med boksenes styrke. Desuden er der to variable der fortæller antallet af bokse og hvor mange der er tilbage. Vi forestillede os initielt at den skulle implementeres som et stack, således arrayernes størrelse var variable, men hvorfor vi ikke gjorde det står i afsnit \ref{reallocfejl}
+\paragraph{void moveBall()}
+Denne funktion flytter tager blot en peger til en Ball som argument og lægger retningsvektoren til x og y koordinaterne.
+\paragraph{void moveStriker(long * x,char direction)}
+Denne funktion tager to variable som input, en pointer til strikerens x-lokation, og den anden strikerens retning. Hvis variablen, direction, er 1 bevæger strikeren sig mod positiv x-retning og STRIKER\_SPEED lægges til, ellers bevæger strikeren sig mod negativ x-retning og STRIKER\_SPEED fratrækkes strikerens x-lokation.
+\paragraph{unsigned char checkBall(Ball * ball,Box * box,  int x)}
+SHIT HERE (MARTIN!!!)
+\paragraph{long toTerminalCoordinates(long x)}
+Denne funktion omdanner tal i 2.14 eller 18.14 til heltal man kan bruge i terminalen. Afrunding laves som vanligvis, ved at afrunde til nærmeste heltal.
+
+\paragraph{void setBallOverStriker( Ball * ball, long st)}
+Denne funktion tager en Ball og en long som input.
+Funktionen omdanner st til 18.14 og sætter boldens x-koordinat til den.
+Boldens y-koordinat sættes over strikeren, vha. konstanterne STRIKER\_Y og OVER\_STRIKER, også i 18.14. Boldens retningsvektor sættes også til at gå lodret op, og roteres derefter 40 grader mod negativ x.
+\paragraph{Box * newBoxStack()}
+Denne funktion bliver brugt til at lave et nyt Box-stack. Der bliver allokeret plads, så der er plads til antallet af bokse givet ved konstanten MAX\_BOXES. Antallet af elementer,size, i stacket sættes til 0 og  pegeren til Box-stacket.
+\paragraph{
+void createBoxes( Box * box,char level)}
+Denne funktion tager en peger til Box-stacket og en character der repræsenterer level som argumenter. Alf afhængigt af hvilken level man tager som argument, bliver Box-stacket fyldt på en speciel måde, således hvert level er unikt. 
+
+\subsubsection{menu}
+Dette modul indeholder funktioner til at tegne og vise grafik når man bevæger sig rundt i menuen.
+\paragraph{initiateMenu()}
+Denne funktion renser førts skærmen og printer derefter menuen. Slutteligt sættes markøren på Start Game.
+\paragraph{moveMarker(int selectedOption)}
+Denne funktion sætter markøren alt afhængigt af inputtet.
 
 \subsection{Application Interface lag}
 \subsubsection{graphics.h}
-Det indeholder grafiske elementer til brug i terminalen. Vi har valgt at bruge nogle definerede konstanter fra spillet(STRIKER\_Y, BOX\_SIZE, osv.) Dette har vi gjort for at undgå at sende for mange variable, når disse blot alligevel er konstante hele spillet. Med meget få ændringer i funktionerne, kunne man dog ændre dette. Det kan derfor diskuteres om funktionen strengt taget liger i API-laget. Måske den kan siges at ligge i grænsefeltet.
+Dette modul indeholder grafiske elementer til brug i terminalen. Vi har valgt at bruge nogle definerede konstanter fra spillet(STRIKER\_Y, BOX\_SIZE, osv.) Dette har vi gjort for at undgå at sende for mange variable, når disse blot alligevel er konstante hele spillet. Med meget få ændringer i funktionerne, kunne man dog ændre dette. Det kan derfor diskuteres om funktionen strengt taget liger i API-laget. Måske den kan siges at ligge i grænsefeltet.
 \paragraph{
 void drawBox(unsigned char x, unsigned char y,unsigned char color)}
 Denne funktion tegner en boks med bredden BOX\_SIZE og højden 2. Koordinaterne til det øverste venstre hjørne gives som argumenter, sammen med kassens farve, hvor farveskemaet i fgcolor bruges.
@@ -22,7 +53,7 @@ heeej
 Denne funktion tegner banens kanter. Den tager 2 koordinatsæt som input, x1 og y1 svarende til det øverste venstre hjørne og  x2 og y2 svarende til det nederste højre hjørne. Variablen color bruges til at bestemme farven på kanterne. 
 
 \paragraph{void drawLogo()}
-Denne funktion tegner spillets logo. Den bruger konstanten LEFT\_BORDER til at bestemme på hvilket x-koordinat den skal stå. 
+Denne funktion tegner spillets logo. Den bruger konstanten LEFT\_BORDER til at bestemme på hvilket x-koordinat den skal begynde at skrive fra.
 
 \subsection{Hardware Abstraction lag}
 \subsubsection{keys.h}
@@ -45,7 +76,7 @@ Dette modul har med vores primære timer at gøre. Den har 2 globale variable: \
 \paragraph{void setTimer()}
 Denne funktion sætter vores timer til prescaling 0, continous mode og høj prioritet for interrupt funktionen. Vores interrupt funktion kører hvert ms.
 \paragraph{void resetTimer()}
-Denne funktion sætter de globale variable, time og timeWait i modulet til 0.
+Denne funktion sætter de globale variable i modulet, time og timeWait til 0.
 \paragraph{void timer0int}
 Dette er interrupt funktionen tilhørende timeren. Den lægger 1 til time og trækker 1 fra timeWait. 
 \paragraph{void SetDelay(int input)}
