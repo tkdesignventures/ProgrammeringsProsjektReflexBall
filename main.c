@@ -12,7 +12,7 @@ int Game(int difficulty);
 
 void main(){
 	int selectedOption;
-	char key;
+	char key, lastKey, lastKey2;
 	int difficulty,victory;
 	
 	difficulty = 1;
@@ -20,10 +20,11 @@ void main(){
 	victory = 0;
 	
 	init_uart(_UART0,_DEFFREQ,_DEFBAUD);
+	setTimer();
 	initiateMenu();
 	
 	for(;;){
-		key = readKey();
+		key = getKey();
 		
 		
 		//Navigates the menu
@@ -41,7 +42,13 @@ void main(){
 				selectedOption = 3;
 			}
 			moveMarker(selectedOption);
-			key = readKey();
+			
+			lastKey = key;
+			
+			while(key == lastKey){
+				key = getKey();
+			}
+			
 		}
 		
 		if(selectedOption == 1){
@@ -64,7 +71,10 @@ void main(){
 			printHelp();
 		}
 		
-	
+		lastKey2 = key;
+		while(key == lastKey2){
+			key = getKey();
+		}
 	}
 	
 
