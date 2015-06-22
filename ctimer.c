@@ -22,9 +22,8 @@ timeWait = input;
 
 
 void setTimer(){
-	char preScale = 0x00<<3;//	char preScale = 0x07<<3;
 	DI();
-	T0CTL = 0x01 | preScale;
+	T0CTL = 0x01;
 	T0H = 0x00;
 	T0L = 0x01;
 	T0RH = 0x48; //0x05

@@ -35,3 +35,17 @@ Denne funktion læser fra knapperne, og returnerer en bit streng, hvor de tre kn
 
 \paragraph{char getKey}
 Denne funktion bruges hvis man ønsker debouncing. Denne læser vha. readKey() og checker derefter om værdien er det samme efter 10 ms og returner dette.
+\subsubsection{timer.h}
+Dette modul har med vores primære timer at gøre. Den har 2 globale variable: \textit{time} og \textit{timeWait}. Time tæller hvor lang tid timeren har været tændt Grunden til at vi har globable variable her, er fordi timeren skal være uafhængig og køre så hurtigt som muligt.
+\paragraph{void setTimer()}
+Denne funktion sætter vores timer til prescaling 0, continous mode og høj prioritet for interrupt funktionen. Vores interrupt funktion kører hvert ms.
+\paragraph{void resetTimer()}
+Denne funktion sætter de globale variable, time og timeWait i modulet til 0.
+\paragraph{void timer0int}
+Dette er interrupt funktionen tilhørende timeren. Den lægger 1 til time og trækker 1 fra timeWait. 
+\paragraph{void SetDelay(int input)}
+Denne funktion sætter timeWait til værdien givet i argumentet. Meningen er at bruge timeWait som en slagss delay, man kan tjekke værdien på
+\paragraph{getDelay}
+Denne funktion returnerer variablen timeWait.
+\paragraph{unsigned long getCentis()}
+Denne funktion returnerer variablen time, altså tiden siden den sidste er blevet resettet, såfremt timeren er aktiveret. Værdien er i ms.
