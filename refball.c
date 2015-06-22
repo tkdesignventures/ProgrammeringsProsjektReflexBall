@@ -7,8 +7,8 @@
 #include "ansi.h"
 
 void moveBall(Ball * ball){
-  ball->x += 2*(ball->xdir);
-  ball->y += 2*(ball->ydir);
+  ball->x += (ball->xdir);
+  ball->y += (ball->ydir);
 }
 
 void moveStriker(long * x,char direction){
@@ -96,7 +96,7 @@ unsigned char checkBall(Ball * ball,Box * box,  int x){
 				}
 	            if(!(--box->durability[j])){
 					box->boxesLeft--;
-					ball->power += 5;
+					ball->power += 100;
 
 					drawBox(box->x[j],box->y[j],7);
 				}
@@ -148,7 +148,7 @@ void createBoxes( Box * box,char level){ //Creates and draws boxes
 	unsigned char j,i;
   unsigned char * xtemp, * ytemp, * dtemp;
 				box->size = 0;
-				if(level == 1){
+				if(level == 3){
 				     for(j=0;j<1;j++){
 					        for(i = L_EDGE_COORD + 5; i < L_EDGE_COORD+6;i+=BOXSIZE){//(R_EDGE_COORD-5); i+=BOXSIZE){
 						
@@ -171,7 +171,18 @@ void createBoxes( Box * box,char level){ //Creates and draws boxes
 	                      }
 	         		 }
 
-				}else if(level == 3){
+				}else if(level == 1){
+					/*for(i = 0; i < 16; i++){
+						box->x[box->size] = 20 + 4*i;
+						if(i < 8) box->y[box->size] = 5 + i;
+						else box->y[box->size] = 19 - (i-8);
+						
+						box->durability[box->size] = 3;
+						box->size++;
+					}
+					
+					*/
+					
 				     for(j=0;j<3;j++){
 					         for(i = L_EDGE_COORD + 5; i < L_EDGE_COORD+6;i+=BOXSIZE){//(R_EDGE_COORD-5); i+=BOXSIZE){
 						
@@ -182,6 +193,7 @@ void createBoxes( Box * box,char level){ //Creates and draws boxes
 	
 	                      }
 	         		 }
+					 
 
 				}else if(level == 4){
 				     for(j=0;j<4;j++){

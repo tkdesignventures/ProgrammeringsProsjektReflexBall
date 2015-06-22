@@ -92,8 +92,9 @@ int Game(int difficulty){
   	  	long strikerx;
 		char key, lives, level;
 		char waitStart;
-  	    unsigned long refreshTime;
+  	    unsigned long refreshTime, gameDelay;
     	
+		
     	clrscr();
 
 		  //Initialize
@@ -104,6 +105,8 @@ int Game(int difficulty){
 		  ball.x = 5 << FIX14_SHIFT;
 		  ball.y = 5 << FIX14_SHIFT;
 		  ball.outOfBounds = 0;
+		  ball.power = 0;
+		  gameDelay = GAMESPEED >> 2;
 		  
 		  drawBounds(L_EDGE_COORD,TOP_EDGE_COORD,R_EDGE_COORD,OUT_OF_BOUNDS,0);
 
@@ -116,7 +119,6 @@ int Game(int difficulty){
 			
 			lives = NUMBER_OF_BALLS;
 			waitStart = 1;
-			ball.power = 0;
 			ball.powerActivated = 0;
 			
 			drawChar(toTerminalCoordinates(ball.x),toTerminalCoordinates(ball.y), checkBall(&ball,box,strikerx));
@@ -132,7 +134,8 @@ int Game(int difficulty){
 			printf("Balls left: %d    ", (lives + 1));
 			gotoxy(R_EDGE_COORD + 5,16);
 			printf("Boxes left: %d    ", box->boxesLeft);
-			
+			gotoxy(R_EDGE_COORD + 5, 17);
+			printf("Power: %dJ     ", ball.power);
 			
 			
 			while(lives > 0 && box->boxesLeft > 0){
@@ -150,11 +153,14 @@ int Game(int difficulty){
 								moveStriker(&strikerx,0);
 								moveDrawStriker(strikerx,0);
 						 }else if(key == 6){
-								ball.powerActivated = 1;
+								if(ball.power >= 500){
+									ball.powerActivated = 1;
+									
+								}
 						 }
 
 
-						if((getCentis()- GAMESPEED) > refreshTime){
+						if((getCentis()) > refreshTime){
 
 							if(!waitStart){
 								refreshTime = getCentis();
@@ -164,14 +170,18 @@ int Game(int difficulty){
 								printf("Boxes left: %d    ", box->boxesLeft);
 								
 								gotoxy(R_EDGE_COORD + 5, 17);
-								printf("Power: %d     ", ball.power);
+								printf("Power: %dJ     ", ball.power);
 								
 								if(ball.outOfBounds){
 									ball.outOfBounds = 0;
 									lives--;
 									waitStart = 1;
+									ball.power = 0;
 									gotoxy(R_EDGE_COORD + 5,15);
 									printf("Balls left: %d    ", lives);
+									
+									gotoxy(R_EDGE_COORD + 5, 17);
+									printf("Power: %d    ", ball.power);
 								}
 								moveBall(&ball);
 								drawBall(toTerminalCoordinates(ball.x),toTerminalCoordinates(ball.y),0);
@@ -191,7 +201,7 @@ int Game(int difficulty){
 									ball.powerActivated = 0;
 								}
 								gotoxy(R_EDGE_COORD + 5, 17);
-								printf("Power: %d    ", ball.power);
+								printf("Power: %d J    ", ball.power);
 							}
 							
 							
