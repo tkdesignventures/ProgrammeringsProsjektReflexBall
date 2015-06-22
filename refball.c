@@ -1,4 +1,4 @@
-﻿#include <eZ8.h>
+#include <eZ8.h>
 #include <sio.h>
 #include <stdlib.h>
 #include "refball.h"
@@ -29,8 +29,8 @@ unsigned char checkBall(Ball * ball,Box * box,  int x){
   unsigned char j;
   unsigned char xt = toTerminalCoordinates(ball->x); // Defineres så vi undgår at kalde funktionen flere gange
   unsigned char yt = toTerminalCoordinates(ball->y); // Defineres så vi undgår at kalde funktionen den flere gange
-  nextPosX = toTerminalCoordinates(ball->x + ball->xdir); -||-
-  nextPosY = toTerminalCoordinates(ball->y + ball->ydir); -||-
+  nextPosX = toTerminalCoordinates(ball->x + ball->xdir); 
+  nextPosY = toTerminalCoordinates(ball->y + ball->ydir); 
     if((nextPosY == STRIKER_Y) && (nextPosX >= (x - STRIKER_WIDTH)) && nextPosX <= (x + STRIKER_WIDTH)){
 
 
@@ -123,7 +123,7 @@ unsigned char checkBall(Ball * ball,Box * box,  int x){
 }
 	long toTerminalCoordinates(long x){
   	long o = x >> FIX14_SHIFT;
-	output += (x >> (FIX14_SHIFT-1)) & 0x1;
+	o += (x >> (FIX14_SHIFT-1)) & 0x1;
 	return o;
 
 }

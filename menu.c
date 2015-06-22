@@ -3,11 +3,7 @@
 #include "ansi.h"
 #include "menu.h"
 #include "graphics.h"
-<<<<<<< HEAD
-=======
 
-
->>>>>>> origin/master
 	
 
 void initiateMenu(){
@@ -48,9 +44,7 @@ void moveMarker (int selectedOption){
 	
 }
 
-<<<<<<< HEAD
-	
-=======
+
 void printDifficulty(short diff){
 	fgcolor(1);
 	bgcolor(7);
@@ -85,6 +79,5 @@ void printHelp(){
 	
 }
 
->>>>>>> origin/master
 	
 	
