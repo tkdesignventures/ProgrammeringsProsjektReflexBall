@@ -13,10 +13,10 @@ void moveBall(Ball * ball){
 
 void moveStriker(long * x,char direction){
     if(direction && ((*x + STRIKER_WIDTH+1) <R_EDGE_COORD))
-        * x += 2*1;
+        * x += STRIKER_SPEED;
 
     else if(!direction && ((*x - STRIKER_WIDTH-1) > (L_EDGE_COORD)))
-        * x -= 2*1;
+        * x -= STRIKER_SPEED;
 }
 
 unsigned char checkBall(Ball * ball,Box * box,  int x){
@@ -134,7 +134,7 @@ void setBallOverStriker( Ball * ball, long st){
 	
 	ball->xdir = 0;
 	ball->ydir = (-1) << FIX14_SHIFT;
-	//rotate(ball, -(int) 40);
+	rotate(ball, -(int) 40);
 /*
   ball->xdir = (11 << (FIX14_SHIFT - 4));
   ball->ydir = (-11 << (FIX14_SHIFT - 4));

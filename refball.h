@@ -16,11 +16,9 @@
 #define STRIKER 220
 #define BOXSIZE 6
 #define MAX_BOXES 50
-#define KEY_LEFT 4
-#define KEY_MIDDLE 2
-#define KEY_RIGHT 1
 #define MAX_LEVEL 5
 #define NUMBER_OF_BALLS 10
+
 
   typedef struct{
   long x,y,xdir, ydir;

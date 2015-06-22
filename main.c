@@ -7,6 +7,7 @@
 #include "ansi.h"
 #include "math.h"
 #include "menu.h"
+#include "LED.h"
 
 int Game(int difficulty);
 
@@ -23,6 +24,12 @@ void main(){
 	setTimer();
 	initiateMenu();
 	printDifficulty(difficulty);
+	
+	LEDInit();
+	LEDSetString("Welcome     ");
+	setLedMode(2);
+	//LEDLoadBuffer();
+	
 	
 	for(;;){
 		key = getKey();
@@ -106,6 +113,7 @@ int Game(int difficulty){
 		  ball.power = 0;
 		  pause = 0;
 		 
+		 
 		  
 		  drawBounds(L_EDGE_COORD,TOP_EDGE_COORD,R_EDGE_COORD,OUT_OF_BOUNDS,0);
 
@@ -115,7 +123,10 @@ int Game(int difficulty){
 		
 		//Initialization for each level
 		while(level <= MAX_LEVEL && lives > 0){
-			
+			LEDSetString("New level      ");
+			setLedMode(2);
+			//LEDLoadBuffer();
+		 
 			lives = NUMBER_OF_BALLS;
 			waitStart = 1;
 			ball.powerActivated = 0;
@@ -136,7 +147,9 @@ int Game(int difficulty){
 			
 			
 			while(lives > 0 && box->boxesLeft > 0){
-				
+						
+					
+						
 						key = getKey();
 
 						if(key == 1){
