@@ -54,7 +54,8 @@ Denne funktion tegner banens kanter. Den tager 2 koordinatsæt som input, x1 og 
 
 \paragraph{void drawLogo()}
 Denne funktion tegner spillets logo. Den bruger konstanten LEFT\_BORDER til at bestemme på hvilket x-koordinat den skal begynde at skrive fra.
-
+\subsubsection{lut.h}
+Dette modul indeholder en konstant tabel med sinus værdier for en cirkel delt i 512 stykker. Hvis x er vinklen i radian indsættes da blot $\dfrac{x\cdot \pi}{256}$ i tabellen.
 \subsection{Hardware Abstraction lag}
 \subsubsection{keys.h}
 Dette modul får inputs fra knapperne 
