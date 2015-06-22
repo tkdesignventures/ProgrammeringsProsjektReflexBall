@@ -31,15 +31,15 @@ void drawBall(unsigned char x, unsigned char y, unsigned char color){
 void moveDrawStriker(unsigned char x, unsigned char direction){
 	fgcolor(0);
 	if(direction==1){
-		gotoxy(x-3,STRIKER_Y);
-		printf(" ");
-		gotoxy(x+2,STRIKER_Y);
-		printf("%c",220);
+		gotoxy(x-5,STRIKER_Y);
+		printf("   ");
+		gotoxy(x,STRIKER_Y);
+		printf("%c%c%c",220,220,220);
 	}else{
-		gotoxy(x+3,STRIKER_Y);
-		printf(" ");
+		gotoxy(x + 3,STRIKER_Y);
+		printf("   ");
 		gotoxy(x-2,STRIKER_Y);
-		printf("%c",220);
+		printf("%c%c%c",220,220,220);
 	}
 }
 void drawStriker(unsigned char x, unsigned char color){
@@ -81,18 +81,23 @@ fgcolor(0);
 }
 
 void drawLogo(){
-	gotoxy(2,2);
+	gotoxy(LEFT_BORDER,5);
 	printf("||******************************************||\n");
-
+	gotoxy(LEFT_BORDER,6);
 	printf(" _____       __ _             ____        _ _ \n");
+	gotoxy(LEFT_BORDER,7);
 	printf("|  __ \     / _| |           |  _ \      | | |\n");
+	gotoxy(LEFT_BORDER,8);
 	printf("| |__) |___| |_| | _____  __ | |_) | __ _| | |\n");
+	gotoxy(LEFT_BORDER,9);
 	printf("|  _  // _ \  _| |/ _ \ \/ / |  _ < / _` | | |\n");
+	gotoxy(LEFT_BORDER,10);
 	printf("| | \ \  __/ | | |  __/>  <  | |_) | (_| | | |\n");
+	gotoxy(LEFT_BORDER,11);
 	printf("|_|  \_\___|_| |_|\___/_/\_\ |____/ \__,_|_|_|\n");
-
+	gotoxy(LEFT_BORDER,12);
 	printf("||******************************************||\n");
-
+	gotoxy(LEFT_BORDER,13);
 	printf("Group 3, s144012, s144045, s144021, June 2015   ");
 	//printf("Ver. 0.2.0.3 Beta\n                             ");
 
@@ -101,57 +106,57 @@ void drawLogo(){
 void drawGameOver(){
 	int i;
 	clrscr();
+	for(i = 0; i < 4; i++){
+		gotoxy(LEFT_BORDER,5);
+		printf(" .----------------.  .----------------.  .----------------.  .----------------.  \n");
+		gotoxy(LEFT_BORDER,6);
+		printf("| .--------------. || .--------------. || .--------------. || .--------------. |\n");
+		gotoxy(LEFT_BORDER,7);
+		printf("| |    ______    | || |      __      | || | ____    ____ | || |  _________   | | \n");
+		gotoxy(LEFT_BORDER,8);
+		printf("| |  .' ___  |   | || |     /  \     | || ||_   \  /   _|| || | |_   ___  |  | | \n");
+		gotoxy(LEFT_BORDER,9);
+		printf("| | / .'   \_|   | || |    / /\ \    | || |  |   \/   |  | || |   | |_  \_|  | | \n");
+		gotoxy(LEFT_BORDER,10);
+		printf("| | | |    ____  | || |   / ____ \   | || |  | |\  /| |  | || |   |  _|  _   | | \n");
+		gotoxy(LEFT_BORDER,11);
+		printf("| | \ `.___]  _| | || | _/ /    \ \_ | || | _| |_\/_| |_ | || |  _| |___/ |  | |  \n");
+		gotoxy(LEFT_BORDER,12);
+		printf("| |  `._____.'   | || ||____|  |____|| || ||_____||_____|| || | |_________|  | |\n");
+		gotoxy(LEFT_BORDER,13);
+		printf("| |              | || |              | || |              | || |              | | \n");
+		gotoxy(LEFT_BORDER,14);
+		printf("| '--------------' || '--------------' || '--------------' || '--------------' |  \n");
+		gotoxy(LEFT_BORDER,15);
+		printf(" '----------------'  '----------------'  '----------------'  '----------------'   \n");
+		gotoxy(LEFT_BORDER,16);
+		printf("                                                                                  \n");
+		gotoxy(LEFT_BORDER,17);
+		printf(" .----------------.  .----------------.  .----------------.  .----------------.  \n");
+		gotoxy(LEFT_BORDER,18);
+		printf("| .--------------. || .--------------. || .--------------. || .--------------. |\n");
+		gotoxy(LEFT_BORDER,19);
+		printf("| |     ____     | || | ____   ____  | || |  _________   | || |  _______     | |\n");
+		gotoxy(LEFT_BORDER,20);
+		printf("| |   .'    `.   | || ||_  _| |_  _| | || | |_   ___  |  | || | |_   __ \    | |\n");
+		gotoxy(LEFT_BORDER,21);
+		printf("| |  /  .--.  \  | || |  \ \   / /   | || |   | |_  \_|  | || |   | |__) |   | |\n");
+		gotoxy(LEFT_BORDER,22);
+		printf("| |  | |    | |  | || |   \ \ / /    | || |   |  _|  _   | || |   |  __ /    | |\n");
+		gotoxy(LEFT_BORDER,23);
+		printf("| |  \  `--'  /  | || |    \ ' /     | || |  _| |___/ |  | || |  _| |  \ \_  | |\n");
+		gotoxy(LEFT_BORDER,24);
+		printf("| |   `.____.'   | || |     \_/      | || | |_________|  | || | |____| |___| | | \n");
+		gotoxy(LEFT_BORDER,25);
+		printf("| |              | || |              | || |              | || |              | | \n");
+		gotoxy(LEFT_BORDER,26);
+		printf("| '--------------' || '--------------' || '--------------' || '--------------' |\n");
+		gotoxy(LEFT_BORDER,27);
+		printf(" '----------------'  '----------------'  '----------------'  '----------------' \n");
+	}	
 	
-	gotoxy(10,5);
-	printf(" .----------------.  .----------------.  .----------------.  .----------------.  \n");
-	gotoxy(10,6);
-	printf("| .--------------. || .--------------. || .--------------. || .--------------. |\n");
-	gotoxy(10,7);
-	printf("| |    ______    | || |      __      | || | ____    ____ | || |  _________   | | \n");
-	gotoxy(10,8);
-	printf("| |  .' ___  |   | || |     /  \     | || ||_   \  /   _|| || | |_   ___  |  | | \n");
-	gotoxy(10,9);
-	printf("| | / .'   \_|   | || |    / /\ \    | || |  |   \/   |  | || |   | |_  \_|  | | \n");
-	gotoxy(10,10);
-	printf("| | | |    ____  | || |   / ____ \   | || |  | |\  /| |  | || |   |  _|  _   | | \n");
-	gotoxy(10,11);
-	printf("| | \ `.___]  _| | || | _/ /    \ \_ | || | _| |_\/_| |_ | || |  _| |___/ |  | |  \n");
-	gotoxy(10,12);
-	printf("| |  `._____.'   | || ||____|  |____|| || ||_____||_____|| || | |_________|  | |\n");
-	gotoxy(10,13);
-	printf("| |              | || |              | || |              | || |              | | \n");
-	gotoxy(10,14);
-	printf("| '--------------' || '--------------' || '--------------' || '--------------' |  \n");
-	gotoxy(10,15);
-	printf(" '----------------'  '----------------'  '----------------'  '----------------'   \n");
-	gotoxy(10,16);
-	printf("                                                                                  \n");
-	gotoxy(10,17);
-	printf(" .----------------.  .----------------.  .----------------.  .----------------.  \n");
-	gotoxy(10,18);
-	printf("| .--------------. || .--------------. || .--------------. || .--------------. |\n");
-	gotoxy(10,19);
-	printf("| |     ____     | || | ____   ____  | || |  _________   | || |  _______     | |\n");
-	gotoxy(10,20);
-	printf("| |   .'    `.   | || ||_  _| |_  _| | || | |_   ___  |  | || | |_   __ \    | |\n");
-	gotoxy(10,21);
-	printf("| |  /  .--.  \  | || |  \ \   / /   | || |   | |_  \_|  | || |   | |__) |   | |\n");
-	gotoxy(10,22);
-	printf("| |  | |    | |  | || |   \ \ / /    | || |   |  _|  _   | || |   |  __ /    | |\n");
-	gotoxy(10,23);
-	printf("| |  \  `--'  /  | || |    \ ' /     | || |  _| |___/ |  | || |  _| |  \ \_  | |\n");
-	gotoxy(10,24);
-	printf("| |   `.____.'   | || |     \_/      | || | |_________|  | || | |____| |___| | | \n");
-	gotoxy(10,25);
-	printf("| |              | || |              | || |              | || |              | | \n");
-	gotoxy(10,26);
-	printf("| '--------------' || '--------------' || '--------------' || '--------------' |\n");
-	gotoxy(10,27);
-	printf(" '----------------'  '----------------'  '----------------'  '----------------' \n");
-	
-	
-	
-	printDelay( 10, 40);
+
+	printDelay(28, 100);
 
 
 	printf("\n");
@@ -159,25 +164,93 @@ void drawGameOver(){
 
 void drawVictory(){
 	int i;
-	
 	clrscr();
 	
-	printf("Victory!!!");
+	for(i = 0; i < 4; i++){
+
 	
-	printDelay(10,40);
+		gotoxy(LEFT_BORDER, 5);
+		printf("Victory!!!");
+		gotoxy(LEFT_BORDER, 6);
+		printf("             `          `.-/---/+yyd:`         ::-:::-.```         `                               ");
+		gotoxy(LEFT_BORDER, 7);
+		printf("            `         `.-/hNy+ommNNNs     ````oNNddmmNNNmmy+:.`    ``                               ");
+		gotoxy(LEFT_BORDER, 8);
+		printf("            ` ` `    .-/sdNNo:shmNNdo `      .dydmmNmddNmNNNNy/`    ```.  `...::--..                ");
+		gotoxy(LEFT_BORDER, 9);
+		printf("           ```     .--/+ymNo``  sm+```      ``/::hNNNNNNNNNNNNd`    .  ` .:--::os/yho/              ");
+		gotoxy(LEFT_BORDER, 10);
+		printf("           `     `-.-/odNNh` ``````       `` +so+/yNNNNNNNMNNMd`   `     :y:/o/yddmNdN/             ");
+		gotoxy(LEFT_BORDER, 11);
+		printf("         `    `...-+ymNNN+             ` ``..:-/++dNNNdNNNNNMy   ``      -omhss+:mNNmd`            ");
+		gotoxy(LEFT_BORDER, 12);
+		printf("            ``.--/ymmNNNN.  `           ``:+::+syhddsddNNMMMMm   `        ---`  `yNshmo            ");
+		gotoxy(LEFT_BORDER, 13);
+		printf("            ```-:/sdmmNNNhoyooo:           .+//+ohmdysmNNMMNMNN: .               .oo-/dN+           ");
+		gotoxy(LEFT_BORDER, 14);
+		printf("            `.:oshmmNNNNm+-:/sms` ````   `://oydmmm/omNNNNNNNs.`                `/--:smm-          ");
+		gotoxy(LEFT_BORDER, 15);
+		printf("             -//+ydmNNNNs/+osymmh:--:+oso+:+yhdmmmo+dNNNNNNN+`                  .:--:odNy          ");
+		gotoxy(LEFT_BORDER, 16);
+		printf("               /ymddmmmmmyyddmmmmmh-.-/oyhdds++sdNdodNmmddmmmy-.-::::::-`  ....` .:.-:odmN`         ");
+		gotoxy(LEFT_BORDER, 17);
+		printf("            `  ``/dmmmdss+oydmmmmmm-.-:+ssso++ohdos/+////+++/::::/+oosso+.--:+shho:-:ohmmN.        ");
+		gotoxy(LEFT_BORDER, 18);
+		printf("           `     `./ymdddddmmmmNNNN/---/+++/::/++:---::/+++///+oyhdmh/----::/+sss+/ohddmNN/         ");
+		gotoxy(LEFT_BORDER, 19);
+		printf("                    `-+hmNNNNNNNNNNh/:--:::::/::-...-:/oosyyhddmmNNh:::/+osyys+---:+oydNNNs        ");
+		gotoxy(LEFT_BORDER, 20);
+		printf("                       ../oyyhddmmNms/:----:/-:-...-:+oydmmmmmNNNNNys+/+oooo+:---:/+sydNNNs`        ");
+		gotoxy(LEFT_BORDER, 21);
+		printf("           `          ``    ```.../moo/:---::::-.-:/oydmNNNNNNNNNNNNNms+/:::--:/osyhhdmmdo.`        ");
+		gotoxy(LEFT_BORDER, 22);
+		printf("           .`         `            /+so+ooy+:::::ohhdmNNmmNNNNNNNNNNNNmdysssssyyhmNNds/.`  `        ");
+		gotoxy(LEFT_BORDER, 23);
+		printf("          `` ```     `            ``+oshdh+/::/:+hddddmmNNNNNNNNNNNNNNNyydmmmmmmdyo-`     `        `");
+		gotoxy(LEFT_BORDER, 24);
+		printf("           `    ``  .              `-oo+//:::--:/++oyhmmmNNNNNNNmmmmmmh.``..--.```                 `");
+		gotoxy(LEFT_BORDER, 25);
+		printf("           `      `                 `+++oso+/:-.-/shhhdmmmmmmmmmmmmmmy.                         `   ");
+		gotoxy(LEFT_BORDER, 26);
+		printf("            `                       `-+oyhsss/--/oshdddmddhdmmmmmmds:`                             ");
+		gotoxy(LEFT_BORDER, 27);
+		printf("           `                        `/oyyoo+o/+shddmmmmmmmmmmmmdo.`                                ");
+		gotoxy(LEFT_BORDER, 28);
+		printf("            .                       .oyhy+//+oshddmmmmmmmmmmmdo.                                   ");
+		gotoxy(LEFT_BORDER, 29);
+		printf("             `                       ohho////+oydmmNmmmmmmmms-`                                    ");
+		gotoxy(LEFT_BORDER, 30);
+		printf("              ``                      /+/:///::/ohmmmmmmmmmh:`                                     `");
+		gotoxy(LEFT_BORDER, 31);
+		printf("               ` ```                 .+://:::-:+ymmmmmmmmdo.         ```  ```  ```   ``   ``   `````");
+		gotoxy(LEFT_BORDER, 32);
+		printf("               `    ````             /+//:::-:+hmmmmmmmd+.````  ```                          ````   ");
+		gotoxy(LEFT_BORDER, 33);
+		printf("               `        ````        -://::::/sdmNNNNNNs.                                   ``       ");
+		gotoxy(LEFT_BORDER, 34);
+		printf("                            ```    /y/:/+syhdNNNNNNNNy`                                  ``         ");
+		gotoxy(LEFT_BORDER, 35);
+		printf("                `               ``-mNddmNMMMMMMMMMMMMm.                                 ``          ");
+		gotoxy(LEFT_BORDER, 36);
+	}
+	
+	
+	
+	
+	
+	
+	printDelay(37, 100);
 	
 	
 }
 
-void printDelay(char x, char y){
-		//Makes the Game Over text stay on the screen for a little while
+void printDelay(char y, char delay){
+		//Makes the Game Over / Victory text stay on the screen for a little while
 		
 	char i, j;
-	for(i = 0; i < 3; i++){
-		gotoxy(x,y);
-		for(j = 0; j < 20; j++){
-			printf("                                                                                                  \n");
-		}
+	for(i = 0; i < delay; i++){
+		gotoxy(2,y + i);
+		printf("                                                                                                  \n");
 
 	}//for
 
@@ -201,12 +274,17 @@ void printDifficulty(short diff){
 }
 
 void printHelp(){
-	gotoxy(5,35);
+	gotoxy(LEFT_BORDER,35);
 	printf("Instructions\n");
+	gotoxy(LEFT_BORDER,36);
 	printf("Use the left and middle button on the board to control the striker.\n");
+	gotoxy(LEFT_BORDER,37);
 	printf("Hit the right button to start or to reset the ball.");
+	gotoxy(LEFT_BORDER,38);
 	printf("Your mission is to stay alive and eliminate all the boxes.\n");
+	gotoxy(LEFT_BORDER,39);
 	printf("If you loose the ball you will loose a life.\n");
+	gotoxy(LEFT_BORDER,40);
 	printf("Watch out for power-ups!\n");
 
 }

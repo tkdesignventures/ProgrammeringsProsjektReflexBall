@@ -90,97 +90,110 @@ int Game(int difficulty){
   	  	Ball ball;
 		Box * box = newBoxStack();
   	  	long strikerx;
-	  	char key;
-		char lives;
+		char key, lives, level;
 		char waitStart;
   	    unsigned long refreshTime;
     	
     	clrscr();
 
 		  //Initialize
-		  lives = 10;
+		  level = 1;
+		  lives = 1;
 		  strikerx = 30;
 		  refreshTime = 100;
 		  ball.x = 5 << FIX14_SHIFT;
 		  ball.y = 5 << FIX14_SHIFT;
 		  ball.outOfBounds = 0;
-		  ball.power = 1;
-		  waitStart = 1;
-	/*
-		  //X- and Y-component are set to .707
-		  ball.xdir = (-11 << (FIX14_SHIFT - 4));
-		  ball.ydir = (-11 << (FIX14_SHIFT - 4));
-	*/
-		  setBallOverStriker(&ball, strikerx);
+		  
+		  
+	
+		  
 
       	drawBounds(L_EDGE_COORD,TOP_EDGE_COORD,R_EDGE_COORD,OUT_OF_BOUNDS,0);
 
-		createBoxes(box,1);
-		for(i = 0; i < box->size; i++){
-			drawBox(box->x[i],box->y[i],box->durability[i]);   
-		}
+		
 
 
-	    drawBall(toTerminalCoordinates(ball.x),toTerminalCoordinates(ball.y),0);
+	    
 		
 	
 
 		drawStriker(strikerx,0);
-		setTimer();
+		//setTimer();
 
-		gotoxy(R_EDGE_COORD + 5,15);
-		printf("Extra lives left: %d    ", (lives + 1));
-		gotoxy(R_EDGE_COORD + 5,16);
-		printf("Boxes left: %d    ", box->boxesLeft);
+		
+		//Initialization for each level
+		while(level <= MAX_LEVEL && lives > 0){
+			
+			lives = NUMBER_OF_BALLS;
+			waitStart = 1;
+			ball.power = 0;
+			
+			drawChar(toTerminalCoordinates(ball.x),toTerminalCoordinates(ball.y), checkBall(&ball,box,strikerx));
+			setBallOverStriker(&ball, strikerx);
+			drawBall(toTerminalCoordinates(ball.x),toTerminalCoordinates(ball.y),0);
+			
+			createBoxes(box,level);
+			for(i = 0; i < box->size; i++){
+				drawBox(box->x[i],box->y[i],box->durability[i]);   
+			}
+			gotoxy(R_EDGE_COORD + 5,15);
+			printf("Balls left: %d    ", (lives + 1));
+			gotoxy(R_EDGE_COORD + 5,16);
+			printf("Boxes left: %d    ", box->boxesLeft);
+			
+			
+			
+			while(lives > 0 && box->boxesLeft > 0){
+						key = getKey();
 
-        while(lives > 0 && box->boxesLeft > 0){
-			     	key = getKey();
+						if(key == 1){
 
-    				if(key == 1){
-
-					waitStart = 0;
-					}
-
-    				else if(key == 2){
-      					moveStriker(&strikerx, 1);
-	                	moveDrawStriker(strikerx,1);
-	                }else if(key == 4){
-	      					moveStriker(&strikerx,0);
-	                		moveDrawStriker(strikerx,0);
-	                 }
-
-
-					if((getCentis()- GAMESPEED) > refreshTime){
-
-						if(!waitStart){
-							refreshTime = getCentis();
-              				drawChar(toTerminalCoordinates(ball.x),toTerminalCoordinates(ball.y), checkBall(&ball,box,strikerx));
-							gotoxy(R_EDGE_COORD + 5,16);
-							printf("Boxes left: %d    ", box->boxesLeft);
-
-              				if(ball.outOfBounds){
-								ball.outOfBounds = 0;
-								lives--;
-								waitStart = 1;
-								gotoxy(R_EDGE_COORD + 5,15);
-								printf("Extra lives left: %d    ", lives);
-							}
-							moveBall(&ball);
-							drawBall(toTerminalCoordinates(ball.x),toTerminalCoordinates(ball.y),0);
-
-
-
-
-						}else{
-						drawBall(toTerminalCoordinates(ball.x),toTerminalCoordinates(ball.y),7);
- 					    setBallOverStriker(&ball, strikerx);
-						drawBall(toTerminalCoordinates(ball.x),toTerminalCoordinates(ball.y),0);
+						waitStart = 0;
 						}
 
+						else if(key == 2){
+							moveStriker(&strikerx, 1);
+							moveDrawStriker(strikerx,1);
+						}else if(key == 4){
+								moveStriker(&strikerx,0);
+								moveDrawStriker(strikerx,0);
+						 }
 
-				  }
 
-		}//while
+						if((getCentis()- GAMESPEED) > refreshTime){
+
+							if(!waitStart){
+								refreshTime = getCentis();
+								drawChar(toTerminalCoordinates(ball.x),toTerminalCoordinates(ball.y), checkBall(&ball,box,strikerx));
+								gotoxy(R_EDGE_COORD + 5,16);
+								printf("Boxes left: %d    ", box->boxesLeft);
+
+								if(ball.outOfBounds){
+									ball.outOfBounds = 0;
+									lives--;
+									waitStart = 1;
+									gotoxy(R_EDGE_COORD + 5,15);
+									printf("Balls left: %d    ", lives);
+								}
+								moveBall(&ball);
+								drawBall(toTerminalCoordinates(ball.x),toTerminalCoordinates(ball.y),0);
+
+
+
+
+							}else{
+							drawBall(toTerminalCoordinates(ball.x),toTerminalCoordinates(ball.y),7);
+							setBallOverStriker(&ball, strikerx);
+							drawBall(toTerminalCoordinates(ball.x),toTerminalCoordinates(ball.y),0);
+							}
+
+
+						}
+
+			}//while
+			level ++;
+		}//while - level
 	
 	return lives;
 }

@@ -7,16 +7,16 @@
 #include "ansi.h"
 
 void moveBall(Ball * ball){
-  ball->x += ball->xdir;
-  ball->y += ball->ydir;
+  ball->x += 2*(ball->xdir);
+  ball->y += 2*(ball->ydir);
 }
 
 void moveStriker(long * x,char direction){
     if(direction && ((*x + STRIKER_WIDTH+1) <R_EDGE_COORD))
-        * x += 1;
+        * x += 2*1;
 
     else if(!direction && ((*x - STRIKER_WIDTH-1) > (L_EDGE_COORD)))
-        * x -= 1;
+        * x -= 2*1;
 }
 
 unsigned char checkBall(Ball * ball,Box * box,  int x){
@@ -146,10 +146,10 @@ Box * newBoxStack() {
 void createBoxes( Box * box,char level){ //Creates and draws boxes
 	unsigned char j,i;
   unsigned char * xtemp, * ytemp, * dtemp;
-
+				box->size = 0;
 				if(level == 1){
 				     for(j=0;j<1;j++){
-					         for(i = L_EDGE_COORD + 5; i < (R_EDGE_COORD-5); i+=BOXSIZE){
+					        for(i = L_EDGE_COORD + 5; i < L_EDGE_COORD+6;i+=BOXSIZE){//(R_EDGE_COORD-5); i+=BOXSIZE){
 						
 	                        box->x[box->size] = i;
 	                      	box->y[box->size] = TOP_EDGE_COORD+4+j*2;
@@ -160,7 +160,43 @@ void createBoxes( Box * box,char level){ //Creates and draws boxes
 	         		 }
 				 }else if(level == 2){
 				     for(j=0;j<2;j++){
-					         for(i = L_EDGE_COORD + 5; i < (R_EDGE_COORD-5); i+=BOXSIZE){
+					         for(i = L_EDGE_COORD + 5; i < L_EDGE_COORD+6;i+=BOXSIZE){//(R_EDGE_COORD-5); i+=BOXSIZE){
+						
+	                        	box->x[box->size] = i;
+	                      		box->y[box->size] = TOP_EDGE_COORD+4+j*2;
+	                      		box->durability[box->size] = j+1;
+	                      		box->size++;
+	
+	                      }
+	         		 }
+
+				}else if(level == 3){
+				     for(j=0;j<3;j++){
+					         for(i = L_EDGE_COORD + 5; i < L_EDGE_COORD+6;i+=BOXSIZE){//(R_EDGE_COORD-5); i+=BOXSIZE){
+						
+	                        	box->x[box->size] = i;
+	                      		box->y[box->size] = TOP_EDGE_COORD+4+j*2;
+	                      		box->durability[box->size] = j+1;
+	                      		box->size++;
+	
+	                      }
+	         		 }
+
+				}else if(level == 4){
+				     for(j=0;j<4;j++){
+					         for(i = L_EDGE_COORD + 5; i < L_EDGE_COORD+6;i+=BOXSIZE){//(R_EDGE_COORD-5); i+=BOXSIZE){
+						
+	                        	box->x[box->size] = i;
+	                      		box->y[box->size] = TOP_EDGE_COORD+4+j*2;
+	                      		box->durability[box->size] = j+1;
+	                      		box->size++;
+	
+	                      }
+	         		 }
+
+				}else if(level == 5){
+				     for(j=0;j<5;j++){
+					         for(i = L_EDGE_COORD + 5; i < L_EDGE_COORD+6;i+=BOXSIZE){//(R_EDGE_COORD-5); i+=BOXSIZE){
 						
 	                        	box->x[box->size] = i;
 	                      		box->y[box->size] = TOP_EDGE_COORD+4+j*2;
@@ -171,6 +207,7 @@ void createBoxes( Box * box,char level){ //Creates and draws boxes
 	         		 }
 
 				}
+					
 
 
 				 
