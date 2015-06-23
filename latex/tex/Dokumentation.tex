@@ -70,11 +70,11 @@ Dette modul indeholder en konstant tabel med sinus værdier for en cirkel delt i
 \subsubsection{math.h}
 Dette modul indeholder nogle generelle matematiske funktioner, heriblandt sin og cosinus, og to makroer til at regne i 2.14 eller 18.14.
 \paragraph{Makroer}
-Modulet indeholder to makroer, en til at multiplicere to tal i .14 format, og en til at dividere to tal i .14 format, hhv. FIX14_MULT(a, b) og FIX14_div(a,b)
+Modulet indeholder to makroer, en til at multiplicere to tal i .14 format, og en til at dividere to tal i .14 format, hhv. FIX14\_MULT(a, b) og FIX14\_div(a,b)
 
 \paragraph{long sin(int x)}
 Denne funktion tager en int som argument. Vinklen skal ikke være i radian, men skal bruge opdelingen af cirklen beskrevet i afsnit \ref{lut}. Der returneres sinus til den givne vinkel.
-\paragraph{long cos(int x}}
+\paragraph{long cos(int x)}
 Denne funktion tager en int som argument. Vinklen skal ikke være i radian, men skal bruge opdelingen af cirklen beskrevet i afsnit \ref{lut}. Der returneres cosinus til den givne vinkel.
 \paragraph{int arcsin(int y)}
 Denne funktion tager en int som argument, og finder arcsinus til integeren. Resultatet returneres med korrekt fortegn, således en negativ int også returnerer en negativ vinkel.
@@ -101,7 +101,7 @@ Denne funktion sætter vores timer til prescaling 0, continous mode og høj prio
 \paragraph{void resetTimer()}
 Denne funktion sætter de til modulet tilhørende globale variable, time og timeWait, til 0.
 \paragraph{void timer0int}
-Dette er interrupt funktionen tilhørende timeren. Den lægger 1 til time og trækker 1 fra timeWait. 
+Dette er interruptfunktionen tilhørende timeren. Den lægger 1 til time og trækker 1 fra timeWait. 
 \paragraph{void SetDelay(int input)}
 Denne funktion sætter timeWait til værdien givet i argumentet. Meningen er at bruge timeWait som en slagss delay, man kan tjekke værdien på
 \paragraph{getDelay}

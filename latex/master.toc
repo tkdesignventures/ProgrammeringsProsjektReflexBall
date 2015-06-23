@@ -6,7 +6,7 @@
 \contentsline {subsection}{\numberline {2.3}Fixed point kommatal}{4}
 \contentsline {subsection}{\numberline {2.4}Repr\IeC {\ae }sentation af negative tal}{4}
 \contentsline {subsubsection}{\numberline {2.4.1}Signed magnitude}{4}
-\contentsline {subsubsection}{\numberline {2.4.2}2's komplement}{4}
+\contentsline {subsubsection}{\numberline {2.4.2}2's komplement}{5}
 \contentsline {subsection}{\numberline {2.5}Fixed point vs floating}{5}
 \contentsline {section}{\numberline {3}Design af Reflexball}{5}
 \contentsline {subsection}{\numberline {3.1}Tekniske m\IeC {\r a}l}{5}
@@ -19,35 +19,42 @@
 \contentsline {section}{\numberline {4}Dokumentation}{7}
 \contentsline {subsection}{\numberline {4.1}Application layer}{7}
 \contentsline {subsubsection}{\numberline {4.1.1}reflexball.h}{7}
-\contentsline {paragraph}{\numberline {4.1.1.1}Strukturen Ball}{7}
+\contentsline {paragraph}{\numberline {4.1.1.1}Strukturen Ball}{8}
 \contentsline {paragraph}{\numberline {4.1.1.2}Strukturen Box}{8}
 \contentsline {paragraph}{\numberline {4.1.1.3}void moveBall()}{8}
 \contentsline {paragraph}{\numberline {4.1.1.4}void moveStriker(long * x,char direction)}{8}
 \contentsline {paragraph}{\numberline {4.1.1.5}unsigned char checkBall(Ball * ball,Box * box, int x)}{8}
 \contentsline {paragraph}{\numberline {4.1.1.6}long toTerminalCoordinates(long x)}{8}
-\contentsline {paragraph}{\numberline {4.1.1.7}void setBallOverStriker( Ball * ball, long st)}{8}
+\contentsline {paragraph}{\numberline {4.1.1.7}void setBallOverStriker( Ball * ball, long st)}{9}
 \contentsline {paragraph}{\numberline {4.1.1.8}Box * newBoxStack()}{9}
 \contentsline {paragraph}{\numberline {4.1.1.9} void createBoxes( Box * box,char level)}{9}
 \contentsline {subsubsection}{\numberline {4.1.2}menu}{9}
 \contentsline {paragraph}{\numberline {4.1.2.1}initiateMenu()}{9}
 \contentsline {paragraph}{\numberline {4.1.2.2}moveMarker(int selectedOption)}{9}
-\contentsline {subsection}{\numberline {4.2}Application Interface lag}{9}
-\contentsline {subsubsection}{\numberline {4.2.1}graphics.h}{9}
-\contentsline {paragraph}{\numberline {4.2.1.1} void drawBox(unsigned char x, unsigned char y,unsigned char color)}{9}
+\contentsline {paragraph}{\numberline {4.1.2.3}void printDifficulty(short diff)}{9}
+\contentsline {paragraph}{\numberline {4.1.2.4}printHelp()}{10}
+\contentsline {subsection}{\numberline {4.2}Application Interface lag}{10}
+\contentsline {subsubsection}{\numberline {4.2.1}graphics.h}{10}
+\contentsline {paragraph}{\numberline {4.2.1.1} void drawBox(unsigned char x, unsigned char y,unsigned char color)}{10}
 \contentsline {paragraph}{\numberline {4.2.1.2}void drawChar(unsigned char x, unsigned char y,char tegn)}{10}
 \contentsline {paragraph}{\numberline {4.2.1.3}void moveDrawStriker(unsigned char x, unsigned char direction)}{10}
 \contentsline {paragraph}{\numberline {4.2.1.4}void drawBounds(int x1,int y1, int x2, int y2,unsigned char color)}{10}
-\contentsline {paragraph}{\numberline {4.2.1.5}void drawLogo()}{10}
-\contentsline {subsubsection}{\numberline {4.2.2}lut.h}{10}
-\contentsline {subsection}{\numberline {4.3}Hardware Abstraction lag}{10}
-\contentsline {subsubsection}{\numberline {4.3.1}keys.h}{10}
-\contentsline {paragraph}{\numberline {4.3.1.1}void iniKeys()}{10}
-\contentsline {paragraph}{\numberline {4.3.1.2}char readKey()}{11}
-\contentsline {paragraph}{\numberline {4.3.1.3}char getKey}{11}
-\contentsline {subsubsection}{\numberline {4.3.2}timer.h}{11}
-\contentsline {paragraph}{\numberline {4.3.2.1}void setTimer()}{11}
-\contentsline {paragraph}{\numberline {4.3.2.2}void resetTimer()}{11}
-\contentsline {paragraph}{\numberline {4.3.2.3}void timer0int}{11}
-\contentsline {paragraph}{\numberline {4.3.2.4}void SetDelay(int input)}{11}
-\contentsline {paragraph}{\numberline {4.3.2.5}getDelay}{12}
-\contentsline {paragraph}{\numberline {4.3.2.6}unsigned long getCentis()}{12}
+\contentsline {paragraph}{\numberline {4.2.1.5}void drawLogo()}{11}
+\contentsline {subsubsection}{\numberline {4.2.2}lut.h}{11}
+\contentsline {subsubsection}{\numberline {4.2.3}math.h}{11}
+\contentsline {paragraph}{\numberline {4.2.3.1}Makroer}{11}
+\contentsline {paragraph}{\numberline {4.2.3.2}long sin(int x)}{11}
+\contentsline {paragraph}{\numberline {4.2.3.3}long cos(int x)}{11}
+\contentsline {paragraph}{\numberline {4.2.3.4}int arcsin(int y)}{11}
+\contentsline {subsection}{\numberline {4.3}Hardware Abstraction lag}{12}
+\contentsline {subsubsection}{\numberline {4.3.1}keys.h}{12}
+\contentsline {paragraph}{\numberline {4.3.1.1}void iniKeys()}{12}
+\contentsline {paragraph}{\numberline {4.3.1.2}char readKey()}{12}
+\contentsline {paragraph}{\numberline {4.3.1.3}char getKey}{12}
+\contentsline {subsubsection}{\numberline {4.3.2}timer.h}{12}
+\contentsline {paragraph}{\numberline {4.3.2.1}void setTimer()}{12}
+\contentsline {paragraph}{\numberline {4.3.2.2}void resetTimer()}{13}
+\contentsline {paragraph}{\numberline {4.3.2.3}void timer0int}{13}
+\contentsline {paragraph}{\numberline {4.3.2.4}void SetDelay(int input)}{13}
+\contentsline {paragraph}{\numberline {4.3.2.5}getDelay}{13}
+\contentsline {paragraph}{\numberline {4.3.2.6}unsigned long getCentis()}{13}
