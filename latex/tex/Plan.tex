@@ -1,0 +1,10 @@
+\section{Plan}
+
+\subsection{Problemer}
+Under udarbejdelsen af programmet havde vi problemer, som vi ikke havde forudset under design-fasen, vi vil her gennemgå nogle af dem der voldte os mest besvær, at debugge.
+\subsubsection{Problemer med realloc}
+I design-fasen havde vi forestillet os at vores boxstruct blot skulle være skrevet som i \textbf{newBoxStack()}, hvor vi dog kun allokerede plads til et enkelt element i hvert array. Ydermere skulle der være en variabel kaldet capacity, der betegnede hvor stort stacket var. Vi ville derefter i createBoxes() undersøge om size == capacity, og hvis det var sandt allokere yderlige 10 pladser med realloc. Dette fungerede dog ikke, og boksene fik tilfældige lokationer på banen. Vi mistænker at der ikke var plads til at dynamisk allokere plads på boardet og finde sammenhængende plads i rammene, og det derfor gik galt. Hvis vi i stedet startede med at allokere plads, gav det os ikke problemer.
+
+
+
+

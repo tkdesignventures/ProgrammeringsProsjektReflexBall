@@ -1,62 +1,66 @@
 \select@language {english}
-\contentsline {section}{\numberline {1}Introduktion}{3}
-\contentsline {section}{\numberline {2}Teori}{3}
-\contentsline {subsection}{\numberline {2.1}Bin\IeC {\ae }re tal}{3}
-\contentsline {subsection}{\numberline {2.2}Unsigned repr\IeC {\ae }sentation}{3}
-\contentsline {subsection}{\numberline {2.3}Fixed point kommatal}{4}
-\contentsline {subsection}{\numberline {2.4}Repr\IeC {\ae }sentation af negative tal}{4}
-\contentsline {subsubsection}{\numberline {2.4.1}Signed magnitude}{4}
-\contentsline {subsubsection}{\numberline {2.4.2}2's komplement}{5}
-\contentsline {subsection}{\numberline {2.5}Fixed point vs floating}{5}
-\contentsline {section}{\numberline {3}Design af Reflexball}{5}
-\contentsline {subsection}{\numberline {3.1}Tekniske m\IeC {\r a}l}{5}
-\contentsline {subsection}{\numberline {3.2}Krav til spillet}{6}
-\contentsline {subsubsection}{\numberline {3.2.1}Overordnede krav til spillet}{6}
-\contentsline {subsubsection}{\numberline {3.2.2}Krav til strikeren}{6}
-\contentsline {subsubsection}{\numberline {3.2.3}Krav til bolden}{7}
-\contentsline {subsubsection}{\numberline {3.2.4}Krav til boksene}{7}
-\contentsline {subsection}{\numberline {3.3}Timere}{7}
-\contentsline {subsubsection}{\numberline {3.3.1}Timer0}{7}
-\contentsline {subsubsection}{\numberline {3.3.2}Timer1}{8}
-\contentsline {section}{\numberline {4}Dokumentation}{8}
-\contentsline {subsection}{\numberline {4.1}Application layer}{8}
-\contentsline {subsubsection}{\numberline {4.1.1}reflexball.h}{8}
-\contentsline {paragraph}{Strukturen Ball}{8}
-\contentsline {paragraph}{Strukturen Box}{9}
-\contentsline {paragraph}{void moveBall(Ball * ball)}{9}
-\contentsline {paragraph}{void moveStriker(long * x,char direction)}{9}
-\contentsline {paragraph}{unsigned char checkBall(Ball * ball,Box * box, int x)}{9}
-\contentsline {paragraph}{long toTerminalCoordinates(long x)}{9}
-\contentsline {paragraph}{void setBallOverStriker( Ball * ball, long st)}{9}
-\contentsline {paragraph}{Box * newBoxStack()}{10}
-\contentsline {paragraph}{ void createBoxes( Box * box,char level)}{10}
-\contentsline {subsubsection}{\numberline {4.1.2}menu}{10}
-\contentsline {paragraph}{initiateMenu()}{10}
-\contentsline {paragraph}{moveMarker(int selectedOption)}{10}
-\contentsline {paragraph}{void printDifficulty(short diff)}{10}
-\contentsline {paragraph}{printHelp()}{10}
-\contentsline {subsection}{\numberline {4.2}Application Interface Layer}{11}
-\contentsline {subsubsection}{\numberline {4.2.1}graphics.h}{11}
-\contentsline {paragraph}{ void drawBox(unsigned char x, unsigned char y,unsigned char color)}{11}
-\contentsline {paragraph}{void drawChar(unsigned char x, unsigned char y,char tegn)}{11}
-\contentsline {paragraph}{void moveDrawStriker(unsigned char x, unsigned char direction)}{11}
-\contentsline {paragraph}{void drawBounds(int x1,int y1, int x2, int y2,unsigned char color)}{11}
-\contentsline {paragraph}{void drawLogo()}{12}
-\contentsline {subsubsection}{\numberline {4.2.2}lut.h}{12}
-\contentsline {subsubsection}{\numberline {4.2.3}math.h}{12}
-\contentsline {paragraph}{Makroer}{12}
-\contentsline {paragraph}{long sin(int x)}{12}
-\contentsline {paragraph}{long cos(int x)}{12}
-\contentsline {paragraph}{int arcsin(int y)}{12}
-\contentsline {subsection}{\numberline {4.3}Hardware Abstraction Layer}{13}
-\contentsline {subsubsection}{\numberline {4.3.1}keys.h}{13}
-\contentsline {paragraph}{void iniKeys()}{13}
-\contentsline {paragraph}{char readKey()}{13}
-\contentsline {paragraph}{char getKey}{13}
-\contentsline {subsubsection}{\numberline {4.3.2}timer.h}{13}
-\contentsline {paragraph}{void setTimer()}{14}
-\contentsline {paragraph}{void resetTimer()}{14}
-\contentsline {paragraph}{void timer0int}{14}
-\contentsline {paragraph}{void SetDelay(int input)}{14}
-\contentsline {paragraph}{getDelay}{14}
-\contentsline {paragraph}{unsigned long getCentis()}{14}
+\contentsline {section}{\numberline {1}Introduktion}{4}
+\contentsline {section}{\numberline {2}Teori}{4}
+\contentsline {subsection}{\numberline {2.1}Bin\IeC {\ae }re tal}{4}
+\contentsline {subsection}{\numberline {2.2}Unsigned repr\IeC {\ae }sentation}{4}
+\contentsline {subsection}{\numberline {2.3}Fixed point kommatal}{5}
+\contentsline {subsection}{\numberline {2.4}Repr\IeC {\ae }sentation af negative tal}{5}
+\contentsline {subsubsection}{\numberline {2.4.1}Signed magnitude}{5}
+\contentsline {subsubsection}{\numberline {2.4.2}2's komplement}{6}
+\contentsline {subsection}{\numberline {2.5}Fixed point vs floating}{6}
+\contentsline {section}{\numberline {3}Design af Reflexball}{6}
+\contentsline {subsection}{\numberline {3.1}Tekniske m\IeC {\r a}l}{6}
+\contentsline {subsection}{\numberline {3.2}Krav til spillet}{7}
+\contentsline {subsubsection}{\numberline {3.2.1}Overordnede krav til spillet}{7}
+\contentsline {subsubsection}{\numberline {3.2.2}Krav til strikeren}{8}
+\contentsline {subsubsection}{\numberline {3.2.3}Krav til bolden}{8}
+\contentsline {subsubsection}{\numberline {3.2.4}Krav til boksene}{8}
+\contentsline {subsection}{\numberline {3.3}Timere}{9}
+\contentsline {subsubsection}{\numberline {3.3.1}Timer0}{9}
+\contentsline {subsubsection}{\numberline {3.3.2}Timer1}{9}
+\contentsline {section}{\numberline {4}Brugervejledning til ReflexBall}{9}
+\contentsline {section}{\numberline {5}Plan}{9}
+\contentsline {subsection}{\numberline {5.1}Problemer}{9}
+\contentsline {subsubsection}{\numberline {5.1.1}Problemer med realloc}{10}
+\contentsline {section}{\numberline {6}Dokumentation}{10}
+\contentsline {subsection}{\numberline {6.1}Application layer}{10}
+\contentsline {subsubsection}{\numberline {6.1.1}reflexball.h}{10}
+\contentsline {paragraph}{Strukturen Ball}{10}
+\contentsline {paragraph}{Strukturen Box}{11}
+\contentsline {paragraph}{void moveBall(Ball * ball)}{11}
+\contentsline {paragraph}{void moveStriker(long * x,char direction)}{11}
+\contentsline {paragraph}{unsigned char checkBall(Ball * ball,Box * box, int x)}{11}
+\contentsline {paragraph}{long toTerminalCoordinates(long x)}{11}
+\contentsline {paragraph}{void setBallOverStriker( Ball * ball, long st)}{11}
+\contentsline {paragraph}{Box * newBoxStack()}{12}
+\contentsline {paragraph}{ void createBoxes( Box * box,char level)}{12}
+\contentsline {subsubsection}{\numberline {6.1.2}menu}{12}
+\contentsline {paragraph}{initiateMenu()}{12}
+\contentsline {paragraph}{moveMarker(int selectedOption)}{12}
+\contentsline {paragraph}{void printDifficulty(short diff)}{12}
+\contentsline {paragraph}{printHelp()}{12}
+\contentsline {subsection}{\numberline {6.2}Application Interface Layer}{13}
+\contentsline {subsubsection}{\numberline {6.2.1}graphics.h}{13}
+\contentsline {paragraph}{ void drawBox(unsigned char x, unsigned char y,unsigned char color)}{13}
+\contentsline {paragraph}{void drawChar(unsigned char x, unsigned char y,char tegn)}{13}
+\contentsline {paragraph}{void moveDrawStriker(unsigned char x, unsigned char direction)}{13}
+\contentsline {paragraph}{void drawBounds(int x1,int y1, int x2, int y2,unsigned char color)}{13}
+\contentsline {paragraph}{void drawLogo()}{14}
+\contentsline {subsubsection}{\numberline {6.2.2}lut.h}{14}
+\contentsline {subsubsection}{\numberline {6.2.3}math.h}{14}
+\contentsline {paragraph}{Makroer}{14}
+\contentsline {paragraph}{long sin(int x)}{14}
+\contentsline {paragraph}{long cos(int x)}{14}
+\contentsline {paragraph}{int arcsin(int y)}{14}
+\contentsline {subsection}{\numberline {6.3}Hardware Abstraction Layer}{15}
+\contentsline {subsubsection}{\numberline {6.3.1}keys.h}{15}
+\contentsline {paragraph}{void iniKeys()}{15}
+\contentsline {paragraph}{char readKey()}{15}
+\contentsline {paragraph}{char getKey}{15}
+\contentsline {subsubsection}{\numberline {6.3.2}timer.h}{15}
+\contentsline {paragraph}{void setTimer()}{16}
+\contentsline {paragraph}{void resetTimer()}{16}
+\contentsline {paragraph}{void timer0int}{16}
+\contentsline {paragraph}{void SetDelay(int input)}{16}
+\contentsline {paragraph}{getDelay}{16}
+\contentsline {paragraph}{unsigned long getCentis()}{16}

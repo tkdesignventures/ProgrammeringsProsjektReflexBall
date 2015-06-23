@@ -1,0 +1,27 @@
+\BOOKMARK [1][-]{section.1}{Introduktion}{}% 1
+\BOOKMARK [1][-]{section.2}{Teori}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{Bin\346re tal}{section.2}% 3
+\BOOKMARK [2][-]{subsection.2.2}{Unsigned repr\346sentation}{section.2}% 4
+\BOOKMARK [2][-]{subsection.2.3}{Fixed point kommatal}{section.2}% 5
+\BOOKMARK [2][-]{subsection.2.4}{Repr\346sentation af negative tal}{section.2}% 6
+\BOOKMARK [3][-]{subsubsection.2.4.1}{Signed magnitude}{subsection.2.4}% 7
+\BOOKMARK [3][-]{subsubsection.2.4.2}{2's komplement}{subsection.2.4}% 8
+\BOOKMARK [2][-]{subsection.2.5}{Fixed point vs floating}{section.2}% 9
+\BOOKMARK [1][-]{section.3}{Design af Reflexball}{}% 10
+\BOOKMARK [2][-]{subsection.3.1}{Tekniske m\345l}{section.3}% 11
+\BOOKMARK [2][-]{subsection.3.2}{Krav til spillet}{section.3}% 12
+\BOOKMARK [3][-]{subsubsection.3.2.1}{Overordnede krav til spillet}{subsection.3.2}% 13
+\BOOKMARK [3][-]{subsubsection.3.2.2}{Krav til strikeren}{subsection.3.2}% 14
+\BOOKMARK [3][-]{subsubsection.3.2.3}{Krav til bolden}{subsection.3.2}% 15
+\BOOKMARK [3][-]{subsubsection.3.2.4}{Krav til boksene}{subsection.3.2}% 16
+\BOOKMARK [2][-]{subsection.3.3}{Timere}{section.3}% 17
+\BOOKMARK [3][-]{subsubsection.3.3.1}{Timer0}{subsection.3.3}% 18
+\BOOKMARK [1][-]{section.4}{Dokumentation}{}% 19
+\BOOKMARK [2][-]{subsection.4.1}{Application layer}{section.4}% 20
+\BOOKMARK [3][-]{subsubsection.4.1.1}{reflexball.h}{subsection.4.1}% 21
+\BOOKMARK [3][-]{subsubsection.4.1.2}{menu}{subsection.4.1}% 22
+\BOOKMARK [2][-]{subsection.4.2}{Application Interface Layer}{section.4}% 23
+\BOOKMARK [3][-]{subsubsection.4.2.1}{graphics.h}{subsection.4.2}% 24
+\BOOKMARK [3][-]{subsubsection.4.2.2}{lut.h}{subsection.4.2}% 25
+\BOOKMARK [3][-]{subsubsection.4.2.3}{math.h}{subsection.4.2}% 26
+\BOOKMARK [3][-]{subsubsection.4.2.4}{timer.h}{subsection.4.2}% 27
