@@ -32,25 +32,25 @@ void drawBall(unsigned char x, unsigned char y, unsigned char color){
 	printf("%c", 111);
 	fgcolor(0);
 }
-void moveDrawStriker(unsigned char x, unsigned char direction){
+void moveDrawStriker(unsigned char x, unsigned char direction, char strikerWidth, char strikerY){
 	fgcolor(0);
 	if(direction==1){
-		gotoxy(x-5,STRIKER_Y);
+		gotoxy(x - (strikerWidth +2),STRIKER_Y);
 		printf("   ");
-		gotoxy(x,STRIKER_Y);
+		gotoxy(x + strikerWidth - 2,STRIKER_Y);
 		printf("%c%c%c",220,220,220);
 	}else{
-		gotoxy(x + 3,STRIKER_Y);
+		gotoxy(x + strikerWidth + 1,STRIKER_Y);
 		printf("   ");
-		gotoxy(x-2,STRIKER_Y);
+		gotoxy(x - strikerWidth,STRIKER_Y);
 		printf("%c%c%c",220,220,220);
 	}
 }
-void drawStriker(unsigned char x, unsigned char color){
+void drawStriker(unsigned char x, unsigned char color, char strikerWidth, char strikerY){
 	unsigned char i;
 	fgcolor(color);
-	gotoxy(x-2,STRIKER_Y);
-	for(i=0;i<5;i++)
+	gotoxy(x-strikerWidth,strikerY);
+	for(i=0;i < 2*strikerWidth + 1;i++)
 		printf("%c",220);
 	fgcolor(0);
 }

@@ -49,7 +49,7 @@ void printDifficulty(short diff){
 	fgcolor(1);
 	bgcolor(7);
 
-	gotoxy(25,LINE_NUMBER + 1);
+	gotoxy(40,LINE_NUMBER + 1);
 
 	if(diff == 1){
 		printf(" [Easy]   ");
