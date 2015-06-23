@@ -8,6 +8,7 @@
 #include "math.h"
 #include "menu.h"
 #include "LED.h"
+#include <string.h>
 
 int Game(int difficulty);
 
@@ -15,6 +16,7 @@ void main(){
 	int selectedOption;
 	char key, lastKey, lastKey2;
 	int difficulty,victory;
+	
 	
 	difficulty = 1;
 	selectedOption = 1;
@@ -26,7 +28,7 @@ void main(){
 	printDifficulty(difficulty);
 	
 	LEDInit();
-	LEDSetString("Welcome     ");
+	LEDSetString("Welcome    ");
 	setLedMode(2);
 	//LEDLoadBuffer();
 	
@@ -60,7 +62,7 @@ void main(){
 		
 		if(selectedOption == 1){
 			victory = Game(difficulty);
-			if(victory){
+			if(victory >= 0){
 				LEDSetString("Victory    ");
 				setLedMode(2);
 				drawVictory();
@@ -88,7 +90,6 @@ void main(){
 		}
 	}
 	
-	
 }	
 
 
@@ -102,13 +103,14 @@ int Game(int difficulty){
 		char key, lives, level, pause;
 		char waitStart;
   	    unsigned long refreshTime;
-    	
+    	char str[40];
+		char temp[3];
 		
     	clrscr();
 
 		  //Initialize
 		  level = 1;
-		  lives = 1;
+		  lives = 0;
 		  strikerx = 30;
 		  refreshTime = 100;
 		  ball.x = 5 << FIX14_SHIFT;
@@ -116,6 +118,8 @@ int Game(int difficulty){
 		  ball.outOfBounds = 0;
 		  ball.power = 0;
 		  pause = 0;
+		  
+		  temp[2] = '\0';
 		 
 		 
 		  
@@ -126,14 +130,26 @@ int Game(int difficulty){
 
 		
 		//Initialization for each level
-		while(level <= MAX_LEVEL && lives > 0){
-			LEDSetString("New level      ");
-			setLedMode(2);
-			//LEDLoadBuffer();
+		while(level <= MAX_LEVEL && lives >= 0){
+			
 		 
-			lives = NUMBER_OF_BALLS;
+			lives = 7;
 			waitStart = 1;
 			ball.powerActivated = 0;
+			
+			//Sends info to LED display
+			temp[1]=(char)(48 + level);
+			temp[0] = ' ';
+			str[0] = '\0';
+			strcat(str, "Level ");
+			strcat(str, temp);
+			temp[1] = (char)(48 + lives);
+			strcat(str,",    ");
+			strcat(str,temp);
+			temp[1] = (char)(48 + ball.power);
+			strcat(str, temp);
+			LEDSetString(str);
+			setLedMode(2);
 			
 			drawChar(toTerminalCoordinates(ball.x),toTerminalCoordinates(ball.y), checkBall(&ball,box,strikerx));
 			setBallOverStriker(&ball, strikerx);
@@ -146,22 +162,19 @@ int Game(int difficulty){
 			gotoxy(R_EDGE_COORD + 5, 14);
 			printf("-Level %d-     ", level);
 			gotoxy(R_EDGE_COORD + 5,15);
-			printf("Balls left: %d    ", (lives + 1));
+			printf("Balls left: %d    ", lives);
 			
 			
-			
-			while(lives > 0 && box->boxesLeft > 0){
-						
-					
-						
+			while(lives >= 0 && box->boxesLeft > 0){
+												
 						key = getKey();
 
 						if(key == 1){
-							if(!waitStart && !pause){
+							/*if(!waitStart && !pause){
 								pause = 1;
 							}else if(pause){
 								pause = 0;
-							}
+							}*/
 							waitStart = 0;
 						}
 						
@@ -174,7 +187,7 @@ int Game(int difficulty){
 									moveStriker(&strikerx,0);
 									moveDrawStriker(strikerx,0);
 							 }else if(key == 6){
-									if(ball.power >= 500){
+									if(ball.power >= 9){
 										ball.powerActivated = 1;
 									}
 							 }
@@ -195,6 +208,17 @@ int Game(int difficulty){
 										printf("Balls left: %d    ", lives);
 										
 									}
+									
+									str[0] = '\0';
+									temp[1] = (char)(48 + lives);
+									strcat(str,temp);
+									temp[1] = (char)(48 + ball.power);
+									strcat(str,temp);
+									strcat(str," ");
+									setLedMode(3);
+									LEDSetString(str);										
+									LEDLoadBuffer();
+									
 									moveBall(&ball);
 									drawBall(toTerminalCoordinates(ball.x),toTerminalCoordinates(ball.y),0);
 
@@ -203,13 +227,7 @@ int Game(int difficulty){
 								setBallOverStriker(&ball, strikerx);
 								drawBall(toTerminalCoordinates(ball.x),toTerminalCoordinates(ball.y),0);
 								}
-								if(ball.powerActivated){
-									ball.power--;
-									if(ball.power <= 0){
-										ball.power = 0;
-										ball.powerActivated = 0;
-									}
-								}
+								
 								
 							}
 						}//!pause

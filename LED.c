@@ -15,8 +15,8 @@ int shift = 0;
 int numberShifts = 0;
 
 char done = 0;
-int value = 0;
 char mode = 1;
+char value = 0;
 
 char string[] = "                                 ";
 
@@ -52,15 +52,20 @@ void setLedMode(char modeIn){
 	mode = modeIn;
 }
 
+void setValue(char valueIn){
+	value = valueIn;
+}
+
 void LEDUpdate(){
 	switch (mode){
-		case 1: LedUpdatePrint(); break;
+		case 1: LEDColumn(value); break;
 		case 2: LEDUpdateOnce(); break;
-		//case 3: LEDUpdateContinuous; break;
+		case 3: LEDUpdatePrint(); break;
+		default: ; break;
 	}
 }
 
-void LEDColumn(char value){         //"value" kunne også vært definert i toppen av filen.
+void LEDColumn(){
 	
 	PGOUT = value;
 	PEOUT = 0x1F;
@@ -77,16 +82,15 @@ void LEDSetString(char *string1){
 		
 	}
 	string[i] = '\0';
+	done = 0;
+	counter = 0;
+	numberShifts = 0;
+	shift = 0;
+	kolonnenr = 0;
+	unitnr = 0;
 	
-	
-	/*
-	for(j = i; string2[j] != '\0'; j++){
-		string[j] = string2[j];
-	}
-	string[j] = '\0';
-	
-	*/
 }
+
 
 //Trenger kun at kaldes inden LEDUpdatePrint.
 void LEDLoadBuffer(){
@@ -101,10 +105,11 @@ void LEDLoadBuffer(){
 		}
 		buffer[i][5] = 0x00;
 	}
+	
 }
 
 //Printer 4 bogstaver på skærmen.
-void LedUpdatePrint(){
+void LEDUpdatePrint(){
 	
 
 	PGOUT = buffer[unitnr][kolonnenr] ;
@@ -149,270 +154,6 @@ void LedUpdatePrint(){
 	}
 }
 
-void LEDUpdateContinuous(){
-	
-	int i;
-	int j;
-	
-	//Flytter en kolonne
-	if (counter == 100){
-		counter = 0;		
-		shift++;
-
-		//Flytter displays
-		if(shift == 6){
-			shift = 0;
-			
-			//Shifter buffer
-			for(i = 0; i < 4; i++){
-				for(j = 0; j < 6; j++){
-					buffer[i][j] = buffer[i+1][j];
-				}
-			}
-			//Sjekker for enden a string
-			if(string[numberShifts] == '\0'){
-				numberShifts = 0;
-			}
-
-			//Henter inn siste verdi i buffer
-			for(j = 0; j < 5; j++){
-				buffer[4][j] = character_data[string[numberShifts]-0x20][j];	
-			}
-			
-			//Setter siste søyle i buffer til 0
-			buffer[4][5] = 0x00;
-			numberShifts++;
-		}	
-
-	}
-
-	counter++;
-
-	
-
-	PGOUT = buffer[unitnr][kolonnenr+shift] ;
-	// PEOUT = 0x1F & ~(1 << (4-kolonnenr));
-
-	switch(kolonnenr){
-		case 0: PEOUT = 0x0F; break;
-		case 1: PEOUT = 0x17; break;
-		case 2: PEOUT = 0x1B; break;
-		case 3: PEOUT = 0x1D; break;
-		case 4: PEOUT = 0x1E; break;
-		case 5: PEOUT = 0x1F; break;
-	}
-	
-	//Tester for unit nr, hvilket display vi er på
-	switch (unitnr) {
-		case 0:
-		  PEOUT |= 0x80;
-		  PEOUT &= ~(1 << 7);
-		  break;
-		case 1:
-		  PGOUT |= (1 << 7);
-		  PGOUT &= ~(1 << 7);
-		  break;
-		case 2:
-		  PEOUT |= 0x20;
-		  PEOUT &= ~(1 << 5);
-		  break;
-		case 3:
-		  PEOUT |= 0x40;
-		  PEOUT &= ~(1 << 6);
-		  break;
-		default:
-		  
-		  break;
-	}
-		
-	if(unitnr++ == 4){
-		unitnr = 0;
-		if(kolonnenr++ == 6){
-			kolonnenr = 0;
-		}
-	}
-	
-}
-
-/*
-void LEDUpdateOnce(){
-	
-	int i;
-	int j;
-	
-	if (done){
-		//LEDSetString();
-		LedUpdatePrint();
-	}else{
-			//Flytter en kolonne
-		if (counter == 100){
-			counter = 0;		
-			shift++;
-
-			//Flytter displays
-			if(shift == 6){
-				shift = 0;
-				
-				//Shifter buffer
-				for(i = 0; i < 4; i++){
-					for(j = 0; j < 6; j++){
-						buffer[i][j] = buffer[i+1][j];
-					}
-				}
-				//Sjekker for enden a string
-				if(string[numberShifts] == '\0'){
-					done = 1;
-				}
-
-				//Henter inn siste verdi i buffer
-				for(j = 0; j < 5; j++){
-					buffer[4][j] = character_data[string[numberShifts]-0x20][j];	
-				}
-				
-				//Setter siste søyle i buffer til 0
-				buffer[4][5] = 0x00;
-				numberShifts++;
-			}	
-
-		}
-
-		counter++;
-
-		PGOUT = buffer[unitnr][kolonnenr+shift] ;
-		// PEOUT = 0x1F & ~(1 << (4-kolonnenr));
-
-		switch(kolonnenr){
-			case 0: PEOUT = 0x0F; break;
-			case 1: PEOUT = 0x17; break;
-			case 2: PEOUT = 0x1B; break;
-			case 3: PEOUT = 0x1D; break;
-			case 4: PEOUT = 0x1E; break;
-			case 5: PEOUT = 0x1F; break;
-		}
-		
-		//Tester for unit nr, hvilket display vi er på
-		switch (unitnr) {
-			case 0:
-			  PEOUT |= 0x80;
-			  PEOUT &= ~(1 << 7);
-			  break;
-			case 1:
-			  PGOUT |= (1 << 7);
-			  PGOUT &= ~(1 << 7);
-			  break;
-			case 2:
-			  PEOUT |= 0x20;
-			  PEOUT &= ~(1 << 5);
-			  break;
-			case 3:
-			  PEOUT |= 0x40;
-			  PEOUT &= ~(1 << 6);
-			  break;
-			default:
-			  
-			  break;
-		}
-			
-		if(unitnr++ == 4){
-			unitnr = 0;
-			if(kolonnenr++ == 6){
-				kolonnenr = 0;
-			}
-		}
-	}//else
-	
-}
-*/
-void LEDUpdateOnceAndPrint(){
-
-	
-	int i;
-	int j;
-	
-	//Flytter en kolonne
-	if (done <= 5 && counter == 100){
-		counter = 0;		
-		shift++;
-
-		//Flytter displays
-		if(shift == 6){
-			shift = 0;
-			
-			//Shifter buffer
-			for(i = 0; i < 4; i++){
-				for(j = 0; j < 6; j++){
-					buffer[i][j] = buffer[i+1][j];
-				}
-			}
-			//Sjekker for enden a string
-			if(string[numberShifts] == '\0'){
-				numberShifts = 0;
-				done = 1;
-			}
-
-			//Henter inn siste verdi i buffer
-			for(j = 0; j < 5; j++){
-				if(done){
-					done++;
-					buffer[4][j] = character_data[lastString[numberShifts] - 0x20][j];
-					
-				}else{
-					buffer[4][j] = character_data[string[numberShifts]-0x20][j];
-				}
-					
-			}
-			
-			//Setter siste søyle i buffer til 0
-			buffer[4][5] = 0x00;
-			numberShifts++;
-		}	
-
-	}
-
-	counter++;
-
-	PGOUT = buffer[unitnr][kolonnenr+shift] ;
-	// PEOUT = 0x1F & ~(1 << (4-kolonnenr));
-
-	switch(kolonnenr){
-		case 0: PEOUT = 0x0F; break;
-		case 1: PEOUT = 0x17; break;
-		case 2: PEOUT = 0x1B; break;
-		case 3: PEOUT = 0x1D; break;
-		case 4: PEOUT = 0x1E; break;
-		case 5: PEOUT = 0x1F; break;
-	}
-	
-	//Tester for unit nr, hvilket display vi er på
-	switch (unitnr) {
-		case 0:
-		  PEOUT |= 0x80;
-		  PEOUT &= ~(1 << 7);
-		  break;
-		case 1:
-		  PGOUT |= (1 << 7);
-		  PGOUT &= ~(1 << 7);
-		  break;
-		case 2:
-		  PEOUT |= 0x20;
-		  PEOUT &= ~(1 << 5);
-		  break;
-		case 3:
-		  PEOUT |= 0x40;
-		  PEOUT &= ~(1 << 6);
-		  break;
-		default:
-		  
-		  break;
-	}
-		
-	if(unitnr++ == 4){
-		unitnr = 0;
-		if(kolonnenr++ == 6){
-			kolonnenr = 0;
-		}
-	}
-}
 
 
 void LEDUpdateOnce(){

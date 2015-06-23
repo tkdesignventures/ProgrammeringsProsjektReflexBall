@@ -1,31 +1,24 @@
 #ifndef _LED_H_
 #define _LED_H_
 
-/*
-#pragma interrupt
-void timer1int(){
-	//LEDUpdateContinuous();
-			LEDUpdateOnce();
-}
-*/
+void timer1int();
 
 void LEDInit();
+
 void setLedMode(char modeIn);
 
+void setValue(char valueIn);
 
-void LEDColumn(char value);
 void LEDUpdate();
-void LEDSetString(char string1[]);
 
-//Trenger kun at kaldes inden LEDUpdatePrint.
-void LEDLoadBuffer();
+void LEDColumn();
 
-//Printer 4 bogstaver på skærmen.
-void LedUpdatePrint();
-
-void LEDUpdateContinuous();
-void LEDUpdateOnceAndPrint();
+void LEDSetString(char *string1);
 
 void LEDUpdateOnce();
+
+void LEDLoadBuffer();
+
+void LEDUpdatePrint();
 
 #endif

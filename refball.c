@@ -98,10 +98,12 @@ unsigned char checkBall(Ball * ball,Box * box,  int x){
 				//Kills the box instantly when high power
 				if(ball->powerActivated && ball->power){
 					box->boxesLeft--;
+					ball->power--;
 					drawBox(box->x[j],box->y[j],7);
 				}else if(!(--box->durability[j])){
 					box->boxesLeft--;
-					ball->power += 250;
+					ball->power ++
+					if(ball->power > 9) ball->power = 9;
 					drawBox(box->x[j],box->y[j],7);
 				}
             }
