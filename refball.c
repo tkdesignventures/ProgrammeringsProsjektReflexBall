@@ -12,7 +12,7 @@ void moveBall(Ball * ball){
 }
 
 void moveStriker(long * x,char direction){
-    if(direction && ((*x + STRIKER_WIDTH+1) <R_EDGE_COORD))
+    if(direction && ((*x + STRIKER_WIDTH+1) < R_EDGE_COORD))
         * x += STRIKER_SPEED;
 
     else if(!direction && ((*x - STRIKER_WIDTH-1) > (L_EDGE_COORD)))
@@ -44,7 +44,7 @@ unsigned char checkBall(Ball * ball,Box * box,  int x){
 	  	ball->ydir *= -1;
 
 	  	//Left part of striker
-		if(nextPosX >= x - STRIKER_WIDTH && nextPosX < x){
+		if(nextPosX >= x - STRIKER_WIDTH && nextPosX < (x - 1)){
         	if(right){
 				rotate(ball, -(int)43);
 			}else{
@@ -52,7 +52,7 @@ unsigned char checkBall(Ball * ball,Box * box,  int x){
 			}
 
       	//Middle part of striker
-      	}else if (nextPosX == x){
+      	}else if (nextPosX <= x -1 || nextPosX >= x + 1){
 
       	//Right part of striker
       	}else{
@@ -79,7 +79,7 @@ unsigned char checkBall(Ball * ball,Box * box,  int x){
 
         for(j=0; j < box->size; j++){
 
-          if((box->durability[j] > 0) && (nextPosX >= box->x[j] && nextPosX < box->x[j]+BOXSIZE) && (box->y[j] == nextPosY || box->y[j] == yt+1))  // Boksene har en bredde på 3, vi tester alle koordinater
+          if((box->durability[j] > 0) && (nextPosX >= box->x[j] && nextPosX < box->x[j]+BOXSIZE) && (box->y[j] == nextPosY || box->y[j]+1 == nextPosY))// Boksene har en bredde på 3, vi tester alle koordinater
               {
 				
 			    if(!(ball->powerActivated)){
@@ -98,14 +98,21 @@ unsigned char checkBall(Ball * ball,Box * box,  int x){
 				//Kills the box instantly when high power
 				if(ball->powerActivated && ball->power){
 					box->boxesLeft--;
-					ball->power--;
-					drawBox(box->x[j],box->y[j],7);
-				}else if(!(--box->durability[j])){
-					box->boxesLeft--;
-					ball->power ++
-					if(ball->power > 9) ball->power = 9;
-					drawBox(box->x[j],box->y[j],7);
+					box->durability = 0;
+					
+					ball->power --;
+					if(ball->power <= 0){ ball->powerActivated = 0;}
+					
+				}else{
+					if(!(--box->durability[j])){
+						box->boxesLeft--;
+						ball->power ++;
+						if(ball->power > 9) ball->power = 9;	
+					}
+					
 				}
+				drawBox(box->x[j],box->y[j],7-box->durability[j]);
+				
             }
         }
 
@@ -160,7 +167,7 @@ void createBoxes( Box * box,char level){ //Creates and draws boxes
 				box->size = 0;
 				if(level == 1){
 				     for(j=0;j<1;j++){
-					        for(i = L_EDGE_COORD + 5; i < L_EDGE_COORD+6;i+=BOXSIZE){//(R_EDGE_COORD-5); i+=BOXSIZE){
+					        for(i = L_EDGE_COORD + 5; i < (R_EDGE_COORD-5); i+=BOXSIZE){
 						
 	                        box->x[box->size] = i;
 	                      	box->y[box->size] = TOP_EDGE_COORD+4+j*2;
@@ -171,7 +178,7 @@ void createBoxes( Box * box,char level){ //Creates and draws boxes
 	         		 }
 				 }else if(level == 2){
 				     for(j=0;j<2;j++){
-					         for(i = L_EDGE_COORD + 5; i < L_EDGE_COORD+6;i+=BOXSIZE){//(R_EDGE_COORD-5); i+=BOXSIZE){
+					         for(i = L_EDGE_COORD + 5; i < (R_EDGE_COORD-5); i+=BOXSIZE){
 						
 	                        	box->x[box->size] = i;
 	                      		box->y[box->size] = TOP_EDGE_COORD+4+j*2;
@@ -194,7 +201,7 @@ void createBoxes( Box * box,char level){ //Creates and draws boxes
 					*/
 					
 				     for(j=0;j<3;j++){
-					         for(i = L_EDGE_COORD + 5; i < L_EDGE_COORD+6;i+=BOXSIZE){//(R_EDGE_COORD-5); i+=BOXSIZE){
+					         for(i = L_EDGE_COORD + 5; i < (R_EDGE_COORD-5); i+=BOXSIZE){
 						
 	                        	box->x[box->size] = i;
 	                      		box->y[box->size] = TOP_EDGE_COORD+4+j*2;
@@ -207,7 +214,7 @@ void createBoxes( Box * box,char level){ //Creates and draws boxes
 
 				}else if(level == 4){
 				     for(j=0;j<4;j++){
-					         for(i = L_EDGE_COORD + 5; i < L_EDGE_COORD+6;i+=BOXSIZE){//(R_EDGE_COORD-5); i+=BOXSIZE){
+					         for(i = L_EDGE_COORD + 5; i < (R_EDGE_COORD-5); i+=BOXSIZE){
 						
 	                        	box->x[box->size] = i;
 	                      		box->y[box->size] = TOP_EDGE_COORD+4+j*2;
@@ -219,7 +226,7 @@ void createBoxes( Box * box,char level){ //Creates and draws boxes
 
 				}else if(level == 5){
 				     for(j=0;j<5;j++){
-					         for(i = L_EDGE_COORD + 5; i < L_EDGE_COORD+6;i+=BOXSIZE){//(R_EDGE_COORD-5); i+=BOXSIZE){
+					         for(i = L_EDGE_COORD + 5; i < (R_EDGE_COORD-5); i+=BOXSIZE){
 						
 	                        	box->x[box->size] = i;
 	                      		box->y[box->size] = TOP_EDGE_COORD+4+j*2;

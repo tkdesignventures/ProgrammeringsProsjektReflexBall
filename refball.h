@@ -3,10 +3,10 @@
 #define STRIKER_SPEED 2
 #define L_EDGE_COORD 2
 #define R_EDGE_COORD 120
-#define STRIKER_WIDTH 4
+#define STRIKER_WIDTH 4 
 #define OUT_OF_BOUNDS 65
 #define GAMESPEED 5
-#define OVER_STRIKER 20
+#define OVER_STRIKER 2
 #define STRIKER_Y  60
 #define STRIKER_START  20
 #define TOP_EDGE_COORD 2
@@ -15,8 +15,9 @@
 #define TOP_EDGE 196
 #define STRIKER 220
 #define BOXSIZE 6
-#define MAX_BOXES 50
-#define MAX_LEVEL 1
+#define MAX_BOXES 100
+#define MAX_LEVEL 5
+#define POWER_LIMIT 5
 
 
 
