@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.11.13)  23 JUN 2015 20:33
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.11.13)  23 JUN 2015 20:43
 entering extended mode
 **master.tex
 
@@ -947,9 +947,6 @@ sProsjektReflexBall\latex\master.aux)
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
  ) 
 Here is how much of TeX's memory you used:
  14135 strings out of 493921
@@ -970,7 +967,7 @@ s (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files (x
 86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files (x86
 )/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files (x86)/M
 iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on master.pdf (18 pages, 199434 bytes).
+Output written on master.pdf (18 pages, 199266 bytes).
 PDF statistics:
  105 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
