@@ -34,12 +34,19 @@ En af måderne at repræsentere fortegnet på bit-strengen, er ved at lade det m
 \end{equation}
 Signed magnitude repræsentation, har dog den ulempe, at man spilder et bit, f.eks. hvis man har en 4-bit streng gælder der at 1000 =  0000, så istedet for at have $2^4$ tilstande har man blot $2^4-1$. 
 \subsubsection{2's komplement}
-En anden måde at repræsentere negative tal, kan gøres vha. 2's komplement. 2's komplement findes ved at invertere et unsigned tal og derefter lægge 1 til. 2's komplement har to fordele: Der er kun et 0, og subtraktion kan gøres på samme måde som addition, så hvis vi ønsker at subtrahere 3 fra 5, skal vi blot finde 2's kompliment af 3 og lægge det til 5, som i \ref{2skomp}
+En anden måde at repræsentere negative tal, kan gøres vha. 2's komplement. 2's komplement findes ved at invertere et unsigned tal og derefter lægge 1 til. 2's komplement har to fordele: Der er kun et 0, og subtraktion kan gøres på samme måde som addition, så hvis vi ønsker at subtrahere 3 fra 5, skal vi blot finde 2's kompliment af 3 og lægge det til 5, som i ligning \ref{2skomp}. Disse fordele gør 2's komplement et af de mest udbredte metoder til at repræsentere negative tal i digitale systemer.
 \begin{equation}
 \label{2skomp}
  5-3 = 5+(-3)
 \end{equation}
-Disse fordele gør 2's komplement et af de mest udbredte metoder til at repræsentere negative tal i digitale systemer.
+
 
 \subsection{Fixed point vs floating}
 SHIT HERE
+
+\subsection{Timere}
+På Z8 Encore Evauluation Boardet er der 4 forskellige timere, som kan konfigureres efter brugerens behov. I vores projekt har vi brugt 2 timere, en til at styre spillets tid, og en anden til at styre LED skærmene.
+\subsubsection{Timer0}
+På timer0 har vi lavet en timer, der sender et tick hvert millisekund. Denne timer bliver brugt i main-funktionen og til debouncing af knapperne. Timeren er sat i continous mode og der foretages ingen clock division af tælleren. 
+
+  

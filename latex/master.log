@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.11.13)  23 JUN 2015 11:21
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.11.13)  23 JUN 2015 11:55
 entering extended mode
 **master.tex
 
@@ -776,18 +776,18 @@ Package: titlesec 2011/12/15 v2.10.0 Sectioning titles
 )
 (C:\Users\Bruger\Desktop\3-ugers\ProgrammeringsProsjektReflexBall\Programmering
 sProsjektReflexBall\latex\master.aux)
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
 
 (C:\Users\Bruger\AppData\Roaming\MiKTeX\2.9\tex\context\base\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -888,11 +888,11 @@ File: siunitx-abbreviations.cfg 2015/01/21 v2.6e siunitx: Abbreviated units
 \AtBeginShipoutBox=\box56
 \c@lstlisting=\count165
 \c__siunitx_mathsf_int=\count166
-LaTeX Font Info:    Try loading font information for U+msa on input line 20.
+LaTeX Font Info:    Try loading font information for U+msa on input line 22.
  ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 20.
+LaTeX Font Info:    Try loading font information for U+msb on input line 22.
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -926,31 +926,33 @@ sProsjektReflexBall\latex\tex/Dokumentation.tex [7]
 
 LaTeX Warning: Reference `reallocfejl' on page 8 undefined on input line 13.
 
-[8]
-Overfull \hbox (0.67049pt too wide) in paragraph at lines 47--48
+[8] [9]
+Overfull \hbox (0.67049pt too wide) in paragraph at lines 49--50
 \OT1/cmr/m/n/12 Denne funk-tion printer hjlpe-teksten. Start-st-edet for tek-s
 ternes x-koordinat
  []
 
-[9]
-Overfull \hbox (2.43617pt too wide) in paragraph at lines 56--56
- |[]\OT1/cmr/bx/n/12 void drawChar(unsigned char x, un-signed char y,char tegn)
-| 
+
+Overfull \hbox (6.39616pt too wide) in paragraph at lines 55--55
+| \OT1/cmr/bx/n/14.4 void draw-Box(unsigned char x, un-signed char y,unsigned
  []
 
-[10] [11] [12]) [13]
+[10] [11] [12]) [13] [14]
 (C:\Users\Bruger\Desktop\3-ugers\ProgrammeringsProsjektReflexBall\Programmering
 sProsjektReflexBall\latex\master.aux)
 
 LaTeX Warning: There were undefined references.
 
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
  ) 
 Here is how much of TeX's memory you used:
- 14116 strings out of 493921
- 275409 string characters out of 3144872
- 287414 words of memory out of 3000000
- 17266 multiletter control sequences out of 15000+200000
- 12776 words of font info for 48 fonts, out of 3000000 for 9000
+ 14117 strings out of 493921
+ 275428 string characters out of 3144872
+ 287411 words of memory out of 3000000
+ 17267 multiletter control sequences out of 15000+200000
+ 13382 words of font info for 50 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
  39i,7n,39p,10394b,378s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb>
@@ -964,9 +966,9 @@ s (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files (x
 86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files (x86
 )/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files (x86)/M
 iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on master.pdf (14 pages, 184850 bytes).
+Output written on master.pdf (15 pages, 185299 bytes).
 PDF statistics:
- 93 PDF objects out of 1000 (max. 8388607)
+ 96 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
 

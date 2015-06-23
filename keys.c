@@ -1,4 +1,4 @@
-#include <eZ8.h>             // special encore constants, macros and flash routines
+﻿#include <eZ8.h>             // special encore constants, macros and flash routines
 #include <sio.h> 
 #include "keys.h"
 #include "ctimer.h"
@@ -6,7 +6,7 @@
 void iniKeys(){
 // sætter datadirektion for keys
 PFDD = 0xC0;
-PDDD = 0x03;
+PDDD = 0x08;
 }
 char readKey(){
 	char a,b=0;
