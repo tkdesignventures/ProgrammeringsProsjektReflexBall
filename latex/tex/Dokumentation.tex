@@ -1,15 +1,16 @@
 \section{Dokumentation}
-Vi har udviklet alle biblioteker i fællesskab, og det giver ikke mening at tilskrive nogle personer en særlig del af koden, da meget lidt kode er skrevet af udelukkende en person. 
+Vi har udviklet alle moduler i fællesskab, og det giver ikke mening at tilskrive nogle personer en særlig del af koden, da meget lidt kode er skrevet af udelukkende en person. 
 
 \subsection{Application layer}
-I dette lag har vi vores reflexball modul, vores menu modul og main-modulet.
+I dette lag findes reflexball modulet, menu modulet og main modulet.
 \subsubsection{reflexball.h}
-Reflexball er et modul der indeholder grundlæggende regler om spillet, deriblandt kollision, hvordan bolden skal bevæge sig og hvorledes strikeren skal opføre sig. Desuden indeholder den strukturerne Ball og og Box
+Reflexball er et modul der indeholder grundlæggende regler om spillet, deriblandt kollision, hvordan bolden skal bevæge sig og hvorledes strikeren skal opføre sig. Desuden indeholder den strukturerne Ball og Box. Desuden indeholder dette modul også særligt mange konstanter, som er konstanter der definerer spillets grænser.
 \paragraph{Strukturen Ball}
-Ball er en stuktur som har variablene opgivet i \ref{Ballkrav}.
+Ball er en stuktur som har variablene opgivet i \ref{Ballkrav}. outOfBounds, der fortæller om spilleren er inde for banen, og powerActivated, der fortæler om hiii power er aktiveret, er implementeret som unsigned char's da de kun kan være 0 eller 1. I variablen, power, gemmes hvor meget power spilleren har opladet.
+ 
 
 \paragraph{Strukturen Box}
-Box er en struktur der indeholder samtlige bokse i spillet. Den indeholder 3 pointere til char-arrays: et koordinatsæt og et tilhørende array med boksenes styrke. Desuden er der to variable der fortæller antallet af bokse og hvor mange der er tilbage. Vi forestillede os initielt at den skulle implementeres som et stack, således arrayernes størrelse var variable, men hvorfor vi ikke gjorde det står i afsnit \ref{reallocfejl}
+Box er en struktur der indeholder samtlige bokse i spillet. Den indeholder 3 pointere til char-arrays: et koordinatsæt og et tilhørende array med boksenes styrke. Desuden er der to variable der fortæller antallet af bokse der er fyldt i stacket og hvor mange der ikke er ødelagte. Initielt forestillede vi os at den skulle implementeres som et stack, således arrayernes størrelse var variable, men hvorfor vi ikke gjorde det står i afsnit \ref{reallocfejl}.
 \paragraph{void moveBall()}
 Denne funktion flytter tager blot en peger til en Ball som argument og lægger retningsvektoren til x og y koordinaterne.
 \paragraph{void moveStriker(long * x,char direction)}
@@ -32,9 +33,18 @@ Denne funktion tager en peger til Box-stacket og en character der repræsenterer
 \subsubsection{menu}
 Dette modul indeholder funktioner til at tegne og vise grafik når man bevæger sig rundt i menuen.
 \paragraph{initiateMenu()}
-Denne funktion renser førts skærmen og printer derefter menuen. Slutteligt sættes markøren på Start Game.
+Denne funktion renser først skærmen og printer derefter menuen. Slutteligt sættes markøren på Start Game.
 \paragraph{moveMarker(int selectedOption)}
 Denne funktion sætter markøren alt afhængigt af inputtet.
+\paragraph{void printDifficulty(short diff)}
+Denne funktion tager en short som argument. Der udskrives noget forskelligt afhængigt af argumentet.
+\begin{enumerate}
+\item Hvis diff er 1, skrives der "Easy"
+\item Hvis diff er 2, skrives der "Normal"
+\item Hvis diff er 3, skrives der "Hard"
+\end{enumerate}
+\paragraph{printHelp()}
+Denne funktion printer hjælpe-teksten. Startstedet for teksternes x-koordinat bestemmes af konstanten LEFT\_BORDER
 
 \subsection{Application Interface lag}
 \subsubsection{graphics.h}
@@ -53,31 +63,43 @@ heeej
 Denne funktion tegner banens kanter. Den tager 2 koordinatsæt som input, x1 og y1 svarende til det øverste venstre hjørne og  x2 og y2 svarende til det nederste højre hjørne. Variablen color bruges til at bestemme farven på kanterne. 
 
 \paragraph{void drawLogo()}
-Denne funktion tegner spillets logo. Den bruger konstanten LEFT\_BORDER til at bestemme på hvilket x-koordinat den skal begynde at skrive fra.
+Denne funktion tegner spillets logo. Den bruger konstanten LEFT\_BORDER til at bestemme på hvilket x-koordinat den skal begynde at skrive fra, således det bliver logoets venstre kant.
 \subsubsection{lut.h}
+\label{lut}
 Dette modul indeholder en konstant tabel med sinus værdier for en cirkel delt i 512 stykker. Hvis x er vinklen i radian indsættes da blot $\dfrac{x\cdot \pi}{256}$ i tabellen.
+\subsubsection{math.h}
+Dette modul indeholder nogle generelle matematiske funktioner, heriblandt sin og cosinus, og to makroer til at regne i 2.14 eller 18.14.
+\paragraph{Makroer}
+Modulet indeholder to makroer, en til at multiplicere to tal i .14 format, og en til at dividere to tal i .14 format, hhv. FIX14_MULT(a, b) og FIX14_div(a,b)
+
+\paragraph{long sin(int x)}
+Denne funktion tager en int som argument. Vinklen skal ikke være i radian, men skal bruge opdelingen af cirklen beskrevet i afsnit \ref{lut}. Der returneres sinus til den givne vinkel.
+\paragraph{long cos(int x}}
+Denne funktion tager en int som argument. Vinklen skal ikke være i radian, men skal bruge opdelingen af cirklen beskrevet i afsnit \ref{lut}. Der returneres cosinus til den givne vinkel.
+\paragraph{int arcsin(int y)}
+Denne funktion tager en int som argument, og finder arcsinus til integeren. Resultatet returneres med korrekt fortegn, således en negativ int også returnerer en negativ vinkel.
 \subsection{Hardware Abstraction lag}
 \subsubsection{keys.h}
-Dette modul får inputs fra knapperne 
+Dette modul får inputs fra knapperne, og kan debounce ved hjælp af timer.h
 \paragraph{void iniKeys()}
 Denne funktion initialiserer den korrekte data-direction på de pins der er forbundne til knapperne, således værdierne kan læses, uden at vi forsøger at skrive outputs samtidigt.
 
 \paragraph{char readKey()}
 Denne funktion læser fra knapperne, og returnerer en bit streng, hvor de tre knapper er på hver deres plads i strengen, hvis pladsen tilhørende knappen er 1, betyder det at knappen bliver trykket. Denne funktion kan godt detektere hvis brugeren trykker flere knapper ind samtidigt. Pladserne er konfigureret således:
 \begin{enumerate}
-\item Knappen til højre er på LSB(least signiifcant bit)
-\item Den midterste knap er på 2 bit fra højre
-\item Knappen til venstre er på 3 bit.
+\item Knappen til højre er på LSB(least significant bit)
+\item Den midterste knap er på 1. plads i bit-strengen.
+\item Knappen til venstre er på 2. plads i bit-strengen.
 \end{enumerate}
 
 \paragraph{char getKey}
-Denne funktion bruges hvis man ønsker debouncing. Denne læser vha. readKey() og checker derefter om værdien er det samme efter 10 ms og returner dette.
+Denne funktion bruges hvis man ønsker debouncing. Den læser vha. readKey() og checker derefter om værdien er det samme efter 10 ms og returner dette.
 \subsubsection{timer.h}
-Dette modul har med vores primære timer at gøre. Den har 2 globale variable: \textit{time} og \textit{timeWait}. Time tæller hvor lang tid timeren har været tændt Grunden til at vi har globable variable her, er fordi timeren skal være uafhængig og køre så hurtigt som muligt.
+Dette modul har med vores primære timer at gøre. Den har 2 globale variable: \textit{time} og \textit{timeWait}. Time tæller hvor lang tid timeren har været tændt. Grunden til at vi har globable variable her, er fordi timeren skal være uafhængig af main-metoden og køre så hurtigt som muligt. Main-metoden kan få adgang til variablene ved nogle setter- og getter-funktioner
 \paragraph{void setTimer()}
-Denne funktion sætter vores timer til prescaling 0, continous mode og høj prioritet for interrupt funktionen. Vores interrupt funktion kører hvert ms.
+Denne funktion sætter vores timer til prescaling 0, continous mode og høj prioritet for interrupt funktionen. Denne timer er sat til at køre hvert ms.
 \paragraph{void resetTimer()}
-Denne funktion sætter de globale variable i modulet, time og timeWait til 0.
+Denne funktion sætter de til modulet tilhørende globale variable, time og timeWait, til 0.
 \paragraph{void timer0int}
 Dette er interrupt funktionen tilhørende timeren. Den lægger 1 til time og trækker 1 fra timeWait. 
 \paragraph{void SetDelay(int input)}

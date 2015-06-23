@@ -5,7 +5,7 @@ Vi vil i dette afsnit gennemgå den basale teori bag binære tal og slutteligt i
 Et binært tal er et tal der kan udtrykkes i det binære talsystem/base-2, hvor grundtallet er 2. Da det er meget let at implementere i digital logik, er det et system der bruges internt i computere verden over. \\ 
 Et binært tal består af bits, som svarer til et ciffer. Et bit kan have en af to tilstande: logisk højt eller logisk lavt. Dette medfører da hvis vi har \textit{n} bits har vi $2^n$ forskellige tilstande. Disse forskellige tilstande kan fortolkes på forskellige måder, og vi vil i de næste afsnit gennemgå nogle af de forskellige representationer.
 \subsection{Unsigned repræsentation}
-I det binære talsystem er grundtallet vanligvis 2(det kunne potentielt også være -2). Det betyder således at i en n-bit streng, vil  bittet yderst til højre være vægtet med  $2^0$, det næste med $2^1$ op til $2^n$ gående mod venstre. Tallet 5(base-10) kan da skrives som i ligning \ref{unsigned}
+I det binære talsystem er grundtallet vanligvis 2(det kunne potentielt også være -2). Det betyder således at i en n-bit streng, vil  bittet yderst til højre være vægtet med  $2^0$, det næste med $2^1$ op til $2^n$ gående mod venstre. Tallet 5(base-10) kan da skrives som i ligning \ref{unsigned}. Ydermere tæller vi også fra højre mod venstre, og første bit står såldedes også på 0 plads. Dette bit kaldes oftest LSB(least significant bit), hvorimod det bit der står helt til venstre kaldes MSB(most significant bit).
 
 
 \begin{equation}\label{unsigned}
