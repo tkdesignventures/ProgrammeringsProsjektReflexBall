@@ -102,7 +102,7 @@ int Game(int difficulty){
 		Box * box = newBoxStack();
   	  	long strikerx;
 		char key, lives, level, pause;
-		char waitStart;
+		char waitStart, gameDelay;
   	    unsigned long refreshTime;
     	char str[40];
 		char temp[3];
@@ -122,9 +122,16 @@ int Game(int difficulty){
 		  
 		  temp[2] = '\0';
 		
-		if(difficulty == 1) livesPerLevel = 9;
-		else if(difficulty == 2) livesPerLevel = 5;
-		else livesPerLevel = 3;
+		if(difficulty == 1){
+			livesPerLevel = 9;
+			gameDelay = 50;
+		}else if(difficulty == 2){
+			livesPerLevel = 5;
+			gameDelay = 35;
+		}else{
+			livesPerLevel = 3;
+			gameDelay = 20;
+		}
 		 
 		  
 		drawBounds(L_EDGE_COORD,TOP_EDGE_COORD,R_EDGE_COORD,OUT_OF_BOUNDS,0);
@@ -209,7 +216,7 @@ int Game(int difficulty){
 							 }
 
 
-							if(getCentis() - 50 > refreshTime){
+							if(getCentis() - gameDelay > refreshTime){
 
 								if(!waitStart){
 									refreshTime = getCentis();

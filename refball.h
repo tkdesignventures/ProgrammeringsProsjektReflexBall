@@ -15,7 +15,7 @@
 #define TOP_EDGE 196
 #define STRIKER 220
 #define BOXSIZE 6
-#define MAX_BOXES 100
+#define MAX_BOXES 50
 #define MAX_LEVEL 5
 #define POWER_LIMIT 5
 
