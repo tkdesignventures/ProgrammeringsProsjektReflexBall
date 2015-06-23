@@ -43,5 +43,18 @@ Vi lavede en liste af krav til programmets design som vi i så høj grad som mul
 \end{enumerate}
 
 
+\subsection{Timere}
+På Z8 Encore Evauluation Boardet er der 4 forskellige timere, timer0 til timer3. Disse timere kan konfigureres efter brugerens behov. I vores projekt har vi brugt 2 timere, en til at styre spillets tid, og en anden til at styre LED skærmene, vi har blot brugt timer0 og timer1.
+\subsubsection{Timer0}
+Timer0 er en timer der sender et tick hvert millisekund. Timeren bliver brugt i main-funktionen og til debouncing af knapperne. Timeren er sat i continous mode, da vi ønsker at den blot skal fortsætte ubetinget, og der foretages ingen clock division af tælleren. Reload værdien fandtes ved udregningen i ligning \ref{timer0}. Interrupt Prioriteten sættes til høj ved at skrive $0x20$ til både IRQ0ENH og IRQ0ENL.
+\begin{equation}
+\label{timer0}
+Reloadvalue = 0.001 \si{s} \cdot 18.432.000 \si{s^{-1}} = 4800_{16} 
+\end{equation}
+\subsubsection{Timer1}
+Timer1 er en timer der sender et tick hvert 500 $\mu$s. Timeren bliver kun brugt i \textbf{led.h}. Denne timer er også sat i continous mode, og der bliver heller ikke her foretaget clock division. Reload værdien fandtes ved udregningen i ligning \ref{timer1}. Interrupt prioriten sættes til lav ved kun at skrive til IRQ0ENL.
 
-\subsection{}
+\begin{equation}
+\label{timer1}
+Reloadvalue = Reloadvalue = 0.005 \si{s} \cdot 18.432.000 \si{s^{-1}} = 2400_{16}  
+\end{equation}

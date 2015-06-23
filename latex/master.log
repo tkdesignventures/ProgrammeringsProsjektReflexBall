@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.11.13)  23 JUN 2015 11:55
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.11.13)  23 JUN 2015 14:46
 entering extended mode
 **master.tex
 
@@ -918,26 +918,30 @@ sProsjektReflexBall\latex\master.toc)
 (C:\Users\Bruger\Desktop\3-ugers\ProgrammeringsProsjektReflexBall\Programmering
 sProsjektReflexBall\latex\tex/Introduktion.tex)
 (C:\Users\Bruger\Desktop\3-ugers\ProgrammeringsProsjektReflexBall\Programmering
-sProsjektReflexBall\latex\tex/Teori.tex [3] [4])
+sProsjektReflexBall\latex\tex/Teori.tex
+
+LaTeX Warning: Citation `Dlogik' on page 3 undefined on input line 8.
+
+[3] [4])
 (C:\Users\Bruger\Desktop\3-ugers\ProgrammeringsProsjektReflexBall\Programmering
-sProsjektReflexBall\latex\tex/Design.tex [5] [6])
+sProsjektReflexBall\latex\tex/Design.tex [5] [6] [7])
 (C:\Users\Bruger\Desktop\3-ugers\ProgrammeringsProsjektReflexBall\Programmering
-sProsjektReflexBall\latex\tex/Dokumentation.tex [7]
+sProsjektReflexBall\latex\tex/Dokumentation.tex
 
 LaTeX Warning: Reference `reallocfejl' on page 8 undefined on input line 13.
 
 [8] [9]
-Overfull \hbox (0.67049pt too wide) in paragraph at lines 49--50
+Overfull \hbox (0.67049pt too wide) in paragraph at lines 47--48
 \OT1/cmr/m/n/12 Denne funk-tion printer hjlpe-teksten. Start-st-edet for tek-s
 ternes x-koordinat
  []
 
-
-Overfull \hbox (6.39616pt too wide) in paragraph at lines 55--55
+[10]
+Overfull \hbox (6.39616pt too wide) in paragraph at lines 53--53
 | \OT1/cmr/bx/n/14.4 void draw-Box(unsigned char x, un-signed char y,unsigned
  []
 
-[10] [11] [12]) [13] [14]
+[11] [12] [13]) [14]
 (C:\Users\Bruger\Desktop\3-ugers\ProgrammeringsProsjektReflexBall\Programmering
 sProsjektReflexBall\latex\master.aux)
 
@@ -948,13 +952,13 @@ LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
  ) 
 Here is how much of TeX's memory you used:
- 14117 strings out of 493921
- 275428 string characters out of 3144872
- 287411 words of memory out of 3000000
- 17267 multiletter control sequences out of 15000+200000
- 13382 words of font info for 50 fonts, out of 3000000 for 9000
+ 14128 strings out of 493921
+ 275534 string characters out of 3144872
+ 287431 words of memory out of 3000000
+ 17276 multiletter control sequences out of 15000+200000
+ 14495 words of font info for 55 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 39i,7n,39p,10394b,378s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 39i,12n,39p,10394b,555s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb>
 <C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C
 :/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/
@@ -966,7 +970,7 @@ s (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files (x
 86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files (x86
 )/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files (x86)/M
 iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on master.pdf (15 pages, 185299 bytes).
+Output written on master.pdf (15 pages, 192864 bytes).
 PDF statistics:
  96 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

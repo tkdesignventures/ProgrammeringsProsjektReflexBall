@@ -3,11 +3,13 @@
 \@writefile{toc}{\select@language{english}}
 \@writefile{lof}{\select@language{english}}
 \@writefile{lot}{\select@language{english}}
+\citation{Dlogik}
 \@writefile{toc}{\contentsline {section}{\numberline {1}Introduktion}{3}}
 \@writefile{toc}{\contentsline {section}{\numberline {2}Teori}{3}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Bin\IeC {\ae }re tal}{3}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Unsigned repr\IeC {\ae }sentation}{3}}
 \citation{Yates}
+\citation{Dlogic}
 \newlabel{unsigned}{{1}{4}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.3}Fixed point kommatal}{4}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.4}Repr\IeC {\ae }sentation af negative tal}{4}}
@@ -23,48 +25,53 @@
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.3}Krav til bolden}{7}}
 \newlabel{Ballkrav}{{3.2.3}{7}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.4}Krav til boksene}{7}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}}{7}}
-\@writefile{toc}{\contentsline {section}{\numberline {4}Dokumentation}{7}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Application layer}{7}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Timere}{7}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.1}Timer0}{7}}
+\newlabel{timer0}{{5}{8}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.2}Timer1}{8}}
+\newlabel{timer1}{{6}{8}}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Dokumentation}{8}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Application layer}{8}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.1}reflexball.h}{8}}
 \@writefile{toc}{\contentsline {paragraph}{Strukturen Ball}{8}}
-\@writefile{toc}{\contentsline {paragraph}{Strukturen Box}{8}}
-\@writefile{toc}{\contentsline {paragraph}{void moveBall()}{8}}
-\@writefile{toc}{\contentsline {paragraph}{void moveStriker(long * x,char direction)}{8}}
-\@writefile{toc}{\contentsline {paragraph}{unsigned char checkBall(Ball * ball,Box * box, int x)}{8}}
+\@writefile{toc}{\contentsline {paragraph}{Strukturen Box}{9}}
+\@writefile{toc}{\contentsline {paragraph}{void moveBall(Ball * ball)}{9}}
+\@writefile{toc}{\contentsline {paragraph}{void moveStriker(long * x,char direction)}{9}}
+\@writefile{toc}{\contentsline {paragraph}{unsigned char checkBall(Ball * ball,Box * box, int x)}{9}}
 \@writefile{toc}{\contentsline {paragraph}{long toTerminalCoordinates(long x)}{9}}
 \@writefile{toc}{\contentsline {paragraph}{void setBallOverStriker( Ball * ball, long st)}{9}}
-\@writefile{toc}{\contentsline {paragraph}{Box * newBoxStack()}{9}}
-\@writefile{toc}{\contentsline {paragraph}{ void createBoxes( Box * box,char level)}{9}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.2}menu}{9}}
-\@writefile{toc}{\contentsline {paragraph}{initiateMenu()}{9}}
-\@writefile{toc}{\contentsline {paragraph}{moveMarker(int selectedOption)}{9}}
+\@writefile{toc}{\contentsline {paragraph}{Box * newBoxStack()}{10}}
+\@writefile{toc}{\contentsline {paragraph}{ void createBoxes( Box * box,char level)}{10}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.2}menu}{10}}
+\@writefile{toc}{\contentsline {paragraph}{initiateMenu()}{10}}
+\@writefile{toc}{\contentsline {paragraph}{moveMarker(int selectedOption)}{10}}
 \@writefile{toc}{\contentsline {paragraph}{void printDifficulty(short diff)}{10}}
 \@writefile{toc}{\contentsline {paragraph}{printHelp()}{10}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Application Interface lag}{10}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.1}graphics.h}{10}}
-\@writefile{toc}{\contentsline {paragraph}{ void drawBox(unsigned char x, unsigned char y,unsigned char color)}{10}}
-\@writefile{toc}{\contentsline {paragraph}{void drawChar(unsigned char x, unsigned char y,char tegn)}{10}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Application Interface Layer}{11}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.1}graphics.h}{11}}
+\@writefile{toc}{\contentsline {paragraph}{ void drawBox(unsigned char x, unsigned char y,unsigned char color)}{11}}
+\@writefile{toc}{\contentsline {paragraph}{void drawChar(unsigned char x, unsigned char y,char tegn)}{11}}
 \@writefile{toc}{\contentsline {paragraph}{void moveDrawStriker(unsigned char x, unsigned char direction)}{11}}
 \@writefile{toc}{\contentsline {paragraph}{void drawBounds(int x1,int y1, int x2, int y2,unsigned char color)}{11}}
-\@writefile{toc}{\contentsline {paragraph}{void drawLogo()}{11}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.2}lut.h}{11}}
-\newlabel{lut}{{4.2.2}{11}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.3}math.h}{11}}
-\@writefile{toc}{\contentsline {paragraph}{Makroer}{11}}
-\@writefile{toc}{\contentsline {paragraph}{long sin(int x)}{11}}
+\@writefile{toc}{\contentsline {paragraph}{void drawLogo()}{12}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.2}lut.h}{12}}
+\newlabel{lut}{{4.2.2}{12}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.3}math.h}{12}}
+\@writefile{toc}{\contentsline {paragraph}{Makroer}{12}}
+\@writefile{toc}{\contentsline {paragraph}{long sin(int x)}{12}}
 \@writefile{toc}{\contentsline {paragraph}{long cos(int x)}{12}}
 \@writefile{toc}{\contentsline {paragraph}{int arcsin(int y)}{12}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Hardware Abstraction lag}{12}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.1}keys.h}{12}}
-\@writefile{toc}{\contentsline {paragraph}{void iniKeys()}{12}}
-\@writefile{toc}{\contentsline {paragraph}{char readKey()}{12}}
-\bibcite{Yates}{1}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Hardware Abstraction Layer}{13}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.1}keys.h}{13}}
+\@writefile{toc}{\contentsline {paragraph}{void iniKeys()}{13}}
+\@writefile{toc}{\contentsline {paragraph}{char readKey()}{13}}
 \@writefile{toc}{\contentsline {paragraph}{char getKey}{13}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.2}timer.h}{13}}
-\@writefile{toc}{\contentsline {paragraph}{void setTimer()}{13}}
-\@writefile{toc}{\contentsline {paragraph}{void resetTimer()}{13}}
-\@writefile{toc}{\contentsline {paragraph}{void timer0int}{13}}
-\@writefile{toc}{\contentsline {paragraph}{void SetDelay(int input)}{13}}
-\@writefile{toc}{\contentsline {paragraph}{getDelay}{13}}
-\@writefile{toc}{\contentsline {paragraph}{unsigned long getCentis()}{13}}
+\bibcite{Yates}{1}
+\bibcite{Dlogic}{2}
+\@writefile{toc}{\contentsline {paragraph}{void setTimer()}{14}}
+\@writefile{toc}{\contentsline {paragraph}{void resetTimer()}{14}}
+\@writefile{toc}{\contentsline {paragraph}{void timer0int}{14}}
+\@writefile{toc}{\contentsline {paragraph}{void SetDelay(int input)}{14}}
+\@writefile{toc}{\contentsline {paragraph}{getDelay}{14}}
+\@writefile{toc}{\contentsline {paragraph}{unsigned long getCentis()}{14}}

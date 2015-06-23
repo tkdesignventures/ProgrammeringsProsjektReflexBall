@@ -15,46 +15,48 @@
 \contentsline {subsubsection}{\numberline {3.2.2}Krav til strikeren}{6}
 \contentsline {subsubsection}{\numberline {3.2.3}Krav til bolden}{7}
 \contentsline {subsubsection}{\numberline {3.2.4}Krav til boksene}{7}
-\contentsline {subsection}{\numberline {3.3}}{7}
-\contentsline {section}{\numberline {4}Dokumentation}{7}
-\contentsline {subsection}{\numberline {4.1}Application layer}{7}
+\contentsline {subsection}{\numberline {3.3}Timere}{7}
+\contentsline {subsubsection}{\numberline {3.3.1}Timer0}{7}
+\contentsline {subsubsection}{\numberline {3.3.2}Timer1}{8}
+\contentsline {section}{\numberline {4}Dokumentation}{8}
+\contentsline {subsection}{\numberline {4.1}Application layer}{8}
 \contentsline {subsubsection}{\numberline {4.1.1}reflexball.h}{8}
 \contentsline {paragraph}{Strukturen Ball}{8}
-\contentsline {paragraph}{Strukturen Box}{8}
-\contentsline {paragraph}{void moveBall()}{8}
-\contentsline {paragraph}{void moveStriker(long * x,char direction)}{8}
-\contentsline {paragraph}{unsigned char checkBall(Ball * ball,Box * box, int x)}{8}
+\contentsline {paragraph}{Strukturen Box}{9}
+\contentsline {paragraph}{void moveBall(Ball * ball)}{9}
+\contentsline {paragraph}{void moveStriker(long * x,char direction)}{9}
+\contentsline {paragraph}{unsigned char checkBall(Ball * ball,Box * box, int x)}{9}
 \contentsline {paragraph}{long toTerminalCoordinates(long x)}{9}
 \contentsline {paragraph}{void setBallOverStriker( Ball * ball, long st)}{9}
-\contentsline {paragraph}{Box * newBoxStack()}{9}
-\contentsline {paragraph}{ void createBoxes( Box * box,char level)}{9}
-\contentsline {subsubsection}{\numberline {4.1.2}menu}{9}
-\contentsline {paragraph}{initiateMenu()}{9}
-\contentsline {paragraph}{moveMarker(int selectedOption)}{9}
+\contentsline {paragraph}{Box * newBoxStack()}{10}
+\contentsline {paragraph}{ void createBoxes( Box * box,char level)}{10}
+\contentsline {subsubsection}{\numberline {4.1.2}menu}{10}
+\contentsline {paragraph}{initiateMenu()}{10}
+\contentsline {paragraph}{moveMarker(int selectedOption)}{10}
 \contentsline {paragraph}{void printDifficulty(short diff)}{10}
 \contentsline {paragraph}{printHelp()}{10}
-\contentsline {subsection}{\numberline {4.2}Application Interface lag}{10}
-\contentsline {subsubsection}{\numberline {4.2.1}graphics.h}{10}
-\contentsline {paragraph}{ void drawBox(unsigned char x, unsigned char y,unsigned char color)}{10}
-\contentsline {paragraph}{void drawChar(unsigned char x, unsigned char y,char tegn)}{10}
+\contentsline {subsection}{\numberline {4.2}Application Interface Layer}{11}
+\contentsline {subsubsection}{\numberline {4.2.1}graphics.h}{11}
+\contentsline {paragraph}{ void drawBox(unsigned char x, unsigned char y,unsigned char color)}{11}
+\contentsline {paragraph}{void drawChar(unsigned char x, unsigned char y,char tegn)}{11}
 \contentsline {paragraph}{void moveDrawStriker(unsigned char x, unsigned char direction)}{11}
 \contentsline {paragraph}{void drawBounds(int x1,int y1, int x2, int y2,unsigned char color)}{11}
-\contentsline {paragraph}{void drawLogo()}{11}
-\contentsline {subsubsection}{\numberline {4.2.2}lut.h}{11}
-\contentsline {subsubsection}{\numberline {4.2.3}math.h}{11}
-\contentsline {paragraph}{Makroer}{11}
-\contentsline {paragraph}{long sin(int x)}{11}
+\contentsline {paragraph}{void drawLogo()}{12}
+\contentsline {subsubsection}{\numberline {4.2.2}lut.h}{12}
+\contentsline {subsubsection}{\numberline {4.2.3}math.h}{12}
+\contentsline {paragraph}{Makroer}{12}
+\contentsline {paragraph}{long sin(int x)}{12}
 \contentsline {paragraph}{long cos(int x)}{12}
 \contentsline {paragraph}{int arcsin(int y)}{12}
-\contentsline {subsection}{\numberline {4.3}Hardware Abstraction lag}{12}
-\contentsline {subsubsection}{\numberline {4.3.1}keys.h}{12}
-\contentsline {paragraph}{void iniKeys()}{12}
-\contentsline {paragraph}{char readKey()}{12}
+\contentsline {subsection}{\numberline {4.3}Hardware Abstraction Layer}{13}
+\contentsline {subsubsection}{\numberline {4.3.1}keys.h}{13}
+\contentsline {paragraph}{void iniKeys()}{13}
+\contentsline {paragraph}{char readKey()}{13}
 \contentsline {paragraph}{char getKey}{13}
 \contentsline {subsubsection}{\numberline {4.3.2}timer.h}{13}
-\contentsline {paragraph}{void setTimer()}{13}
-\contentsline {paragraph}{void resetTimer()}{13}
-\contentsline {paragraph}{void timer0int}{13}
-\contentsline {paragraph}{void SetDelay(int input)}{13}
-\contentsline {paragraph}{getDelay}{13}
-\contentsline {paragraph}{unsigned long getCentis()}{13}
+\contentsline {paragraph}{void setTimer()}{14}
+\contentsline {paragraph}{void resetTimer()}{14}
+\contentsline {paragraph}{void timer0int}{14}
+\contentsline {paragraph}{void SetDelay(int input)}{14}
+\contentsline {paragraph}{getDelay}{14}
+\contentsline {paragraph}{unsigned long getCentis()}{14}
