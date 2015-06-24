@@ -25,68 +25,69 @@
 \contentsline {subsection}{\numberline {4.2}Test af programmet}{12}
 \contentsline {section}{\numberline {5}Implementation}{12}
 \contentsline {subsection}{\numberline {5.1}main.c}{12}
-\contentsline {section}{\numberline {6}Kildeliste}{16}
-\contentsline {section}{\numberline {7}Brugervejledning til ReflexBall}{16}
-\contentsline {subsection}{\numberline {7.1}Ops\IeC {\ae }tning af PuTTY}{18}
-\contentsline {section}{\numberline {8}Dokumentation}{18}
-\contentsline {subsection}{\numberline {8.1}Application layer}{18}
-\contentsline {subsubsection}{\numberline {8.1.1}main.c}{18}
-\contentsline {subsubsection}{\numberline {8.1.2}refball.h}{19}
-\contentsline {paragraph}{Strukturen Ball}{19}
-\contentsline {paragraph}{Strukturen Box}{19}
-\contentsline {paragraph}{void moveBall(Ball * ball)}{19}
-\contentsline {paragraph}{void moveStriker(long * x,char direction)}{19}
-\contentsline {paragraph}{unsigned char checkBall(Ball * ball,Box * box, int x)}{19}
-\contentsline {paragraph}{long toTerminalCoordinates(long x)}{20}
-\contentsline {paragraph}{void setBallOverStriker( Ball * ball, long st)}{20}
-\contentsline {paragraph}{Box * newBoxStack()}{20}
-\contentsline {paragraph}{ void createBoxes( Box * box,char level)}{20}
-\contentsline {subsubsection}{\numberline {8.1.3}menu}{20}
-\contentsline {paragraph}{initiateMenu()}{20}
-\contentsline {paragraph}{moveMarker(int selectedOption)}{21}
-\contentsline {paragraph}{void printDifficulty(short diff)}{21}
-\contentsline {paragraph}{printHelp()}{21}
-\contentsline {subsection}{\numberline {8.2}Application Interface Layer}{21}
-\contentsline {subsubsection}{\numberline {8.2.1}graphics.h}{21}
-\contentsline {paragraph}{ void drawBox(unsigned char x, unsigned char y,unsigned char color)}{21}
-\contentsline {paragraph}{void drawChar(unsigned char x, unsigned char y,char tegn)}{21}
-\contentsline {paragraph}{void moveDrawStriker(unsigned char x, unsigned char direction)}{22}
-\contentsline {paragraph}{void drawBounds(int x1,int y1, int x2, int y2,unsigned char color)}{22}
-\contentsline {paragraph}{void drawLogo()}{22}
-\contentsline {paragraph}{drawStriker(unsigned char x, unsigned char color, char strikerWidth, char strikerY)}{22}
-\contentsline {paragraph}{drawGameOver()}{22}
-\contentsline {paragraph}{drawVictory()}{22}
-\contentsline {paragraph}{scrollText(char y, char delay)}{22}
-\contentsline {paragraph}{printExampleBoxes(char x, char y, char boxSize)}{23}
-\contentsline {subsubsection}{\numberline {8.2.2}lut.h}{23}
-\contentsline {subsubsection}{\numberline {8.2.3}math.h}{23}
-\contentsline {paragraph}{Makroer}{23}
-\contentsline {paragraph}{long sin(int x)}{23}
-\contentsline {paragraph}{long cos(int x)}{23}
-\contentsline {paragraph}{int arcsin(int y)}{23}
-\contentsline {subsection}{\numberline {8.3}Hardware Abstraction Layer}{24}
-\contentsline {subsubsection}{\numberline {8.3.1}keys.h}{24}
-\contentsline {paragraph}{void iniKeys()}{24}
-\contentsline {paragraph}{char readKey()}{24}
-\contentsline {paragraph}{char getKey}{24}
-\contentsline {subsubsection}{\numberline {8.3.2}ctimer.h}{24}
-\contentsline {paragraph}{void setTimer()}{25}
-\contentsline {paragraph}{void resetTimer()}{25}
-\contentsline {paragraph}{void timer0int}{25}
-\contentsline {paragraph}{void SetDelay(int input)}{25}
-\contentsline {paragraph}{getDelay}{25}
-\contentsline {paragraph}{unsigned long getCentis()}{25}
-\contentsline {subsubsection}{\numberline {8.3.3}LED.h}{25}
-\contentsline {paragraph}{LEDInit()}{25}
-\contentsline {paragraph}{timer1int()}{26}
-\contentsline {paragraph}{setLedMode(char valueIn)}{26}
-\contentsline {paragraph}{LEDUpdate()}{26}
-\contentsline {paragraph}{LEDSetString(char *string)}{26}
-\contentsline {paragraph}{LEDLoadBuffer()}{26}
-\contentsline {paragraph}{LEDUpdatePrint()}{26}
-\contentsline {paragraph}{LEDUpdateOnce()}{26}
-\contentsline {section}{\numberline {9}Appendix A}{27}
-\contentsline {section}{\numberline {10}Kode}{27}
-\contentsline {section}{\numberline {11}AppendixB}{27}
-\contentsline {subsection}{\numberline {11.1}Journal}{27}
-\contentsline {subsection}{\numberline {11.2}Kode fra \IeC {\o }velserne}{32}
+\contentsline {section}{\numberline {6}Konklusion}{16}
+\contentsline {section}{\numberline {7}Kildeliste}{17}
+\contentsline {section}{\numberline {8}Brugervejledning til ReflexBall}{18}
+\contentsline {subsection}{\numberline {8.1}Ops\IeC {\ae }tning af PuTTY}{19}
+\contentsline {section}{\numberline {9}Dokumentation}{20}
+\contentsline {subsection}{\numberline {9.1}Application layer}{20}
+\contentsline {subsubsection}{\numberline {9.1.1}main.c}{20}
+\contentsline {subsubsection}{\numberline {9.1.2}refball.h}{21}
+\contentsline {paragraph}{Strukturen Ball}{21}
+\contentsline {paragraph}{Strukturen Box}{21}
+\contentsline {paragraph}{void moveBall(Ball * ball)}{21}
+\contentsline {paragraph}{void moveStriker(long * x,char direction)}{21}
+\contentsline {paragraph}{unsigned char checkBall(Ball * ball,Box * box, int x)}{22}
+\contentsline {paragraph}{long toTerminalCoordinates(long x)}{22}
+\contentsline {paragraph}{void setBallOverStriker( Ball * ball, long st)}{22}
+\contentsline {paragraph}{Box * newBoxStack()}{22}
+\contentsline {paragraph}{ void createBoxes( Box * box,char level)}{22}
+\contentsline {subsubsection}{\numberline {9.1.3}menu}{22}
+\contentsline {paragraph}{initiateMenu()}{23}
+\contentsline {paragraph}{moveMarker(int selectedOption)}{23}
+\contentsline {paragraph}{void printDifficulty(short diff)}{23}
+\contentsline {paragraph}{printHelp()}{23}
+\contentsline {subsection}{\numberline {9.2}Application Interface Layer}{23}
+\contentsline {subsubsection}{\numberline {9.2.1}graphics.h}{23}
+\contentsline {paragraph}{ void drawBox(unsigned char x, unsigned char y,unsigned char color)}{23}
+\contentsline {paragraph}{void drawChar(unsigned char x, unsigned char y,char tegn)}{24}
+\contentsline {paragraph}{void moveDrawStriker(unsigned char x, unsigned char direction)}{24}
+\contentsline {paragraph}{void drawBounds(int x1,int y1, int x2, int y2,unsigned char color)}{24}
+\contentsline {paragraph}{void drawLogo()}{24}
+\contentsline {paragraph}{drawStriker(unsigned char x, unsigned char color, char strikerWidth, char strikerY)}{24}
+\contentsline {paragraph}{drawGameOver()}{24}
+\contentsline {paragraph}{drawVictory()}{25}
+\contentsline {paragraph}{scrollText(char y, char delay)}{25}
+\contentsline {paragraph}{printExampleBoxes(char x, char y, char boxSize)}{25}
+\contentsline {subsubsection}{\numberline {9.2.2}lut.h}{25}
+\contentsline {subsubsection}{\numberline {9.2.3}math.h}{25}
+\contentsline {paragraph}{Makroer}{25}
+\contentsline {paragraph}{long sin(int x)}{25}
+\contentsline {paragraph}{long cos(int x)}{25}
+\contentsline {paragraph}{int arcsin(int y)}{26}
+\contentsline {subsection}{\numberline {9.3}Hardware Abstraction Layer}{26}
+\contentsline {subsubsection}{\numberline {9.3.1}keys.h}{26}
+\contentsline {paragraph}{void iniKeys()}{26}
+\contentsline {paragraph}{char readKey()}{26}
+\contentsline {paragraph}{char getKey}{26}
+\contentsline {subsubsection}{\numberline {9.3.2}ctimer.h}{27}
+\contentsline {paragraph}{void setTimer()}{27}
+\contentsline {paragraph}{void resetTimer()}{27}
+\contentsline {paragraph}{void timer0int}{27}
+\contentsline {paragraph}{void SetDelay(int input)}{27}
+\contentsline {paragraph}{getDelay}{27}
+\contentsline {paragraph}{unsigned long getCentis()}{27}
+\contentsline {subsubsection}{\numberline {9.3.3}LED.h}{27}
+\contentsline {paragraph}{LEDInit()}{28}
+\contentsline {paragraph}{timer1int()}{28}
+\contentsline {paragraph}{setLedMode(char valueIn)}{28}
+\contentsline {paragraph}{LEDUpdate()}{28}
+\contentsline {paragraph}{LEDSetString(char *string)}{28}
+\contentsline {paragraph}{LEDLoadBuffer()}{28}
+\contentsline {paragraph}{LEDUpdatePrint()}{29}
+\contentsline {paragraph}{LEDUpdateOnce()}{29}
+\contentsline {section}{\numberline {10}Appendix A}{29}
+\contentsline {section}{\numberline {11}Kode}{29}
+\contentsline {section}{\numberline {12}AppendixB}{29}
+\contentsline {subsection}{\numberline {12.1}Journal}{29}
+\contentsline {subsection}{\numberline {12.2}Kode fra \IeC {\o }velserne}{34}

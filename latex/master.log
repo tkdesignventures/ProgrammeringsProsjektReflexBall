@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.11.13)  24 JUN 2015 19:03
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.11.13)  24 JUN 2015 20:05
 entering extended mode
 **master.tex
 
@@ -975,10 +975,14 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 ) [14] [15 <C:/Users/Bruger/Desktop/3-ugers/ProgrammeringsProsjektReflexBall/Pr
 ogrammeringsProsjektReflexBall/latex/img/Flow.png>]
 (C:\Users\Bruger\Desktop\3-ugers\ProgrammeringsProsjektReflexBall\Programmering
-sProsjektReflexBall\latex\tex/Kilde.tex)
+sProsjektReflexBall\latex\tex/Konklusion.tex) [16
+
+]
+(C:\Users\Bruger\Desktop\3-ugers\ProgrammeringsProsjektReflexBall\Programmering
+sProsjektReflexBall\latex\tex/Kilde.tex) [17]
 (C:\Users\Bruger\Desktop\3-ugers\ProgrammeringsProsjektReflexBall\Programmering
 sProsjektReflexBall\latex\tex/Usermanual.tex
-<img/Board.png, id=72, 549.55313pt x 402.75468pt>
+<img/Board.png, id=78, 549.55313pt x 402.75468pt>
 File: img/Board.png Graphic file (type png)
  <use img/Board.png>
 Package pdftex.def Info: img/Board.png used on input line 14.
@@ -994,28 +998,37 @@ Underfull \hbox (badness 10000) in paragraph at lines 11--20
 
  []
 
-[16
 
-] [17 <C:/Users/Bruger/Desktop/3-ugers/ProgrammeringsProsjektReflexBall/Program
-meringsProsjektReflexBall/latex/img/Board.png>])
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[18]) [19 <C:/Users/Bruger/Desktop/3-ugers/ProgrammeringsProsjektReflexBall/Pro
+grammeringsProsjektReflexBall/latex/img/Board.png>]
 (C:\Users\Bruger\Desktop\3-ugers\ProgrammeringsProsjektReflexBall\Programmering
-sProsjektReflexBall\latex\tex/Dokumentation.tex [18] [19]
-Overfull \hbox (5.35648pt too wide) in paragraph at lines 27--30
+sProsjektReflexBall\latex\tex/Dokumentation.tex
+<img/SoftwareArchitecture.png, id=87, 499.26524pt x 299.9205pt>
+File: img/SoftwareArchitecture.png Graphic file (type png)
+
+<use img/SoftwareArchitecture.png>
+Package pdftex.def Info: img/SoftwareArchitecture.png used on input line 9.
+(pdftex.def)             Requested size: 299.56145pt x 179.95367pt.
+ [20 <C:/Users/Bruger/Desktop/3-ugers/ProgrammeringsProsjektReflexBall/Programm
+eringsProsjektReflexBall/latex/img/SoftwareArchitecture.png>] [21]
+Overfull \hbox (5.35648pt too wide) in paragraph at lines 38--41
 \OT1/cmr/m/n/12 18.14 for-mat og st-ter bol-dens x-koordinat til dens vr-di. 
 Bol-dens y-koordinat
  []
 
-[20]
-Overfull \hbox (6.03796pt too wide) in paragraph at lines 56--56
+[22]
+Overfull \hbox (6.03796pt too wide) in paragraph at lines 67--67
 | \OT1/cmr/bx/n/14.4 void draw-Box(unsigned char x, un-sig-ned char y,unsigned
  []
 
-[21] [22] [23] [24] [25])
+[23] [24] [25] [26] [27] [28])
 (C:\Users\Bruger\Desktop\3-ugers\ProgrammeringsProsjektReflexBall\Programmering
 sProsjektReflexBall\latex\tex/AppendixA.tex)
 (C:\Users\Bruger\Desktop\3-ugers\ProgrammeringsProsjektReflexBall\Programmering
 sProsjektReflexBall\latex\tex/AppendixB.tex
-<img/journal.pdf, id=106, 597.55246pt x 845.07718pt>
+<img/journal.pdf, id=116, 597.55246pt x 845.07718pt>
 File: img/journal.pdf Graphic file (type pdf)
  <use img/journal.pdf>
 Package pdftex.def Info: img/journal.pdf used on input line 3.
@@ -1025,8 +1038,8 @@ File: img/journal.pdf Graphic file (type pdf)
 <use img/journal.pdf>
 Package pdftex.def Info: img/journal.pdf used on input line 3.
 (pdftex.def)             Requested size: 597.551pt x 845.07512pt.
- [26] [27]
-<img/journal.pdf, id=115, page=1, 597.55246pt x 845.07718pt>
+ [29]
+<img/journal.pdf, id=122, page=1, 597.55246pt x 845.07718pt>
 File: img/journal.pdf Graphic file (type pdf)
 
 <use img/journal.pdf, page 1>
@@ -1050,9 +1063,9 @@ File: img/journal.pdf Graphic file (type pdf)
 <use img/journal.pdf, page 1>
 Package pdftex.def Info: img/journal.pdf, page1 used on input line 3.
 (pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
- [28 <C:/Users/Bruger/Desktop/3-ugers/ProgrammeringsProsjektReflexBall/Programm
+ [30 <C:/Users/Bruger/Desktop/3-ugers/ProgrammeringsProsjektReflexBall/Programm
 eringsProsjektReflexBall/latex/img/journal.pdf>]
-<img/journal.pdf, id=133, page=2, 597.55246pt x 845.07718pt>
+<img/journal.pdf, id=141, page=2, 597.55246pt x 845.07718pt>
 File: img/journal.pdf Graphic file (type pdf)
 
 <use img/journal.pdf, page 2>
@@ -1067,9 +1080,9 @@ File: img/journal.pdf Graphic file (type pdf)
 <use img/journal.pdf, page 2>
 Package pdftex.def Info: img/journal.pdf, page2 used on input line 3.
 (pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
- [29 <C:/Users/Bruger/Desktop/3-ugers/ProgrammeringsProsjektReflexBall/Programm
+ [31 <C:/Users/Bruger/Desktop/3-ugers/ProgrammeringsProsjektReflexBall/Programm
 eringsProsjektReflexBall/latex/img/journal.pdf>]
-<img/journal.pdf, id=146, page=3, 597.55246pt x 845.07718pt>
+<img/journal.pdf, id=154, page=3, 597.55246pt x 845.07718pt>
 File: img/journal.pdf Graphic file (type pdf)
 
 <use img/journal.pdf, page 3>
@@ -1084,9 +1097,9 @@ File: img/journal.pdf Graphic file (type pdf)
 <use img/journal.pdf, page 3>
 Package pdftex.def Info: img/journal.pdf, page3 used on input line 3.
 (pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
- [30 <C:/Users/Bruger/Desktop/3-ugers/ProgrammeringsProsjektReflexBall/Programm
+ [32 <C:/Users/Bruger/Desktop/3-ugers/ProgrammeringsProsjektReflexBall/Programm
 eringsProsjektReflexBall/latex/img/journal.pdf>]
-<img/journal.pdf, id=152, page=4, 597.55246pt x 845.07718pt>
+<img/journal.pdf, id=159, page=4, 597.55246pt x 845.07718pt>
 File: img/journal.pdf Graphic file (type pdf)
 
 <use img/journal.pdf, page 4>
@@ -1101,16 +1114,16 @@ File: img/journal.pdf Graphic file (type pdf)
 <use img/journal.pdf, page 4>
 Package pdftex.def Info: img/journal.pdf, page4 used on input line 3.
 (pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
- [31 <C:/Users/Bruger/Desktop/3-ugers/ProgrammeringsProsjektReflexBall/Programm
+ [33 <C:/Users/Bruger/Desktop/3-ugers/ProgrammeringsProsjektReflexBall/Programm
 eringsProsjektReflexBall/latex/img/journal.pdf>])
-[32]
+[34]
 (C:\Users\Bruger\Desktop\3-ugers\ProgrammeringsProsjektReflexBall\Programmering
 sProsjektReflexBall\latex\master.aux) ) 
 Here is how much of TeX's memory you used:
- 14225 strings out of 493921
- 278344 string characters out of 3144872
- 290065 words of memory out of 3000000
- 17347 multiletter control sequences out of 15000+200000
+ 14234 strings out of 493921
+ 278760 string characters out of 3144872
+ 290074 words of memory out of 3000000
+ 17352 multiletter control sequences out of 15000+200000
  14495 words of font info for 55 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
  41i,18n,43p,10394b,555s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1126,9 +1139,9 @@ onts/cm/cmr8.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts
 /cm/cmsy10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/c
 m/cmsy8.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
 mti12.pfb>
-Output written on master.pdf (33 pages, 1356148 bytes).
+Output written on master.pdf (35 pages, 1374744 bytes).
 PDF statistics:
- 195 PDF objects out of 1000 (max. 8388607)
+ 202 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 66 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 71 words of extra memory for PDF output out of 10000 (max. 10000000)
 

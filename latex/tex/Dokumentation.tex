@@ -1,4 +1,15 @@
 \section{Dokumentation}
+
+I dette afsnitt er projektets filer, funktioner, moduler og makroer dokumenteret og beskrevet. Fokuset er på funktionernes vigtigste egenskaber og virkemåder. Filerne med tilhørende funktioner er delt op i tre forskellige lag: Application, Application Interface og Hardware Abstraction Layer. Se figur \ref{block}.
+ I Application Layer ligger de applikationspecifikke filer, disse filer kan bruges på anden hardware uden at modificere dem. I Hardware Abstraction Layer ligger de hardwarespecifikke filer. Disse filer muligør kommunikation mellem hardware og vores software. Disse filer kan benyttes i helt andre programmer såfremt det er samme type hardware der benyttes. 
+
+\begin{figure}[h]
+\begin{center}
+\label{block}
+\includegraphics[scale=0.6]{img/SoftwareArchitecture.png}
+\caption{Block diagram over de forskellige lag}
+\end{center}
+\end{figure}
 Vi har udviklet alle moduler i fællesskab, og det giver ikke mening at tilskrive nogle personer en særlig del af koden, da meget lidt kode er skrevet af udelukkende en person. 
 
 \subsection{Application layer}
