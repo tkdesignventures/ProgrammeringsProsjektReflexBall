@@ -74,6 +74,7 @@ void main(){
 			}
 			
 			initiateMenu();
+			printDifficulty(difficulty);
 		}else if(selectedOption == 2){
 			difficulty ++;
 			if(difficulty >= 4){
@@ -154,7 +155,7 @@ int Game(int difficulty){
 			temp[1]=(char)(CHARSET_START + level);
 			temp[0] = ' ';
 			str[0] = '\0';
-			strcat(str, "Level ");
+			strcat(str, "Level");
 			strcat(str, temp);
 			temp[1] = (char)(CHARSET_START + lives);
 			strcat(str,"    ");
@@ -209,6 +210,7 @@ int Game(int difficulty){
 										strcat(str," ");
 										LEDSetString(str);
 										setLedMode(2);
+										printf('\0007');
 									}
 							 }else if(key == 7){
 								 pause = 1;
@@ -242,7 +244,7 @@ int Game(int difficulty){
 										LEDLoadBuffer();
 									}
 									moveBall(&ball);
-									drawBall(toTerminalCoordinates(ball.x),toTerminalCoordinates(ball.y),0);
+									drawBall(toTerminalCoordinates(ball.x),toTerminalCoordinates(ball.y),ball.powerActivated);
 
 								}else{
 								drawBall(toTerminalCoordinates(ball.x),toTerminalCoordinates(ball.y),7);
