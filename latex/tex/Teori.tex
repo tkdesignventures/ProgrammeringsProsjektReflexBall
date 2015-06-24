@@ -2,7 +2,7 @@
 
 Vi vil i dette afsnit gennemgå den basale teori bag binære tal og slutteligt indføre læseren i de forskellige formater, deriblandt fixed-point format, og hvorfor det er interessant at bruge denne repræsentation  i vores projekt.
 \subsection{Binære tal}
-Et binært tal er et tal der kan udtrykkes i det binære talsystem/base-2, hvor grundtallet er 2. Da det er meget let at implementere i digital logik, er det et system der bruges internt i computere verden over. \\ 
+Et binært tal er et tal der kan udtrykkes i det binære talsystem/base-2, hvor grundtallet er 2. Binære tal er meget lette at implementere i digital logik, og er derfor et system der bruges internt i computere verden over. \\ 
 Et binært tal består af bits, som svarer til et ciffer. Et bit kan have en af to tilstande: logisk højt eller logisk lavt. Dette medfører da hvis vi har \textit{n} bits har vi $2^n$ forskellige tilstande. Disse forskellige tilstande kan fortolkes på forskellige måder, og vi vil i de næste afsnit gennemgå nogle af de forskellige representationer.
 \subsection{Unsigned repræsentation}
 I det binære talsystem er grundtallet vanligvis 2(det kunne potentielt også være -2). Det betyder således at i en n-bit streng, vil  bittet yderst til højre være vægtet med  $2^0$, det næste med $2^1$ op til $2^n$ gående mod venstre. Tallet 5(base-10) kan da skrives som i ligning \ref{unsigned}. Ydermere tæller vi også fra højre mod venstre, og første bit står såldedes også på 0 plads. Dette bit kaldes oftest  LSB(least significant bit), hvorimod det bit der står helt til venstre oftest kaldes MSB(most significant bit) \cite[s. 18]{Dlogic}. 
@@ -34,12 +34,12 @@ En af måderne at repræsentere fortegnet på bit-strengen, er ved at lade det m
 \end{equation}
 Signed magnitude repræsentation, har dog den ulempe, at man spilder et bit, f.eks. hvis man har en 4-bit streng gælder der at 1000 =  0000, så istedet for at have $2^4$ tilstande har man blot $2^4-1$. Desuden er signed magnitude ikke så velegnet til brug i digitale systemer.\cite[s.~260]{Dlogic}
 \subsubsection{2's komplement}
-En anden måde at repræsentere negative tal, kan gøres vha. 2's komplement. 2's komplement findes ved at invertere et unsigned tal og derefter lægge 1 til. 2's komplement har to fordele: Der er kun et 0, og subtraktion kan gøres på samme måde som addition, så hvis vi ønsker at subtrahere 3 fra 5, skal vi blot finde 2's kompliment af 3 og lægge det til 5, som i ligning \ref{2skomp}. Disse fordele gør 2's komplement en god metode til at repræsentere tal i digitale systemer.
+En anden måde at repræsentere negative tal, kan gøres vha. 2's komplement. 2's komplement findes ved at invertere et unsigned tal og derefter lægge 1 til. 2's komplement har to fordele: Der er kun et 0, og subtraktion kan gøres på samme måde som addition, så hvis vi ønsker at subtrahere 3 fra 5, skal vi blot finde 2's kompliment af 3 og lægge det til 5, som i ligning \ref{2skomp}.  Disse fordele gør 2's komplement en god metode til at repræsentere tal i digitale systemer.
 \begin{equation}
 \label{2skomp}
  5-3 = 5+(-3)
 \end{equation}
-
+Ydermere har 2's komplement en cyklisk natur, der gør den smart at bruge sammen med triogonmetriske funktioner, såsom cos og sin. Dette brugte vi i øvelse 4.
 
 \subsection{Fixed point vs floating}
-I dette projekt bruger vi ikke floating-point typer. Dette skyldes at Z8 serien er en 8-bit processor, og disse bruger oftest ALU's(Arithmetic Logic Unit) designet til fixed point aritmetik.\cite[s. ~5]{Zicomp}. Det er muligt at få processorer med indbyggede FPU(floating-point units), der er optimerede til at arbejde med floating-point typer, eller coprocessorer til at supplere CPU'en. Hvis vi insisterede på at arbejde i floating-point format, ville vi være nødt til at bruge Zilog's bibliotek til floating-point, hvilket ville kræve både større ram forbrug og være for langsomt til vores behov\cite{Zifloat}. Vi har derfor kun brugt integers, og omdannede dem til fixed point i vores projekt.
+I dette projekt brugte vi ikke floating-point typer. Dette skyldes at Z8 serien er en 8-bit processor, og disse bruger oftest ALU's(Arithmetic Logic Unit) designet til fixed point aritmetik.\cite[s. ~5]{Zicomp}. Det er muligt at få processorer med indbyggede FPU(floating-point units), der er optimerede til at arbejde med floating-point typer, eller coprocessorer til at supplere CPU'en. Hvis vi insisterede på at arbejde i floating-point format, ville vi være nødt til at bruge Zilog's bibliotek til floating-point, hvilket ville være for langsomt til vores behov\cite{Zifloat}\cite{Zimult}. Vi brugte derfor kun integers, og omdannede dem til fixed point.

@@ -2,33 +2,33 @@
 Vi har udviklet alle moduler i fællesskab, og det giver ikke mening at tilskrive nogle personer en særlig del af koden, da meget lidt kode er skrevet af udelukkende en person. 
 
 \subsection{Application layer}
-I dette lag findes reflexball modulet, menu modulet og main modulet.
-\subsubsection{reflexball.h}
-Reflexball er et modul der indeholder grundlæggende regler om spillet, deriblandt kollision, hvordan bolden skal bevæge sig og hvorledes strikeren skal opføre sig. Desuden indeholder den strukturerne Ball og Box. Desuden indeholder dette modul også særligt mange konstanter, som er konstanter der definerer spillets grænser.
+I dette lag findes refball modulet, menu modulet og main modulet.
+\subsubsection{refball.h}
+refball.h er et modul der indeholder grundlæggende regler om spillet: kollision, hvordan bolden skal bevæge sig og hvorledes strikeren skal opføre sig. Desuden indeholder den strukturerne \textit{Ball} og \textit{Box}. Ydermere indeholder dette modul også særligt mange konstanter.
 \paragraph{Strukturen Ball}
-Ball er en stuktur som har variablene opgivet i \ref{Ballkrav}. outOfBounds, der fortæller om spilleren er inde for banen, og powerActivated, der fortæler om hiii power er aktiveret, er implementeret som unsigned char's da de kun kan være 0 eller 1. I variablen, power, gemmes hvor meget power spilleren har opladet.
+\textit{Ball} er en stuktur som har variablene opgivet i \ref{Ballkrav}. \textit{outOfBounds}, der fortæller om spilleren er inde for banen, og \textit{powerActivated}, der fortæller om high power er aktiveret, er implementeret som unsigned char's. I \textit{power}, gemmes hvor meget power spilleren har opladet.
  
 
 \paragraph{Strukturen Box}
-Box er en struktur der indeholder samtlige bokse i spillet. Den indeholder 3 pointere til char-arrays: et koordinatsæt og et tilhørende array med boksenes styrke. Desuden er der to variable der fortæller antallet af bokse der er fyldt i stacket og hvor mange der ikke er ødelagte. Initielt forestillede vi os at den skulle implementeres som et stack, således arrayernes størrelse var variable, men hvorfor vi ikke gjorde det står i afsnit \ref{reallocfejl}.
+\textit{Box} er en struktur der indeholder samtlige bokse i spillet. Den indeholder 3 pointere til char-arrays: et koordinatsæt og et tilhørende array med boksenes styrke. Desuden er der to variable der fortæller antallet af bokse der er fyldt i stacket og hvor mange der ikke er ødelagte. I designfasen forestillede vi os at den skulle implementeres som et stack, således arrayernes størrelse var variable, men hvorfor vi ikke gjorde det står i afsnit \ref{reallocfejl}.
 \paragraph{void moveBall(Ball * ball)}
-Denne funktion flytter bolden ved at tage en peger til en Ball som argument og lægger retningsvektoren til x og y koordinaterne.
+Denne funktion flytter bolden ved at tage en peger til en \textit{Ball} som argument og lægger retningsvektoren til x og y koordinaterne.
 \paragraph{void moveStriker(long * x,char direction)}
-Denne funktion tager to variable som argumenter, en pointer til strikerens x-lokation, og  strikerens retning. Hvis \textit{directiopn} er 1 bevæger strikeren sig mod positiv x-retning og STRIKER\_SPEED lægges til, ellers bevæger strikeren sig mod negativ x-retning og STRIKER\_SPEED fratrækkes strikerens x-lokation.
+Denne funktion tager to variable som argumenter, en pointer til strikerens x-lokation, og  strikerens retning. Hvis \textit{direction} er 1 bevæger strikeren sig mod positiv x-retning og STRIKER\_SPEED lægges til, ellers bevæger strikeren sig mod negativ x-retning og STRIKER\_SPEED fratrækkes strikerens x-lokation.
 \paragraph{unsigned char checkBall(Ball * ball,Box * box,  int x)}\
-SHIT HERE (MARTIN!!!)
+checkBall() er en funktion som kontrollerer og bestemmer boldens bevægelse. checkBall tager bolden, kasserne og strikerens position som argumenter. I funktionen gennemgåes de forskellige scenarier, hvor bolden kan ramme. Først kontrolleres om strikeren er ramt, derefter om kanterne er ramt og til sidst gennemgås alle kasserne og kontrolleres for om de er ramt. Hvis kassen bliver ramt ændres der i boldens retningsvektor, alt afhængigt af hvordan kassen rammes. Endeligt returnerer funktionen et tegn, svarerende til det, bolden har ramt. Hvis bolden intet har ramt foretages ingen ændring på retningsvektorerne, og et blankt tegn sendes tilbage. 
 \paragraph{long toTerminalCoordinates(long x)}\
 Denne funktion omdanner tal i 2.14 eller 18.14 til heltal man kan bruge i terminalen. Afrunding laves som vanligvis, ved at afrunde til nærmeste heltal.
 
-\paragraph{void setBallOverStriker( Ball * ball, long st)}\
-Denne funktion tager en Ball og en long som argumenter.
+\paragraph{void setBallOverStriker( Ball * ball, long st)}
+Denne funktion sætter bolden over strikeren.
 Funktionen omdanner st til 18.14 format og sætter boldens x-koordinat til dens værdi.
 Boldens y-koordinat sættes over strikeren, vha. konstanterne STRIKER\_Y og OVER\_STRIKER, også i 18.14. Boldens retningsvektor sættes derefter til at gå lodret op, og roteres derefter 40 grader mod venstre.
 \paragraph{Box * newBoxStack()}
-Denne funktion bliver brugt til at lave et nyt Box-stack. Der bliver allokeret plads, så der er plads til antallet af bokse givet ved konstanten MAX\_BOXES. Antallet af elementer,size, i stacket sættes til 0 og  pegeren til Box-stacket.
+Denne funktion bliver brugt til at lave et nyt \textit{Box}-stack. Der bliver allokeret plads, så der er plads til antallet af bokse givet ved konstanten MAX\_BOXES. Antallet af elementer, \textit{size}, i stacket sættes til 0 og  pegeren til \textit{Box}-stacket.
 \paragraph{
 void createBoxes( Box * box,char level)}\
-Denne funktion tager en peger til Box-stacket og en character der repræsenterer level som argumenter. Alf afhængigt af hvilken level man tager som argument, bliver Box-stacket fyldt på en speciel måde, således hvert level er unikt. 
+Denne funktion tager en peger til Box-stacket og en character der repræsenterer level som argumenter.  Afhængigt af levels værdi, bliver Box-stacket fyldt på en speciel måde, således hvert level er unikt. 
 
 \subsubsection{menu}
 Dette modul indeholder funktioner til at tegne og vise grafik når man bevæger sig rundt i menuen.
@@ -37,21 +37,21 @@ Denne funktion renser først skærmen og printer derefter menuen. Slutteligt sæ
 \paragraph{moveMarker(int selectedOption)}\
 Denne funktion sætter markøren alt afhængigt af inputtet.
 \paragraph{void printDifficulty(short diff)}\
-Denne funktion tager en short som argument. Der udskrives noget forskelligt afhængigt af argumentet.
+Denne funktion har til formål at printe sværhedsgraden når brugeren vælger:
 \begin{enumerate}
-\item Hvis diff er 1, skrives der "Easy"
-\item Hvis diff er 2, skrives der "Normal"
-\item Hvis diff er 3, skrives der "Hard"
+\item Hvis \textit{diff} er 1, skrives der "Easy"
+\item Hvis \textit{diff} er 2, skrives der "Normal"
+\item Hvis \textit{diff} er 3, skrives der "Hard"
 \end{enumerate}
 \paragraph{printHelp()}
 Denne funktion printer hjælpe-teksten. Startstedet for teksternes x-koordinat bestemmes af konstanten LEFT\_BORDER
 
 \subsection{Application Interface Layer}
 \subsubsection{graphics.h}
-Dette modul indeholder grafiske elementer til brug i terminalen. Vi har valgt at bruge nogle definerede konstanter fra spillet(STRIKER\_Y, BOX\_SIZE, osv.) Dette har vi gjort for at undgå at sende for mange variable, når disse blot alligevel er konstante hele spillet. Med meget få ændringer i funktionerne, kunne man dog ændre dette. Det kan derfor diskuteres om funktionen strengt taget liger i API-laget. Måske den kan siges at ligge i grænsefeltet.
+Dette modul indeholder grafiske elementer til brug i terminalen. Nogle af funktionerne er særligt udviklet til dette spil, men det er muligt de også ville kunne bruges i andre sammenhæng.  Det kan derfor diskuteres om funktionen strengt taget liger i API-laget. Måske den kan siges at ligge i grænsefeltet.
 \paragraph{
 void drawBox(unsigned char x, unsigned char y,unsigned char color)}\
-Denne funktion tegner en boks med bredden BOX\_SIZE og højden 2. Koordinaterne til det øverste venstre hjørne gives som argumenter, sammen med kassens farve, hvor farveskemaet i fgcolor bruges.
+Denne funktion tegner en boks med bredden givet ved argumentet og højden 2. Koordinaterne til det øverste venstre hjørne gives som argumenter, sammen med kassens farve, hvor farveskemaet i fgcolor bruges.
 
 \paragraph{void drawChar(unsigned char x, unsigned char y,char tegn)}\
 Denne funktion tager et koordinatsæt og et tegn som argumenter. Tegnet bliver skrevet på det givne koordinatsæt.

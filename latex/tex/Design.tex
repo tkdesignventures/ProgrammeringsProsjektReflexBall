@@ -3,8 +3,8 @@ I udarbejdelsen af dette program havde vi nogle forskellige tekniske krav og må
 \subsection{Tekniske mål}
 Vi lavede en liste af krav til programmets design som vi i så høj grad som muligt ønskede at overholde. 
 \begin{enumerate}
-\item Vi ønsker en veldefineret struktur. Vi vil derfor undgå globale variable i så høj grad som muligt, derfor skal vi lave funktioner som tager pegere til strukturer eller variable som inputs, frem for at tilgå globale variable. Få undtagelser findes dog til dette, f.eks. i bibloteket der tilgår timeren.
-\item Vi ville udvikle nogle moduler  der var uafhængige af hinanden, således at vores grafik i mindst mulig grad kommunikerede med vores modul indeholdende spillets back-end(Refball.c). Denne kommunikation skulle såfremt foregå igennem main-metoden, således man let kan få et overblik ved at se på main-metoden.
+\item Vi ønsker en veldefineret struktur. Vi vil derfor undgå globale variable i så høj grad som muligt, derfor skal vi lave funktioner som tager pegere til strukturer eller variable som inputs, frem for at tilgå globale variable. Få undtagelser findes dog til dette, f.eks. i modul der tilgår timeren.
+\item Vi ville udvikle nogle moduler  der var uafhængige af hinanden, således at vores grafik i mindst mulig grad kommunikerede med vores modul indeholdende spillets back-end(Refball.c). Denne kommunikation skal foregå igennem main-metoden, således man let kan få et overblik ved at se på main-metoden.
 	
 \end{enumerate}
 
@@ -19,8 +19,12 @@ Vi lavede en liste af krav til programmets design som vi i så høj grad som mul
 \item Når banen begynder, eller hvis spilleren mister et liv, placeres bolden over strikeren, og spilleren kan frit bevæge strikeren, hvor bolden følger efter. Hvis spilleren trykker på den givne knap, affyres bolden.
 \item Spillerens liv og power skal skrives på LED-skærmen når spillet er igang
 \item Spilleren samler power hver gang han ødelægger en kasse. Hvis brugeren trykker på venstre og højre-tasten på en gang bruger han sit power og akitverer high power. Når high power er aktiveret ødelægges kasser når de rammes, uafhængigt af deres liv, og bolden reflekteres ikke, men fortsætter gennem kassen. Power fratrækkes 1 hver gang den ødelægger en kasse.
-\item Når spilleren bruger hiii power, vinder en bane, vinder spillet eller dør skal der rulles en tekst over LED-skærmene. Alt afhænigt af situationen, skal livene og tiden igen vises på skærmen efter teksten er rullet over.
-\item Der er ikke noget point-system i spillet.
+\item Når spilleren bruger high power, vinder en bane, vinder spillet eller dør skal der rulles en tekst over LED-skærmene. Alt afhænigt af situationen, skal livene og tiden igen vises på skærmen efter teksten er rullet over.
+\item Hver gang spilleren går videre til næste level, får spilleren fuldt liv og spillerens power-niveau sættes til 0.
+\item Hver gang spilleren går videre til næste level, får spilleren fuldt liv og spillerens power-niveau sættes til 0.
+\item Spillere kan pause spillet, ved at trykke på en af knapperne.
+\item Ved at trykke på alle knapper samtidigt, aktiverer man chef-mode, som giver en blank skærm.  
+\item Der er ikke noget point-system i spillet, da vi vælger at lægge fokus andre steder.
 \end{enumerate}
 \subsubsection{Krav til strikeren}
 \begin{enumerate}
@@ -33,6 +37,7 @@ Vi lavede en liste af krav til programmets design som vi i så høj grad som mul
 \begin{enumerate}
 \item Bolden skal have et x- og y koordinat og en retningsvektor, begge i 18.14 format. Bolden har desuden nogle variable med info om spillerens power, om bolden er ude og om spilleren har aktiveret power.
 \item Boldens retningsvektor skal altid have længden 1, da dette gør kollisionstest let.
+
 \end{enumerate}
 \subsubsection{Krav til boksene}
 \begin{enumerate}
@@ -46,7 +51,7 @@ Vi lavede en liste af krav til programmets design som vi i så høj grad som mul
 
 
 \subsection{Timere}
-På Z8 Encore Evauluation Boardet er der 4 forskellige timere, timer0 til timer3. Disse timere kan konfigureres efter brugerens behov. I vores projekt har vi brugt 2 timere, en til at styre spillets tid, og en anden til at styre LED skærmene, vi har blot brugt timer0 og timer1.
+På Z8 Encore Evauluation Boardet er der 4 forskellige timere, timer0 til timer3. Disse timere kan konfigureres efter brugerens behov. I vores projekt har vi brugt 2 timere, en til at styre spillets tid, og en anden til at styre LED skærmene. Disse 2 timere er hhv. timer0 og timer1.
 \subsubsection{Timer0}
 Timer0 er en timer der sender et tick hvert millisekund. Timeren bliver brugt i main-funktionen og til debouncing af knapperne. Timeren er sat i continous mode, da vi ønsker at den blot skal fortsætte ubetinget, og der foretages ingen clock division af tælleren. Reload værdien fandtes ved udregningen i ligning \ref{timer0}. Interrupt Prioriteten sættes til høj ved at skrive $0x20$ til både IRQ0ENH og IRQ0ENL.
 \begin{equation}

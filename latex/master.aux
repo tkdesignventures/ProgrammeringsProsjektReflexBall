@@ -16,6 +16,7 @@
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {2.4.1}Signed magnitude}{5}}
 \citation{Zicomp}
 \citation{Zifloat}
+\citation{Zimult}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {2.4.2}2's komplement}{6}}
 \newlabel{2skomp}{{4}{6}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.5}Fixed point vs floating}{6}}
@@ -26,60 +27,64 @@
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.2}Krav til strikeren}{8}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.3}Krav til bolden}{8}}
 \newlabel{Ballkrav}{{3.2.3}{8}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.4}Krav til boksene}{8}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.4}Krav til boksene}{9}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Timere}{9}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.1}Timer0}{9}}
 \newlabel{timer0}{{5}{9}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.2}Timer1}{9}}
-\newlabel{timer1}{{6}{9}}
-\@writefile{toc}{\contentsline {section}{\numberline {4}Brugervejledning til ReflexBall}{9}}
-\@writefile{toc}{\contentsline {section}{\numberline {5}Plan}{9}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Problemer}{9}}
+\newlabel{timer1}{{6}{10}}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Brugervejledning til ReflexBall}{10}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Plan}{10}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Problemer}{10}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {5.1.1}Problemer med realloc}{10}}
-\@writefile{toc}{\contentsline {section}{\numberline {6}Dokumentation}{10}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Application layer}{10}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.1.1}reflexball.h}{10}}
-\@writefile{toc}{\contentsline {paragraph}{Strukturen Ball}{10}}
+\newlabel{reallocfejl}{{5.1.1}{10}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.1.2}Problemer med knapperne}{10}}
+\@writefile{toc}{\contentsline {section}{\numberline {6}Implementation}{11}}
+\@writefile{toc}{\contentsline {section}{\numberline {7}Dokumentation}{11}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.1}Application layer}{11}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.1.1}refball.h}{11}}
+\@writefile{toc}{\contentsline {paragraph}{Strukturen Ball}{11}}
 \@writefile{toc}{\contentsline {paragraph}{Strukturen Box}{11}}
-\@writefile{toc}{\contentsline {paragraph}{void moveBall(Ball * ball)}{11}}
-\@writefile{toc}{\contentsline {paragraph}{void moveStriker(long * x,char direction)}{11}}
-\@writefile{toc}{\contentsline {paragraph}{unsigned char checkBall(Ball * ball,Box * box, int x)}{11}}
-\@writefile{toc}{\contentsline {paragraph}{long toTerminalCoordinates(long x)}{11}}
-\@writefile{toc}{\contentsline {paragraph}{void setBallOverStriker( Ball * ball, long st)}{11}}
-\@writefile{toc}{\contentsline {paragraph}{Box * newBoxStack()}{12}}
-\@writefile{toc}{\contentsline {paragraph}{ void createBoxes( Box * box,char level)}{12}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.1.2}menu}{12}}
-\@writefile{toc}{\contentsline {paragraph}{initiateMenu()}{12}}
-\@writefile{toc}{\contentsline {paragraph}{moveMarker(int selectedOption)}{12}}
-\@writefile{toc}{\contentsline {paragraph}{void printDifficulty(short diff)}{12}}
-\@writefile{toc}{\contentsline {paragraph}{printHelp()}{12}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}Application Interface Layer}{13}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.2.1}graphics.h}{13}}
-\@writefile{toc}{\contentsline {paragraph}{ void drawBox(unsigned char x, unsigned char y,unsigned char color)}{13}}
-\@writefile{toc}{\contentsline {paragraph}{void drawChar(unsigned char x, unsigned char y,char tegn)}{13}}
-\@writefile{toc}{\contentsline {paragraph}{void moveDrawStriker(unsigned char x, unsigned char direction)}{13}}
-\@writefile{toc}{\contentsline {paragraph}{void drawBounds(int x1,int y1, int x2, int y2,unsigned char color)}{13}}
+\@writefile{toc}{\contentsline {paragraph}{void moveBall(Ball * ball)}{12}}
+\@writefile{toc}{\contentsline {paragraph}{void moveStriker(long * x,char direction)}{12}}
+\@writefile{toc}{\contentsline {paragraph}{unsigned char checkBall(Ball * ball,Box * box, int x)}{12}}
+\@writefile{toc}{\contentsline {paragraph}{long toTerminalCoordinates(long x)}{12}}
+\@writefile{toc}{\contentsline {paragraph}{void setBallOverStriker( Ball * ball, long st)}{12}}
+\@writefile{toc}{\contentsline {paragraph}{Box * newBoxStack()}{13}}
+\@writefile{toc}{\contentsline {paragraph}{ void createBoxes( Box * box,char level)}{13}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.1.2}menu}{13}}
+\@writefile{toc}{\contentsline {paragraph}{initiateMenu()}{13}}
+\@writefile{toc}{\contentsline {paragraph}{moveMarker(int selectedOption)}{13}}
+\@writefile{toc}{\contentsline {paragraph}{void printDifficulty(short diff)}{13}}
+\@writefile{toc}{\contentsline {paragraph}{printHelp()}{13}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.2}Application Interface Layer}{14}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.2.1}graphics.h}{14}}
+\@writefile{toc}{\contentsline {paragraph}{ void drawBox(unsigned char x, unsigned char y,unsigned char color)}{14}}
+\@writefile{toc}{\contentsline {paragraph}{void drawChar(unsigned char x, unsigned char y,char tegn)}{14}}
+\@writefile{toc}{\contentsline {paragraph}{void moveDrawStriker(unsigned char x, unsigned char direction)}{14}}
+\@writefile{toc}{\contentsline {paragraph}{void drawBounds(int x1,int y1, int x2, int y2,unsigned char color)}{14}}
 \@writefile{toc}{\contentsline {paragraph}{void drawLogo()}{14}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.2.2}lut.h}{14}}
-\newlabel{lut}{{6.2.2}{14}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.2.3}math.h}{14}}
-\@writefile{toc}{\contentsline {paragraph}{Makroer}{14}}
-\@writefile{toc}{\contentsline {paragraph}{long sin(int x)}{14}}
-\@writefile{toc}{\contentsline {paragraph}{long cos(int x)}{14}}
-\@writefile{toc}{\contentsline {paragraph}{int arcsin(int y)}{14}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.3}Hardware Abstraction Layer}{15}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.3.1}keys.h}{15}}
-\@writefile{toc}{\contentsline {paragraph}{void iniKeys()}{15}}
-\@writefile{toc}{\contentsline {paragraph}{char readKey()}{15}}
-\@writefile{toc}{\contentsline {paragraph}{char getKey}{15}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.3.2}timer.h}{15}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.2.2}lut.h}{15}}
+\newlabel{lut}{{7.2.2}{15}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.2.3}math.h}{15}}
+\@writefile{toc}{\contentsline {paragraph}{Makroer}{15}}
+\@writefile{toc}{\contentsline {paragraph}{long sin(int x)}{15}}
+\@writefile{toc}{\contentsline {paragraph}{long cos(int x)}{15}}
+\@writefile{toc}{\contentsline {paragraph}{int arcsin(int y)}{15}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.3}Hardware Abstraction Layer}{15}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.3.1}keys.h}{15}}
+\@writefile{toc}{\contentsline {paragraph}{void iniKeys()}{16}}
+\@writefile{toc}{\contentsline {paragraph}{char readKey()}{16}}
+\@writefile{toc}{\contentsline {paragraph}{char getKey}{16}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.3.2}timer.h}{16}}
+\@writefile{toc}{\contentsline {paragraph}{void setTimer()}{16}}
+\@writefile{toc}{\contentsline {paragraph}{void resetTimer()}{16}}
 \bibcite{Yates}{1}
 \bibcite{Dlogic}{2}
 \bibcite{Zicomp}{3}
 \bibcite{Zifloat}{4}
-\@writefile{toc}{\contentsline {paragraph}{void setTimer()}{16}}
-\@writefile{toc}{\contentsline {paragraph}{void resetTimer()}{16}}
-\@writefile{toc}{\contentsline {paragraph}{void timer0int}{16}}
-\@writefile{toc}{\contentsline {paragraph}{void SetDelay(int input)}{16}}
-\@writefile{toc}{\contentsline {paragraph}{getDelay}{16}}
-\@writefile{toc}{\contentsline {paragraph}{unsigned long getCentis()}{16}}
+\bibcite{Zifloatmult}{5}
+\@writefile{toc}{\contentsline {paragraph}{void timer0int}{17}}
+\@writefile{toc}{\contentsline {paragraph}{void SetDelay(int input)}{17}}
+\@writefile{toc}{\contentsline {paragraph}{getDelay}{17}}
+\@writefile{toc}{\contentsline {paragraph}{unsigned long getCentis()}{17}}

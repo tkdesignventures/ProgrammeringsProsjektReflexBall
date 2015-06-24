@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.11.13)  23 JUN 2015 20:43
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.11.13)  24 JUN 2015 11:35
 entering extended mode
 **master.tex
 
@@ -912,47 +912,108 @@ Package pdftex.def Info: img/faces.jpg used on input line 18.
 ruger/Desktop/3-ugers/ProgrammeringsProsjektReflexBall/ProgrammeringsProsjektRe
 flexBall/latex/img/faces.jpg>] [1]
 (C:\Users\Bruger\Desktop\3-ugers\ProgrammeringsProsjektReflexBall\Programmering
-sProsjektReflexBall\latex\master.toc)
+sProsjektReflexBall\latex\master.toc [2])
 \tf@toc=\write3
- [2] [3])
+ [3])
 (C:\Users\Bruger\Desktop\3-ugers\ProgrammeringsProsjektReflexBall\Programmering
 sProsjektReflexBall\latex\tex/Introduktion.tex)
 (C:\Users\Bruger\Desktop\3-ugers\ProgrammeringsProsjektReflexBall\Programmering
-sProsjektReflexBall\latex\tex/Teori.tex [4] [5])
+sProsjektReflexBall\latex\tex/Teori.tex
+
+LaTeX Warning: Reference `unsigned' on page 4 undefined on input line 8.
+
+
+LaTeX Warning: Citation `Dlogic' on page 4 undefined on input line 8.
+
+[4]
+
+LaTeX Warning: Citation `Yates' on page 5 undefined on input line 19.
+
+
+LaTeX Warning: Citation `Dlogic' on page 5 undefined on input line 35.
+
+
+LaTeX Warning: Reference `2skomp' on page 5 undefined on input line 37.
+
+[5]
+
+LaTeX Warning: Citation `Zicomp' on page 6 undefined on input line 45.
+
+
+LaTeX Warning: Citation `Zifloat' on page 6 undefined on input line 45.
+
+
+LaTeX Warning: Citation `Zimult' on page 6 undefined on input line 45.
+
+)
 (C:\Users\Bruger\Desktop\3-ugers\ProgrammeringsProsjektReflexBall\Programmering
-sProsjektReflexBall\latex\tex/Design.tex [6] [7] [8])
+sProsjektReflexBall\latex\tex/Design.tex [6]
+Overfull \hbox (0.5052pt too wide) in paragraph at lines 21--22
+[]\OT1/cmr/m/n/12 Spilleren sam-ler power hver gang han delg-ger en kasse. Hv
+is brugeren
+ []
+
+[7] [8]
+
+LaTeX Warning: Reference `timer0' on page 9 undefined on input line 56.
+
+
+LaTeX Warning: Reference `timer1' on page 9 undefined on input line 62.
+
+[9])
 (C:\Users\Bruger\Desktop\3-ugers\ProgrammeringsProsjektReflexBall\Programmering
 sProsjektReflexBall\latex\tex/Usermanual.tex)
 (C:\Users\Bruger\Desktop\3-ugers\ProgrammeringsProsjektReflexBall\Programmering
-sProsjektReflexBall\latex\tex/Plan.tex [9])
+sProsjektReflexBall\latex\tex/Plan.tex)
 (C:\Users\Bruger\Desktop\3-ugers\ProgrammeringsProsjektReflexBall\Programmering
-sProsjektReflexBall\latex\tex/Dokumentation.tex
+sProsjektReflexBall\latex\tex/Implementation.tex)
+(C:\Users\Bruger\Desktop\3-ugers\ProgrammeringsProsjektReflexBall\Programmering
+sProsjektReflexBall\latex\tex/Dokumentation.tex [10]
 
-LaTeX Warning: Reference `reallocfejl' on page 10 undefined on input line 13.
+LaTeX Warning: Reference `Ballkrav' on page 11 undefined on input line 9.
 
-[10] [11]
+
+LaTeX Warning: Reference `reallocfejl' on page 11 undefined on input line 13.
+
+[11]
+Overfull \hbox (45.08989pt too wide) in paragraph at lines 24--27
+\OT1/cmr/m/n/12 koordinat sttes over strik-eren, vha. kon-stan-terne STRIKER[]
+Y og OVER[]STRIKER,
+ []
+
+[12]
 Overfull \hbox (0.67049pt too wide) in paragraph at lines 47--48
 \OT1/cmr/m/n/12 Denne funk-tion printer hjlpe-teksten. Start-st-edet for tek-s
 ternes x-koordinat
  []
 
-[12]
+[13]
 Overfull \hbox (6.39616pt too wide) in paragraph at lines 53--53
 | \OT1/cmr/bx/n/14.4 void draw-Box(unsigned char x, un-signed char y,unsigned
  []
 
-[13] [14] [15]) [16] [17]
+[14]
+
+LaTeX Warning: Reference `lut' on page 15 undefined on input line 76.
+
+
+LaTeX Warning: Reference `lut' on page 15 undefined on input line 78.
+
+[15] [16]) [17]
 (C:\Users\Bruger\Desktop\3-ugers\ProgrammeringsProsjektReflexBall\Programmering
 sProsjektReflexBall\latex\master.aux)
 
 LaTeX Warning: There were undefined references.
 
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
  ) 
 Here is how much of TeX's memory you used:
- 14135 strings out of 493921
- 276033 string characters out of 3144872
- 288439 words of memory out of 3000000
- 17277 multiletter control sequences out of 15000+200000
+ 14140 strings out of 493921
+ 276320 string characters out of 3144872
+ 288366 words of memory out of 3000000
+ 17279 multiletter control sequences out of 15000+200000
  14495 words of font info for 55 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
  39i,12n,39p,10394b,555s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -967,7 +1028,7 @@ s (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files (x
 86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files (x86
 )/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files (x86)/M
 iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on master.pdf (18 pages, 199266 bytes).
+Output written on master.pdf (18 pages, 201974 bytes).
 PDF statistics:
  105 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
