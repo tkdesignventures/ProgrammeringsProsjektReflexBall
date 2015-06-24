@@ -20,11 +20,8 @@ void moveStriker(long * x,char direction){
 }
 
 unsigned char checkBall(Ball * ball,Box * box,  int x){
-  int angleIn;
-  int angleIn2;
-  int angleOut;
-  long yd;
   char right;
+  int angle;
   char nextPosX, nextPosY;
   unsigned char j;
   unsigned char xt = toTerminalCoordinates(ball->x); // Defineres så vi undgår at kalde funktionen flere gange
@@ -40,29 +37,55 @@ unsigned char checkBall(Ball * ball,Box * box,  int x){
         right = 0;
       }
 
-
-	  	ball->ydir *= -1;
-
+		
+		
 	  	//Left part of striker
 		if(nextPosX >= x - STRIKER_WIDTH && nextPosX < (x - 1)){
         	if(right){
-				rotate(ball, -(int)43);
+				if(ball->ydir > (7 << 11)){//0.875
+					angle = -20;
+				}else if ( ball->ydir > (1 << 13)){//0.5
+					angle = -30;
+				}else{
+					angle = -80;
+				}
 			}else{
-				rotate(ball, (int)43);
+				if(ball->ydir > (7 << 11)){
+					angle = -20;
+				}else if ( ball->ydir > (1 << 13)){
+					angle = -30;
+				}else{
+					angle = 80;
+				}
 			}
-
+			rotate(ball,angle);
+			
       	//Middle part of striker
       	}else if (nextPosX <= x -1 || nextPosX >= x + 1){
 
       	//Right part of striker
       	}else{
        		if(right){
-				rotate(ball, -(int)43);
+				if(ball->ydir > (7 << 11)){
+					angle = -20;
+				}else if ( ball->ydir > (1 << 13)){
+					angle = -30;
+				}else{
+					angle = 80;
+				}
 			}else{
-				rotate(ball, (int)43);
+				if(ball->ydir > (7 << 11)){
+					angle = -20;
+				}else if ( ball->ydir > (1 << 13)){
+					angle = -30;
+				}else{
+					angle = -80;
+				}
 			}
+			rotate(ball,angle);
 		}
 		
+		ball->ydir *= -1;
 		
 
 
@@ -172,7 +195,7 @@ void createBoxes( Box * box,char level){ //Creates and draws boxes
 					        for(i = L_EDGE_COORD + 5; i < (R_EDGE_COORD-5); i+=BOXSIZE){
 						
 	                        box->x[box->size] = i;
-	                      	box->y[box->size] = TOP_EDGE_COORD+4+j*2;
+	                      	box->y[box->size] = TOP_EDGE_COORD+20+j*2;
 	                      	box->durability[box->size] = 1;
 	                      	box->size++;
 							
@@ -183,7 +206,7 @@ void createBoxes( Box * box,char level){ //Creates and draws boxes
 					         for(i = L_EDGE_COORD + 5; i < (R_EDGE_COORD-5); i+=BOXSIZE){
 						
 	                        	box->x[box->size] = i;
-	                      		box->y[box->size] = TOP_EDGE_COORD+10+j*2;
+	                      		box->y[box->size] = TOP_EDGE_COORD+20+j*2;
 	                      		box->durability[box->size] = j+1;
 	                      		box->size++;
 	
@@ -206,7 +229,7 @@ void createBoxes( Box * box,char level){ //Creates and draws boxes
 					         for(i = L_EDGE_COORD + 5; i < (R_EDGE_COORD-5); i+=BOXSIZE){
 						
 	                        	box->x[box->size] = i;
-	                      		box->y[box->size] = TOP_EDGE_COORD+10+j*2;
+	                      		box->y[box->size] = TOP_EDGE_COORD+20+j*2;
 	                      		box->durability[box->size] = j+1;
 	                      		box->size++;
 	
@@ -219,7 +242,7 @@ void createBoxes( Box * box,char level){ //Creates and draws boxes
 					         for(i = L_EDGE_COORD + 5; i < (R_EDGE_COORD-5); i+=BOXSIZE){
 						
 	                        	box->x[box->size] = i;
-	                      		box->y[box->size] = TOP_EDGE_COORD+15+j*2;
+	                      		box->y[box->size] = TOP_EDGE_COORD+20+j*2;
 	                      		box->durability[box->size] = j+1;
 	                      		box->size++;
 	
@@ -231,7 +254,7 @@ void createBoxes( Box * box,char level){ //Creates and draws boxes
 					         for(i = L_EDGE_COORD + 5; i < (R_EDGE_COORD-5); i+=BOXSIZE){
 						
 	                        	box->x[box->size] = i;
-	                      		box->y[box->size] = TOP_EDGE_COORD+15+j*2;
+	                      		box->y[box->size] = TOP_EDGE_COORD+25+j*2;
 	                      		box->durability[box->size] = j+1;
 	                      		box->size++;
 	

@@ -64,18 +64,23 @@ void printDifficulty(short diff){
 
 void printHelp(){
 	gotoxy(LEFT_BORDER,35);
-	printf("Instructions\n");
-	gotoxy(LEFT_BORDER,36);
-	printf("Use the left and middle button on the board to control the striker.\n");
+	printf("Instructions:");
 	gotoxy(LEFT_BORDER,37);
-	printf("Hit the right button to start or to reset the ball.");
-	gotoxy(LEFT_BORDER,38);
-	printf("Your mission is to stay alive and eliminate all the boxes.\n");
+	printf("Use the left and middle button on the board to control the striker.\n");
 	gotoxy(LEFT_BORDER,39);
-	printf("If you loose the ball you will loose a life.\n");
-	gotoxy(LEFT_BORDER,40);
-	printf("When you earn enough power time (min. 500), you can activate High Power! (left and middle button)\n");
+	printf("Hit the right button to shoot the ball.");
 	gotoxy(LEFT_BORDER,41);
+	printf("Your mission is to stay alive and eliminate all the boxes.\n");
+	gotoxy(LEFT_BORDER,43);
+	printf("If you loose the ball you will loose a life.\n");
+	gotoxy(LEFT_BORDER,45);
+	printf("When you earn enough power time 5, you can activate High Power! (left and middle button)\n");
+	gotoxy(LEFT_BORDER,46);
+	printf("Then your ball turns red and you can smash boxes.");
+	gotoxy(LEFT_BORDER,48);
+	printf("The LED display shows number of balls left and earned power.");
+	gotoxy(LEFT_BORDER,50);
+	printf("If your boss turns up, hit all three buttons.");
 	
 }
 
