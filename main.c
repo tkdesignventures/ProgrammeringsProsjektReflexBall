@@ -68,9 +68,9 @@ void main(){
 				setLedMode(2);
 				drawVictory();
 			}else{
-				drawGameOver();
 				LEDSetString("Game over. Try again.    ");
 				setLedMode(2);
+				drawGameOver();
 			}
 			
 			initiateMenu();
@@ -84,6 +84,7 @@ void main(){
 		}
 		else if(selectedOption == 3){
 			printHelp();
+			printExampleBoxes(100,36,BOXSIZE);
 		}
 		
 		lastKey2 = key;
@@ -96,9 +97,7 @@ void main(){
 
 
 int Game(int difficulty){
-		
 		int i, livesPerLevel;
-
   	  	Ball ball;
 		Box * box = newBoxStack();
   	  	long strikerx;
@@ -136,6 +135,7 @@ int Game(int difficulty){
 		 
 		  
 		drawBounds(L_EDGE_COORD,TOP_EDGE_COORD,R_EDGE_COORD,OUT_OF_BOUNDS,0);
+		
 
 		drawStriker(strikerx,0,STRIKER_WIDTH, STRIKER_Y);
 		
@@ -171,7 +171,7 @@ int Game(int difficulty){
 			
 			createBoxes(box,level);
 			for(i = 0; i < box->size; i++){
-				drawBox(box->x[i],box->y[i],7 - box->durability[i]);   
+				drawBox(box->x[i],box->y[i],7 - box->durability[i],BOXSIZE);   
 			}
 			
 			
@@ -182,11 +182,11 @@ int Game(int difficulty){
 						key = getKey();
 
 						if(key == 1){
-							/*if(!waitStart && !pause){
+							if(!waitStart && !pause){
 								pause = 1;
 							}else if(pause){
 								pause = 0;
-							}*/
+							}
 							waitStart = 0;
 						}
 						
@@ -210,7 +210,7 @@ int Game(int difficulty){
 										strcat(str," ");
 										LEDSetString(str);
 										setLedMode(2);
-										printf('\0007');
+										printf("%c",7);
 									}
 							 }else if(key == 7){
 								 pause = 1;

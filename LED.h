@@ -7,11 +7,7 @@ void LEDInit();
 
 void setLedMode(char modeIn);
 
-void setValue(char valueIn);
-
 void LEDUpdate();
-
-void LEDColumn();
 
 void LEDSetString(char *string1);
 

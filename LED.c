@@ -16,7 +16,6 @@ int numberShifts = 0;
 
 char done = 0;
 char mode = 1;
-char value = 0;
 
 char string[] = "                                 ";
 
@@ -45,35 +44,22 @@ void LEDInit(){
 	shift = 0;
 	unitnr = 0;
 	kolonnenr = 0;
-	//string[] = "";
 }
 
 void setLedMode(char modeIn){
 	mode = modeIn;
 }
 
-void setValue(char valueIn){
-	value = valueIn;
-}
 
 void LEDUpdate(){
 	switch (mode){
-		case 1: LEDColumn(value); break;
-		case 2: LEDUpdateOnce(); break;
-		case 3: LEDUpdatePrint(); break;
+		case 2: LEDUpdateOnce(); break;//Scrolls text and stops at 4 last characters.
+		case 3: LEDUpdatePrint(); break;//Prints 4 characters
 		default: ; break;
 	}
 }
 
-void LEDColumn(){
-	
-	PGOUT = value;
-	PEOUT = 0x1F;
 
-	//Clock wave
-	PEOUT |= 0x80;
-	PEOUT &= 0x7F;
-}
 
 void LEDSetString(char *string1){
 	int i,j;

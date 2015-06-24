@@ -135,7 +135,7 @@ unsigned char checkBall(Ball * ball,Box * box,  int x){
 					}
 					
 				}
-				drawBox(box->x[j],box->y[j],7-box->durability[j]);
+				drawBox(box->x[j],box->y[j],7-box->durability[j],BOXSIZE);
 				
 				
             }
