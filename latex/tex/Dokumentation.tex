@@ -3,6 +3,9 @@ Vi har udviklet alle moduler i fællesskab, og det giver ikke mening at tilskriv
 
 \subsection{Application layer}
 I dette lag findes refball modulet, menu modulet og main modulet.
+\subsubsection{main.c}
+ReflexBall styres af /textit{main.c} som består af to funktioner. /textbf{main} styrer den overordnede kørsel av programmet og menuen, og /textbf{Game} kontrollerer de forskellige levels og selve gameplayet. Se nærmere beskrivelse af /textbf{main.c} under implementation.
+
 \subsubsection{refball.h}
 refball.h er et modul der indeholder grundlæggende regler om spillet: kollision, hvordan bolden skal bevæge sig og hvorledes strikeren skal opføre sig. Desuden indeholder den strukturerne \textit{Ball} og \textit{Box}. Ydermere indeholder dette modul også særligt mange konstanter.
 \paragraph{Strukturen Ball}
@@ -64,6 +67,24 @@ Denne funktion tegner banens kanter. Den tager 2 koordinatsæt som input, x1 og 
 
 \paragraph{void drawLogo()}\
 Denne funktion tegner spillets logo. Den bruger konstanten LEFT\_BORDER til at bestemme på hvilket x-koordinat den skal begynde at skrive fra, således det bliver logoets venstre kant.
+drawBall(unsigned char x, unsigned char y, unsigned char color)
+Denne funktion tager et koordinatsæt og printer et o i farven bestemt af det 3. parameter.
+
+\paragraph{drawStriker(unsigned char x, unsigned char color, char strikerWidth, char strikerY)}
+Denne funktion tegner blot en striker centrummet for strikeren er x, color er farven, strikerWidth er bredden på hver side, og strikerY er Y-koordinatet.
+
+\paragraph{drawGameOver()}
+Denne funktion tegner ASCII-kunst af /textit{GAME OVER} og scroller den ud af skærmen.
+
+\paragraph{drawVictory()}
+Denne funktion tegner ASCII-kunst af Arnold Schwarzenegger og scroller den ud af skærmen.
+
+\paragraph{scrollText(char y, char delay)}
+Denne funktion printer mange linjer med mellemrum sådan at det der tidligere er skrevet bliver scrollet væk.
+
+\paragraph{printExampleBoxes(char x, char y, char boxSize)}
+Denne funktion printer de 5 typer bokser der bruges i spillet sådan at brugeren kan se hvor meget de forskellige boksr tåler.
+
 \subsubsection{lut.h}
 \label{lut}
 Dette modul indeholder en konstant tabel med sinus værdier for en cirkel delt i 512 stykker. Hvis x er vinklen i radian indsættes da blot $\dfrac{x\cdot \pi}{256}$ i tabellen.
