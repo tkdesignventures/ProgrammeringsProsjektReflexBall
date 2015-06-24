@@ -44,54 +44,70 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Test af programmet}{12}}
 \@writefile{toc}{\contentsline {section}{\numberline {5}Implementation}{12}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.1}main.c}{12}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Her ses menuen med show instructions aktiveret}}{13}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Flowchart over main}}{15}}
 \bibcite{Yates}{1}
 \bibcite{Dlogic}{2}
 \bibcite{Zicomp}{3}
 \bibcite{Zifloat}{4}
 \bibcite{Zifloatmult}{5}
-\@writefile{toc}{\contentsline {section}{\numberline {6}Kildeliste}{14}}
-\@writefile{toc}{\contentsline {section}{\numberline {7}Brugervejledning til ReflexBall}{14}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.1}Ops\IeC {\ae }tning af PuTTY}{16}}
-\@writefile{toc}{\contentsline {section}{\numberline {8}Dokumentation}{16}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {8.1}Application layer}{16}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {8.1.1}refball.h}{16}}
-\@writefile{toc}{\contentsline {paragraph}{Strukturen Ball}{16}}
-\@writefile{toc}{\contentsline {paragraph}{Strukturen Box}{17}}
-\@writefile{toc}{\contentsline {paragraph}{void moveBall(Ball * ball)}{17}}
-\@writefile{toc}{\contentsline {paragraph}{void moveStriker(long * x,char direction)}{17}}
-\@writefile{toc}{\contentsline {paragraph}{unsigned char checkBall(Ball * ball,Box * box, int x)}{17}}
-\@writefile{toc}{\contentsline {paragraph}{long toTerminalCoordinates(long x)}{17}}
-\@writefile{toc}{\contentsline {paragraph}{void setBallOverStriker( Ball * ball, long st)}{18}}
-\@writefile{toc}{\contentsline {paragraph}{Box * newBoxStack()}{18}}
-\@writefile{toc}{\contentsline {paragraph}{ void createBoxes( Box * box,char level)}{18}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {8.1.2}menu}{18}}
-\@writefile{toc}{\contentsline {paragraph}{initiateMenu()}{18}}
-\@writefile{toc}{\contentsline {paragraph}{moveMarker(int selectedOption)}{18}}
-\@writefile{toc}{\contentsline {paragraph}{void printDifficulty(short diff)}{18}}
-\@writefile{toc}{\contentsline {paragraph}{printHelp()}{19}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {8.2}Application Interface Layer}{19}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {8.2.1}graphics.h}{19}}
-\@writefile{toc}{\contentsline {paragraph}{ void drawBox(unsigned char x, unsigned char y,unsigned char color)}{19}}
-\@writefile{toc}{\contentsline {paragraph}{void drawChar(unsigned char x, unsigned char y,char tegn)}{19}}
-\@writefile{toc}{\contentsline {paragraph}{void moveDrawStriker(unsigned char x, unsigned char direction)}{19}}
-\@writefile{toc}{\contentsline {paragraph}{void drawBounds(int x1,int y1, int x2, int y2,unsigned char color)}{19}}
-\@writefile{toc}{\contentsline {paragraph}{void drawLogo()}{20}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {8.2.2}lut.h}{20}}
-\newlabel{lut}{{8.2.2}{20}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {8.2.3}math.h}{20}}
-\@writefile{toc}{\contentsline {paragraph}{Makroer}{20}}
-\@writefile{toc}{\contentsline {paragraph}{long sin(int x)}{20}}
-\@writefile{toc}{\contentsline {paragraph}{long cos(int x)}{20}}
-\@writefile{toc}{\contentsline {paragraph}{int arcsin(int y)}{20}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {8.3}Hardware Abstraction Layer}{21}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {8.3.1}keys.h}{21}}
-\@writefile{toc}{\contentsline {paragraph}{void iniKeys()}{21}}
-\@writefile{toc}{\contentsline {paragraph}{char readKey()}{21}}
-\@writefile{toc}{\contentsline {paragraph}{char getKey}{21}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {8.3.2}timer.h}{21}}
-\@writefile{toc}{\contentsline {paragraph}{void setTimer()}{22}}
-\@writefile{toc}{\contentsline {paragraph}{void resetTimer()}{22}}
-\@writefile{toc}{\contentsline {paragraph}{void timer0int}{22}}
-\@writefile{toc}{\contentsline {paragraph}{void SetDelay(int input)}{22}}
-\@writefile{toc}{\contentsline {paragraph}{getDelay}{22}}
-\@writefile{toc}{\contentsline {paragraph}{unsigned long getCentis()}{22}}
+\@writefile{toc}{\contentsline {section}{\numberline {6}Kildeliste}{16}}
+\@writefile{toc}{\contentsline {section}{\numberline {7}Brugervejledning til ReflexBall}{16}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.1}Ops\IeC {\ae }tning af PuTTY}{18}}
+\@writefile{toc}{\contentsline {section}{\numberline {8}Dokumentation}{18}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.1}Application layer}{18}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {8.1.1}refball.h}{18}}
+\@writefile{toc}{\contentsline {paragraph}{Strukturen Ball}{18}}
+\@writefile{toc}{\contentsline {paragraph}{Strukturen Box}{19}}
+\@writefile{toc}{\contentsline {paragraph}{void moveBall(Ball * ball)}{19}}
+\@writefile{toc}{\contentsline {paragraph}{void moveStriker(long * x,char direction)}{19}}
+\@writefile{toc}{\contentsline {paragraph}{unsigned char checkBall(Ball * ball,Box * box, int x)}{19}}
+\@writefile{toc}{\contentsline {paragraph}{long toTerminalCoordinates(long x)}{19}}
+\@writefile{toc}{\contentsline {paragraph}{void setBallOverStriker( Ball * ball, long st)}{20}}
+\@writefile{toc}{\contentsline {paragraph}{Box * newBoxStack()}{20}}
+\@writefile{toc}{\contentsline {paragraph}{ void createBoxes( Box * box,char level)}{20}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {8.1.2}menu}{20}}
+\@writefile{toc}{\contentsline {paragraph}{initiateMenu()}{20}}
+\@writefile{toc}{\contentsline {paragraph}{moveMarker(int selectedOption)}{20}}
+\@writefile{toc}{\contentsline {paragraph}{void printDifficulty(short diff)}{20}}
+\@writefile{toc}{\contentsline {paragraph}{printHelp()}{21}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.2}Application Interface Layer}{21}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {8.2.1}graphics.h}{21}}
+\@writefile{toc}{\contentsline {paragraph}{ void drawBox(unsigned char x, unsigned char y,unsigned char color)}{21}}
+\@writefile{toc}{\contentsline {paragraph}{void drawChar(unsigned char x, unsigned char y,char tegn)}{21}}
+\@writefile{toc}{\contentsline {paragraph}{void moveDrawStriker(unsigned char x, unsigned char direction)}{21}}
+\@writefile{toc}{\contentsline {paragraph}{void drawBounds(int x1,int y1, int x2, int y2,unsigned char color)}{21}}
+\@writefile{toc}{\contentsline {paragraph}{void drawLogo()}{22}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {8.2.2}lut.h}{22}}
+\newlabel{lut}{{8.2.2}{22}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {8.2.3}math.h}{22}}
+\@writefile{toc}{\contentsline {paragraph}{Makroer}{22}}
+\@writefile{toc}{\contentsline {paragraph}{long sin(int x)}{22}}
+\@writefile{toc}{\contentsline {paragraph}{long cos(int x)}{22}}
+\@writefile{toc}{\contentsline {paragraph}{int arcsin(int y)}{22}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.3}Hardware Abstraction Layer}{23}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {8.3.1}keys.h}{23}}
+\@writefile{toc}{\contentsline {paragraph}{void iniKeys()}{23}}
+\@writefile{toc}{\contentsline {paragraph}{char readKey()}{23}}
+\@writefile{toc}{\contentsline {paragraph}{char getKey}{23}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {8.3.2}ctimer.h}{23}}
+\@writefile{toc}{\contentsline {paragraph}{void setTimer()}{24}}
+\@writefile{toc}{\contentsline {paragraph}{void resetTimer()}{24}}
+\@writefile{toc}{\contentsline {paragraph}{void timer0int}{24}}
+\@writefile{toc}{\contentsline {paragraph}{void SetDelay(int input)}{24}}
+\@writefile{toc}{\contentsline {paragraph}{getDelay}{24}}
+\@writefile{toc}{\contentsline {paragraph}{unsigned long getCentis()}{24}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {8.3.3}LED.h}{24}}
+\@writefile{toc}{\contentsline {paragraph}{LEDInit()}{24}}
+\@writefile{toc}{\contentsline {paragraph}{timer1int()}{25}}
+\@writefile{toc}{\contentsline {paragraph}{setLedMode(char valueIn)}{25}}
+\@writefile{toc}{\contentsline {paragraph}{LEDUpdate()}{25}}
+\@writefile{toc}{\contentsline {paragraph}{LEDSetString(char *string)}{25}}
+\@writefile{toc}{\contentsline {paragraph}{LEDLoadBuffer()}{25}}
+\@writefile{toc}{\contentsline {paragraph}{LEDUpdatePrint()}{25}}
+\@writefile{toc}{\contentsline {paragraph}{LEDUpdateOnce()}{25}}
+\@writefile{toc}{\contentsline {section}{\numberline {9}Appendix A}{26}}
+\@writefile{toc}{\contentsline {section}{\numberline {10}Kode}{26}}
+\@writefile{toc}{\contentsline {section}{\numberline {11}AppendixB}{26}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {11.1}Journal}{26}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {11.2}Kode fra \IeC {\o }velserne}{31}}
