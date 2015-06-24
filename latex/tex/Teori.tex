@@ -39,7 +39,7 @@ En anden måde at repræsentere negative tal, kan gøres vha. 2's komplement. 2'
 \label{2skomp}
  5-3 = 5+(-3)
 \end{equation}
-Ydermere har 2's komplement en cyklisk natur, der gør den smart at bruge sammen med triogonmetriske funktioner, såsom cos og sin. Dette brugte vi i øvelse 4.
+Ydermere har 2's komplement en cyklisk natur, der gør den smart at bruge sammen med triogonmetriske funktioner, såsom cos og sin. Den cykliske natur gør os istand til at gå begge veje rundt i enhedscirklen Dette brugte vi i øvelse 4, hvor vi sørgede for kun at se på bit 0-8.
 
 \subsection{Fixed point vs floating}
 I dette projekt brugte vi ikke floating-point typer. Dette skyldes at Z8 serien er en 8-bit processor, og disse bruger oftest ALU's(Arithmetic Logic Unit) designet til fixed point aritmetik.\cite[s. ~5]{Zicomp}. Det er muligt at få processorer med indbyggede FPU(floating-point units), der er optimerede til at arbejde med floating-point typer, eller coprocessorer til at supplere CPU'en. Hvis vi insisterede på at arbejde i floating-point format, ville vi være nødt til at bruge Zilog's bibliotek til floating-point, hvilket ville være for langsomt til vores behov\cite{Zifloat}\cite{Zimult}. Vi brugte derfor kun integers, og omdannede dem til fixed point.
