@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.11.13)  24 JUN 2015 20:05
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.11.13)  24 JUN 2015 20:28
 entering extended mode
 **master.tex
 
@@ -924,9 +924,42 @@ Package pdftex.def Info: img/gameplay.png used on input line 6.
 (C:\Users\Bruger\Desktop\3-ugers\ProgrammeringsProsjektReflexBall\Programmering
 sProsjektReflexBall\latex\tex/Teori.tex [4 <C:/Users/Bruger/Desktop/3-ugers/Pro
 grammeringsProsjektReflexBall/ProgrammeringsProsjektReflexBall/latex/img/gamepl
-ay.png>] [5])
+ay.png>]
+
+LaTeX Warning: Reference `unsigned' on page 5 undefined on input line 8.
+
+
+LaTeX Warning: Citation `Dlogic' on page 5 undefined on input line 8.
+
+
+LaTeX Warning: Citation `Yates' on page 5 undefined on input line 19.
+
+[5]
+
+LaTeX Warning: Citation `Dlogic' on page 6 undefined on input line 35.
+
+
+LaTeX Warning: Reference `2skomp' on page 6 undefined on input line 37.
+
+
+LaTeX Warning: Citation `Zicomp' on page 6 undefined on input line 45.
+
+
+LaTeX Warning: Citation `Zifloat' on page 6 undefined on input line 45.
+
+
+LaTeX Warning: Citation `Zifloatmult' on page 6 undefined on input line 45.
+
+)
 (C:\Users\Bruger\Desktop\3-ugers\ProgrammeringsProsjektReflexBall\Programmering
-sProsjektReflexBall\latex\tex/Design.tex [6] [7] [8] [9])
+sProsjektReflexBall\latex\tex/Design.tex [6] [7] [8] [9]
+
+LaTeX Warning: Reference `timer0' on page 10 undefined on input line 56.
+
+
+LaTeX Warning: Reference `timer1' on page 10 undefined on input line 62.
+
+)
 (C:\Users\Bruger\Desktop\3-ugers\ProgrammeringsProsjektReflexBall\Programmering
 sProsjektReflexBall\latex\tex/Plan.tex
 <img/Gantt_Chart.png, id=48, 634.16925pt x 150.5625pt>
@@ -975,6 +1008,8 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 ) [14] [15 <C:/Users/Bruger/Desktop/3-ugers/ProgrammeringsProsjektReflexBall/Pr
 ogrammeringsProsjektReflexBall/latex/img/Flow.png>]
 (C:\Users\Bruger\Desktop\3-ugers\ProgrammeringsProsjektReflexBall\Programmering
+sProsjektReflexBall\latex\tex/Diskussion.tex)
+(C:\Users\Bruger\Desktop\3-ugers\ProgrammeringsProsjektReflexBall\Programmering
 sProsjektReflexBall\latex\tex/Konklusion.tex) [16
 
 ]
@@ -1005,6 +1040,9 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 grammeringsProsjektReflexBall/latex/img/Board.png>]
 (C:\Users\Bruger\Desktop\3-ugers\ProgrammeringsProsjektReflexBall\Programmering
 sProsjektReflexBall\latex\tex/Dokumentation.tex
+
+LaTeX Warning: Reference `block' on page 20 undefined on input line 3.
+
 <img/SoftwareArchitecture.png, id=87, 499.26524pt x 299.9205pt>
 File: img/SoftwareArchitecture.png Graphic file (type png)
 
@@ -1012,7 +1050,14 @@ File: img/SoftwareArchitecture.png Graphic file (type png)
 Package pdftex.def Info: img/SoftwareArchitecture.png used on input line 9.
 (pdftex.def)             Requested size: 299.56145pt x 179.95367pt.
  [20 <C:/Users/Bruger/Desktop/3-ugers/ProgrammeringsProsjektReflexBall/Programm
-eringsProsjektReflexBall/latex/img/SoftwareArchitecture.png>] [21]
+eringsProsjektReflexBall/latex/img/SoftwareArchitecture.png>]
+
+LaTeX Warning: Reference `Ballkrav' on page 21 undefined on input line 23.
+
+
+LaTeX Warning: Reference `reallocfejl' on page 21 undefined on input line 27.
+
+[21]
 Overfull \hbox (5.35648pt too wide) in paragraph at lines 38--41
 \OT1/cmr/m/n/12 18.14 for-mat og st-ter bol-dens x-koordinat til dens vr-di. 
 Bol-dens y-koordinat
@@ -1023,7 +1068,14 @@ Overfull \hbox (6.03796pt too wide) in paragraph at lines 67--67
 | \OT1/cmr/bx/n/14.4 void draw-Box(unsigned char x, un-sig-ned char y,unsigned
  []
 
-[23] [24] [25] [26] [27] [28])
+[23] [24]
+
+LaTeX Warning: Reference `lut' on page 25 undefined on input line 108.
+
+
+LaTeX Warning: Reference `lut' on page 25 undefined on input line 110.
+
+[25] [26] [27] [28])
 (C:\Users\Bruger\Desktop\3-ugers\ProgrammeringsProsjektReflexBall\Programmering
 sProsjektReflexBall\latex\tex/AppendixA.tex)
 (C:\Users\Bruger\Desktop\3-ugers\ProgrammeringsProsjektReflexBall\Programmering
@@ -1118,28 +1170,34 @@ Package pdftex.def Info: img/journal.pdf, page4 used on input line 3.
 eringsProsjektReflexBall/latex/img/journal.pdf>])
 [34]
 (C:\Users\Bruger\Desktop\3-ugers\ProgrammeringsProsjektReflexBall\Programmering
-sProsjektReflexBall\latex\master.aux) ) 
+sProsjektReflexBall\latex\master.aux)
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ ) 
 Here is how much of TeX's memory you used:
- 14234 strings out of 493921
- 278760 string characters out of 3144872
- 290074 words of memory out of 3000000
+ 14237 strings out of 493921
+ 279014 string characters out of 3144872
+ 289973 words of memory out of 3000000
  17352 multiletter control sequences out of 15000+200000
  14495 words of font info for 55 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
  41i,18n,43p,10394b,555s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Program Files (x86)/MiKTeX 2.9/fonts
-/type1/public/amsfonts/cm/cmbx10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/t
-ype1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/typ
-e1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1
-/public/amsfonts/cm/cmmi6.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/pu
-blic/amsfonts/cm/cmmi8.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/publi
-c/amsfonts/cm/cmr10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/a
-msfonts/cm/cmr12.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsf
-onts/cm/cmr8.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts
-/cm/cmsy10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/c
-m/cmsy8.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
-mti12.pfb>
-Output written on master.pdf (35 pages, 1374744 bytes).
+<C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb>
+<C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C
+:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/
+Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Pro
+gram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Progra
+m Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program F
+iles (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program File
+s (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files (x
+86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files (x86
+)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files (x86)/M
+iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb>
+Output written on master.pdf (35 pages, 1375945 bytes).
 PDF statistics:
  202 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
