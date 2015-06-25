@@ -10,12 +10,12 @@ I dette afsnitt er projektets filer, funktioner, moduler og makroer dokumenteret
 \caption{Block diagram over de forskellige lag}
 \end{center}
 \end{figure}
-Vi har udviklet alle moduler i fællesskab, og det giver ikke mening at tilskrive nogle personer en særlig del af koden, da meget lidt kode er skrevet af udelukkende en person. 
-
+\textit{\textbf{Vi har udviklet alle moduler i fællesskab, og det giver ikke mening at tilskrive nogle personer en særlig del af koden, da meget lidt kode er skrevet af udelukkende en person.} }
+\newpage
 \subsection{Application layer}
 I dette lag findes refball modulet, menu modulet og main modulet.
 \subsubsection{main.c}
-ReflexBall styres af /textit{main.c} som består af to funktioner. /textbf{main} styrer den overordnede kørsel av programmet og menuen, og /textbf{Game} kontrollerer de forskellige levels og selve gameplayet. Se nærmere beskrivelse af /textbf{main.c} under implementation.
+ReflexBall styres af \textbf{main.c} som består af to funktioner. \textbf{Main} styrer den overordnede kørsel av programmet og menuen, og \textbf{Game} kontrollerer de forskellige levels og selve gameplayet. Se nærmere beskrivelse af \textbf{main.c} under implementation.
 
 \subsubsection{refball.h}
 refball.h er et modul der indeholder grundlæggende regler om spillet: kollision, hvordan bolden skal bevæge sig og hvorledes strikeren skal opføre sig. Desuden indeholder den strukturerne \textit{Ball} og \textit{Box}. Ydermere indeholder dette modul også særligt mange konstanter.
@@ -46,9 +46,9 @@ Denne funktion tager en peger til Box-stacket og en character der repræsenterer
 
 \subsubsection{menu}
 Dette modul indeholder funktioner til at tegne og vise grafik når man bevæger sig rundt i menuen.
-\paragraph{initiateMenu()}\
+\paragraph{void initiateMenu()}\
 Denne funktion renser først skærmen og printer derefter menuen. Slutteligt sættes markøren på Start Game.
-\paragraph{moveMarker(int selectedOption)}\
+\paragraph{void moveMarker(int selectedOption)}\
 Denne funktion sætter markøren alt afhængigt af inputtet.
 \paragraph{void printDifficulty(short diff)}\
 Denne funktion har til formål at printe sværhedsgraden når brugeren vælger:
@@ -57,7 +57,7 @@ Denne funktion har til formål at printe sværhedsgraden når brugeren vælger:
 \item Hvis \textit{diff} er 2, skrives der "Normal"
 \item Hvis \textit{diff} er 3, skrives der "Hard"
 \end{enumerate}
-\paragraph{printHelp()}
+\paragraph{void printHelp()}
 Denne funktion printer hjælpe-teksten. Startstedet for teksternes x-koordinat bestemmes af konstanten LEFT\_BORDER
 
 \subsection{Application Interface Layer}
@@ -81,19 +81,19 @@ Denne funktion tegner spillets logo. Den bruger konstanten LEFT\_BORDER til at b
 drawBall(unsigned char x, unsigned char y, unsigned char color)
 Denne funktion tager et koordinatsæt og printer et o i farven bestemt af det 3. parameter.
 
-\paragraph{drawStriker(unsigned char x, unsigned char color, char strikerWidth, char strikerY)}
+\paragraph{void drawStriker(unsigned char x, unsigned char color, char strikerWidth, char strikerY)}
 Denne funktion tegner blot en striker centrummet for strikeren er x, color er farven, strikerWidth er bredden på hver side, og strikerY er Y-koordinatet.
 
-\paragraph{drawGameOver()}
+\paragraph{void drawGameOver()}
 Denne funktion tegner ASCII-kunst af /textit{GAME OVER} og scroller den ud af skærmen.
 
-\paragraph{drawVictory()}
+\paragraph{void drawVictory()}
 Denne funktion tegner ASCII-kunst af Arnold Schwarzenegger og scroller den ud af skærmen.
 
-\paragraph{scrollText(char y, char delay)}
+\paragraph{void scrollText(char y, char delay)}
 Denne funktion printer mange linjer med mellemrum sådan at det der tidligere er skrevet bliver scrollet væk.
 
-\paragraph{printExampleBoxes(char x, char y, char boxSize)}
+\paragraph{void printExampleBoxes(char x, char y, char boxSize)}
 Denne funktion printer de 5 typer bokser der bruges i spillet sådan at brugeren kan se hvor meget de forskellige boksr tåler.
 
 \subsubsection{lut.h}
@@ -113,8 +113,6 @@ Denne funktion tager en int som argument, og finder arcsinus til integeren. Resu
 \subsection{Hardware Abstraction Layer}
 \subsubsection{keys.h}
 Dette modul får inputs fra knapperne, og kan debounce ved hjælp af timer.h
-\paragraph{void iniKeys()}
-Denne funktion initialiserer den korrekte data-direction på de pins der er forbundne til knapperne, således værdierne kan læses, uden at vi forsøger at skrive outputs samtidigt.
 
 \paragraph{char readKey()}
 Denne funktion læser fra knapperne, og returnerer en bit streng, hvor de tre knapper er på hver deres plads i strengen. Hvis pladsen tilhørende knappen er 1, betyder det at knappen bliver trykket. Denne funktion kan godt detektere hvis brugeren trykker flere knapper ind samtidigt. Pladserne er konfigureret således:
@@ -124,7 +122,7 @@ Denne funktion læser fra knapperne, og returnerer en bit streng, hvor de tre kn
 \item Knappen til venstre er på 2. plads i bit-strengen.
 \end{enumerate}
 
-\paragraph{char getKey}\
+\paragraph{char getKey()}\
 Denne funktion bruges hvis man ønsker debouncing. Den læser vha. readKey() og checker derefter om værdien er det samme efter 10 ms og returner dette.
 \subsubsection{ctimer.h}
 Dette modul har med vores primære timer at gøre. Den har 2 globale variable: \textit{time} og \textit{timeWait}. Time tæller hvor lang tid timeren har været tændt. Grunden til at vi har globable variable her, er fordi timeren skal være uafhængig af main og køre så hurtigt som muligt. Main funktionen kan få adgang til variablene ved nogle setter- og getter-funktioner
@@ -136,35 +134,35 @@ Denne funktion sætter de til modulet tilhørende globale variable, \textit{time
 Dette er interruptfunktionen tilhørende timeren. Den lægger 1 til \textit{time} og trækker 1 fra \textit{timeWait}. 
 \paragraph{void SetDelay(int input)}\
 Denne funktion sætter timeWait til værdien givet i argumentet. Meningen er at bruge \textit{timeWait} som en slags delay, man kan checke værdien på
-\paragraph{getDelay}\
+\paragraph{int getDelay}\
 Denne funktion er blot en getter, der returnerer \textit{timeWait}
 \paragraph{unsigned long getCentis()}\
 Denne funktion er blot en getter, der returnerer \textit{time}
 \subsubsection{LED.h}
 I dette modul bruges der nogle globale variable. Dette gøres for at f.eks. kunne holde styr på hvilken kolonne og LED-enhet der skal lyse. Det hadde været muligt at undgått brugen af globale variable, men da ville man være nødt til at sende mange flere variable som parametre fra main. Dette ville ikke øge effektiviteten af programmet, men snarere gjort det hele mere kompliceret eftersom dette modul kører på sin egen frekvens. Og siden variablene kun er relevante for modulet er det ikke nogen idé i at de ligger i main.
 
-\paragraph{LEDInit()}
+\paragraph{void LEDInit()}
 Denne funktion indstiller TIMER1 til at give et interrupt hvert 0.5 ms. Envidere initialiseres de globale variabler i LED.C.
 
-\paragraph{timer1int()}
+\paragraph{void timer1int()}
 Denne funktion kaldes af interrupts fra TIMER1 på boardet. Denne funktion kalder funktionen LEDUpdate().
 
-\paragraph{setLedMode(char valueIn)}
+\paragraph{void setLedMode(char valueIn)}
 Denne funktion er blot en setter der kontrollerer hvilken funktion der kaldes af LEDUpdate.
 
-\paragraph{LEDUpdate()}
+\paragraph{void LEDUpdate()}
 Denne funktion kalder en af to funktioner, LEDUpdateOnce() eller LEDUpdatePrint().
 
-\paragraph{LEDSetString(char *string)}
+\paragraph{void LEDSetString(char *string)}
 Denne funktion læser en streng  og kopierer den over til den globale variabel /textit{string}. Envidere nulstiller den de globale variable.
 
-\paragraph{LEDLoadBuffer()}
+\paragraph{void LEDLoadBuffer()}
 Denne funktion indlæser bufferen fra et karakterset på den måde, at når funktionen LEDUpdatePrint() kaldes er teksten umiddelbart på displayet. Med andre ord; denne funktion gør at teksten ikke ruller ind og er derfor nyttig når man skal opdatere displayet hurtigt.
 
-\paragraph{LEDUpdatePrint()}
+\paragraph{void LEDUpdatePrint()}
 Denne funktion bruger tids-multiplexing til at belyse alle kolonnene. For at få dette til at fungere bruges to variable der holder styr på hvilken LED-enhed og kolonne der skal lyse.
 
-\paragraph{LEDUpdateOnce()}
+\paragraph{void LEDUpdateOnce()}
 Denne funktion ruller en tekststreng over displayet og holder på de sidste fire tegn. Displayet multiplexes på samme måde som i LEDUpdatePrint(), men strengen bliver også rullet. For at kontrollere hastigheden bruges en tæller.
 
 
