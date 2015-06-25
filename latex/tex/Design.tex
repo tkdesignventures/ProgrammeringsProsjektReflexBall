@@ -1,10 +1,10 @@
 \section{Design af Reflexball}
 I udarbejdelsen af dette program havde vi nogle forskellige tekniske krav og nogle designmål, som vi ønskede at designe programmet efter.
-\subsection{Tekniske mål}
+\subsection{Tekniske krav}
 Vi lavede en liste af krav til programmets tekniske opbygning som vi i så høj grad som muligt ønskede at overholde. 
 \begin{enumerate}
 \item Vi ønsker en veldefineret struktur. Vi vil derfor undgå globale variable i så høj grad som muligt, derfor skal vi lave funktioner som tager pegere til strukturer eller variable som inputs, frem for at tilgå globale variable. Få undtagelser findes dog til dette, f.eks. i modulet der tilgår timeren og LED skærmene.
-\item Vi vil udvikle nogle moduler  der er uafhængige af hinanden, således at vores grafik i mindst mulig grad kommunikerer med vores modul indeholdende spillets regler(refball.h). Denne kommunikation skal foregå igennem main-metoden, således man let kan få et overblik ved at se på main-metoden.
+\item Vi vil udvikle nogle moduler  der er uafhængige af hinanden, således at vores grafik i mindst mulig grad kommunikerer med vores modul indeholdende spillets regler(refball.h). Denne kommunikation skal foregå igennem main-metoden, således man let kan få et overblik ved at se på main-metoden. Desuden gør man modulerne uafhængige, således strukturelle ændringer i et modul ikke har risiko for at ødelægge andre moduler.
 \item Vi vil bruge timerne på boardet til at styre tidsaspekter i spillet.
 	
 \end{enumerate}
@@ -19,10 +19,10 @@ Vi lavede en liste af krav til programmets tekniske opbygning som vi i så høj 
 \item Hvis spilleren vinder spillet vises et victory-screen og efter et par sekunder går spillet automatisk tilbage til menuen.
 \item Når banen begynder, eller hvis spilleren mister et liv, placeres bolden over strikeren, og spilleren kan frit bevæge strikeren, hvor bolden følger efter. Hvis spilleren trykker på den givne knap, affyres bolden.
 \item Spillerens liv og power skal skrives på LED-skærmen når spillet er igang
-\item Spilleren samler power hver gang han ødelægger en kasse. Hvis brugeren trykker på venstre og højre-tasten på en gang bruger han sit power og akitverer high power. Når high power er aktiveret ødelægges kasser når de rammes, uafhængigt af deres liv, og bolden reflekteres ikke, men fortsætter gennem kassen. Power fratrækkes 1 hver gang den ødelægger en kasse.
+\item Spilleren samler power hver gang han ødelægger en kasse. Hvis spiller har 5 power og trykker på venstre og midterste knap samtidig aktiverer han high power. Når high power er aktiveret ødelægges kasser når de rammes, uafhængigt af deres liv, og bolden reflekteres ikke, men fortsætter gennem kassen. Power fratrækkes 1 hver gang den ødelægger en kasse.
 \item Når spilleren bruger high power, vinder en bane, vinder spillet eller dør skal der rulles en tekst over LED-skærmene, der passer til situationen. Efter teksten er rullet over skal livene og power igen vises på skærmen efter teksten er rullet over.
 \item Hver gang spilleren går videre til næste level, får spilleren fuldt liv og spillerens power sættes til 0.
-\item Spillere kan pause spillet, ved at trykke på en af knapperne.
+\item Spillere kan pause spillet, ved at trykke på højre knap.
 \item Ved at trykke på alle knapper samtidigt, aktiverer brugeren chef-mode, som giver en blank skærm.  
 \item Der er ikke noget point-system i spillet, da vi vælger at lægge fokus andre steder.
 \item De forskellige levels skal have forskellige baggrundsbilleder(dette nåede vi ikke).
@@ -37,7 +37,7 @@ Vi lavede en liste af krav til programmets tekniske opbygning som vi i så høj 
 \label{Ballkrav}
 \begin{enumerate}
 \item Bolden skal have et x- og y-koordinat og en retningsvektor, begge i 18.14 fixed-point format. Bolden har desuden nogle variable med info om spillerens power, om bolden er ude og om spilleren har aktiveret power.
-\item Boldens retningsvektor skal altid have længden 1, da dette gør kollisionstest let.
+\item Boldens retningsvektor skal altid have længden 1, da dette gør kollisionstest let og holder boldens hastighed konstant.
 
 \end{enumerate}
 \subsubsection{Krav til boksene}

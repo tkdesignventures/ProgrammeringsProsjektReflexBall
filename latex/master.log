@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.11.13)  25 JUN 2015 11:27
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.11.13)  25 JUN 2015 17:02
 entering extended mode
 **master.tex
 
@@ -1115,37 +1115,7 @@ sProsjektReflexBall\ctimer.c [80]) [81]
 (C:\Users\Bruger\Desktop\3-ugers\ProgrammeringsProsjektReflexBall\Programmering
 sProsjektReflexBall\ctimer.h) [82]
 (C:\Users\Bruger\Desktop\3-ugers\ProgrammeringsProsjektReflexBall\Programmering
-sProsjektReflexBall\keys.c
-
-! Package inputenc Error: Unicode char \u8:ï\lst@FillFixed@\lst@EC» not set up 
-for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.1 ï»¿#
-        include <eZ8.h>             // special encore constants, macros and ...
-
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-! Package inputenc Error: Keyboard character used is undefined
-(inputenc)                in inputencoding `utf8'.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.1 ï»¿#
-        include <eZ8.h>             // special encore constants, macros and ...
-
-You need to provide a definition with \DeclareInputText 
-or \DeclareInputMath before using this key.
-
-) [83]
+sProsjektReflexBall\keys.c) [83]
 (C:\Users\Bruger\Desktop\3-ugers\ProgrammeringsProsjektReflexBall\Programmering
 sProsjektReflexBall\keys.h) [84])
 (C:\Users\Bruger\Desktop\3-ugers\ProgrammeringsProsjektReflexBall\Programmering
@@ -1794,10 +1764,10 @@ or  <return>  to continue without it.
 (C:\Users\Bruger\Desktop\3-ugers\ProgrammeringsProsjektReflexBall\Programmering
 sProsjektReflexBall\latex\master.aux) ) 
 Here is how much of TeX's memory you used:
- 15394 strings out of 493921
- 296903 string characters out of 3144872
+ 15399 strings out of 493921
+ 296930 string characters out of 3144872
  473112 words of memory out of 3000000
- 18425 multiletter control sequences out of 15000+200000
+ 18430 multiletter control sequences out of 15000+200000
  14854 words of font info for 56 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
  41i,18n,49p,10394b,1681s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1814,7 +1784,7 @@ onts/cm/cmr8.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts
 /cm/cmsy10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/c
 m/cmsy8.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
 mti12.pfb>
-Output written on master.pdf (107 pages, 1555554 bytes).
+Output written on master.pdf (107 pages, 1556489 bytes).
 PDF statistics:
  437 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

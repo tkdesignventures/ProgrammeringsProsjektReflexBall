@@ -32,9 +32,9 @@ En af måderne at repræsentere fortegnet på bit-strengen, er ved at lade det m
 \begin{equation}
 -37_{10} = 1100101_2 
 \end{equation}
-Signed magnitude repræsentation, har dog den ulempe, at man spilder et bit, f.eks. hvis man har en 4-bit streng gælder der at 1000 =  0000, så istedet for at have $2^4$ tilstande har man blot $2^4-1$. Desuden er signed magnitude ikke så velegnet til brug i digitale systemer.\cite[s.~260]{Dlogic}
+Signed magnitude repræsentation, har dog den ulempe, at man spilder en tilstand, f.eks. hvis man har en 4-bit streng gælder der at 1000 =  0000, så istedet for at have $2^4$ tilstande har man blot $2^4-1$. Desuden er signed magnitude ikke så velegnet til brug i digitale systemer.\cite[s.~260]{Dlogic}
 \subsubsection{2's komplement}
-En anden måde at repræsentere negative tal, kan gøres vha. 2's komplement. 2's komplement findes ved at invertere et unsigned tal og derefter lægge 1 til. 2's komplement har to fordele: Der er kun et 0, og subtraktion kan gøres på samme måde som addition, så hvis vi ønsker at subtrahere 3 fra 5, skal vi blot finde 2's kompliment af 3 og lægge det til 5, som i ligning \ref{2skomp}.  Disse fordele gør 2's komplement en god metode til at repræsentere tal i digitale systemer.
+En anden måde at repræsentere negative tal, kan gøres vha. 2's komplement. Et negativt 2's komplement findes ved at invertere et unsigned tal og derefter lægge 1 til. 2's komplement har to fordele: Der er kun et 0, og subtraktion kan gøres på samme måde som addition, så hvis vi ønsker at subtrahere 3 fra 5, skal vi blot finde 2's kompliment af 3 og lægge det til 5, som i ligning \ref{2skomp}.  Disse fordele gør 2's komplement en god metode til at repræsentere tal i digitale systemer.
 \begin{equation}
 \label{2skomp}
  5-3 = 5+(-3)
@@ -42,4 +42,4 @@ En anden måde at repræsentere negative tal, kan gøres vha. 2's komplement. 2'
 Ydermere har 2's komplement en cyklisk natur, der gør den smart at bruge sammen med triogonmetriske funktioner, såsom cos og sin. Den cykliske natur gør os istand til at gå begge veje rundt i enhedscirklen Dette brugte vi i øvelse 4, hvor vi sørgede for kun at se på bit 0-8.
 
 \subsection{Fixed point vs floating}
-I dette projekt brugte vi ikke floating-point typer. Dette skyldes at Z8 serien er en 8-bit processor, og disse bruger oftest ALU's(Arithmetic Logic Unit) designet til fixed point aritmetik.\cite[s. ~5]{Zicomp}. Det er muligt at få processorer med indbyggede FPU(floating-point units), der er optimerede til at arbejde med floating-point typer, eller coprocessorer til at supplere CPU'en. Hvis vi insisterede på at arbejde i floating-point format, ville vi være nødt til at bruge Zilog's bibliotek til floating-point, hvilket ville være for langsomt til vores behov\cite{Zifloat}\cite{Zifloatmult}. Vi brugte derfor kun integers, og omdannede dem til fixed point.
+I dette projekt brugte vi ikke floating-point typer. Dette skyldes at Z8 serien er en 8-bit processor, og disse bruger oftest ALU's(Arithmetic Logic Unit) designet til fixed point aritmetik.\cite[s. ~5]{Zicomp}. Det er muligt at få processorer med indbyggede FPU(floating-point units), der er optimerede til at arbejde med floating-point typer, eller coprocessorer til at supplere CPU'en. Hvis vi insisterede på at arbejde i floating-point format, ville vi være nødt til at bruge Zilog's bibliotek til floating-point, hvilket ville være for langsomt til vores behov\cite{Zifloat}\cite{Zifloatmult}. Vi brugte derfor kun heltaltstyper, og omdannede dem til fixed point.
