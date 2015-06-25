@@ -27,22 +27,19 @@ void main(){
 	initiateMenu();
 	printDifficulty(difficulty);
 	
-	//iniKeys();
 	LEDInit();
 	LEDSetString("Welcome    ");
 	setLedMode(2);
-	//LEDLoadBuffer();
-	
 	
 	for(;;){
 		key = getKey();
 		
-		//Navigates the menu
+		//Navigerer i meny
 		while(key != KEY_RIGHT){
-			//Move up
+			//Op
 			if(key == KEY_MIDDLE){
 				selectedOption++;
-			//Move down
+			//Ned
 			}else if(key == KEY_LEFT){
 				selectedOption--;
 			}
@@ -61,6 +58,8 @@ void main(){
 			
 		}
 		
+		//Højreknap
+		//Start spil
 		if(selectedOption == 1){
 			victory = Game(difficulty);
 			if(victory >= 0){
@@ -75,6 +74,8 @@ void main(){
 			
 			initiateMenu();
 			printDifficulty(difficulty);
+		
+		//Endre vanskelighedsgrad
 		}else if(selectedOption == 2){
 			difficulty ++;
 			if(difficulty >= 4){
@@ -82,6 +83,8 @@ void main(){
 			}
 			printDifficulty(difficulty);
 		}
+		
+		//Vis hjelp
 		else if(selectedOption == 3){
 			printHelp();
 			printExampleBoxes(100,36,BOXSIZE);
@@ -142,7 +145,7 @@ int Game(int difficulty){
 		
 
 		
-		//Initialization for each level
+		//Initialisering for hver level
 		while(level <= MAX_LEVEL && lives >= 0){
 			
 		 
@@ -151,7 +154,7 @@ int Game(int difficulty){
 			ball.powerActivated = 0;
 			ball.power = 0;
 			
-			//Sends info to LED display
+			//Sender info til LED-display
 			temp[1]=(char)(CHARSET_START + level);
 			temp[0] = ' ';
 			str[0] = '\0';
@@ -174,9 +177,7 @@ int Game(int difficulty){
 				drawBox(box->x[i],box->y[i],7 - box->durability[i],BOXSIZE);   
 			}
 			
-			
-			
-			
+
 			while(lives >= 0 && box->boxesLeft > 0){
 												
 						key = getKey();
@@ -191,7 +192,8 @@ int Game(int difficulty){
 						}
 						
 						if(!pause){
-						
+							
+							//Flytter på striker, aktiverer High Power, aktivere chef-mode
 							if(key == 2){
 								moveStriker(&strikerx, 1);
 								moveDrawStriker(strikerx,1,STRIKER_WIDTH,STRIKER_Y);
@@ -222,6 +224,8 @@ int Game(int difficulty){
 
 								if(!waitStart){
 									refreshTime = getCentis();
+									
+									//Sletter bold
 									drawChar(toTerminalCoordinates(ball.x),toTerminalCoordinates(ball.y), checkBall(&ball,box,strikerx));
 									
 									if(ball.outOfBounds){
@@ -232,6 +236,7 @@ int Game(int difficulty){
 										ball.powerActivated = 0;							
 									}
 									
+									//Opdaterer LED-display
 									if(!ball.powerActivated || ball.power < POWER_LIMIT){
 										str[0] = '\0';
 										temp[1] = (char)(CHARSET_START + lives);
@@ -243,9 +248,11 @@ int Game(int difficulty){
 										LEDSetString(str);										
 										LEDLoadBuffer();
 									}
+									//Flytter bold og tegner på nyt
 									moveBall(&ball);
 									drawBall(toTerminalCoordinates(ball.x),toTerminalCoordinates(ball.y),ball.powerActivated);
-
+								
+								//Holder bolden over strikeren
 								}else{
 								drawBall(toTerminalCoordinates(ball.x),toTerminalCoordinates(ball.y),7);
 								setBallOverStriker(&ball, strikerx);
