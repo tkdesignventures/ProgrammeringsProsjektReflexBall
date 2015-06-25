@@ -249,7 +249,7 @@ void drawVictory(){
 }
 
 void scrollText(char y, char delay){
-		//Makes the Game Over / Victory text stay on the screen for a little while
+
 		
 	char i, j;
 	for(i = 0; i < delay; i++){

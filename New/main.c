@@ -37,12 +37,12 @@ void main(){
 	for(;;){
 		key = getKey();
 		
-		//Navigates the menu
+		//Navigerer i meny
 		while(key != KEY_RIGHT){
-			//Move up
+			//Op
 			if(key == KEY_MIDDLE){
 				selectedOption++;
-			//Move down
+			//Ned
 			}else if(key == KEY_LEFT){
 				selectedOption--;
 			}
@@ -60,7 +60,8 @@ void main(){
 			}
 			
 		}
-		
+		//Højre knap
+		//Start spil
 		if(selectedOption == 1){
 			victory = Game(difficulty);
 			if(victory >= 0){
@@ -75,6 +76,7 @@ void main(){
 			
 			initiateMenu();
 			printDifficulty(difficulty);
+		//Endre vanskelighedsgrad
 		}else if(selectedOption == 2){
 			difficulty ++;
 			if(difficulty >= 4){
@@ -82,6 +84,7 @@ void main(){
 			}
 			printDifficulty(difficulty);
 		}
+		//Vis instrukser
 		else if(selectedOption == 3){
 			printHelp();
 			printExampleBoxes(100,36,BOXSIZE);
@@ -109,7 +112,7 @@ int Game(int difficulty){
 		
     	clrscr();
 
-		  //Initialize
+		  //Initialisering
 		  level = 1;
 		  lives = 0;
 		  strikerx = 30;
@@ -142,7 +145,7 @@ int Game(int difficulty){
 		
 
 		
-		//Initialization for each level
+		//Koerer for hver level
 		while(level <= MAX_LEVEL && lives >= 0){
 			
 		 
@@ -151,7 +154,7 @@ int Game(int difficulty){
 			ball.powerActivated = 0;
 			ball.power = 0;
 			
-			//Sends info to LED display
+			//Skriver til LED-display
 			temp[1]=(char)(CHARSET_START + level);
 			temp[0] = ' ';
 			str[0] = '\0';
@@ -191,7 +194,7 @@ int Game(int difficulty){
 						}
 						
 						if(!pause){
-						
+							//Flytter striker, aktiverer High Power, aktiverer chef-mode
 							if(key == 2){
 								moveStriker(&strikerx, 1);
 								moveDrawStriker(strikerx,1,STRIKER_WIDTH,STRIKER_Y);
@@ -222,6 +225,8 @@ int Game(int difficulty){
 
 								if(!waitStart){
 									refreshTime = getCentis();
+									
+									//Sletter bold
 									drawChar(toTerminalCoordinates(ball.x),toTerminalCoordinates(ball.y), checkBall(&ball,box,strikerx));
 									
 									if(ball.outOfBounds){
@@ -232,6 +237,7 @@ int Game(int difficulty){
 										ball.powerActivated = 0;							
 									}
 									
+									//Opdaterer LED-display
 									if(!ball.powerActivated || ball.power < POWER_LIMIT){
 										str[0] = '\0';
 										temp[1] = (char)(CHARSET_START + lives);
@@ -243,9 +249,11 @@ int Game(int difficulty){
 										LEDSetString(str);										
 										LEDLoadBuffer();
 									}
+									//Flytter bold og tegner den pånyt
 									moveBall(&ball);
 									drawBall(toTerminalCoordinates(ball.x),toTerminalCoordinates(ball.y),ball.powerActivated);
-
+								
+								//Holder bold over striker
 								}else{
 								drawBall(toTerminalCoordinates(ball.x),toTerminalCoordinates(ball.y),7);
 								setBallOverStriker(&ball, strikerx);
