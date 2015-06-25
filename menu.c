@@ -74,7 +74,7 @@ void printHelp(){
 	gotoxy(LEFT_BORDER,43);
 	printf("If you loose the ball you will loose a life.\n");
 	gotoxy(LEFT_BORDER,45);
-	printf("When you earn enough power time 5, you can activate High Power! (left and middle button)\n");
+	printf("When you earn enough power time (5), you can activate High Power! (left and middle button)\n");
 	gotoxy(LEFT_BORDER,46);
 	printf("Then your ball turns red and you can smash boxes.");
 	gotoxy(LEFT_BORDER,48);
