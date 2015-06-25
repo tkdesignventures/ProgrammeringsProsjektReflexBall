@@ -12,19 +12,6 @@ long cos(int x){
 	return sin(x+128);
 }
 
-int arcsin(int y){
-char sign = 1;
-
-
-if(y < 0){
-	sign = -1;
-}
-	return (sign * ARCSIN[0x01FF & y]);
-}
-
-
-
-
 void rotate(Ball * ball , int ang){
 	long sinA = sin(ang);
 	long cosA = cos(ang);
