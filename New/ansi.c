@@ -72,7 +72,7 @@ void clreol(){
 	printf("%c[K",ESC);
 }
 void gotoxy(int x,int y){
-	printf("%c[%d;%dH",ESC,x,y);
+	printf("%c[%d;%dH",ESC,y,x);
 }
 void blink(char on){
 	int d;
