@@ -56,6 +56,7 @@
 \contentsline {paragraph}{void moveDrawStriker(unsigned char x, unsigned char direction)}{25}
 \contentsline {paragraph}{void drawBounds(int x1,int y1, int x2, int y2,unsigned char color)}{25}
 \contentsline {paragraph}{void drawLogo()}{25}
+\contentsline {paragraph}{drawBall(unsigned char x, unsigned char y, unsigned char color)}{25}
 \contentsline {paragraph}{void drawStriker(unsigned char x, unsigned char color, char strikerWidth, char strikerY)}{26}
 \contentsline {paragraph}{void drawGameOver()}{26}
 \contentsline {paragraph}{void drawVictory()}{26}
@@ -66,11 +67,10 @@
 \contentsline {paragraph}{Makroer}{26}
 \contentsline {paragraph}{long sin(int x)}{27}
 \contentsline {paragraph}{long cos(int x)}{27}
-\contentsline {paragraph}{int arcsin(int y)}{27}
 \contentsline {subsection}{\numberline {10.3}Hardware Abstraction Layer}{27}
 \contentsline {subsubsection}{\numberline {10.3.1}keys.h}{27}
 \contentsline {paragraph}{char readKey()}{27}
-\contentsline {paragraph}{char getKey()}{28}
+\contentsline {paragraph}{char getKey()}{27}
 \contentsline {subsubsection}{\numberline {10.3.2}ctimer.h}{28}
 \contentsline {paragraph}{void setTimer()}{28}
 \contentsline {paragraph}{void resetTimer()}{28}
@@ -78,7 +78,7 @@
 \contentsline {paragraph}{void SetDelay(int input)}{28}
 \contentsline {paragraph}{int getDelay}{28}
 \contentsline {paragraph}{unsigned long getCentis()}{28}
-\contentsline {subsubsection}{\numberline {10.3.3}LED.h}{29}
+\contentsline {subsubsection}{\numberline {10.3.3}LED.h}{28}
 \contentsline {paragraph}{void LEDInit()}{29}
 \contentsline {paragraph}{void timer1int()}{29}
 \contentsline {paragraph}{void setLedMode(char valueIn)}{29}
