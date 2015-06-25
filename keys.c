@@ -19,5 +19,4 @@ char getKey(){
 	while(getDelay()>0){
 	}
 	return key &=readKey();
-
 }

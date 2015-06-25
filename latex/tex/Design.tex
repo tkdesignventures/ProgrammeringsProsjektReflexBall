@@ -4,7 +4,7 @@ I udarbejdelsen af dette program havde vi nogle forskellige tekniske krav og nog
 Vi lavede en liste af krav til programmets tekniske opbygning som vi i så høj grad som muligt ønskede at overholde. 
 \begin{enumerate}
 \item Vi ønsker en veldefineret struktur. Vi vil derfor undgå globale variable i så høj grad som muligt, derfor skal vi lave funktioner som tager pegere til strukturer eller variable som inputs, frem for at tilgå globale variable. Få undtagelser findes dog til dette, f.eks. i modulet der tilgår timeren og LED skærmene.
-\item Vi vil udvikle nogle moduler  der er uafhængige af hinanden, således at vores grafik i mindst mulig grad kommunikerer med vores modul indeholdende spillets regler(Refball.c). Denne kommunikation skal foregå igennem main-metoden, således man let kan få et overblik ved at se på main-metoden.
+\item Vi vil udvikle nogle moduler  der er uafhængige af hinanden, således at vores grafik i mindst mulig grad kommunikerer med vores modul indeholdende spillets regler(refball.h). Denne kommunikation skal foregå igennem main-metoden, således man let kan få et overblik ved at se på main-metoden.
 \item Vi vil bruge timerne på boardet til at styre tidsaspekter i spillet.
 	
 \end{enumerate}
@@ -25,6 +25,7 @@ Vi lavede en liste af krav til programmets tekniske opbygning som vi i så høj 
 \item Spillere kan pause spillet, ved at trykke på en af knapperne.
 \item Ved at trykke på alle knapper samtidigt, aktiverer brugeren chef-mode, som giver en blank skærm.  
 \item Der er ikke noget point-system i spillet, da vi vælger at lægge fokus andre steder.
+\item De forskellige levels skal have forskellige baggrundsbilleder(dette nåede vi ikke).
 \end{enumerate}
 \subsubsection{Krav til strikeren}
 \begin{enumerate}
@@ -59,7 +60,7 @@ Timer0 er en timer der sender et tick hvert millisekund. Timeren bliver brugt i 
 Reloadvalue = 0.001 \si{s} \cdot 18.432.000 \si{s^{-1}} = 18432_{10} = 4800_{16} 
 \end{equation}
 \subsubsection{Timer1}
-Timer1 er en timer der sender et tick hvert 500 $\mu$s. Timeren bliver kun brugt i \textbf{led.h}. Denne timer er også sat i continous mode, og der bliver heller ikke her foretaget clock division. Reload værdien fandtes ved udregningen i ligning \ref{timer1}. Interrupt prioriten sættes til lav ved kun at skrive til IRQ0ENL.
+Timer1 er en timer der sender et tick hvert 500 $\mu$s. Timeren bliver kun brugt i \textbf{led.h}. Denne timer er også sat i continous mode, og der bliver heller ikke her foretaget clock division. Reload værdien fandtes ved udregningen i ligning \ref{timer1}. Interrupt prioriten sættes til lav ved kun at skrive til IRQ0ENL, eftersom at opdateringen af LED skærmene ikke er vigtigere end spillets tid.
 
 \begin{equation}
 \label{timer1}

@@ -16,14 +16,14 @@
 \contentsline {subsubsection}{\numberline {3.2.3}Krav til bolden}{10}
 \contentsline {subsubsection}{\numberline {3.2.4}Krav til boksene}{10}
 \contentsline {subsection}{\numberline {3.3}Timere}{10}
-\contentsline {subsubsection}{\numberline {3.3.1}Timer0}{10}
+\contentsline {subsubsection}{\numberline {3.3.1}Timer0}{11}
 \contentsline {subsubsection}{\numberline {3.3.2}Timer1}{11}
 \contentsline {section}{\numberline {4}Planl\IeC {\ae }gning og test af programmet}{11}
 \contentsline {subsection}{\numberline {4.1}Plan og Gantt chart}{11}
 \contentsline {subsection}{\numberline {4.2}Problemer}{12}
 \contentsline {subsubsection}{\numberline {4.2.1}Problemer med realloc}{12}
 \contentsline {subsubsection}{\numberline {4.2.2}Problemer med knapperne}{12}
-\contentsline {subsection}{\numberline {4.3}Test af programmet}{12}
+\contentsline {subsection}{\numberline {4.3}Test af programmet}{13}
 \contentsline {section}{\numberline {5}Implementation}{13}
 \contentsline {subsection}{\numberline {5.1}main.c}{13}
 \contentsline {section}{\numberline {6}Diskussion}{17}
@@ -87,8 +87,15 @@
 \contentsline {paragraph}{void LEDLoadBuffer()}{29}
 \contentsline {paragraph}{void LEDUpdatePrint()}{30}
 \contentsline {paragraph}{void LEDUpdateOnce()}{30}
-\contentsline {section}{\numberline {11}Appendix A}{30}
-\contentsline {subsection}{\numberline {11.1}Kode}{30}
-\contentsline {section}{\numberline {12}AppendixB}{30}
-\contentsline {subsection}{\numberline {12.1}Journal}{30}
-\contentsline {subsection}{\numberline {12.2}Kode fra \IeC {\o }velserne}{35}
+\setcounter {tocdepth}{2}
+\contentsline {section}{\numberline {11}Appendix A}{31}
+\contentsline {subsection}{\numberline {11.1}Kode til refball}{31}
+\contentsline {section}{\numberline {12}Appendix B}{85}
+\contentsline {subsection}{\numberline {12.1}Journal}{85}
+\contentsline {subsection}{\numberline {12.2}Kode fra \IeC {\o }velserne}{90}
+\contentsline {subsubsection}{\numberline {12.2.1}\IeC {\O }velse 2}{90}
+\contentsline {subsubsection}{\numberline {12.2.2}\IeC {\O }velse 3}{95}
+\contentsline {subsubsection}{\numberline {12.2.3}\IeC {\O }velse 4}{96}
+\contentsline {subsubsection}{\numberline {12.2.4}\IeC {\O }velse 5}{98}
+\contentsline {subsubsection}{\numberline {12.2.5}\IeC {\O }velse 6}{100}
+\contentsline {subsubsection}{\numberline {12.2.6}\IeC {\O }velse 7 og 8}{103}

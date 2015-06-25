@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.11.13)  25 JUN 2015 09:49
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.11.13)  25 JUN 2015 11:10
 entering extended mode
 **master.tex
 
@@ -772,33 +772,39 @@ Package: titlesec 2011/12/15 v2.10.0 Sectioning titles
 \titlewidthlast=\dimen169
 \titlewidthfirst=\dimen170
 )
+(C:\Users\Bruger\AppData\Roaming\MiKTeX\2.9\tex\latex\appendix\appendix.sty
+Package: appendix 2009/09/02 v1.2b extra appendix facilities
+\c@@pps=\count159
+\c@@ppsavesec=\count160
+\c@@ppsaveapp=\count161
+)
 (C:\Users\Bruger\Desktop\3-ugers\ProgrammeringsProsjektReflexBall\Programmering
 sProsjektReflexBall\latex\master.aux)
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
 
 (C:\Users\Bruger\AppData\Roaming\MiKTeX\2.9\tex\context\base\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count159
+\scratchcounter=\count162
 \scratchdimen=\dimen171
 \scratchbox=\box55
-\nofMPsegments=\count160
-\nofMParguments=\count161
+\nofMPsegments=\count163
+\nofMParguments=\count164
 \everyMPshowfont=\toks26
-\MPscratchCnt=\count162
+\MPscratchCnt=\count165
 \MPscratchDim=\dimen172
-\MPnumerator=\count163
-\makeMPintoPDFobject=\count164
+\MPnumerator=\count166
+\makeMPintoPDFobject=\count167
 \everyMPtoPDFconversion=\toks27
 )
 Now handling font encoding TS1 ...
@@ -884,18 +890,18 @@ ions.cfg
 File: siunitx-abbreviations.cfg 2015/01/21 v2.6e siunitx: Abbreviated units
 )
 \AtBeginShipoutBox=\box56
-\c@lstlisting=\count165
-\c__siunitx_mathsf_int=\count166
-LaTeX Font Info:    Try loading font information for U+msa on input line 22.
+\c@lstlisting=\count168
+\c__siunitx_mathsf_int=\count169
+LaTeX Font Info:    Try loading font information for U+msa on input line 23.
  ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 22.
+LaTeX Font Info:    Try loading font information for U+msb on input line 23.
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-\c__siunitx_mathtt_int=\count167
+\c__siunitx_mathtt_int=\count170
 
 (C:\Users\Bruger\Desktop\3-ugers\ProgrammeringsProsjektReflexBall\Programmering
 sProsjektReflexBall\latex\tex/titel.tex
@@ -940,8 +946,11 @@ Overfull \hbox (53.91544pt too wide) in paragraph at lines 6--7
  [] 
  []
 
-[11 <C:/Users/Bruger/Desktop/3-ugers/ProgrammeringsProsjektReflexBall/Programme
-ringsProsjektReflexBall/latex/img/Gantt_Chart.png>] [12])
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[11] [12 <C:/Users/Bruger/Desktop/3-ugers/ProgrammeringsProsjektReflexBall/Prog
+rammeringsProsjektReflexBall/latex/img/Gantt_Chart.png>])
 (C:\Users\Bruger\Desktop\3-ugers\ProgrammeringsProsjektReflexBall\Programmering
 sProsjektReflexBall\latex\tex/Implementation.tex
 <img/Menu.png, id=60, 516.7305pt x 465.53925pt>
@@ -954,10 +963,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 4--16
 
  []
 
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[13] <img/Flow.png, id=64, 672.111pt x 707.0415pt>
+[13] [14 <C:/Users/Bruger/Desktop/3-ugers/ProgrammeringsProsjektReflexBall/Prog
+rammeringsProsjektReflexBall/latex/img/Menu.png>]
+<img/Flow.png, id=68, 672.111pt x 707.0415pt>
 File: img/Flow.png Graphic file (type png)
  <use img/Flow.png>
 Package pdftex.def Info: img/Flow.png used on input line 19.
@@ -967,8 +975,6 @@ Overfull \hbox (13.2697pt too wide) in paragraph at lines 19--20
  [] 
  []
 
-[14 <C:/Users/Bruger/Desktop/3-ugers/ProgrammeringsProsjektReflexBall/Programme
-ringsProsjektReflexBall/latex/img/Menu.png>]
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
@@ -1026,109 +1032,775 @@ Overfull \hbox (6.03796pt too wide) in paragraph at lines 67--67
  []
 
 [25] [26] [27] [28] [29])
+(C:\Users\Bruger\AppData\Roaming\MiKTeX\2.9\tex\latex\listings\lstlang1.sty
+File: lstlang1.sty 2014/09/06 1.5e listings language file
+)
+(C:\Users\Bruger\AppData\Roaming\MiKTeX\2.9\tex\latex\listings\lstmisc.sty
+File: lstmisc.sty 2014/09/06 1.5e (Carsten Heinz)
+)
+[30]
 (C:\Users\Bruger\Desktop\3-ugers\ProgrammeringsProsjektReflexBall\Programmering
-sProsjektReflexBall\latex\tex/AppendixA.tex)
+sProsjektReflexBall\latex\tex/AppendixA.tex
+(C:\Users\Bruger\Desktop\3-ugers\ProgrammeringsProsjektReflexBall\Programmering
+sProsjektReflexBall\main.c
+LaTeX Font Info:    Try loading font information for OML+cmr on input line 1.
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\omlcmr.fd"
+File: omlcmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <12> not available
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 1.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 15.
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\omscmr.fd"
+File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 15.
+ [31] [32]
+[33] [34] [35] [36] [37]) [38]
+(C:\Users\Bruger\Desktop\3-ugers\ProgrammeringsProsjektReflexBall\Programmering
+sProsjektReflexBall\refball.c [39] [40] [41] [42]
+LaTeX Font Info:    Font shape `OMS/cmr/m/it' in size <12> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 172.
+LaTeX Font Info:    Font shape `OML/cmr/m/it' in size <12> not available
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 173.
+ [43] [44] [45]) [46]
+(C:\Users\Bruger\Desktop\3-ugers\ProgrammeringsProsjektReflexBall\Programmering
+sProsjektReflexBall\refball.h [47]) [48]
+(C:\Users\Bruger\Desktop\3-ugers\ProgrammeringsProsjektReflexBall\Programmering
+sProsjektReflexBall\menu.c [49] [50]) [51]
+(C:\Users\Bruger\Desktop\3-ugers\ProgrammeringsProsjektReflexBall\Programmering
+sProsjektReflexBall\menu.h) [52]
+(C:\Users\Bruger\Desktop\3-ugers\ProgrammeringsProsjektReflexBall\Programmering
+sProsjektReflexBall\lut.h
+Overfull \hbox (116.44916pt too wide) in paragraph at lines 1--2
+[][] 
+ []
+
+
+Overfull \hbox (116.44916pt too wide) in paragraph at lines 6--8
+[][] 
+ []
+
+) [53]
+(C:\Users\Bruger\Desktop\3-ugers\ProgrammeringsProsjektReflexBall\Programmering
+sProsjektReflexBall\math.c) [54]
+(C:\Users\Bruger\Desktop\3-ugers\ProgrammeringsProsjektReflexBall\Programmering
+sProsjektReflexBall\math.h) [55]
+(C:\Users\Bruger\Desktop\3-ugers\ProgrammeringsProsjektReflexBall\Programmering
+sProsjektReflexBall\graphics.c [56] [57] [58] [59]
+Overfull \hbox (229.24896pt too wide) in paragraph at lines 137--138
+[][] 
+ []
+
+[60] [61] [62] [63]
+Overfull \hbox (342.04877pt too wide) in paragraph at lines 257--259
+[][] 
+ []
+
+[64]) [65]
+(C:\Users\Bruger\Desktop\3-ugers\ProgrammeringsProsjektReflexBall\Programmering
+sProsjektReflexBall\graphics.h) [66]
+(C:\Users\Bruger\Desktop\3-ugers\ProgrammeringsProsjektReflexBall\Programmering
+sProsjektReflexBall\ansi.c [67] [68] [69] [70]) [71]
+(C:\Users\Bruger\Desktop\3-ugers\ProgrammeringsProsjektReflexBall\Programmering
+sProsjektReflexBall\ansi.h) [72]
+(C:\Users\Bruger\Desktop\3-ugers\ProgrammeringsProsjektReflexBall\Programmering
+sProsjektReflexBall\led.c [73] [74] [75] [76] [77]) [78]
+(C:\Users\Bruger\Desktop\3-ugers\ProgrammeringsProsjektReflexBall\Programmering
+sProsjektReflexBall\led.h) [79]
+(C:\Users\Bruger\Desktop\3-ugers\ProgrammeringsProsjektReflexBall\Programmering
+sProsjektReflexBall\ctimer.c [80]) [81]
+(C:\Users\Bruger\Desktop\3-ugers\ProgrammeringsProsjektReflexBall\Programmering
+sProsjektReflexBall\ctimer.h) [82]
+(C:\Users\Bruger\Desktop\3-ugers\ProgrammeringsProsjektReflexBall\Programmering
+sProsjektReflexBall\keys.c
+
+! Package inputenc Error: Unicode char \u8:ï\lst@FillFixed@\lst@EC» not set up 
+for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1 ï»¿#
+        include <eZ8.h>             // special encore constants, macros and ...
+
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! Package inputenc Error: Keyboard character used is undefined
+(inputenc)                in inputencoding `utf8'.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1 ï»¿#
+        include <eZ8.h>             // special encore constants, macros and ...
+
+You need to provide a definition with \DeclareInputText 
+or \DeclareInputMath before using this key.
+
+) [83]
+(C:\Users\Bruger\Desktop\3-ugers\ProgrammeringsProsjektReflexBall\Programmering
+sProsjektReflexBall\keys.h) [84])
 (C:\Users\Bruger\Desktop\3-ugers\ProgrammeringsProsjektReflexBall\Programmering
 sProsjektReflexBall\latex\tex/AppendixB.tex
-<img/journal.pdf, id=120, 597.55246pt x 845.07718pt>
+<img/journal.pdf, id=295, 597.55246pt x 845.07718pt>
 File: img/journal.pdf Graphic file (type pdf)
  <use img/journal.pdf>
-Package pdftex.def Info: img/journal.pdf used on input line 3.
+Package pdftex.def Info: img/journal.pdf used on input line 4.
 (pdftex.def)             Requested size: 597.551pt x 845.07512pt.
 File: img/journal.pdf Graphic file (type pdf)
 
 <use img/journal.pdf>
-Package pdftex.def Info: img/journal.pdf used on input line 3.
+Package pdftex.def Info: img/journal.pdf used on input line 4.
 (pdftex.def)             Requested size: 597.551pt x 845.07512pt.
- [30]
-<img/journal.pdf, id=127, page=1, 597.55246pt x 845.07718pt>
+ [85]
+<img/journal.pdf, id=301, page=1, 597.55246pt x 845.07718pt>
 File: img/journal.pdf Graphic file (type pdf)
 
 <use img/journal.pdf, page 1>
-Package pdftex.def Info: img/journal.pdf, page1 used on input line 3.
+Package pdftex.def Info: img/journal.pdf, page1 used on input line 4.
 (pdftex.def)             Requested size: 597.551pt x 845.07512pt.
 File: img/journal.pdf Graphic file (type pdf)
  <use img/journal.pdf, page 1>
-Package pdftex.def Info: img/journal.pdf, page1 used on input line 3.
+Package pdftex.def Info: img/journal.pdf, page1 used on input line 4.
 (pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
 File: img/journal.pdf Graphic file (type pdf)
 
 <use img/journal.pdf, page 1>
-Package pdftex.def Info: img/journal.pdf, page1 used on input line 3.
+Package pdftex.def Info: img/journal.pdf, page1 used on input line 4.
 (pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
 File: img/journal.pdf Graphic file (type pdf)
  <use img/journal.pdf, page 1>
-Package pdftex.def Info: img/journal.pdf, page1 used on input line 3.
+Package pdftex.def Info: img/journal.pdf, page1 used on input line 4.
 (pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
 File: img/journal.pdf Graphic file (type pdf)
 
 <use img/journal.pdf, page 1>
-Package pdftex.def Info: img/journal.pdf, page1 used on input line 3.
+Package pdftex.def Info: img/journal.pdf, page1 used on input line 4.
 (pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
- [31 <C:/Users/Bruger/Desktop/3-ugers/ProgrammeringsProsjektReflexBall/Programm
+ [86 <C:/Users/Bruger/Desktop/3-ugers/ProgrammeringsProsjektReflexBall/Programm
 eringsProsjektReflexBall/latex/img/journal.pdf>]
-<img/journal.pdf, id=145, page=2, 597.55246pt x 845.07718pt>
+<img/journal.pdf, id=319, page=2, 597.55246pt x 845.07718pt>
 File: img/journal.pdf Graphic file (type pdf)
 
 <use img/journal.pdf, page 2>
-Package pdftex.def Info: img/journal.pdf, page2 used on input line 3.
+Package pdftex.def Info: img/journal.pdf, page2 used on input line 4.
 (pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
 File: img/journal.pdf Graphic file (type pdf)
  <use img/journal.pdf, page 2>
-Package pdftex.def Info: img/journal.pdf, page2 used on input line 3.
+Package pdftex.def Info: img/journal.pdf, page2 used on input line 4.
 (pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
 File: img/journal.pdf Graphic file (type pdf)
 
 <use img/journal.pdf, page 2>
-Package pdftex.def Info: img/journal.pdf, page2 used on input line 3.
+Package pdftex.def Info: img/journal.pdf, page2 used on input line 4.
 (pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
- [32 <C:/Users/Bruger/Desktop/3-ugers/ProgrammeringsProsjektReflexBall/Programm
+ [87 <C:/Users/Bruger/Desktop/3-ugers/ProgrammeringsProsjektReflexBall/Programm
 eringsProsjektReflexBall/latex/img/journal.pdf>]
-<img/journal.pdf, id=158, page=3, 597.55246pt x 845.07718pt>
+<img/journal.pdf, id=332, page=3, 597.55246pt x 845.07718pt>
 File: img/journal.pdf Graphic file (type pdf)
 
 <use img/journal.pdf, page 3>
-Package pdftex.def Info: img/journal.pdf, page3 used on input line 3.
+Package pdftex.def Info: img/journal.pdf, page3 used on input line 4.
 (pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
 File: img/journal.pdf Graphic file (type pdf)
  <use img/journal.pdf, page 3>
-Package pdftex.def Info: img/journal.pdf, page3 used on input line 3.
+Package pdftex.def Info: img/journal.pdf, page3 used on input line 4.
 (pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
 File: img/journal.pdf Graphic file (type pdf)
 
 <use img/journal.pdf, page 3>
-Package pdftex.def Info: img/journal.pdf, page3 used on input line 3.
+Package pdftex.def Info: img/journal.pdf, page3 used on input line 4.
 (pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
- [33 <C:/Users/Bruger/Desktop/3-ugers/ProgrammeringsProsjektReflexBall/Programm
+ [88 <C:/Users/Bruger/Desktop/3-ugers/ProgrammeringsProsjektReflexBall/Programm
 eringsProsjektReflexBall/latex/img/journal.pdf>]
-<img/journal.pdf, id=163, page=4, 597.55246pt x 845.07718pt>
+<img/journal.pdf, id=337, page=4, 597.55246pt x 845.07718pt>
 File: img/journal.pdf Graphic file (type pdf)
 
 <use img/journal.pdf, page 4>
-Package pdftex.def Info: img/journal.pdf, page4 used on input line 3.
+Package pdftex.def Info: img/journal.pdf, page4 used on input line 4.
 (pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
 File: img/journal.pdf Graphic file (type pdf)
  <use img/journal.pdf, page 4>
-Package pdftex.def Info: img/journal.pdf, page4 used on input line 3.
+Package pdftex.def Info: img/journal.pdf, page4 used on input line 4.
 (pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
 File: img/journal.pdf Graphic file (type pdf)
 
 <use img/journal.pdf, page 4>
-Package pdftex.def Info: img/journal.pdf, page4 used on input line 3.
+Package pdftex.def Info: img/journal.pdf, page4 used on input line 4.
 (pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
- [34 <C:/Users/Bruger/Desktop/3-ugers/ProgrammeringsProsjektReflexBall/Programm
-eringsProsjektReflexBall/latex/img/journal.pdf>])
-[35]
+ [89 <C:/Users/Bruger/Desktop/3-ugers/ProgrammeringsProsjektReflexBall/Programm
+eringsProsjektReflexBall/latex/img/journal.pdf>]
+(C:\Users\Bruger\Desktop\3-ugers\ProgrammeringsProsjektReflexBall\Programmering
+sProsjektReflexBall\latex\kode/1.c
+
+! Package inputenc Error: Unicode char \u8:æ\expandafter\lst@FillFixed@ not set
+ up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.28 //Tænder/s
+               lukker for understregning
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+[90]
+
+! Package inputenc Error: Unicode char \u8:æ\expandafter\lst@FillFixed@ not set
+ up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.40 //Renser skærmen
+                     
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! Package inputenc Error: Keyboard character used is undefined
+(inputenc)                in inputencoding `utf8'.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.49 //Flytter markøren 
+                        til x,y
+You need to provide a definition with \DeclareInputText 
+or \DeclareInputMath before using this key.
+
+
+! Package inputenc Error: Unicode char \u8:æ\expandafter\lst@FillFixed@ not set
+ up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.53 //Bruges til attænde/s
+                           lukke for funktionen blink
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! Package inputenc Error: Unicode char \u8:æ\expandafter\lst@FillFixed@ not set
+ up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.63 //Bruges til at tænde/s
+                            lukke reverse funktionen
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+[91]
+
+! Package inputenc Error: Keyboard character used is undefined
+(inputenc)                in inputencoding `utf8'.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.101 	//Printer øverste 
+                         linje
+You need to provide a definition with \DeclareInputText 
+or \DeclareInputMath before using this key.
+
+
+! Package inputenc Error: Keyboard character used is undefined
+(inputenc)                in inputencoding `utf8'.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.103 	//Første 
+                hjørne
+You need to provide a definition with \DeclareInputText 
+or \DeclareInputMath before using this key.
+
+
+! Package inputenc Error: Keyboard character used is undefined
+(inputenc)                in inputencoding `utf8'.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.103 	//Første hjørne
+                      
+You need to provide a definition with \DeclareInputText 
+or \DeclareInputMath before using this key.
+
+
+! Package inputenc Error: Unicode char \u8:æ\expandafter\lst@FillFixed@ not set
+ up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.106 	//Regner længden 
+                        på strengen
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! Package inputenc Error: Unicode char \u8:å\expandafter\lst@FillFixed@ not set
+ up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.106 	//Regner længden på 
+                           strengen
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+[92] [93]) [94]
+(C:\Users\Bruger\Desktop\3-ugers\ProgrammeringsProsjektReflexBall\Programmering
+sProsjektReflexBall\latex\kode/2.c) [95]
+(C:\Users\Bruger\Desktop\3-ugers\ProgrammeringsProsjektReflexBall\Programmering
+sProsjektReflexBall\latex\kode/3.c
+
+! Package inputenc Error: Unicode char \u8:æ\expandafter\lst@FillFixed@ not set
+ up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.5 //Finder en værdi 
+                      i vores sinus lut
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+[96]) [97]
+(C:\Users\Bruger\Desktop\3-ugers\ProgrammeringsProsjektReflexBall\Programmering
+sProsjektReflexBall\latex\kode/4.c
+
+! Package inputenc Error: Unicode char \u8:æ\expandafter\lst@FillFixed@ not set
+ up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.12 	a = PFIN; //Sætter 
+                         a lig inputtet fra knapperne
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! Package inputenc Error: Unicode char \u8:æ\expandafter\lst@FillFixed@ not set
+ up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.13 	//Adderer den værdi 
+                          som knapperne repræsenterer i binær format.
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! Package inputenc Error: Unicode char \u8:æ\expandafter\lst@FillFixed@ not set
+ up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.13 ...rer den værdi som knapperne repræsenterer 
+                                                  i binær format.
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! Package inputenc Error: Unicode char \u8:æ\expandafter\lst@FillFixed@ not set
+ up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.13 ...værdi som knapperne repræsenterer i binær 
+                                                  format.
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! Package inputenc Error: Unicode char \u8:æ\expandafter\lst@FillFixed@ not set
+ up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.20 //Indlæser 
+                en valgt værdi til LED
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! Package inputenc Error: Unicode char \u8:æ\expandafter\lst@FillFixed@ not set
+ up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.20 //Indlæser en valgt værdi 
+                               til LED
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! Package inputenc Error: Unicode char \u8:æ\expandafter\lst@FillFixed@ not set
+ up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.38 			//Tæller 
+                 op, hver gang der er en ændring på keys, som ikke er, at de...
+
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! Package inputenc Error: Unicode char \u8:æ\lst@FillFixed@n not set up for use
+ with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.38 			//Tæller op, hver gang der er en ændring 
+                                                 på keys, som ikke er, at de...
+
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! Package inputenc Error: Unicode char \u8:å\expandafter\lst@FillFixed@ not set
+ up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.38 ...Tæller op, hver gang der er en ændring på 
+                                                  keys, som ikke er, at den ...
+
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! Package inputenc Error: Unicode char \u8:æ\lst@FillFixed@n not set up for use
+ with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.38 ...ndring på keys, som ikke er, at den ændre 
+                                                  sig til nul.
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+[98]) [99]
+(C:\Users\Bruger\Desktop\3-ugers\ProgrammeringsProsjektReflexBall\Programmering
+sProsjektReflexBall\latex\kode/5.c
+
+! Package inputenc Error: Keyboard character used is undefined
+(inputenc)                in inputencoding `utf8'.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.27 	//Skrevet indenfor ifløkken 
+                                  som opdateres hvert sekund, sådan at tiden...
+
+You need to provide a definition with \DeclareInputText 
+or \DeclareInputMath before using this key.
+
+
+! Package inputenc Error: Unicode char \u8:å\expandafter\lst@FillFixed@ not set
+ up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.27 ...fløkken som opdateres hvert sekund, sådan 
+                                                  at tiden skrives hvert sek...
+
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+[100]
+
+! Package inputenc Error: Unicode char \u8:æ\expandafter\lst@FillFixed@ not set
+ up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.40 	T0RH = 0x05; //Sætter 
+                            reload sådan, at den tæller hvert 100 del af et ...
+
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! Package inputenc Error: Unicode char \u8:å\expandafter\lst@FillFixed@ not set
+ up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.40 	T0RH = 0x05; //Sætter reload sådan,
+                                          at den tæller hvert 100 del af et ...
+
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! Package inputenc Error: Unicode char \u8:æ\expandafter\lst@FillFixed@ not set
+ up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.40 ...x05; //Sætter reload sådan, at den tæller 
+                                                  hvert 100 del af et sekund.
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! Package inputenc Error: Keyboard character used is undefined
+(inputenc)                in inputencoding `utf8'.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.43 	IRQ0ENH |= 0x20; //høj 
+                             prioritet
+You need to provide a definition with \DeclareInputText 
+or \DeclareInputMath before using this key.
+
+[101]) [102]
+(C:\Users\Bruger\Desktop\3-ugers\ProgrammeringsProsjektReflexBall\Programmering
+sProsjektReflexBall\latex\kode/6.c
+
+! Package inputenc Error: Keyboard character used is undefined
+(inputenc)                in inputencoding `utf8'.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.12 //Kører 
+             vores interrupt
+You need to provide a definition with \DeclareInputText 
+or \DeclareInputMath before using this key.
+
+
+! Package inputenc Error: Unicode char \u8:æ\expandafter\lst@FillFixed@ not set
+ up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.18 //Indlæser 
+                et nyt tegn på den sidste plads i buffer
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! Package inputenc Error: Unicode char \u8:å\expandafter\lst@FillFixed@ not set
+ up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.18 //Indlæser et nyt tegn på 
+                               den sidste plads i buffer
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+[103]
+
+! Package inputenc Error: Unicode char \u8:æ\expandafter\lst@FillFixed@ not set
+ up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.43 	T1RH = 0x24; // Reload værdi 
+                                   er 9216  = 2400
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! Package inputenc Error: Unicode char \u8:æ\expandafter\lst@FillFixed@ not set
+ up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.46 	IRQ0ENL |= 0x40; //Sætter 
+                                priority lav
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! Package inputenc Error: Unicode char \u8:æ\expandafter\lst@FillFixed@ not set
+ up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.55 	//Regner længden 
+                       på strengen
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! Package inputenc Error: Unicode char \u8:å\expandafter\lst@FillFixed@ not set
+ up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.55 	//Regner længden på 
+                          strengen
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! Package inputenc Error: Unicode char \u8:æ\expandafter\lst@FillFixed@ not set
+ up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.60 	string -= strlength;//Sætter 
+                                   pegeren tilbage til starten på strengen
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! Package inputenc Error: Unicode char \u8:å\expandafter\lst@FillFixed@ not set
+ up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.60 ...h;//Sætter pegeren tilbage til starten på 
+                                                  strengen
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! Package inputenc Error: Unicode char \u8:æ\expandafter\lst@FillFixed@ not set
+ up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.64 	//Læser 
+              hver karakter
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! Package inputenc Error: Unicode char \u8:æ\expandafter\lst@FillFixed@ not set
+ up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.66 		//Læser 
+               hver kolonne
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+[104] [105]) [106])
 (C:\Users\Bruger\Desktop\3-ugers\ProgrammeringsProsjektReflexBall\Programmering
 sProsjektReflexBall\latex\master.aux) ) 
 Here is how much of TeX's memory you used:
- 14239 strings out of 493921
- 279038 string characters out of 3144872
- 289077 words of memory out of 3000000
- 17353 multiletter control sequences out of 15000+200000
+ 15398 strings out of 493921
+ 296949 string characters out of 3144872
+ 473112 words of memory out of 3000000
+ 18429 multiletter control sequences out of 15000+200000
  14854 words of font info for 56 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 41i,18n,43p,10394b,555s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 41i,18n,49p,10394b,1681s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files (x86)/MiKTeX 2.9/fonts
 /type1/public/amsfonts/cm/cmbx10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/t
 ype1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/typ
@@ -1142,9 +1814,9 @@ onts/cm/cmr8.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts
 /cm/cmsy10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/c
 m/cmsy8.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
 mti12.pfb>
-Output written on master.pdf (36 pages, 1389044 bytes).
+Output written on master.pdf (107 pages, 1555712 bytes).
 PDF statistics:
- 209 PDF objects out of 1000 (max. 8388607)
+ 437 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  71 words of extra memory for PDF output out of 10000 (max. 10000000)
 

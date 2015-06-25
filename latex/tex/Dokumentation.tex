@@ -78,7 +78,7 @@ Denne funktion tegner banens kanter. Den tager 2 koordinatsæt som input, x1 og 
 
 \paragraph{void drawLogo()}\
 Denne funktion tegner spillets logo. Den bruger konstanten LEFT\_BORDER til at bestemme på hvilket x-koordinat den skal begynde at skrive fra, således det bliver logoets venstre kant.
-drawBall(unsigned char x, unsigned char y, unsigned char color)
+\paragraph{drawBall(unsigned char x, unsigned char y, unsigned char color)}
 Denne funktion tager et koordinatsæt og printer et o i farven bestemt af det 3. parameter.
 
 \paragraph{void drawStriker(unsigned char x, unsigned char color, char strikerWidth, char strikerY)}
@@ -108,8 +108,6 @@ Modulet indeholder to makroer, en til at multiplicere to tal i .14 format, og en
 Denne funktion tager en int som argument. Vinklen skal ikke være i radian, men skal bruge opdelingen af cirklen beskrevet i afsnit \ref{lut}. Der returneres sinus til den givne vinkel.
 \paragraph{long cos(int x)}\
 Denne funktion tager en int som argument. Vinklen skal ikke være i radian, men skal bruge opdelingen af cirklen beskrevet i afsnit \ref{lut}. Der returneres cosinus til den givne vinkel.
-\paragraph{int arcsin(int y)}\
-Denne funktion tager en int som argument, og finder arcsinus til integeren. Resultatet returneres med korrekt fortegn, således en negativ int også returnerer en negativ vinkel.
 \subsection{Hardware Abstraction Layer}
 \subsubsection{keys.h}
 Dette modul får inputs fra knapperne, og kan debounce ved hjælp af timer.h
