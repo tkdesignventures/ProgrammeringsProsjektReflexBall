@@ -4,7 +4,6 @@
 #define KEY_MIDDLE 2
 #define KEY_RIGHT 1
 
-void iniKeys();
 char readKey();
 char getKey();
 
