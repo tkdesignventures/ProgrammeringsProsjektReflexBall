@@ -2,21 +2,21 @@
 #include <sio.h>             // special encore serial i/o routines
 #include "ansi.h"
 #include "graphics.h"
-#include "refball.h"
 
-void drawBox(unsigned char x, unsigned char y,unsigned char color){
+
+void drawBox(unsigned char x, unsigned char y,unsigned char color, char boxSize){
 	char j;
 	
 	//Avoids the color yellow
 	if(color == 3) color = 13;
 	
 	fgcolor(color);
-	drawBounds(x,y,x+(BOXSIZE-1),y+1,color);
+	drawBounds(x,y,x+(boxSize-1),y+1,color);
 	//draws last line
 	fgcolor(color);
 	gotoxy(x,y+1);
 	printf("%c",192);
-	for(j=0; j < (BOXSIZE-2); j++){
+	for(j=0; j < (boxSize-2); j++){
 	printf("%c",196);
 	}
 	printf("%c",217);
@@ -35,14 +35,14 @@ void drawBall(unsigned char x, unsigned char y, unsigned char color){
 void moveDrawStriker(unsigned char x, unsigned char direction, char strikerWidth, char strikerY){
 	fgcolor(0);
 	if(direction==1){
-		gotoxy(x - (strikerWidth +2),STRIKER_Y);
+		gotoxy(x - (strikerWidth +2),strikerY);
 		printf("   ");
-		gotoxy(x + strikerWidth - 2,STRIKER_Y);
+		gotoxy(x + strikerWidth - 2,strikerY);
 		printf("%c%c%c",220,220,220);
 	}else{
-		gotoxy(x + strikerWidth + 1,STRIKER_Y);
+		gotoxy(x + strikerWidth + 1,strikerY);
 		printf("   ");
-		gotoxy(x - strikerWidth,STRIKER_Y);
+		gotoxy(x - strikerWidth,strikerY);
 		printf("%c%c%c",220,220,220);
 	}
 }
@@ -260,4 +260,13 @@ void scrollText(char y, char delay){
 
 }
 
+void printExampleBoxes(char x, char y,char boxSize){
+	int i;
+	for(i = 0; i < 5; i++){
+		drawBox(x,y + 3*i,7-(i+1),boxSize);
+		printf(" Life: %d", (i+1));
+	}
+	
+}	
+	
 

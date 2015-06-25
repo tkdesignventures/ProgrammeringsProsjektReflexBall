@@ -5,7 +5,7 @@
 #define CHARSET_START 48
 
 
-void drawBox(unsigned char x, unsigned char y,unsigned char color);
+void drawBox(unsigned char x, unsigned char y,unsigned char color,char boxSize);
 void drawBall(unsigned char x, unsigned char y, unsigned char color);
 void drawChar(unsigned char x, unsigned char y,char tegn);
 void drawStriker(unsigned char x,unsigned char color, char strikerWidth, char strikerY);
@@ -15,5 +15,6 @@ void drawLogo();
 void drawGameOver();
 void drawVictory();
 void scrollText(char y, char delay);
+void printExampleBoxes(char x, char y,char boxSize);
 
 #endif
