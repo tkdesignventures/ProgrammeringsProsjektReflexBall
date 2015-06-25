@@ -41,5 +41,4 @@
 
   Box * newBoxStack(void);
   void createBoxes( Box * box,char level);
-  void checkBoxes( Ball * ball,  Box * box);
 #endif
